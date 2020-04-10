@@ -21,18 +21,10 @@ text-align: justify}
 
 </style>
 
-```{r libraries}
 
 
-```
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo      = TRUE, 
-                      warning   = FALSE, 
-                      message   = FALSE,
-                      fig.align = "center")
-```
 
 # Note
 
