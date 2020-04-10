@@ -3,7 +3,6 @@ title: "Appendix A"
 date: 2020-04-10 18:21:56
 output:
   html_document:
-    keep_md: true
     code_folding: hide
     df_print: paged
     highlight: tango
