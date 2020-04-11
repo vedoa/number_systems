@@ -1,0 +1,50 @@
+---
+title: "Appendix B Finite sums and the Sigma notation"
+date: 2020-04-11 18:24:13
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    highlight: tango
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 2
+bibliography: number_systems.bib
+---
+
+<style>
+
+body {
+text-align: justify}
+
+</style>
+
+```{r libraries}
+
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo      = TRUE, 
+                      warning   = FALSE, 
+                      message   = FALSE,
+                      fig.align = "center")
+```
+
+# $\Sigma$ notation for finite sums
+
+This section is based on [@mendelson_number_2008, Appendix B, pp 281-283]
+
+Let $f: P \rightarrow A$ where $\mathbb{P}$ are the positive integers and $A$ is any set in which is defined and associative binary opetarion $+$. Then
+
+$$f(1) + \cdots + f(n) \iff \sum_{i = 1}^n f(i)$$
+which the last term is also written as $\sum_{i = 1}^n f(i)$
+
+## Properties
+
+- $\sum_{i = 1}^1 f(i) = f(1)$
+
+- $\sum_{i = 1}^{n+1} f(i) = \sum_{i = 1}^n f(i) + f(n+1)$
+
+# Bibliography
