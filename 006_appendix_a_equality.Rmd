@@ -1,5 +1,5 @@
 ---
-title: "Appendix A"
+title: "Appendix A Equality"
 date: 2020-04-10 18:21:56
 output:
   html_document:
@@ -25,7 +25,6 @@ text-align: justify}
 
 ```
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo      = TRUE, 
                       warning   = FALSE, 
@@ -33,11 +32,9 @@ knitr::opts_chunk$set(echo      = TRUE,
                       fig.align = "center")
 ```
 
-# Note
+# Equality in mathematics
 
 This section is based on [@mendelson_number_2008, Appendix A, pp 279-280]
-
-# Equality
 
 In almost all mathematical theories equality is taken to be a primitive undefined relation
 
@@ -45,13 +42,37 @@ In almost all mathematical theories equality is taken to be a primitive undefine
 
 __Assumption I__  $(\forall x)(x = x) \text{ (Reflexivity)}$
 
-__Assumption II__ $(\forall x \land y)(x = x) \text{ (Reflexivity)}$
-
-$$x = y \implies (\mathscr{A}(x,x) \implies \mathscr{A}(x,y)) \text{ (Substitutivity)}$$
+__Assumption II__ $(\forall x)(\forall y) (x = y \implies (\mathscr{A}(x,x) \implies \mathscr{A}(x,y))) \text{ (Substitutivity)}$
 
 - Where $\mathscr{A}(x,x)$ refers to any formula of the given theory and $\mathscr{A}(x,y)$ results from $\mathscr{A}(x,x)$ by replacing some occurrences of $x$ by $y$
 
     + $\mathscr{A}(x,x)$ may contain other variables in addition to $x$
+    
+__Theorem A1__ (Symmetry) $x = y \implies y = x$
+
+__*Proof*__ Let $\mathscr{A}(x,x)$ be $x = x$ and $\mathscr{A}(x,y)$ be $y = x$ then using __Assumption II__
+
+$$x = y \implies (x = x \implies y = x)$$
+Because $A \implies (B \implies C)$ is equivalent to $B \implies (A \implies C)$ we have that $x = x \implies (x = y \implies y = x)$. By __Assumption I__ we have that $x = x \implies y = x$ $\square$
+
+- In the last part we use a rule of inference called __Modus ponens__ [@bilaniuk_problem_2009, Chapter 3, p 11]
+    
+    + $\{\varphi, \varphi \implies \psi \} \vdash \psi$
+    
+    + Given the formulas $\varphi$ and $\varphi \implies \psi$ one may infer $\psi$
+
+__Theorem A2__ (Transitivity) $(x = y \land y = z) \implies x = z$
+
+__*Proof*__  By __Assumption II__ and interchanging $x$ and $y$
+
+$$y = x \implies (\mathscr{A}(y,y) \implies \mathscr{A}(y,x))$$
+Let $\mathscr{A}(y,y)$ be $y = z$ and $\mathscr{A}(x,y)$ be $x = z$ then $y = x \implies (y = z \implies x = z)$. Because $A \implies (B \implies C)$ is equivalent to $(B \land A) \implies C$ we have that $(y = x \land y = z) \implies x = z$. Let's assume that $x = y \land y = z$. Then if $x = y$ by __Theorem A1__ and $y = z$ we have that $x = z$ $\square$
+
+- In the last part we use the __Deduction Theorem__ [@bilaniuk_problem_2009, Chapter 3, p 13]
+
+    + If $\Sigma$ is  any  set  of  formulas and $\alpha$ and $\beta$ are any formulas, then $\Sigma \vdash \alpha \implies \beta$ if and only if $\Sigma \cup \{\alpha\}\vdash \beta$
+    
+    + In our case $\Sigma$ is $\emptyset$, $\alpha$ is $x = y \land y = z$ and $\beta$ is $x = z$. Therefore we can infer $(x = y \land y = z) \implies x = z$
 
 # Bibliography
 
