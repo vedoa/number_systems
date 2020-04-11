@@ -35,7 +35,7 @@ knitr::opts_chunk$set(echo      = TRUE,
 
 # Note
 
-This section is based in [@mendelson_number_2008, Appendix A, pp 279-280]
+This section is based on [@mendelson_number_2008, Appendix A, pp 279-280]
 
 # Equality
 
