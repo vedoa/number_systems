@@ -1738,7 +1738,8 @@ text-align: justify}
 <li><p>In the last part we use the <strong>Deduction Theorem</strong> <span class="citation">(Bilaniuk 2009, Chapter 3, p 13)</span></p>
 <ul>
 <li><p>If <span class="math inline">\(\Sigma\)</span> is any set of formulas and <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are any formulas, then <span class="math inline">\(\Sigma \vdash \alpha \implies \beta\)</span> if and only if <span class="math inline">\(\Sigma \cup \{\alpha\}\vdash \beta\)</span></p></li>
-<li><p>In our case <span class="math inline">\(\Sigma\)</span> is <span class="math inline">\(\emptyset\)</span>, <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(x = y \land y = z\)</span> and <span class="math inline">\(\beta\)</span> is <span class="math inline">\(x = z\)</span>. Therefore we can infer <span class="math inline">\((x = y \land y = z) \implies x = z\)</span></p></li>
+<li><p>In our case <span class="math inline">\(\Sigma\)</span> is <span class="math inline">\(\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\}\)</span>, <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(x = y \land y = z\)</span> and <span class="math inline">\(\beta\)</span> is <span class="math inline">\(x = z\)</span>.</p></li>
+<li><p>Therefore <span class="math inline">\(\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\} \vdash (x = y \land y = z) \implies x = z\)</span> because <span class="math inline">\(\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\} \cup \{ x = y \land y = z \} \vdash x = z\)</span></p></li>
 </ul></li>
 </ul>
 </div>

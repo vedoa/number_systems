@@ -72,7 +72,9 @@ Let $\mathscr{A}(y,y)$ be $y = z$ and $\mathscr{A}(x,y)$ be $x = z$ then $y = x 
 
     + If $\Sigma$ is  any  set  of  formulas and $\alpha$ and $\beta$ are any formulas, then $\Sigma \vdash \alpha \implies \beta$ if and only if $\Sigma \cup \{\alpha\}\vdash \beta$
     
-    + In our case $\Sigma$ is $\emptyset$, $\alpha$ is $x = y \land y = z$ and $\beta$ is $x = z$. Therefore we can infer $(x = y \land y = z) \implies x = z$
+    + In our case $\Sigma$ is $\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\}$, $\alpha$ is $x = y \land y = z$ and $\beta$ is $x = z$. 
+    
+    + Therefore $\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\} \vdash (x = y \land y = z) \implies x = z$ because $\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\} \cup \{ x = y \land y = z \} \vdash x = z$
 
 # Bibliography
 
