@@ -279,4 +279,13 @@ tibble(`$A$` = c("T", "F", "T", "F"),
     kable_styling(full_width = FALSE, bootstrap_options = "bordered")
 ```
 
+There is one line of this table which is clear, the third. For, if $A$ is true and $B$ is false, then $\text{If } A \text{ then } B$ is obviously false
+
+However, there is no obvious reason for the entries in the other three rows of the table on the basis of ordinary usage. In that sense, the truth table we have established for $\implies$ is an extension of ordinary usage 
+
+The above __true table__ reflects the meaning that $\implies$ has in contemporary mathematical logic. Two peculiar properties of $\implies$ sometimes cause problem:
+
+- If $A$ is false, then $A \implies B$ is true (no matter what $B$ is)
+- If $B$ is true, then $A \implies B$ is true (no matter what $A$ is)
+
 # Bibliography
