@@ -1806,7 +1806,8 @@ summary {
 <ul>
 <li><a href="#logic-and-set-theory"><span class="toc-section-number">1</span> Logic and set theory</a><ul>
 <li><a href="#logical-connectives"><span class="toc-section-number">1.1</span> Logical connectives</a></li>
-<li><a href="#logical-connectives-exercises"><span class="toc-section-number">1.2</span> Logical connectives exercises</a></li>
+<li><a href="#logical-connectives-exercises-and-solutions"><span class="toc-section-number">1.2</span> Logical connectives exercises and solutions</a></li>
+<li><a href="#conditionals"><span class="toc-section-number">1.3</span> Conditionals</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -1819,7 +1820,8 @@ text-align: justify}
 
 </style>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(kableExtra)</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(kableExtra)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(tidyquant)</span></code></pre></div>
 <div id="logic-and-set-theory" class="section level1">
 <h1><span class="header-section-number">1</span> Logic and set theory</h1>
 <p>This section is based on <span class="citation">(Mendelson 2008, Chapter 1, pp 1-52)</span></p>
@@ -2110,8 +2112,959 @@ F
 </table>
 </div>
 </div>
-<div id="logical-connectives-exercises" class="section level2">
-<h2><span class="header-section-number">1.2</span> Logical connectives exercises</h2>
+<div id="logical-connectives-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.2</span> Logical connectives exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Write the following English sentences in terms of our new notation. Use letters <span class="math inline">\(A, B, C,...\)</span> to stand for the basic sentences</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>I will go to the movies or to the beach</p>
+<ul>
+<li><p><span class="math inline">\(A = \text{I will go to the movies}\)</span></p></li>
+<li><p><span class="math inline">\(B = \text{I will go to the beach}\)</span></p></li>
+<li><p><span class="math inline">\(A \lor B = \text{I will go to the movies or to the beach}\)</span></p></li>
+</ul></li>
+<li><p>Peter is handsome but Paul is not</p>
+<ul>
+<li><p><span class="math inline">\(A = \text{Peter is handsome}\)</span></p></li>
+<li><p><span class="math inline">\(B = \text{Paul is handsome}\)</span></p></li>
+<li><p><span class="math inline">\(A \land \neg B = \text{Peter is handsome but Paul is not}\)</span></p></li>
+</ul></li>
+<li><p>Either <span class="math inline">\(x\)</span> has a square root or <span class="math inline">\(x\)</span> is not positive</p>
+<ul>
+<li><p><span class="math inline">\(A = x \text{ has a square root}\)</span></p></li>
+<li><p><span class="math inline">\(B = x \text{ is positive}\)</span></p></li>
+<li><p><span class="math inline">\(A \lor \neg B = \text{Either } x \text{ has a square root or } x \text{ is not positive}\)</span></p></li>
+</ul></li>
+<li><p>It is not the case that <span class="math inline">\(x\)</span> is both positive and negative</p>
+<ul>
+<li><p><span class="math inline">\(A = x \text{ is positive}\)</span></p></li>
+<li><p><span class="math inline">\(B = x \text{ is negative}\)</span></p></li>
+<li><p><span class="math inline">\(\neg(A \land B) = \text{It is not the case that } x \text{ is both positive and negative}\)</span></p></li>
+</ul></li>
+<li><p>Neither John not James is here</p>
+<ul>
+<li><p><span class="math inline">\(A = \text{John is here}\)</span></p></li>
+<li><p><span class="math inline">\(B = \text{James is here}\)</span></p></li>
+<li><p><span class="math inline">\(\neg(A \land B) = \text{Neither John not James is here}\)</span></p></li>
+</ul></li>
+</ol></li>
+<li><p>Render the following into idiomatic English</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(x &gt; 2 \lor x &lt; 2\)</span></p>
+<ul>
+<li><span class="math inline">\(x\)</span> is greater than or less than <span class="math inline">\(2\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\neg (y \text{ is rational } \lor y \text{ is trascendental})\)</span></p>
+<ul>
+<li>Neither <span class="math inline">\(y\)</span> is rational or transcendental</li>
+</ul></li>
+<li><p><span class="math inline">\(e &gt; 2 \land e &lt; 3\)</span></p>
+<ul>
+<li><span class="math inline">\(e\)</span> is greater than <span class="math inline">\(2\)</span> and less than <span class="math inline">\(3\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(e &gt; 2 \land e \ngtr 3\)</span></p>
+<ul>
+<li><span class="math inline">\(e\)</span> is greater than <span class="math inline">\(2\)</span> but not greater than <span class="math inline">\(3\)</span></li>
+</ul></li>
+</ol></li>
+<li><p>Show that the following pairs of formulas always take the same truth values, and, therefore, are, in a certain sense, equivalent:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\neg(A \lor B)\)</span> and <span class="math inline">\((\neg A) \land (\neg B)\)</span></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb6-2"><a href="#cb6-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb6-3"><a href="#cb6-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb6-4"><a href="#cb6-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">lor B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb6-5"><a href="#cb6-5"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg A)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb6-6"><a href="#cb6-6"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb6-7"><a href="#cb6-7"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg A) </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">7</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg (A \lor B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg A)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg A) \land (\neg B)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\neg(A \land B)\)</span> and <span class="math inline">\((\neg A) \lor (\neg B)\)</span></li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb7-2"><a href="#cb7-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb7-3"><a href="#cb7-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb7-4"><a href="#cb7-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">land B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb7-5"><a href="#cb7-5"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg A)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb7-6"><a href="#cb7-6"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb7-7"><a href="#cb7-7"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg A) </span><span class="ch">\\</span><span class="dt">lor (</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">7</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg (A \land B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg A)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg A) \lor (\neg B)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\neg \neg B\)</span> and <span class="math inline">\(B\)</span></li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb8-2"><a href="#cb8-2"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb8-3"><a href="#cb8-3"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg </span><span class="ch">\\</span><span class="dt">neg B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg \neg B\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(A \land (B \lor C)\)</span> and <span class="math inline">\((A \land B) \lor (A \land C)\)</span></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-2"><a href="#cb9-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-3"><a href="#cb9-3"></a>       <span class="st">`</span><span class="dt">$C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">lor C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-5"><a href="#cb9-5"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land (B </span><span class="ch">\\</span><span class="dt">lor C)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-6"><a href="#cb9-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-7"><a href="#cb9-7"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb9-8"><a href="#cb9-8"></a>       <span class="st">`</span><span class="dt">$(A </span><span class="ch">\\</span><span class="dt">land B) </span><span class="ch">\\</span><span class="dt">lor (A </span><span class="ch">\\</span><span class="dt">land C)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">8</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \lor C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land (B \lor C)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((A \land B) \lor (A \land C)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(A \lor (B \land C)\)</span> and <span class="math inline">\((A \lor B) \land (A \lor C)\)</span></li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-2"><a href="#cb10-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-3"><a href="#cb10-3"></a>       <span class="st">`</span><span class="dt">$C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-4"><a href="#cb10-4"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">land C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-5"><a href="#cb10-5"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor (B </span><span class="ch">\\</span><span class="dt">land C)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-6"><a href="#cb10-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-7"><a href="#cb10-7"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb10-8"><a href="#cb10-8"></a>       <span class="st">`</span><span class="dt">$(A </span><span class="ch">\\</span><span class="dt">lor B) </span><span class="ch">\\</span><span class="dt">land (A </span><span class="ch">\\</span><span class="dt">lor C)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">8</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \land C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor (B \land C)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((A \lor B) \land (A \lor C)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="conditionals" class="section level2">
+<h2><span class="header-section-number">1.3</span> Conditionals</h2>
+<p>Given sentences <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we may form a new sentence <span class="math inline">\(\text{If } A \text{ then } B\)</span>, which we shall write <span class="math inline">\(A \implies B\)</span></p>
+<p><span class="math inline">\(A \implies B\)</span> is know as a <strong>conditional</strong>, with <strong>antecedent</strong> <span class="math inline">\(A\)</span> and <strong>consequent</strong> <span class="math inline">\(B\)</span></p>
+<p>The corresponding <strong>true table</strong> is</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb11-2"><a href="#cb11-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb11-3"><a href="#cb11-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

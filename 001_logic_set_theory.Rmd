@@ -31,6 +31,7 @@ knitr::opts_chunk$set(echo      = TRUE,
 
 library(tidyverse)
 library(kableExtra)
+library(tidyquant)
 ```
 
 # Logic and set theory
@@ -119,8 +120,163 @@ tibble(`$A$` = c("T", "F", "T", "F"),
     kable_styling(full_width = FALSE, bootstrap_options = "bordered")
 ```
 
-## Logical connectives exercises
+## Logical connectives exercises and solutions
 
+1. Write the following English sentences in terms of our new notation. Use letters $A, B, C,...$ to stand for the basic sentences
 
+    a. I will go to the movies or to the beach
+    
+        + $A = \text{I will go to the movies}$
+        
+        + $B = \text{I will go to the beach}$
+        
+        + $A \lor B = \text{I will go to the movies or to the beach}$
+        
+    b. Peter is handsome but Paul is not
+    
+        + $A = \text{Peter is handsome}$
+        
+        + $B = \text{Paul is handsome}$
+        
+        + $A \land \neg B = \text{Peter is handsome but Paul is not}$
+        
+    c. Either $x$ has a square root or $x$ is not positive
+    
+        + $A = x \text{ has a square root}$
+        
+        + $B = x \text{ is positive}$
+        
+        + $A \lor \neg B = \text{Either } x \text{ has a square root or } x \text{ is not positive}$
+
+    d. It is not the case that $x$ is both positive and negative
+    
+        + $A = x \text{ is positive}$
+        
+        + $B = x \text{ is negative}$
+        
+        + $\neg(A \land B) = \text{It is not the case that } x \text{ is both positive and negative}$
+        
+    e. Neither John not James is here
+    
+        + $A = \text{John is here}$
+        
+        + $B = \text{James is here}$
+        
+        + $\neg(A \land B) = \text{Neither John not James is here}$
+        
+2. Render the following into idiomatic English
+
+    a. $x > 2 \lor x < 2$
+    
+        + $x$ is greater than or less than $2$
+        
+    b. $\neg (y \text{ is rational } \lor y \text{ is trascendental})$
+    
+        + Neither $y$ is rational or transcendental
+        
+    c. $e > 2 \land e < 3$
+    
+        + $e$ is greater than $2$ and less than $3$
+    
+    d. $e > 2 \land e \ngtr 3$
+    
+        + $e$ is greater than $2$ but not greater than $3$
+        
+3. Show that the following pairs of formulas always take the same truth values, and, therefore, are, in a certain sense, equivalent:
+
+    a. $\neg(A \lor B)$ and $(\neg A) \land (\neg B)$
+    
+```{r }
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\lor B$` = c("T", "T", "T", "F"),
+       `$\\neg (A \\lor B)$` = c("F", "F", "F", "T"),
+       `$(\\neg A)$` = c("F", "T", "F", "T"),
+       `$(\\neg B)$` = c("F", "F", "T", "T"),
+       `$(\\neg A) \\land (\\neg B)$` = c("F", "F", "F", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(4, 7), background = palette_light()[[7]])
+```
+
+    b. $\neg(A \land B)$ and $(\neg A) \lor (\neg B)$
+
+```{r }
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\land B$` = c("T", "F", "F", "F"),
+       `$\\neg (A \\land B)$` = c("F", "T", "T", "T"),
+       `$(\\neg A)$` = c("F", "T", "F", "T"),
+       `$(\\neg B)$` = c("F", "F", "T", "T"),
+       `$(\\neg A) \\lor (\\neg B)$` = c("F", "T", "T", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(4, 7), background = palette_light()[[7]])
+```
+   
+    c. $\neg \neg B$ and $B$
+
+```{r }
+
+tibble(`$B$` = c("T", "F"),
+       `$\\neg B$` = c("F", "T"),
+       `$\\neg \\neg B$` = c("T", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(1, 3), background = palette_light()[[7]])
+```
+
+    d. $A \land (B \lor C)$ and $(A \land B) \lor (A \land C)$
+
+```{r }
+
+tibble(`$A$` = c("T", "T", "T", "T", "F", "F", "F", "F"),
+       `$B$` = c("T", "T", "F", "F", "T", "T", "F", "F"),
+       `$C$` = c("T", "F", "T", "F", "T", "F", "T", "F"),
+       `$B \\lor C$` = c("T", "T", "T", "F", "T", "T", "T", "F"),
+       `$A \\land (B \\lor C)$` = c("T", "T", "T", "F", "F", "F", "F", "F"),
+       `$A \\land B$` = c("T", "T", "F", "F", "F", "F", "F", "F"),
+       `$A \\land C$` = c("T", "F", "T", "F", "F", "F", "F", "F"),
+       `$(A \\land B) \\lor (A \\land C)$` = c("T", "T", "T", "F", "F", "F", "F", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(5, 8), background = palette_light()[[7]])
+```
+
+    e. $A \lor (B \land C)$ and $(A \lor B) \land (A \lor C)$
+
+```{r }
+
+tibble(`$A$` = c("T", "T", "T", "T", "F", "F", "F", "F"),
+       `$B$` = c("T", "T", "F", "F", "T", "T", "F", "F"),
+       `$C$` = c("T", "F", "T", "F", "T", "F", "T", "F"),
+       `$B \\land C$` = c("T", "F", "F", "F", "T", "F", "F", "F"),
+       `$A \\lor (B \\land C)$` = c("T", "T", "T", "T", "T", "F", "F", "F"),
+       `$A \\lor B$` = c("T", "T", "T", "T", "T", "T", "F", "F"),
+       `$A \\lor C$` = c("T", "T", "T", "T", "T", "F", "T", "F"),
+       `$(A \\lor B) \\land (A \\lor C)$` = c("T", "T", "T", "T", "T", "F", "F", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(5, 8), background = palette_light()[[7]])
+```
+
+## Conditionals
+
+Given sentences $A$ and $B$, we may form a new sentence $\text{If } A \text{ then } B$, which we shall write $A \implies B$
+
+$A \implies B$ is know as a __conditional__, with __antecedent__ $A$ and __consequent__ $B$
+
+The corresponding __true table__ is
+
+```{r truth_table_conditional}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\implies B$` = c("T", "T", "F", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
 
 # Bibliography
