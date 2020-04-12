@@ -1,0 +1,126 @@
+---
+title: "Basic facts and notions of logic and set theory"
+date: 2020-04-11 18:49:34
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    highlight: tango
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 2
+bibliography: number_systems.bib
+---
+
+<style>
+
+body {
+text-align: justify}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo      = TRUE, 
+                      warning   = FALSE, 
+                      message   = FALSE,
+                      fig.align = "center")
+```
+
+```{r libraries}
+
+library(tidyverse)
+library(kableExtra)
+```
+
+# Logic and set theory
+
+This section is based on [@mendelson_number_2008, Chapter 1, pp 1-52]
+
+This is a very brief introduction to the basic concepts and terminology of mathematical logic and set theory
+
+For another introduction to set theory see [@halmos_naive_1974] and for an extensive survey of the set theory see [@jech_set_2003]
+
+For another introduction to mathematical logic see [@smullyan_beginners_2014] and for an extensive survey of mathematical logic see [@bilaniuk_problem_2009]
+
+## Logical connectives
+
+### Conjuction
+
+Given sentences $A$ and $B$, we may form a new sentence $A \text{ and } B$, which we shall write $A \land B$
+
+The relation between the new sentence $A \land B$ and the component sentences $A,B$ can be made clear by a __truth table__:
+
+```{r truth_table_conjuction}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\land B$` = c("T", "F", "F", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+In this table, as in all tables to follow, T stands for __True__ and F for __False__
+
+### Negation
+
+If $A$ is a sentence, the $\text{not } A$ is also a sentence, which we shall denote $\neg A$
+
+$\neg A$ is called the __negation__ of $A$
+
+The corresponding __truth table__ is:
+
+```{r truth_table_negation}
+
+tibble(`$A$` = c("T", "F"),
+       `$\\neg A$` = c("F", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+### Disjuction
+
+Given sentences $A$ and $B$, we may form a new sentence $A \text{ or } B$, which we shall write $A \lor B$
+
+$\lor$ is understood in the __inclusive sense__, namely, $A \lor B$ is true when $A$ is true or $B$ is true or both
+
+The corresponding __true table__ is
+
+```{r truth_table_disjuction}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\lor B$` = c("T", "T", "T", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+If a set of formulas take the same truth values we said that these formulas are __equivalent__. For example:
+
+- $A \lor A$ and $A$
+
+    + When $A$ is T, so is $A \lor A$, and viceversa
+
+- $A \land A$ and $A$
+
+    + $A$ is T if and only if $A \land A$ is T
+    
+- $A \lor (B \land A)$ and $A$
+
+    + When $A$ is T, so is $A \lor (B \land A)$. If $A$ is F, then $A \lor (B \land A)$ is F. Using a __true table__ we can see that:
+    
+```{r }
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\land B$` = c("T", "F", "F", "F"),
+       `$A \\lor (A \\land B)$` = c("T", "F", "T", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+## Logical connectives exercises
+
+
+
+# Bibliography
