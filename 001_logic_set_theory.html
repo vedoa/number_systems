@@ -1808,6 +1808,9 @@ summary {
 <li><a href="#logical-connectives"><span class="toc-section-number">1.1</span> Logical connectives</a></li>
 <li><a href="#logical-connectives-exercises-and-solutions"><span class="toc-section-number">1.2</span> Logical connectives exercises and solutions</a></li>
 <li><a href="#conditionals"><span class="toc-section-number">1.3</span> Conditionals</a></li>
+<li><a href="#conditionals-exercises-and-solutions"><span class="toc-section-number">1.4</span> Conditionals exercises and solutions</a></li>
+<li><a href="#biconditionals"><span class="toc-section-number">1.5</span> Biconditionals</a></li>
+<li><a href="#biconditionals-exercises-and-solutions"><span class="toc-section-number">1.6</span> Biconditionals exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -1821,7 +1824,8 @@ text-align: justify}
 </style>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(kableExtra)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(tidyquant)</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(tidyquant)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <div id="logic-and-set-theory" class="section level1">
 <h1><span class="header-section-number">1</span> Logic and set theory</h1>
 <p>This section is based on <span class="citation">(Mendelson 2008, Chapter 1, pp 1-52)</span></p>
@@ -2139,13 +2143,13 @@ F
 <ul>
 <li><p><span class="math inline">\(A = x \text{ is positive}\)</span></p></li>
 <li><p><span class="math inline">\(B = x \text{ is negative}\)</span></p></li>
-<li><p><span class="math inline">\(\neg(A \land B) = \text{It is not the case that } x \text{ is both positive and negative}\)</span></p></li>
+<li><p><span class="math inline">\(\neg (A \land B) = \text{It is not the case that } x \text{ is both positive and negative}\)</span></p></li>
 </ul></li>
 <li><p>Neither John not James is here</p>
 <ul>
 <li><p><span class="math inline">\(A = \text{John is here}\)</span></p></li>
 <li><p><span class="math inline">\(B = \text{James is here}\)</span></p></li>
-<li><p><span class="math inline">\(\neg(A \land B) = \text{Neither John not James is here}\)</span></p></li>
+<li><p><span class="math inline">\(\neg (A \land B) = \text{Neither John not James is here}\)</span></p></li>
 </ul></li>
 </ol></li>
 <li><p>Render the following into idiomatic English</p>
@@ -2169,7 +2173,7 @@ F
 </ol></li>
 <li><p>Show that the following pairs of formulas always take the same truth values, and, therefore, are, in a certain sense, equivalent:</p>
 <ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(\neg(A \lor B)\)</span> and <span class="math inline">\((\neg A) \land (\neg B)\)</span></li>
+<li><span class="math inline">\(\neg (A \lor B)\)</span> and <span class="math inline">\((\neg A) \land (\neg B)\)</span></li>
 </ol></li>
 </ol>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
@@ -2304,7 +2308,7 @@ T
 </tbody>
 </table>
 <ol start="2" style="list-style-type: lower-alpha">
-<li><span class="math inline">\(\neg(A \land B)\)</span> and <span class="math inline">\((\neg A) \lor (\neg B)\)</span></li>
+<li><span class="math inline">\(\neg (A \land B)\)</span> and <span class="math inline">\((\neg A) \lor (\neg B)\)</span></li>
 </ol>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
 <span id="cb7-2"><a href="#cb7-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
@@ -3072,6 +3076,1855 @@ T
 <li>If <span class="math inline">\(A\)</span> is false, then <span class="math inline">\(A \implies B\)</span> is true (no matter what <span class="math inline">\(B\)</span> is)</li>
 <li>If <span class="math inline">\(B\)</span> is true, then <span class="math inline">\(A \implies B\)</span> is true (no matter what <span class="math inline">\(A\)</span> is)</li>
 </ul>
+<p>Aside from these peculiar properties of <span class="math inline">\(\implies\)</span> the 2 most important properties of <span class="math inline">\(\implies\)</span> are:</p>
+<ul>
+<li><p>When <span class="math inline">\(A\)</span> and <span class="math inline">\(A \implies B\)</span> are both true, the <span class="math inline">\(B\)</span> must be true</p>
+<ul>
+<li><span class="math inline">\(\{ A, A \implies B \} \vDash B\)</span> <span class="citation">(Bilaniuk 2009, Chapter 2, Definition 2.4, p 10)</span></li>
+</ul></li>
+<li><p>In order to prove <span class="math inline">\(A \implies B\)</span>, it suffices to assume <span class="math inline">\(A\)</span> true and then show that <span class="math inline">\(B\)</span> must also be true</p>
+<ul>
+<li><span class="math inline">\(\{ A, A \implies B \} \vdash B\)</span> <span class="citation">(Bilaniuk 2009, Chapter 3, Definition 3.3, p 12)</span></li>
+</ul></li>
+</ul>
+<div id="necessary-and-sufficient-condition" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Necessary and sufficient condition</h3>
+<p>The sentence <span class="math inline">\(\text{The truth of } A \text{ is a necessary condition for the truth of } B\)</span> means that, if <span class="math inline">\(B\)</span> is true, then <span class="math inline">\(A\)</span> also must be true, and, thus, should be translated as <span class="math inline">\(B \implies A\)</span>. For example,</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> is <span class="math inline">\(x &gt; 5\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span> is <span class="math inline">\((x &gt; 10)\)</span></p></li>
+<li><p>A <strong>necesary condition</strong> for <span class="math inline">\(B\)</span> is <span class="math inline">\(A\)</span></p>
+<ul>
+<li>For <span class="math inline">\(B\)</span> to be true it is necessary for <span class="math inline">\(A\)</span> to be true</li>
+</ul></li>
+</ul>
+<p>The sentence <span class="math inline">\(\text{The truth of } A \text{ is a sufficient condition for the truth of } B\)</span> means that, if <span class="math inline">\(A\)</span> is true, <span class="math inline">\(B\)</span> also must be true, and, thus, should be translated as <span class="math inline">\(A \implies B\)</span>. For example,</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> is <span class="math inline">\((x = 2n + 1) \land n \in \mathbb{N} \land \mathbb{N} = \{1, 2, ... \}\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span> is <span class="math inline">\((x^2 = 2m + 1) \land m \in \mathbb{N} \land \mathbb{N} = \{1, 2, ... \}\)</span></p></li>
+<li><p>A <strong>sufficient condition</strong> for <span class="math inline">\(A\)</span> is <span class="math inline">\(B\)</span></p>
+<ul>
+<li>For <span class="math inline">\(A\)</span> to be true it is sufficient for <span class="math inline">\(B\)</span> to be true</li>
+</ul></li>
+<li><p>For example, assume that <span class="math inline">\(A \cap B \neq \emptyset\)</span></p>
+<ul>
+<li><p><strong>Sufficient condition</strong> for <span class="math inline">\(x \in A\)</span>: <span class="math inline">\(x \in A \cap B\)</span></p></li>
+<li><p><strong>Necessary condition</strong> for <span class="math inline">\(x \in A \cap B\)</span>: <span class="math inline">\(x \in A\)</span></p></li>
+<li><p><strong>Sufficient</strong> and <strong>necessary condition</strong> for <span class="math inline">\(x \in A \cap B\)</span>: <span class="math inline">\(x \in A \land x \in B\)</span></p></li>
+</ul></li>
+</ul>
+<p>In summary a <strong>necessary condition</strong> is a condition that must be present in order for another condition to occur and a <strong>sufficient condition</strong> is a condition that will produce another condition</p>
+</div>
+</div>
+<div id="conditionals-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.4</span> Conditionals exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li>Translate into our symbolism the following English sentences</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>If John is not sick and it is not raining, we shall go on a picnic</p>
+<ul>
+<li><p><span class="math inline">\(A = \text{John is not sick}\)</span></p></li>
+<li><p><span class="math inline">\(B = \text{It is raining}\)</span></p></li>
+<li><p><span class="math inline">\(C = \text{We shall go on a picnic}\)</span></p></li>
+<li><p><span class="math inline">\((A \land \neg B) \implies C = \text{If John is not sick and it is not raining, we shall go on a picnic}\)</span></p></li>
+</ul></li>
+<li><p>Sam goes to work only if the sun is not shinning</p>
+<ul>
+<li><p><span class="math inline">\(A = \text{Sam goes to work}\)</span></p></li>
+<li><p><span class="math inline">\(B = \text{The sun is shinning}\)</span></p></li>
+<li><p><span class="math inline">\(\neg B \implies A = \text{Sam goes to work only if the sun is not shinning}\)</span></p></li>
+</ul></li>
+<li><p>A sufficient condition for <span class="math inline">\(f\)</span> to be continuous is that <span class="math inline">\(f\)</span> is differentiable</p>
+<ul>
+<li><p><span class="math inline">\(A = f \text{ is a continuous function}\)</span></p></li>
+<li><p><span class="math inline">\(B = f \text{ is a differentiable function}\)</span></p></li>
+<li><p><span class="math inline">\(A \implies B = \text{A sufficient condition for } f \text{ to be continuous is that } f \text{ is differentiable}\)</span></p></li>
+</ul></li>
+<li><p>A necessary condition for <span class="math inline">\(s\)</span> to converge is that <span class="math inline">\(s\)</span> is bounded</p>
+<ul>
+<li><p><span class="math inline">\(A = s \text{ converge}\)</span></p></li>
+<li><p><span class="math inline">\(B = s \text{ is bounded}\)</span></p></li>
+<li><p><span class="math inline">\(B \implies A = \text{A necessary condition for } s \text{ to converge is that } s \text{ is bounded}\)</span></p></li>
+</ul></li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Show that the following sentences always have the same truth values and are, therefore, equivalent</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A \implies B\)</span></p></li>
+<li><p><span class="math inline">\((\neg A) \lor B\)</span></p></li>
+<li><p><span class="math inline">\(\neg (A \land (\neg B))\)</span></p></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb12-2"><a href="#cb12-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb12-3"><a href="#cb12-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb12-4"><a href="#cb12-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb12-5"><a href="#cb12-5"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg A) </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb12-6"><a href="#cb12-6"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb12-7"><a href="#cb12-7"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb12-8"><a href="#cb12-8"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg B))$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg A) \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land (\neg B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg (A \land (\neg B))\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Verify the following justification for our truth table for <span class="math inline">\(A \implies B\)</span>. It is obvious that <span class="math inline">\((C \land D) \implies D\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> must always be true. Hence:</p>
+<ul>
+<li><p>When <span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> are both true we have that <span class="math inline">\((C \land D) \implies D\)</span> is true. This gives the first row of the table for <span class="math inline">\(\implies\)</span>:</p>
+<ul>
+<li><span class="math inline">\((T \implies T) = T\)</span></li>
+</ul></li>
+<li><p>When <span class="math inline">\(C\)</span> is false and <span class="math inline">\(D\)</span> is true we have that <span class="math inline">\((C \land D) \implies D\)</span> is true. This gives the second row of the table for <span class="math inline">\(\implies\)</span>:</p>
+<ul>
+<li><span class="math inline">\((F \implies T) = T\)</span></li>
+</ul></li>
+<li><p>When <span class="math inline">\(D\)</span> is false we have that <span class="math inline">\((C \land D) \implies D\)</span> is true. This gives the fourth row of the table for <span class="math inline">\(\implies\)</span>:</p>
+<ul>
+<li><span class="math inline">\((F \implies F) = T\)</span></li>
+</ul></li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb13-2"><a href="#cb13-2"></a>       <span class="st">`</span><span class="dt">$D$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb13-3"><a href="#cb13-3"></a>       <span class="st">`</span><span class="dt">$C </span><span class="ch">\\</span><span class="dt">land D$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb13-4"><a href="#cb13-4"></a>       <span class="st">`</span><span class="dt">$(C </span><span class="ch">\\</span><span class="dt">land D) </span><span class="ch">\\</span><span class="dt">implies D$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(D\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(C \land D\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((C \land D) \implies D\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Show that the following pairs of sentences are equivalent, that is, always take the same truth values:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\neg (A \implies B)\)</span> and <span class="math inline">\(\neg (A \land (\neg B))\)</span></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb14-2"><a href="#cb14-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb14-3"><a href="#cb14-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb14-4"><a href="#cb14-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">implies B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb14-5"><a href="#cb14-5"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb14-6"><a href="#cb14-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">6</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]]) </span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg (A \implies B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land (\neg B)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(A \implies (B \implies C)\)</span> and <span class="math inline">\((A \land B) \implies C\)</span></li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb15-2"><a href="#cb15-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb15-3"><a href="#cb15-3"></a>       <span class="st">`</span><span class="dt">$C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb15-4"><a href="#cb15-4"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">implies C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb15-5"><a href="#cb15-5"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies (B </span><span class="ch">\\</span><span class="dt">implies C)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb15-6"><a href="#cb15-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb15-7"><a href="#cb15-7"></a>       <span class="st">`</span><span class="dt">$(A </span><span class="ch">\\</span><span class="dt">land B) </span><span class="ch">\\</span><span class="dt">implies C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]]) </span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \implies C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies (B \implies C)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((A \land B) \implies C\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(A \implies (B \implies C)\)</span> and <span class="math inline">\((A \land B) \implies C\)</span></li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb16-2"><a href="#cb16-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb16-3"><a href="#cb16-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb16-4"><a href="#cb16-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb16-5"><a href="#cb16-5"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb16-6"><a href="#cb16-6"></a>       <span class="st">`</span><span class="dt">$(</span><span class="ch">\\</span><span class="dt">neg B) </span><span class="ch">\\</span><span class="dt">implies (</span><span class="ch">\\</span><span class="dt">neg A)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)  <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">6</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((\neg B) \implies (\neg A)\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" style="list-style-type: decimal">
+<li><p><em>Reductio ad adsurdum</em></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show that if <span class="math inline">\(\neg A \implies (B \land (\neg B))\)</span> is true, then <span class="math inline">\(A\)</span> is true. This justifies proofs by <em>reductio ad adsurdum</em></p>
+<ul>
+<li>To prove <span class="math inline">\(A\)</span>, show that <span class="math inline">\(\neg A\)</span> leads to a contradiction</li>
+</ul></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb17-2"><a href="#cb17-2"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb17-3"><a href="#cb17-3"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb17-4"><a href="#cb17-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A </span><span class="ch">\\</span><span class="dt">implies (B </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg B))$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb17-5"><a href="#cb17-5"></a>       ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)  <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="st">    </span><span class="kw">row_spec</span>(<span class="dt">row =</span> <span class="dv">1</span>, <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \land (\neg B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A \implies (B \land (\neg B))\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Prove by <em>reductio ad adsurdum</em> that <span class="math inline">\(A \implies A\)</span> is always true</li>
+</ol>
+<p>Assume that <span class="math inline">\(\neg (A \implies A)\)</span>. This is equivalent to <span class="math inline">\(A \land (\neg A)\)</span> by exercise 4a. Therefore <span class="math inline">\(\neg (A \implies A) \implies (A \land (\neg A))\)</span> is true and we conclude by <em>reductio ad adsurdum</em> that <span class="math inline">\(A \implies A\)</span> is true</p>
+<div id="making-sense-of-the-truth-table-for-conditionals" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Making sense of the <strong>truth table</strong> for conditionals</h3>
+<div id="possible-truth-tables-for-2-binary-variables" class="section level4">
+<h4><span class="header-section-number">1.4.1.1</span> Possible <strong>truth tables</strong> for 2 binary variables</h4>
+<ul>
+<li>There are 16 possible <strong>truth tables</strong> for two binary variables: <span class="math inline">\(A, B\)</span></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-3"><a href="#cb18-3"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-4"><a href="#cb18-4"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-5"><a href="#cb18-5"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-6"><a href="#cb18-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-7"><a href="#cb18-7"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">oplus B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-8"><a href="#cb18-8"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">uparrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-9"><a href="#cb18-9"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">downarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-10"><a href="#cb18-10"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-11"><a href="#cb18-11"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-12"><a href="#cb18-12"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">implies B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-13"><a href="#cb18-13"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">Longleftarrow B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb18-14"><a href="#cb18-14"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-15"><a href="#cb18-15"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">top$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-16"><a href="#cb18-16"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">bot$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-17"><a href="#cb18-17"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-18"><a href="#cb18-18"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-19"><a href="#cb18-19"></a><span class="st">    </span><span class="kw">row_spec</span>(<span class="dt">row =</span> <span class="dv">3</span>, <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb18-20"><a href="#cb18-20"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">16</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \oplus B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \uparrow B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \downarrow B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \Longleftarrow B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg (A \implies B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg (A \Longleftarrow B)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \Longleftrightarrow B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\top\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\bot\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Where</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> is the case of a <strong>truth function</strong> that only depends on the binary variable <span class="math inline">\(A\)</span></p></li>
+<li><p><span class="math inline">\(B\)</span> is the case of a <strong>truth function</strong> that only depends on the binary variable <span class="math inline">\(B\)</span></p></li>
+<li><p><span class="math inline">\(\neg A\)</span> is the negation of <span class="math inline">\(A\)</span> (also is a <strong>truth function</strong> that only depends on the binary variable <span class="math inline">\(A\)</span>)</p></li>
+<li><p><span class="math inline">\(\neg B\)</span> is the negation of <span class="math inline">\(B\)</span> (also is a <strong>truth function</strong> that only depends on the binary variable <span class="math inline">\(B\)</span>)</p></li>
+<li><p><span class="math inline">\(A \land B\)</span> is a conjunction</p></li>
+<li><p><span class="math inline">\(A \lor B\)</span> is a disjunction</p></li>
+<li><p><span class="math inline">\(A \oplus B\)</span> is a exclusive disjunction and known as <strong>XOR</strong>: <span class="math inline">\((A \lor B) \land \neg (A \land B)\)</span></p></li>
+<li><p><span class="math inline">\(A \uparrow B\)</span> is known as <strong>NAND</strong>: <span class="math inline">\(\neg (A \land B)\)</span></p></li>
+<li><p><span class="math inline">\(A \downarrow B\)</span> is known as <strong>NOR</strong>: <span class="math inline">\(\neg (A \lor B)\)</span></p></li>
+<li><p><span class="math inline">\(A \implies B\)</span> is know as the material conditional: <span class="math inline">\(\neg (A \land \neg B)\)</span></p></li>
+<li><p><span class="math inline">\(A \Longleftarrow B\)</span> is know as the converse of material conditional: <span class="math inline">\(\neg (B \land \neg A)\)</span></p></li>
+<li><p><span class="math inline">\(\neg (A \implies B)\)</span> is the negation of the material implication</p></li>
+<li><p><span class="math inline">\(\neg (A \Longleftarrow B)\)</span> is the negation of the converse of the material implication</p></li>
+<li><p><span class="math inline">\(A \Longleftrightarrow B\)</span> is a biconditional</p></li>
+<li><p><span class="math inline">\(\top\)</span> is a tautology</p></li>
+<li><p><span class="math inline">\(\bot\)</span> is a contradiction</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="alternative-truth-tables-for-implies" class="section level4">
+<h4><span class="header-section-number">1.4.1.2</span> Alternative <strong>truth tables</strong> for <span class="math inline">\(\implies\)</span></h4>
+<ul>
+<li><p>The columns colored in green from the above table are the alternative <strong>truth tables</strong> for <span class="math inline">\(A \implies B\)</span></p>
+<ul>
+<li><p>This columns are cases where <span class="math inline">\(A\)</span> is true, <span class="math inline">\(B\)</span> is false and the value of the <strong>truth table</strong> is false</p>
+<ul>
+<li><p>We discard <span class="math inline">\(B\)</span> and <span class="math inline">\(\neg A\)</span> because these tables only depend on one binary variable</p></li>
+<li><p>We discard <span class="math inline">\(\bot\)</span> because is a contradiction</p></li>
+<li><p>We discard <span class="math inline">\(A \land B\)</span>, and <span class="math inline">\(A \Longleftrightarrow B\)</span> becasue are logical connectives with a clear interpretation in mathematical logic</p></li>
+<li><p>The remaining candidates are <span class="math inline">\(A \downarrow B\)</span> and <span class="math inline">\(\neg (A \Longleftarrow B)\)</span></p>
+<ul>
+<li>The problem with this logical connectives as alternative candidates for <span class="math inline">\(A \implies B\)</span> is that when <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are true the value of the <strong>truth table</strong> is false</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore for 2 binary variables, we may conclude that <span class="math inline">\(A \implies B\)</span> doesn’t have other suitable alternatives assuming that we want</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> true, <span class="math inline">\(B\)</span> false and false for the value of the <strong>truth table</strong></p></li>
+<li><p><span class="math inline">\(A\)</span> true, <span class="math inline">\(B\)</span> true and true for the value of the <strong>truth table</strong></p></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="biconditionals" class="section level2">
+<h2><span class="header-section-number">1.5</span> Biconditionals</h2>
+<p>Given sentences <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we may form a new sentence <span class="math inline">\(\text{If } A \text{ and only if } B\)</span>, which we shall write <span class="math inline">\(A \Longleftrightarrow B\)</span></p>
+<p>The corresponding <strong>true table</strong> is</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb19-2"><a href="#cb19-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb19-3"><a href="#cb19-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \Longleftrightarrow B\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="biconditionals-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.6</span> Biconditionals exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Translate into our symbolism:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>A necessary and suficient condition for <span class="math inline">\(s\)</span> to be convergent is that it is cauchy convergent</p>
+<ul>
+<li><p><span class="math inline">\(A = s \text{ is convergent}\)</span></p></li>
+<li><p><span class="math inline">\(B = s \text{ is cauchy convergent}\)</span></p></li>
+<li><p><span class="math inline">\(A \Longleftrightarrow B = \text{A necessary and suficient condition for } s \text{ to be convergent is that it is cauchy convergent}\)</span></p></li>
+</ul></li>
+<li><p>Horatio is happy if and only if the sun is shining and business is good</p>
+<ul>
+<li><p><span class="math inline">\(A = \text{Horatio is happy}\)</span></p></li>
+<li><p><span class="math inline">\(B = \text{The sun is shining}\)</span></p></li>
+<li><p><span class="math inline">\(C = \text{Business is good}\)</span></p></li>
+<li><p><span class="math inline">\(A \Longleftrightarrow (B \land C) = \text{Horatio is happy if and only if the sun is shining and business is good}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(f\)</span> is differentiable when and only when it is continuous</p>
+<ul>
+<li><p><span class="math inline">\(A = f \text{ is a differentiable function}\)</span></p></li>
+<li><p><span class="math inline">\(B = f \text{ is a continuous function}\)</span></p></li>
+<li><p><span class="math inline">\(A \Longleftrightarrow B = f \text{ is differentiable when and only when it is continuous}\)</span></p></li>
+</ul></li>
+</ol></li>
+<li><p>Show that <span class="math inline">\(A \Longleftrightarrow B\)</span> always has the same truth values as <span class="math inline">\((A \implies B) \land (B \implies A)\)</span>. Hence to prove <span class="math inline">\(A \Longleftrightarrow B\)</span> it suffices to prove <span class="math inline">\(A \implies B\)</span> and <span class="math inline">\(B \implies A\)</span></p></li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb20-2"><a href="#cb20-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb20-3"><a href="#cb20-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb20-4"><a href="#cb20-4"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">Longrightarrow A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb20-5"><a href="#cb20-5"></a>       <span class="st">`</span><span class="dt">$(A </span><span class="ch">\\</span><span class="dt">Longrightarrow B) </span><span class="ch">\\</span><span class="dt">land (B </span><span class="ch">\\</span><span class="dt">Longrightarrow A)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb20-6"><a href="#cb20-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
+<span id="cb20-7"><a href="#cb20-7"></a>       ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)  <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="st">    </span><span class="kw">column_spec</span>(<span class="dt">column =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">6</span>), <span class="dt">background =</span> <span class="kw">palette_light</span>()[[<span class="dv">7</span>]])</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \Longrightarrow B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \Longrightarrow A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((A \Longrightarrow B) \land (B \Longrightarrow A)\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \Longleftrightarrow B\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+F
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+<td style="text-align:center;background-color: #B2DF8A !important;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Assume that <span class="math inline">\(A \lor B\)</span> is true. What, if anything, can be said of the truth table values of the following?</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A\)</span></p>
+<ul>
+<li>Nothing because <span class="math inline">\(A\)</span> can be true or false</li>
+</ul></li>
+<li><p><span class="math inline">\(A \implies B\)</span></p>
+<ul>
+<li>Nothing because <span class="math inline">\(A\)</span> can be true and <span class="math inline">\(B\)</span> false or <span class="math inline">\(B\)</span> can be true</li>
+</ul></li>
+<li><p><span class="math inline">\(\neg A \implies B\)</span></p>
+<ul>
+<li><span class="math inline">\(\neg A \implies B\)</span> is true because <span class="math inline">\(B\)</span> is true or <span class="math inline">\(A\)</span> is false and <span class="math inline">\(B is false\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\neg ((\neg A) \land (\neg B))\)</span></p>
+<ul>
+<li><span class="math inline">\(\neg A \implies B\)</span> is true because <span class="math inline">\(\neg A\)</span> is false and <span class="math inline">\(\neg B\)</span> is false or <span class="math inline">\(\neg A\)</span> and <span class="math inline">\(\neg B\)</span> have different truth values</li>
+</ul></li>
+<li><p><span class="math inline">\((A \land C) \lor (B \land (\neg C))\)</span></p>
+<ul>
+<li>Nothing because <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> can have the same true values</li>
+</ul></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb21-2"><a href="#cb21-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb21-3"><a href="#cb21-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb21-4"><a href="#cb21-4"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb21-5"><a href="#cb21-5"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A \implies B\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb22-2"><a href="#cb22-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb22-3"><a href="#cb22-3"></a>       <span class="st">`</span><span class="dt">$C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb22-4"><a href="#cb22-4"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">land C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb22-5"><a href="#cb22-5"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">land </span><span class="ch">\\</span><span class="dt">neg C$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb22-6"><a href="#cb22-6"></a>       <span class="st">`</span><span class="dt">$(A </span><span class="ch">\\</span><span class="dt">land C) </span><span class="ch">\\</span><span class="dt">lor (B </span><span class="ch">\\</span><span class="dt">land (</span><span class="ch">\\</span><span class="dt">neg C))$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \land C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \land \neg C\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((A \land C) \lor (B \land (\neg C))\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Assume that <span class="math inline">\(A \implies B\)</span> is true. What, if anything, can be said of the truth values of the following?</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(B\)</span></p>
+<ul>
+<li>Nothing because <span class="math inline">\(B\)</span> can be true or false</li>
+</ul></li>
+<li><p><span class="math inline">\(A \lor B\)</span></p>
+<ul>
+<li>Nothing because <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> can have the same true values</li>
+</ul></li>
+<li><p><span class="math inline">\((\neg A) \lor B\)</span></p>
+<ul>
+<li><span class="math inline">\((\neg A) \lor B\)</span> is true because <span class="math inline">\(\neg A\)</span> and <span class="math inline">\(\neg B\)</span> have different true values or <span class="math inline">\(\neg A\)</span> and <span class="math inline">\(\neg B\)</span> are false</li>
+</ul></li>
+<li><p><span class="math inline">\(B \implies A\)</span></p>
+<ul>
+<li>Nothing because <span class="math inline">\(B\)</span> is true and <span class="math inline">\(A\)</span> is false or <span class="math inline">\(B\)</span> is false or <span class="math inline">\(A\)</span> is true</li>
+</ul></li>
+<li><p><span class="math inline">\((\neg B) \implies (\neg A)\)</span></p>
+<ul>
+<li><span class="math inline">\((\neg B) \implies (\neg A)\)</span> is true because it is not the case that <span class="math inline">\(\neg B\)</span> is true and <span class="math inline">\(\neg A\)</span> is false</li>
+</ul></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb23-2"><a href="#cb23-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb23-3"><a href="#cb23-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">implies B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb23-4"><a href="#cb23-4"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
+<span id="cb23-5"><a href="#cb23-5"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg A </span><span class="ch">\\</span><span class="dt">lor B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb23-6"><a href="#cb23-6"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">implies A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb23-7"><a href="#cb23-7"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg B </span><span class="ch">\\</span><span class="dt">implies </span><span class="ch">\\</span><span class="dt">neg A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb23-9"><a href="#cb23-9"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
+<table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+<span class="math inline">\(A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \implies B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(A \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg A \lor B\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(B \implies A\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\neg B \implies \neg A\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+F
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+<td style="text-align:center;">
+T
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Assume that <span class="math inline">\(A\)</span> is true, <span class="math inline">\(B\)</span> is false, and <span class="math inline">\(C\)</span> is true. What are the truth values of:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A \implies B\)</span></p>
+<ul>
+<li>False</li>
+</ul></li>
+<li><p><span class="math inline">\(B \implies C\)</span></p>
+<ul>
+<li>True</li>
+</ul></li>
+<li><p><span class="math inline">\((A \lor \neg C) \lor B\)</span></p>
+<ul>
+<li>True</li>
+</ul></li>
+<li><p><span class="math inline">\((A \Longleftrightarrow C) \Longleftrightarrow \neg B\)</span></p>
+<ul>
+<li>True</li>
+</ul></li>
+<li><p><span class="math inline">\(A \implies (B \implies A)\)</span></p>
+<ul>
+<li>True</li>
+</ul></li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
@@ -3093,6 +4946,12 @@ T
 <p>Smullyan, Raymond M. 2014. <em>A Beginner’s Guide to Mathematical Logic</em>. Dover Books on Mathematics. Mineola, New York: Dover Publications, Inc.</p>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This is a rule of inference and it is know as <strong>conjunction elimination</strong><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
 

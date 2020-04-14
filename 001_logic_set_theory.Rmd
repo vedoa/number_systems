@@ -32,6 +32,7 @@ knitr::opts_chunk$set(echo      = TRUE,
 library(tidyverse)
 library(kableExtra)
 library(tidyquant)
+library(knitr)
 ```
 
 # Logic and set theory
@@ -154,7 +155,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
         
         + $B = x \text{ is negative}$
         
-        + $\neg(A \land B) = \text{It is not the case that } x \text{ is both positive and negative}$
+        + $\neg (A \land B) = \text{It is not the case that } x \text{ is both positive and negative}$
         
     e. Neither John not James is here
     
@@ -162,7 +163,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
         
         + $B = \text{James is here}$
         
-        + $\neg(A \land B) = \text{Neither John not James is here}$
+        + $\neg (A \land B) = \text{Neither John not James is here}$
         
 2. Render the following into idiomatic English
 
@@ -184,7 +185,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
         
 3. Show that the following pairs of formulas always take the same truth values, and, therefore, are, in a certain sense, equivalent:
 
-    a. $\neg(A \lor B)$ and $(\neg A) \land (\neg B)$
+    a. $\neg (A \lor B)$ and $(\neg A) \land (\neg B)$
     
 ```{r }
 
@@ -200,7 +201,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
     column_spec(column = c(4, 7), background = palette_light()[[7]])
 ```
 
-    b. $\neg(A \land B)$ and $(\neg A) \lor (\neg B)$
+    b. $\neg (A \land B)$ and $(\neg A) \lor (\neg B)$
 
 ```{r }
 
@@ -287,5 +288,454 @@ The above __true table__ reflects the meaning that $\implies$ has in contemporar
 
 - If $A$ is false, then $A \implies B$ is true (no matter what $B$ is)
 - If $B$ is true, then $A \implies B$ is true (no matter what $A$ is)
+
+Aside from these peculiar properties of $\implies$ the 2 most important properties of $\implies$ are:
+
+- When $A$ and $A \implies B$ are both true, the $B$ must be true
+
+    + $\{ A, A \implies B \} \vDash B$ [@bilaniuk_problem_2009, Chapter 2, Definition 2.4, p 10]
+
+- In order to prove $A \implies B$, it suffices to assume $A$ true and then show that $B$ must also be true 
+
+    + $\{ A, A \implies B \} \vdash B$ [@bilaniuk_problem_2009, Chapter 3, Definition 3.3, p 12]
+
+### Necessary and sufficient condition
+
+The sentence $\text{The truth of } A \text{ is a necessary condition for the truth of } B$ means that, if $B$ is true, then $A$ also must be true, and, thus, should be translated as $B \implies A$. For example,
+
+- $A$ is $x > 5$
+    
+- $B$ is $(x > 10)$
+    
+- A __necesary condition__ for $B$ is $A$
+    
+    + For $B$ to be true it is necessary for $A$ to be true
+        
+The sentence $\text{The truth of } A \text{ is a sufficient condition for the truth of } B$ means that, if $A$ is true, $B$ also must be true, and, thus, should be translated as $A \implies B$. For example,
+
+- $A$ is $(x = 2n + 1) \land n \in \mathbb{N} \land \mathbb{N} = \{1, 2, ... \}$
+    
+- $B$ is $(x^2 = 2m + 1) \land m \in \mathbb{N} \land \mathbb{N} = \{1, 2, ... \}$ 
+
+- A __sufficient condition__ for $A$ is $B$
+
+    + For $A$ to be true it is sufficient for $B$ to be true
+    
+- For example, assume that $A \cap B \neq \emptyset$
+
+    + __Sufficient condition__ for $x \in A$: $x \in A \cap B$
+    
+    + __Necessary condition__ for $x \in A \cap B$: $x \in A$
+    
+    + __Sufficient__ and __necessary condition__ for $x \in A \cap B$: $x \in A \land x \in B$ 
+
+In summary a __necessary condition__ is a condition that must be present in order for another condition to occur and a __sufficient condition__ is a condition that will produce another condition
+
+## Conditionals exercises and solutions
+
+1. Translate into our symbolism the following English sentences
+
+a. If John is not sick and it is not raining, we shall go on a picnic
+
+    + $A = \text{John is not sick}$
+    
+    + $B = \text{It is raining}$
+    
+    + $C = \text{We shall go on a picnic}$
+    
+    + $(A \land \neg B) \implies C = \text{If John is not sick and it is not raining, we shall go on a picnic}$
+    
+b. Sam goes to work only if the sun is not shinning
+
+    + $A = \text{Sam goes to work}$
+    
+    + $B = \text{The sun is shinning}$
+    
+    + $\neg B \implies A = \text{Sam goes to work only if the sun is not shinning}$
+    
+c. A sufficient condition for $f$ to be continuous is that $f$ is differentiable
+
+    + $A = f \text{ is a continuous function}$
+    
+    + $B = f \text{ is a differentiable function}$
+    
+    + $A \implies B = \text{A sufficient condition for } f \text{ to be continuous is that } f \text{ is differentiable}$
+    
+d. A necessary condition for $s$ to converge is that $s$ is bounded
+
+    + $A = s \text{ converge}$
+    
+    + $B = s \text{ is bounded}$
+    
+    + $B \implies A = \text{A necessary condition for } s \text{ to converge is that } s \text{ is bounded}$
+    
+2. Show that the following sentences always have the same truth values and are, therefore, equivalent
+
+    a. $A \implies B$
+    
+    b. $(\neg A) \lor B$
+    
+    c. $\neg (A \land (\neg B))$
+
+```{r}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\implies B$` = c("T", "T", "F", "T"),
+       `$\\neg A$` = c("F", "T", "F", "T"),
+       `$(\\neg A) \\lor B$` = c("T", "T", "F", "T"),
+       `$\\neg B$` = c("F", "F", "T", "T"),
+       `$A \\land (\\neg B)$` = c("F", "F", "T", "F"),
+       `$\\neg (A \\land (\\neg B))$` = c("T", "T", "F", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(3, 5, 8), background = palette_light()[[7]])
+```
+
+3. Verify the following justification for our truth table for $A \implies B$. It is obvious that $(C \land D) \implies D$[^1] must always be true. Hence:
+
+    + When $C$ and $D$ are both true we have that $(C \land D) \implies D$ is true. This gives the first row of the table for $\implies$:
+    
+        + $(T \implies T) = T$
+    
+    + When $C$ is false and $D$ is true we have that $(C \land D) \implies D$ is true. This gives the second row of the table for $\implies$:
+    
+        + $(F \implies T) = T$
+    
+    + When $D$ is false we have that $(C \land D) \implies D$ is true. This gives the fourth row of the table for $\implies$:
+    
+        + $(F \implies F) = T$
+
+```{r }
+
+tibble(`$C$` = c("T", "F", "T", "F"),
+       `$D$` = c("T", "T", "F", "F"),
+       `$C \\land D$` = c("T", "F", "F", "F"),
+       `$(C \\land D) \\implies D$` = c("T", "F", "T", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+
+[^1]: This is a rule of inference and it is know as __conjunction elimination__
+
+4. Show that the following pairs of sentences are equivalent, that is, always take the same truth values:
+
+    a. $\neg (A \implies B)$ and $\neg (A \land (\neg B))$
+    
+```{r }
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\implies B$` = c("T", "T", "F", "T"),
+       `$\\neg (A \\implies B)$` = c("F", "F", "T", "F"),
+       `$\\neg B$` = c("F", "F", "T", "T"),
+       `$A \\land (\\neg B)$` = c("F", "F", "T", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(4, 6), background = palette_light()[[7]]) 
+```
+
+    b. $A \implies (B \implies C)$ and $(A \land B) \implies C$
+    
+```{r }
+
+tibble(`$A$` = c("T", "T", "T", "T", "F", "F", "F", "F"),
+       `$B$` = c("T", "T", "F", "F", "T", "T", "F", "F"),
+       `$C$` = c("T", "F", "T", "F", "T", "F", "T", "F"),
+       `$B \\implies C$` = c("T", "F", "T", "T", "T", "F", "T", "T"),
+       `$A \\implies (B \\implies C)$` = c("T", "F", "T", "T", "T", "T", "T", "T"),
+       `$A \\land B$` = c("T", "T", "F", "F", "F", "F", "F", "F"),
+       `$(A \\land B) \\implies C$` = c("T", "F", "T", "T", "T", "T", "T", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    column_spec(column = c(5, 7), background = palette_light()[[7]]) 
+```
+
+    c. $A \implies (B \implies C)$ and $(A \land B) \implies C$
+
+```{r}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\implies B$` = c("T", "T", "F", "T"),
+       `$\\neg A$` = c("F", "T", "F", "T"),
+       `$\\neg B$` = c("F", "F", "T", "T"),
+       `$(\\neg B) \\implies (\\neg A)$` = c("T", "T", "F", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>%
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")  %>% 
+    column_spec(column = c(3, 6), background = palette_light()[[7]])
+```
+
+5. _Reductio ad adsurdum_
+
+    a. Show that if $\neg A \implies (B \land (\neg B))$ is true, then $A$ is true. This justifies proofs by _reductio ad adsurdum_
+    
+        + To prove $A$, show that $\neg A$ leads to a contradiction
+        
+```{r}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$\\neg A$` = c("F", "T", "F", "T"),
+       `$B \\land (\\neg B)$` = c("F", "F", "F", "F"),
+       `$\\neg A \\implies (B \\land (\\neg B))$` = c("T", "F", "F", "F")
+       ) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>%
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")  %>% 
+    row_spec(row = 1, background = palette_light()[[7]])
+```
+
+    b. Prove by _reductio ad adsurdum_ that $A \implies A$ is always true
+    
+Assume that $\neg (A \implies A)$. This is equivalent to $A \land (\neg A)$ by exercise 4a. Therefore $\neg (A \implies A) \implies (A \land (\neg A))$ is true and we conclude by _reductio ad adsurdum_ that $A \implies A$ is true
+
+### Making sense of the __truth table__ for conditionals
+
+#### Possible __truth tables__ for 2 binary variables
+
+- There are 16 possible __truth tables__ for two binary variables: $A, B$
+    
+```{r }
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$\\neg A$` = c("F", "T", "F", "T"),
+       `$\\neg B$` = c("F", "F", "T", "T"),
+       `$A \\land B$` = c("T", "F", "F", "F"),
+       `$A \\lor B$` = c("T", "T", "T", "F"),
+       `$A \\oplus B$` = c("F", "T", "T", "F"),
+       `$A \\uparrow B$` = c("F", "T", "T", "T"),
+       `$A \\downarrow B$` = c("F", "F", "F", "T"),
+       `$A \\implies B$` = c("T", "T", "F", "T"),
+       `$A \\Longleftarrow B$` = c("T", "F", "T", "T"),
+       `$\\neg (A \\implies B)$` = c("F", "F", "T", "F"),
+       `$\\neg (A \\Longleftarrow B)$` = c("F", "T", "F", "F"),
+       `$A \\Longleftrightarrow B$` = c("T", "F", "F", "T"),
+       `$\\top$` = c("T", "T", "T", "T"),
+       `$\\bot$` = c("F", "F", "F", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered") %>% 
+    row_spec(row = 3, background = palette_light()[[7]]) %>% 
+    column_spec(column = c(2, 3, 5, 9, 13, 14, 16), background = palette_light()[[7]])
+```
+
+- Where
+
+    + $A$ is the case of a __truth function__  that only depends on the binary variable $A$
+    
+    + $B$ is the case of a __truth function__  that only depends on the binary variable $B$
+
+    + $\neg A$ is the negation of $A$ (also is a __truth function__  that only depends on the binary variable $A$)
+    
+    + $\neg B$ is the negation of $B$ (also is a __truth function__  that only depends on the binary variable $B$)
+    
+    + $A \land B$ is a conjunction
+    
+    + $A \lor B$ is a disjunction
+    
+    + $A \oplus B$ is a exclusive disjunction and known as __XOR__: $(A \lor B) \land \neg (A \land B)$
+    
+    + $A \uparrow B$ is known as __NAND__: $\neg (A \land B)$
+    
+    + $A \downarrow B$ is known as __NOR__: $\neg (A \lor B)$
+    
+    + $A \implies B$ is know as the material conditional: $\neg (A \land \neg B)$
+    
+    + $A \Longleftarrow B$ is know as the converse of material conditional: $\neg (B \land \neg A)$
+    
+    + $\neg (A \implies B)$ is the negation of the material implication
+    
+    + $\neg (A \Longleftarrow B)$ is the negation of the converse of the material implication
+    
+    + $A \Longleftrightarrow B$ is a biconditional
+    
+    + $\top$ is a tautology
+    
+    + $\bot$ is a contradiction
+    
+#### Alternative __truth tables__ for $\implies$
+
+- The columns colored in green from the above table are the alternative __truth tables__ for $A \implies B$
+
+    + This columns are cases where $A$  is true, $B$ is false and the value of the __truth table__ is false  
+
+        + We discard $B$ and $\neg A$ because these tables only depend on one binary variable
+    
+        + We discard $\bot$ because is a contradiction
+    
+        + We discard $A \land B$, and $A \Longleftrightarrow B$ becasue are logical connectives with a clear interpretation in mathematical logic
+    
+        + The remaining candidates are $A \downarrow B$ and $\neg (A \Longleftarrow B)$
+        
+            + The problem with this logical connectives as alternative candidates for $A \implies B$ is that when $A$ and $B$ are true the value of the __truth table__ is false  
+
+- Therefore for 2 binary variables, we may conclude that $A \implies B$ doesn't have other suitable alternatives assuming that we want
+
+    + $A$ true, $B$ false and false for the value of the __truth table__
+    
+    + $A$ true, $B$ true and true for the value of the __truth table__
+    
+## Biconditionals
+
+Given sentences $A$ and $B$, we may form a new sentence $\text{If } A \text{ and only if } B$, which we shall write $A \Longleftrightarrow B$
+
+The corresponding __true table__ is
+
+```{r truth_table_biconditional}
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\Longleftrightarrow B$` = c("T", "F", "F", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+    
+## Biconditionals exercises and solutions
+
+1. Translate into our symbolism:
+
+    a. A necessary and suficient condition for $s$ to be convergent is that it is cauchy convergent
+    
+        + $A = s \text{ is convergent}$
+        
+        + $B = s \text{ is cauchy convergent}$
+        
+        + $A \Longleftrightarrow B = \text{A necessary and suficient condition for } s \text{ to be convergent is that it is cauchy convergent}$ 
+        
+    b. Horatio is happy if and only if the sun is shining and business is good
+    
+        + $A = \text{Horatio is happy}$
+        
+        + $B = \text{The sun is shining}$
+        
+        + $C = \text{Business is good}$
+        
+        + $A \Longleftrightarrow (B \land C) = \text{Horatio is happy if and only if the sun is shining and business is good}$
+        
+    c. $f$ is differentiable when and only when it is continuous
+    
+        + $A = f \text{ is a differentiable function}$
+        
+        + $B = f \text{ is a continuous function}$
+        
+        + $A \Longleftrightarrow B = f \text{ is differentiable when and only when it is continuous}$
+        
+2. Show that $A \Longleftrightarrow B$ always has the same truth values as $(A \implies B) \land (B \implies A)$. Hence to prove $A \Longleftrightarrow B$ it suffices to prove $A \implies B$ and $B \implies A$
+
+```{r }
+
+tibble(`$A$` = c("T", "F", "T", "F"),
+       `$B$` = c("T", "T", "F", "F"),
+       `$A \\Longrightarrow B$` = c("T", "T", "F", "T"),
+       `$B \\Longrightarrow A$` = c("T", "F", "T", "T"),
+       `$(A \\Longrightarrow B) \\land (B \\Longrightarrow A)$` = c("T", "F", "F", "T"),
+       `$A \\Longleftrightarrow B$` = c("T", "F", "F", "T")
+       ) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")  %>% 
+    column_spec(column = c(5, 6), background = palette_light()[[7]])
+```
+  
+3. Assume that $A \lor B$ is true. What, if anything, can be said of the truth table values of the following?
+
+    a. $A$
+    
+        + Nothing because $A$ can be true or false
+        
+    b. $A \implies B$
+    
+        + Nothing because $A$ can be true and $B$ false or $B$ can be true
+        
+    c. $\neg A \implies B$
+    
+        + $\neg A \implies B$ is true because $B$ is true or $A$ is false and $B is false$
+        
+    d. $\neg ((\neg A) \land (\neg B))$ 
+    
+        + $\neg A \implies B$ is true because $\neg A$ is false and $\neg B$ is false or $\neg A$ and $\neg B$ have different truth values
+        
+    e. $(A \land C) \lor (B \land (\neg C))$ 
+    
+        + Nothing because $A$ and $B$ can have the same true values
+        
+```{r }
+
+tibble(`$A$` = c("T", "F", "T"),
+       `$B$` = c("T", "T", "F"),
+       `$A \\lor B$` = c("T", "T", "T"),
+       `$A \\implies B$` = c("T", "T", "F"),
+       `$\\neg A \\implies B$` = c("T", "T", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+```{r }
+
+tibble(`$A$` = c("T", "T", "F", "F", "T", "T"),
+       `$B$` = c("T", "T", "T", "T", "F", "F"),
+       `$C$` = c("T", "F", "T", "F", "T", "F"),
+       `$A \\land C$` = c("T", "F", "F", "F", "T", "F"),
+       `$B \\land \\neg C$` = c("F", "T", "F", "T", "T", "F"),
+       `$(A \\land C) \\lor (B \\land (\\neg C))$` = c("T", "T", "T", "T", "T", "F")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+4. Assume that $A \implies B$ is true. What, if anything, can be said of the truth values of the following?
+
+    a. $B$
+    
+        + Nothing because $B$ can be true or false
+
+    b. $A \lor B$
+    
+        + Nothing because $A$ and $B$ can have the same true values
+        
+    c. $(\neg A) \lor B$
+    
+        + $(\neg A) \lor B$ is true because $\neg A$ and $\neg B$ have different true values or $\neg A$ and $\neg B$ are false
+
+    d. $B \implies A$
+    
+        + Nothing because $B$ is true and $A$ is false or $B$ is false or $A$ is true
+        
+    e. $(\neg B) \implies (\neg A)$
+    
+        + $(\neg B) \implies (\neg A)$ is true because it is not the case that $\neg B$ is true and $\neg A$ is false 
+
+```{r }
+
+tibble(`$A$` = c("T", "F", "F"),
+       `$B$` = c("T", "T", "F"),
+       `$A \\implies B$` = c("T", "T", "T"),
+       `$A \\lor B$` = c("T", "T", "F"),
+       `$\\neg A \\lor B$` = c("T", "T", "T"),
+       `$B \\implies A$` = c("T", "F", "T"),
+       `$\\neg B \\implies \\neg A$` = c("T", "T", "T")) %>% 
+    kable(format = "html", escape = FALSE, align = "c") %>% 
+    kable_styling(full_width = FALSE, bootstrap_options = "bordered")
+```
+
+5. Assume that $A$ is true, $B$ is false, and $C$ is true. What are the truth values of:
+
+    a. $A \implies B$
+    
+        + False
+        
+    b. $B \implies C$
+    
+        + True
+        
+    c. $(A \lor \neg C) \lor B$
+    
+        + True
+        
+    d. $(A \Longleftrightarrow C) \Longleftrightarrow \neg B$
+    
+        + True
+        
+    e. $A \implies (B \implies A)$
+    
+        + True
 
 # Bibliography
