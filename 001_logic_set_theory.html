@@ -1811,6 +1811,8 @@ summary {
 <li><a href="#conditionals-exercises-and-solutions"><span class="toc-section-number">1.4</span> Conditionals exercises and solutions</a></li>
 <li><a href="#biconditionals"><span class="toc-section-number">1.5</span> Biconditionals</a></li>
 <li><a href="#biconditionals-exercises-and-solutions"><span class="toc-section-number">1.6</span> Biconditionals exercises and solutions</a></li>
+<li><a href="#quantifiers"><span class="toc-section-number">1.7</span> Quantifiers</a></li>
+<li><a href="#quantifiers-exercises-and-solutions"><span class="toc-section-number">1.8</span> Quantifiers exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -4922,6 +4924,126 @@ T
 <li><p><span class="math inline">\(A \implies (B \implies A)\)</span></p>
 <ul>
 <li>True</li>
+</ul></li>
+</ol></li>
+<li><p>For each of the following pairs of sentences show that they are equivalent, in the sense that they always take the same truth values</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A \land (B \lor \neg A)\)</span> and <span class="math inline">\(A \land B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A \land (B \lor \neg A)\)</span> is equivalent to <span class="math inline">\((A \land B) \lor (A \land \neg A)\)</span> based on exercise 3d in section 1.1 Logical connectives</p></li>
+<li><p>We have that <span class="math inline">\(A \land \neg A\)</span> is always false</p></li>
+<li><p>Because <span class="math inline">\(A \land B\)</span> can be false of true we have that if <span class="math inline">\(A \land B\)</span> is false <span class="math inline">\((A \land B) \lor (A \land \neg A)\)</span> is false. Also if <span class="math inline">\(A \land B\)</span> is true <span class="math inline">\((A \land B) \lor (A \land \neg A)\)</span> is true</p></li>
+<li><p>Therefore <span class="math inline">\(A \land (B \lor \neg A)\)</span> is equivalent to <span class="math inline">\(A \land B\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(A \lor (B \land \neg A)\)</span> and <span class="math inline">\(A \lor B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A \lor (B \land \neg A)\)</span> is equivalent to <span class="math inline">\((A \lor B) \land (A \lor \neg A)\)</span> based on exercise 3e in section 1.1 Logical connectives</p></li>
+<li><p>We have that <span class="math inline">\(A \lor \neg A\)</span> is always true</p></li>
+<li><p>Because <span class="math inline">\(A \land B\)</span> can be false of true we have that if <span class="math inline">\(A \lor B\)</span> is false <span class="math inline">\((A \lor B) \land (A \lor \neg A)\)</span> is false. Also if <span class="math inline">\(A \land B\)</span> is true <span class="math inline">\((A \lor B) \land (A \lor \neg A)\)</span> is true</p></li>
+<li><p>Therefore <span class="math inline">\(A \lor (B \land \neg A)\)</span> is equivalent to <span class="math inline">\(A \lor B\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(A \lor (B \land A)\)</span> and <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(A\)</span> is false we have that <span class="math inline">\(B \land A\)</span> is false therefore <span class="math inline">\(A \lor (B \land A)\)</span> is false</p></li>
+<li><p>If <span class="math inline">\(A\)</span> is true we have that <span class="math inline">\(B \land A\)</span> can be true or false. However <span class="math inline">\(A \lor (B \land A)\)</span> is true</p></li>
+<li><p>Therefore <span class="math inline">\(A \lor (B \land A)\)</span> is equivalent to <span class="math inline">\(A\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(A \land (B \lor A)\)</span> and <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(A\)</span> is false we have that <span class="math inline">\(B \lor A\)</span> can be true of false. However <span class="math inline">\(A \land (B \lor A)\)</span> is false</p></li>
+<li><p>If <span class="math inline">\(A\)</span> is true we have that <span class="math inline">\(B \lor A\)</span> is true. Therefore <span class="math inline">\(A \land (B \lor A)\)</span> is true</p></li>
+<li><p>Therefore <span class="math inline">\(A \land (B \lor A)\)</span> is equivalent to <span class="math inline">\(A\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\neg (A \lor B)\)</span> and <span class="math inline">\((\neg A) \land (\neg B)\)</span></p>
+<ul>
+<li>See exercise 3a in section 1.1 Logical connectives</li>
+</ul></li>
+<li><p><span class="math inline">\(\neg (A \land B)\)</span> and <span class="math inline">\((\neg A) \lor (\neg B)\)</span></p>
+<ul>
+<li>See exercise 3b in section 1.1 Logical connectives</li>
+</ul></li>
+</ol></li>
+</ol>
+</div>
+<div id="quantifiers" class="section level2">
+<h2><span class="header-section-number">1.7</span> Quantifiers</h2>
+<div id="universal-quantifier" class="section level3">
+<h3><span class="header-section-number">1.7.1</span> Universal quantifier</h3>
+<p>The sentence</p>
+<p><span class="math display">\[\text{All men are mortal } (1)\]</span></p>
+<p>can be formulated as</p>
+<p><span class="math display">\[\text{For all } x\text{, if } x \text{ is a man, then } x \text{ is mortal } (2)\]</span></p>
+<p>If we let <span class="math inline">\(M(x)\)</span> stand for <span class="math inline">\(x \text{ is a man}\)</span> and <span class="math inline">\(D(x)\)</span> for <span class="math inline">\(x \text{ is mortal}\)</span> then we can rewritten <span class="math inline">\((3)\)</span> as</p>
+<p><span class="math display">\[\text{For all } x \; (M(x) \implies D(x)) \; (3)\]</span> Finally we abbreviate <span class="math inline">\(\text{For all } x\)</span> by <span class="math inline">\((\forall x)\)</span> rewriting <span class="math inline">\((3)\)</span> as</p>
+<p><span class="math display">\[\forall x (M(x) \implies D(x)) \; (4)\]</span> The expression <span class="math inline">\((\forall x)\)</span> is called a <strong>universal quantifier</strong>. It usually replaces the english expressions <em>for all x</em>, <em>for every x</em>, <em>for each x</em>, <em>for any x</em>. Therefore any english of the sentence of the form <em>All A’s are B’s</em> can be written in the form <span class="math inline">\((\forall x)(A(x) \implies B(x))\)</span></p>
+</div>
+<div id="existential-quantifier" class="section level3">
+<h3><span class="header-section-number">1.7.2</span> Existential quantifier</h3>
+<p>There is another kind of quantifier occurring often in mathematics. Consider the sentence</p>
+<p><span class="math display">\[\text{Some continuous functions are not differentiable } (1)\]</span> This can be written as</p>
+<p><span class="math display">\[\text{For some } f, f \text{ is continuous function and } f \text{ is not a differentiable function } (2)\]</span> This can be formulated as</p>
+<p><span class="math display">\[\text{For some } f, \; C(f) \land \neg D(f) \; (3)\]</span> where <span class="math inline">\(C(f)\)</span> stands for <span class="math inline">\(f \text{ is continuous function}\)</span> and <span class="math inline">\(D(f)\)</span> stands for <span class="math inline">\(f \text{ is a differentiable function }\)</span></p>
+<p>Finally, we introduce <span class="math inline">\((\exists f)\)</span> as an abbreviation for <span class="math inline">\(\text{for some } f\)</span>, obtaining</p>
+<p><span class="math display">\[(\exists f)(C(f) \land \neg D(f)) \; (4)\]</span> The expression <span class="math inline">\((\exists x)\)</span> is called a <strong>existential quantifier</strong>. It usually replaces the english expressions <em>for some f</em>, <em>there exists and f such that</em>, <em>for at least one f</em>. Therefore any english of the sentence of the form <em>Some A’s are B’s</em> can be written in the form <span class="math inline">\((\exists f)(A(x) \implies B(x))\)</span></p>
+<p>For example, the sentence</p>
+<p><span class="math display">\[\text{There is no largest integer}\]</span> can be written in the following ways where <span class="math inline">\(I(X)\)</span> means <em>x is an integer</em></p>
+<p><span class="math display">\[(\neg (\exists x))(I(x) \land (\forall y)(I(y) \implies y \leq x))\]</span></p>
+<p><span class="math display">\[(\forall x)(I(x) \implies (\exists y)(I(y) \land x &lt; y))\]</span> Sometimes it is convenient to apply a special uniqueness symbol:</p>
+<ul>
+<li><p><span class="math inline">\((\exists !x)(A(x))\)</span> shall mean <em>there is one and only one x such that A(x)</em></p></li>
+<li><p>Equivalent english sentences are <em>there is a unique x such that A(x)</em>, <em>there is exactly one x such that A(x)</em>, <em>there is precisely one x such that A(x)</em></p></li>
+<li><p>We can define <span class="math inline">\((\exists !x)(A(x))\)</span> as</p></li>
+</ul>
+<p><span class="math display">\[(\exists x)(A(x) \land (\forall z)(A(z) \implies z = x))\]</span></p>
+</div>
+<div id="relation-between-the-universal-and-existential-quantifier" class="section level3">
+<h3><span class="header-section-number">1.7.3</span> Relation between the universal and existential quantifier</h3>
+<p>Notice that <span class="math inline">\(\neg (\exists x)(A(x))\)</span> has the same meaning as <span class="math inline">\((\forall x)(\neg A(x))\)</span></p>
+<p>For example, the sentence</p>
+<p><span class="math display">\[\text{No integer is bigger than itself}\]</span> can be written in the following ways</p>
+<p><span class="math display">\[\neg (\exists x)(I(x) \land x &lt; x)\]</span> <span class="math display">\[(\forall x)(\neg (I(x) \land x &lt; x))\]</span> <span class="math display">\[(\forall x)(I(x) \implies \neg(x &lt; x)))\]</span></p>
+<p>where <span class="math inline">\(\neg (A \land B)\)</span> is equivalent to <span class="math inline">\(\neg (A \land \neg (\neg B))\)</span>. So it is also equivalent to <span class="math inline">\(A \implies \neg B\)</span></p>
+<p>For example, the sentence</p>
+<p><span class="math display">\[\text{Not all primes are odd}\]</span> can be written in the following ways where <span class="math inline">\(P(x)\)</span> means <em>x is prime</em> and <span class="math inline">\(O(x)\)</span> means <em>x is odd</em></p>
+<p><span class="math display">\[(\exists x)(P(x) \land \neg O(x))\]</span> <span class="math display">\[(\exists x)(\neg \neg(P(x) \land \neg O(x)))\]</span> <span class="math display">\[(\exists x)(\neg (P(x) \implies O(x)))\]</span> <span class="math display">\[\neg (\forall x)(P(x) \implies O(x))\]</span></p>
+</div>
+</div>
+<div id="quantifiers-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.8</span> Quantifiers exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Translate the following english sentences into our symbolism</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Not all american girls are beautiful</p>
+<ul>
+<li><p><span class="math inline">\(A(x) = x \text{ is american}\)</span></p></li>
+<li><p><span class="math inline">\(G(x) = x \text{ is a girl}\)</span></p></li>
+<li><p><span class="math inline">\(B(x) = x \text{ is beautiful}\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)((A(x) \land G(x)) \land \neg B(x)) = \text{Not all american girls are beautiful}\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)\neg (A(x) \land G(x)) \implies B(x)) = \text{Not all american girls are beautiful}\)</span></p></li>
+<li><p><span class="math inline">\(\neg (\forall x) (A(x) \land G(x)) \implies B(x)) = \text{Not all american girls are beautiful}\)</span></p></li>
+</ul></li>
+<li><p>All american girs are not beautiful</p>
+<ul>
+<li><p><span class="math inline">\(A(x) = x \text{ is american}\)</span></p></li>
+<li><p><span class="math inline">\(G(x) = x \text{ is a girl}\)</span></p></li>
+<li><p><span class="math inline">\(B(x) = x \text{ is beautiful}\)</span></p></li>
+<li><p><span class="math inline">\(\neg (\exists x)((A(x) \land G(x)) \land B(x)) = \text{All american girs are not beautiful}\)</span></p></li>
+<li><p><span class="math inline">\((\forall x) \neg ((A(x) \land G(x)) \land B(x)) = \text{All american girs are not beautiful}\)</span></p></li>
+<li><p><span class="math inline">\((\forall x) \neg ((A(x) \land G(x)) \land \neg \neg B(x)) = \text{All american girs are not beautiful}\)</span></p></li>
+<li><p><span class="math inline">\((\forall x) (A(x) \land G(x)) \implies \neg B(x)) = \text{All american girs are not beautiful}\)</span></p></li>
+</ul></li>
+<li><p>There is a smallest positive integer</p>
+<ul>
+<li><p><span class="math inline">\(P(x) = x \text{ is a positive integer} = x \in \mathbb{P}\)</span></p></li>
+<li><p><span class="math inline">\(S(x) = x \text{ is small or equal to } y = x \leq y\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(x \in \mathbb{P} \implies (\exists y)(y \in \mathbb{P} \land y \leq x))\)</span></p></li>
+</ul></li>
+<li><p>There is a rational number between any two real numbers</p>
+<ul>
+<li><p><span class="math inline">\(Q(x) = x \text{ is a rational number} = x \in \mathbb{Q}\)</span></p></li>
+<li><p><span class="math inline">\(R(x) = x \text{ is a real number} = x \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(B(x,y,z) = x \text{ is between } y \text{ and } z = y &lt; x &lt; z\)</span></p></li>
+<li><p><span class="math inline">\((\forall y)(\forall z)((y \in \mathbb{R} \land z \in \mathbb{R} \land y &lt; z) \implies (\exists x)(x \in \mathbb{Q} \land y &lt; x &lt; z))\)</span></p></li>
 </ul></li>
 </ol></li>
 </ol>

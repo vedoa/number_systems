@@ -738,4 +738,199 @@ tibble(`$A$` = c("T", "F", "F"),
     
         + True
 
+6. For each of the following pairs of sentences show that they are equivalent, in the sense that they always take the same truth values
+
+    a. $A \land (B \lor \neg A)$ and $A \land B$
+    
+        + $A \land (B \lor \neg A)$ is equivalent to $(A \land B) \lor (A \land \neg A)$ based on exercise 3d in section 1.1 Logical connectives
+        
+        + We have that $A \land \neg A$ is always false
+        
+        + Because $A \land B$ can be false of true we have that if $A \land B$ is false $(A \land B) \lor (A \land \neg A)$ is false. Also if $A \land B$ is true $(A \land B) \lor (A \land \neg A)$ is true
+        
+        + Therefore $A \land (B \lor \neg A)$ is equivalent to $A \land B$ 
+
+    b. $A \lor (B \land \neg A)$ and $A \lor B$
+    
+        + $A \lor (B \land \neg A)$ is equivalent to $(A \lor B) \land (A \lor \neg A)$ based on exercise 3e in section 1.1 Logical connectives
+        
+        + We have that $A \lor \neg A$ is always true
+        
+        + Because $A \land B$ can be false of true we have that if $A \lor B$ is false $(A \lor B) \land (A \lor \neg A)$ is false. Also if $A \land B$ is true $(A \lor B) \land (A \lor \neg A)$ is true
+        
+        + Therefore $A \lor (B \land \neg A)$ is equivalent to $A \lor B$
+        
+    c. $A \lor (B \land A)$ and $A$
+    
+        + If $A$ is false we have that $B \land A$ is false therefore $A \lor (B \land A)$ is false
+        
+        + If $A$ is true we have that $B \land A$ can be true or false. However $A \lor (B \land A)$ is true
+        
+        + Therefore $A \lor (B \land A)$ is equivalent to $A$
+        
+    d. $A \land (B \lor A)$ and $A$
+    
+        + If $A$ is false we have that $B \lor A$ can be true of false. However $A \land (B \lor A)$ is false 
+        
+        + If $A$ is true we have that $B \lor A$ is true. Therefore $A \land (B \lor A)$ is true
+        
+        + Therefore $A \land (B \lor A)$ is equivalent to $A$
+        
+    e. $\neg (A \lor B)$ and $(\neg A) \land (\neg B)$
+    
+        + See exercise 3a in section 1.1 Logical connectives
+        
+    f. $\neg (A \land B)$ and $(\neg A) \lor (\neg B)$
+    
+        + See exercise 3b in section 1.1 Logical connectives
+        
+## Quantifiers
+
+### Universal quantifier
+
+The sentence
+
+$$\text{All men are mortal } (1)$$ 
+
+can be formulated as
+
+$$\text{For all } x\text{, if } x \text{ is a man, then } x \text{ is mortal } (2)$$
+
+If we let $M(x)$ stand for $x \text{ is a man}$ and $D(x)$ for $x \text{ is mortal}$ then we can rewritten $(3)$ as
+
+$$\text{For all } x \; (M(x) \implies D(x)) \; (3)$$
+Finally we abbreviate $\text{For all } x$ by $(\forall x)$ rewriting $(3)$ as
+
+$$\forall x (M(x) \implies D(x)) \; (4)$$
+The expression $(\forall x)$ is called a __universal quantifier__. It usually replaces the english expressions _for all x_, _for every x_, _for each x_, _for any x_. Therefore any english of the sentence of the form _All A's are B's_ can be written in the form $(\forall x)(A(x) \implies B(x))$
+
+### Existential quantifier
+
+There is another kind of quantifier occurring often in mathematics. Consider the sentence
+
+$$\text{Some continuous functions are not differentiable } (1)$$
+This can be written as 
+
+$$\text{For some } f, f \text{ is continuous function and } f \text{ is not a differentiable function } (2)$$
+This can be formulated as
+
+$$\text{For some } f, \; C(f) \land \neg D(f) \; (3)$$
+where $C(f)$ stands for $f \text{ is continuous function}$ and $D(f)$ stands for $f \text{ is a differentiable function }$ 
+
+Finally, we introduce $(\exists f)$ as an abbreviation for $\text{for some } f$, obtaining
+
+$$(\exists f)(C(f) \land \neg D(f)) \; (4)$$
+The expression $(\exists x)$ is called a __existential quantifier__. It usually replaces the english expressions _for some f_, _there exists and f such that_, _for at least one f_. Therefore any english of the sentence of the form _Some A's are B's_ can be written in the form $(\exists f)(A(x) \implies B(x))$
+
+For example, the sentence
+
+$$\text{There is no largest integer}$$
+can be written in the following ways where $I(X)$ means _x is an integer_
+
+$$(\neg (\exists x))(I(x) \land (\forall y)(I(y) \implies y \leq x))$$
+
+$$(\forall x)(I(x) \implies (\exists y)(I(y) \land x < y))$$
+Sometimes it is convenient to apply a special uniqueness symbol:
+
+- $(\exists !x)(A(x))$ shall mean _there is one and only one x such that A(x)_
+
+- Equivalent english sentences are _there is a unique x such that A(x)_, _there is exactly one x such that A(x)_, _there is precisely one x such that A(x)_
+
+- We can define $(\exists !x)(A(x))$ as
+
+$$(\exists x)(A(x) \land (\forall z)(A(z) \implies z = x))$$
+
+### Relation between the universal and existential quantifier
+
+Notice that $\neg (\exists x)(A(x))$ has the same meaning as $(\forall x)(\neg A(x))$
+
+For example, the sentence
+
+$$\text{No integer is bigger than itself}$$
+can be written in the following ways
+
+$$\neg (\exists x)(I(x) \land x < x)$$
+$$(\forall x)(\neg (I(x) \land x < x))$$
+$$(\forall x)(I(x) \implies \neg(x < x)))$$
+
+where $\neg (A \land B)$ is equivalent to $\neg (A \land \neg (\neg B))$. So it is also equivalent to $A \implies \neg B$   
+
+For example, the sentence
+
+$$\text{Not all primes are odd}$$
+can be written in the following ways where $P(x)$ means _x is prime_ and $O(x)$ means _x is odd_
+
+$$(\exists x)(P(x) \land \neg O(x))$$
+$$(\exists x)(\neg \neg(P(x) \land \neg O(x)))$$
+$$(\exists x)(\neg (P(x) \implies O(x)))$$
+$$\neg (\forall x)(P(x) \implies O(x))$$
+
+## Quantifiers exercises and solutions
+
+1. Translate the following english sentences into our symbolism
+
+    a. Not all american girls are beautiful
+    
+        + $A(x) = x \text{ is american}$
+        
+        + $G(x) = x \text{ is a girl}$
+        
+        + $B(x) = x \text{ is beautiful}$
+        
+        + $(\exists x)((A(x) \land G(x)) \land \neg B(x)) = \text{Not all american girls are beautiful}$
+        
+        + $(\exists x)\neg (A(x) \land G(x)) \implies B(x)) = \text{Not all american girls are beautiful}$
+        
+        + $\neg (\forall x) (A(x) \land G(x)) \implies B(x)) = \text{Not all american girls are beautiful}$
+        
+    b. All american girs are not beautiful
+    
+        + $A(x) = x \text{ is american}$
+        
+        + $G(x) = x \text{ is a girl}$
+        
+        + $B(x) = x \text{ is beautiful}$
+        
+        + $\neg (\exists x)((A(x) \land G(x)) \land B(x)) = \text{All american girs are not beautiful}$
+        
+        + $(\forall x) \neg ((A(x) \land G(x)) \land B(x)) = \text{All american girs are not beautiful}$
+        
+        + $(\forall x) \neg ((A(x) \land G(x)) \land \neg \neg B(x)) = \text{All american girs are not beautiful}$
+        
+        + $(\forall x) (A(x) \land G(x)) \implies \neg B(x)) = \text{All american girs are not beautiful}$
+        
+    c. There is a smallest positive integer
+    
+        + $P(x) = x \text{ is a positive integer} = x \in \mathbb{P}$
+        
+        + $S(x) = x \text{ is small or equal to } y = x \leq y$
+        
+        + $(\forall x)(x \in \mathbb{P} \implies (\exists y)(y \in \mathbb{P} \land y \leq x))$
+        
+    d. There is a rational number between any two real numbers
+    
+        + $Q(x) = x \text{ is a rational number} = x \in \mathbb{Q}$
+        
+        + $R(x) = x \text{ is a real number} = x \in \mathbb{R}$
+        
+        + $B(x,y,z) = x \text{ is between } y \text{ and } z = y < x < z$
+        
+        + $(\forall y)(\forall z)((y \in \mathbb{R} \land z \in \mathbb{R} \land y < z) \implies (\exists x)(x \in \mathbb{Q} \land y < x < z))$
+
 # Bibliography
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
