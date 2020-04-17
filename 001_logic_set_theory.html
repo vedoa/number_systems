@@ -1813,6 +1813,10 @@ summary {
 <li><a href="#biconditionals-exercises-and-solutions"><span class="toc-section-number">1.6</span> Biconditionals exercises and solutions</a></li>
 <li><a href="#quantifiers"><span class="toc-section-number">1.7</span> Quantifiers</a></li>
 <li><a href="#quantifiers-exercises-and-solutions"><span class="toc-section-number">1.8</span> Quantifiers exercises and solutions</a></li>
+<li><a href="#sets"><span class="toc-section-number">1.9</span> Sets</a></li>
+<li><a href="#membership-equality-and-inclusion-of-sets"><span class="toc-section-number">1.10</span> Membership, equality and inclusion of sets</a></li>
+<li><a href="#membership-equality-and-inclusion-of-sets-exercises-and-solutions"><span class="toc-section-number">1.11</span> Membership, equality and inclusion of sets exercises and solutions</a></li>
+<li><a href="#the-empty-set"><span class="toc-section-number">1.12</span> The empty set</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -3986,7 +3990,7 @@ F
 <span id="cb18-11"><a href="#cb18-11"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
 <span id="cb18-12"><a href="#cb18-12"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">implies B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
 <span id="cb18-13"><a href="#cb18-13"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">neg (A </span><span class="ch">\\</span><span class="dt">Longleftarrow B)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
-<span id="cb18-14"><a href="#cb18-14"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
+<span id="cb18-14"><a href="#cb18-14"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">iff B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
 <span id="cb18-15"><a href="#cb18-15"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">top$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
 <span id="cb18-16"><a href="#cb18-16"></a>       <span class="st">`</span><span class="dt">$</span><span class="ch">\\</span><span class="dt">bot$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb18-17"><a href="#cb18-17"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
@@ -4036,7 +4040,7 @@ F
 <span class="math inline">\(\neg (A \Longleftarrow B)\)</span>
 </th>
 <th style="text-align:center;">
-<span class="math inline">\(A \Longleftrightarrow B\)</span>
+<span class="math inline">\(A \iff B\)</span>
 </th>
 <th style="text-align:center;">
 <span class="math inline">\(\top\)</span>
@@ -4265,7 +4269,7 @@ F
 <li><p><span class="math inline">\(A \Longleftarrow B\)</span> is know as the converse of material conditional: <span class="math inline">\(\neg (B \land \neg A)\)</span></p></li>
 <li><p><span class="math inline">\(\neg (A \implies B)\)</span> is the negation of the material implication</p></li>
 <li><p><span class="math inline">\(\neg (A \Longleftarrow B)\)</span> is the negation of the converse of the material implication</p></li>
-<li><p><span class="math inline">\(A \Longleftrightarrow B\)</span> is a biconditional</p></li>
+<li><p><span class="math inline">\(A \iff B\)</span> is a biconditional</p></li>
 <li><p><span class="math inline">\(\top\)</span> is a tautology</p></li>
 <li><p><span class="math inline">\(\bot\)</span> is a contradiction</p></li>
 </ul></li>
@@ -4280,7 +4284,7 @@ F
 <ul>
 <li><p>We discard <span class="math inline">\(B\)</span> and <span class="math inline">\(\neg A\)</span> because these tables only depend on one binary variable</p></li>
 <li><p>We discard <span class="math inline">\(\bot\)</span> because is a contradiction</p></li>
-<li><p>We discard <span class="math inline">\(A \land B\)</span>, and <span class="math inline">\(A \Longleftrightarrow B\)</span> becasue are logical connectives with a clear interpretation in mathematical logic</p></li>
+<li><p>We discard <span class="math inline">\(A \land B\)</span>, and <span class="math inline">\(A \iff B\)</span> becasue are logical connectives with a clear interpretation in mathematical logic</p></li>
 <li><p>The remaining candidates are <span class="math inline">\(A \downarrow B\)</span> and <span class="math inline">\(\neg (A \Longleftarrow B)\)</span></p>
 <ul>
 <li>The problem with this logical connectives as alternative candidates for <span class="math inline">\(A \implies B\)</span> is that when <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are true the value of the <strong>truth table</strong> is false</li>
@@ -4298,11 +4302,11 @@ F
 </div>
 <div id="biconditionals" class="section level2">
 <h2><span class="header-section-number">1.5</span> Biconditionals</h2>
-<p>Given sentences <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we may form a new sentence <span class="math inline">\(\text{If } A \text{ and only if } B\)</span>, which we shall write <span class="math inline">\(A \Longleftrightarrow B\)</span></p>
+<p>Given sentences <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we may form a new sentence <span class="math inline">\(\text{If } A \text{ and only if } B\)</span>, which we shall write <span class="math inline">\(A \iff B\)</span></p>
 <p>The corresponding <strong>true table</strong> is</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
 <span id="cb19-2"><a href="#cb19-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
-<span id="cb19-3"><a href="#cb19-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">iff B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb19-4"><a href="#cb19-4"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb19-5"><a href="#cb19-5"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)</span></code></pre></div>
 <table class="table table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -4315,7 +4319,7 @@ F
 <span class="math inline">\(B\)</span>
 </th>
 <th style="text-align:center;">
-<span class="math inline">\(A \Longleftrightarrow B\)</span>
+<span class="math inline">\(A \iff B\)</span>
 </th>
 </tr>
 </thead>
@@ -4376,30 +4380,30 @@ T
 <ul>
 <li><p><span class="math inline">\(A = s \text{ is convergent}\)</span></p></li>
 <li><p><span class="math inline">\(B = s \text{ is cauchy convergent}\)</span></p></li>
-<li><p><span class="math inline">\(A \Longleftrightarrow B = \text{A necessary and suficient condition for } s \text{ to be convergent is that it is cauchy convergent}\)</span></p></li>
+<li><p><span class="math inline">\(A \iff B = \text{A necessary and suficient condition for } s \text{ to be convergent is that it is cauchy convergent}\)</span></p></li>
 </ul></li>
 <li><p>Horatio is happy if and only if the sun is shining and business is good</p>
 <ul>
 <li><p><span class="math inline">\(A = \text{Horatio is happy}\)</span></p></li>
 <li><p><span class="math inline">\(B = \text{The sun is shining}\)</span></p></li>
 <li><p><span class="math inline">\(C = \text{Business is good}\)</span></p></li>
-<li><p><span class="math inline">\(A \Longleftrightarrow (B \land C) = \text{Horatio is happy if and only if the sun is shining and business is good}\)</span></p></li>
+<li><p><span class="math inline">\(A \iff (B \land C) = \text{Horatio is happy if and only if the sun is shining and business is good}\)</span></p></li>
 </ul></li>
 <li><p><span class="math inline">\(f\)</span> is differentiable when and only when it is continuous</p>
 <ul>
 <li><p><span class="math inline">\(A = f \text{ is a differentiable function}\)</span></p></li>
 <li><p><span class="math inline">\(B = f \text{ is a continuous function}\)</span></p></li>
-<li><p><span class="math inline">\(A \Longleftrightarrow B = f \text{ is differentiable when and only when it is continuous}\)</span></p></li>
+<li><p><span class="math inline">\(A \iff B = f \text{ is differentiable when and only when it is continuous}\)</span></p></li>
 </ul></li>
 </ol></li>
-<li><p>Show that <span class="math inline">\(A \Longleftrightarrow B\)</span> always has the same truth values as <span class="math inline">\((A \implies B) \land (B \implies A)\)</span>. Hence to prove <span class="math inline">\(A \Longleftrightarrow B\)</span> it suffices to prove <span class="math inline">\(A \implies B\)</span> and <span class="math inline">\(B \implies A\)</span></p></li>
+<li><p>Show that <span class="math inline">\(A \iff B\)</span> always has the same truth values as <span class="math inline">\((A \implies B) \land (B \implies A)\)</span>. Hence to prove <span class="math inline">\(A \iff B\)</span> it suffices to prove <span class="math inline">\(A \implies B\)</span> and <span class="math inline">\(B \implies A\)</span></p></li>
 </ol>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">tibble</span>(<span class="st">`</span><span class="dt">$A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
 <span id="cb20-2"><a href="#cb20-2"></a>       <span class="st">`</span><span class="dt">$B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>),</span>
 <span id="cb20-3"><a href="#cb20-3"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
 <span id="cb20-4"><a href="#cb20-4"></a>       <span class="st">`</span><span class="dt">$B </span><span class="ch">\\</span><span class="dt">Longrightarrow A$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
 <span id="cb20-5"><a href="#cb20-5"></a>       <span class="st">`</span><span class="dt">$(A </span><span class="ch">\\</span><span class="dt">Longrightarrow B) </span><span class="ch">\\</span><span class="dt">land (B </span><span class="ch">\\</span><span class="dt">Longrightarrow A)$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>),</span>
-<span id="cb20-6"><a href="#cb20-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">Longleftrightarrow B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
+<span id="cb20-6"><a href="#cb20-6"></a>       <span class="st">`</span><span class="dt">$A </span><span class="ch">\\</span><span class="dt">iff B$</span><span class="st">`</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;T&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
 <span id="cb20-7"><a href="#cb20-7"></a>       ) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb20-8"><a href="#cb20-8"></a><span class="st">    </span><span class="kw">kable</span>(<span class="dt">format =</span> <span class="st">&quot;html&quot;</span>, <span class="dt">escape =</span> <span class="ot">FALSE</span>, <span class="dt">align =</span> <span class="st">&quot;c&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb20-9"><a href="#cb20-9"></a><span class="st">    </span><span class="kw">kable_styling</span>(<span class="dt">full_width =</span> <span class="ot">FALSE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;bordered&quot;</span>)  <span class="op">%&gt;%</span><span class="st"> </span></span>
@@ -4423,7 +4427,7 @@ T
 <span class="math inline">\((A \Longrightarrow B) \land (B \Longrightarrow A)\)</span>
 </th>
 <th style="text-align:center;">
-<span class="math inline">\(A \Longleftrightarrow B\)</span>
+<span class="math inline">\(A \iff B\)</span>
 </th>
 </tr>
 </thead>
@@ -4917,7 +4921,7 @@ T
 <ul>
 <li>True</li>
 </ul></li>
-<li><p><span class="math inline">\((A \Longleftrightarrow C) \Longleftrightarrow \neg B\)</span></p>
+<li><p><span class="math inline">\((A \iff C) \iff \neg B\)</span></p>
 <ul>
 <li>True</li>
 </ul></li>
@@ -5045,8 +5049,164 @@ T
 <li><p><span class="math inline">\(B(x,y,z) = x \text{ is between } y \text{ and } z = y &lt; x &lt; z\)</span></p></li>
 <li><p><span class="math inline">\((\forall y)(\forall z)((y \in \mathbb{R} \land z \in \mathbb{R} \land y &lt; z) \implies (\exists x)(x \in \mathbb{Q} \land y &lt; x &lt; z))\)</span></p></li>
 </ul></li>
+<li><p>Not all drunkards are truculent</p>
+<ul>
+<li><p><span class="math inline">\(D(x) = x \text{ is drunkard}\)</span></p></li>
+<li><p><span class="math inline">\(T(x) = x \text{ is truculent}\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)(D(x) \land \neg T(x))\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)\neg \neg (D(x) \land \neg T(x))\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)\neg (D(x) \implies T(x))\)</span></p></li>
+<li><p><span class="math inline">\(\neg (\forall x) (D(x) \implies T(x))\)</span></p></li>
+</ul></li>
+<li><p>No one loves everybody</p>
+<ul>
+<li><p><span class="math inline">\(L(x, y) = x \text{ loves } y\)</span></p></li>
+<li><p><span class="math inline">\(\neg (\exists x)(\forall y)(L(x,y))\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(\exists y)(\neg L(x,y))\)</span></p></li>
+</ul></li>
+<li><p>For every positive real number <span class="math inline">\(x\)</span>, there is a unique real number <span class="math inline">\(y\)</span> such that <span class="math inline">\(2^y = x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R(x) = x \text{ is a real number} = x \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(P(x) = x \text{ is positive} = x &gt; 0\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(x \in \mathbb{R} \land x &gt; 0 \implies (\exists y)(y \in \mathbb{R} \land x = 2^y))\)</span></p></li>
+</ul></li>
+<li><p>At least someone cares about me</p>
+<ul>
+<li><p><span class="math inline">\(C(x) = x \text{ cares about me}\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)(C(x))\)</span></p></li>
+</ul></li>
+<li><p>If a sequence has a limit, it has only one</p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x \text{ is a sequence}\)</span></p></li>
+<li><p><span class="math inline">\(L(x,y) = x \text{ has a limit } y\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(S(x) \land L(x,y) \implies (\exists !y)(L(x,y)))\)</span></p></li>
+</ul></li>
+<li><p>Two nonparallel lines have exactly one point in common</p>
+<ul>
+<li><p><span class="math inline">\(L(x) = x \text{ is a line}\)</span></p></li>
+<li><p><span class="math inline">\(P(x, y, z) = x \text{ is parallel to } y \text{ and have a } z \text{ in common}\)</span></p></li>
+<li><p><span class="math inline">\(Pt(x) = x \text{ is a point}\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(\forall y)(L(x) \land L(y) \land P(x,y,z) \implies (\exists !z)(Pt(z)))\)</span></p></li>
+</ul></li>
+<li><p>All people are honest or no one is honest</p>
+<ul>
+<li><p><span class="math inline">\(H(x) = x \text{ is a honest}\)</span></p></li>
+<li><p><span class="math inline">\(P(x) = x \text{ is a person}\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(P(x) \implies H(x)) \lor (\forall x)(P(x) \implies \neg H(x))\)</span></p></li>
+<li><p><span class="math inline">\((\forall x) \neg (P(x) \land \neg H(x)) \lor (\forall x) \neg (P(x) \land \neg \neg H(x))\)</span></p></li>
+<li><p><span class="math inline">\(\neg (\exists x) (P(x) \land \neg H(x)) \lor \neg (\exists x) (P(x) \land H(x))\)</span></p></li>
+</ul></li>
+<li><p>Some people are honest and some people aren’t honest</p>
+<ul>
+<li><p><span class="math inline">\(H(x) = x \text{ is a honest}\)</span></p></li>
+<li><p><span class="math inline">\(P(x) = x \text{ is a person}\)</span></p></li>
+<li><p><span class="math inline">\((\exists x)(P(x) \land H(x)) \land (\exists x)(P(x) \land \neg H(x))\)</span></p></li>
+<li><p><span class="math inline">\((\exists x) \neg \neg (P(x) \land \neg \neg H(x)) \land (\exists x) \neg \neg (P(x) \land \neg H(x))\)</span></p></li>
+<li><p><span class="math inline">\((\exists x) \neg (P(x) \implies \neg H(x)) \land (\exists x) \neg (P(x) \implies H(x))\)</span></p></li>
+<li><p><span class="math inline">\(\neg (\forall x) (P(x) \implies \neg H(x)) \land \neg (\forall x) (P(x) \implies H(x))\)</span></p></li>
+</ul></li>
 </ol></li>
+<li><p>Give idiomatic english versions of the following formulas</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\((\forall x)(P(x) \implies (\exists y)(C(y) \land (\exists z)(T(z) \land S(x, y, z)) ))\)</span> where <span class="math inline">\(P(x), C(x), T(x), S(x, y, z)\)</span> mean <span class="math inline">\(x \text{ is a student}\)</span>, <span class="math inline">\(x \text{ is a course}\)</span>, <span class="math inline">\(x \text{ is a bad teacher}\)</span> and <span class="math inline">\(x \text{ studies } y \text{ with } z\)</span></p>
+<ul>
+<li>If you are a student then you study in at least a course that is taught by a bad teacher</li>
+</ul></li>
+<li><p><span class="math inline">\((\forall x)(C(x) \implies (M(x) \ implies N(x)))\)</span> where <span class="math inline">\(C(x), M(x), N(x)\)</span> mean <span class="math inline">\(x \text{ is good as a chessplayer}\)</span>, <span class="math inline">\(x \text{ is a male}\)</span> and <span class="math inline">\(x \text{ is neurotic}\)</span></p>
+<ul>
+<li>Every good chess player if is male it is neurotic</li>
+</ul></li>
+<li><p><span class="math inline">\((\exists y)(P(y) \land (\exists x)(P(x) \land L(y,x)))\)</span> where <span class="math inline">\(P(y)\)</span> and <span class="math inline">\(L(x, y)\)</span> mean <span class="math inline">\(y \text{ is a person}\)</span> and <span class="math inline">\(x \text{ loves } y\)</span></p>
+<ul>
+<li>There is at least one person that is love by at least one person</li>
+</ul></li>
+<li><p><span class="math inline">\(\neg (\exists x)((\forall x)((D(y) \lor C(y)) \implies H(x,y) \land B(x)))\)</span> where <span class="math inline">\(D(y), C(y), H(x,y), B(x)\)</span> mean <span class="math inline">\(y \text{ is a dog}\)</span>, <span class="math inline">\(\; y \text{ is a child}\)</span>, <span class="math inline">\(\; x \text{ hates } y\)</span> and <span class="math inline">\(x \text{ is all bad}\)</span></p>
+<ul>
+<li>There is no one bad who hates a dog or a child</li>
+</ul></li>
+<li><p><span class="math inline">\((\exists !x)(A(x) \land \neg 0(x) \land S(x))\)</span> where <span class="math inline">\(A(x), 0(x), S(x)\)</span> mean <span class="math inline">\(x \text{ is a real number}\)</span>, <span class="math inline">\(x = 0\)</span> and <span class="math inline">\(x = x ^2\)</span></p>
+<ul>
+<li>There is a unique real number different from zero that is equal to its square.</li>
+</ul></li>
+<li><p><span class="math inline">\((\forall z)[([(\forall u)(E(u,z) \implies I(u))] \land (\exists u)(E(u,z))) \implies (\exists !u)(E(u,z) \land (\forall v)(E(v,z) \implies L(u,v)))]\)</span> where <span class="math inline">\(E(u,z), I(u), L(u,v)\)</span> mean <span class="math inline">\(\; u \in z\)</span>, <span class="math inline">\(u \text{ is a positive integer}\)</span> and <span class="math inline">\(u \leq v\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(z\)</span> is any set that contains at least one element and every element of <span class="math inline">\(z\)</span> is a positive integer then exists a unique positive integer such that it belongs to <span class="math inline">\(z\)</span> and it is equal or less than every element that belongs to <span class="math inline">\(z\)</span></p></li>
+<li><p>If <span class="math inline">\(z\)</span> is any subset of <span class="math inline">\(\mathbb{P}\)</span> and <span class="math inline">\(z\)</span> is not an empty set then there exist a positive integer <span class="math inline">\(u\)</span> that belongs to <span class="math inline">\(z\)</span> such that it is the smallest element of <span class="math inline">\(z\)</span></p></li>
+<li><p>If <span class="math inline">\(z \subseteq \mathbb{P}\)</span> and <span class="math inline">\(z \neq \emptyset\)</span> then exists a unique <span class="math inline">\(u \in z\)</span> such that for all <span class="math inline">\(v \in z\)</span> we have that <span class="math inline">\(u \leq v\)</span></p></li>
+<li><p><span class="math inline">\((\forall z)[(z \subseteq \mathbb{P} \land z \neq \emptyset) \implies (\exists !x)(x \in z \land (\forall v)(v \in z \land x \leq v))]\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\((\forall x)(P(x) \land O(x) \implies \neg T(x))\)</span> where <span class="math inline">\(P(x), O(x), T(x)\)</span> mean <span class="math inline">\(x \text{ is a person}\)</span>, <span class="math inline">\(x \text{ is over 30}\)</span> and <span class="math inline">\(x \text{ can de trusted}\)</span></p>
+<ul>
+<li>If <span class="math inline">\(x\)</span> is any person over 30 then it can’t be trusted</li>
+</ul></li>
+<li><p><span class="math inline">\((\forall x)(\forall y)(P(x) \land P(y) \land \neg E(x,y) \implies (\exists !z)(L(z) \land I(z, x) \land I(z,y)))\)</span> where <span class="math inline">\(P(x), E(x,y), L(z), I(z,x)\)</span> mean <span class="math inline">\(x \text{ is a point}\)</span>, <span class="math inline">\(x = y\)</span>, <span class="math inline">\(x \text{ is a line}\)</span> and <span class="math inline">\(x \text{ lies on } z\)</span></p>
+<ul>
+<li>If <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are two different points then there exist a unique line <span class="math inline">\(z\)</span> such that <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> lies on it</li>
+</ul></li>
+</ol></li>
+<li><p>The definition of <span class="math inline">\(f \text{ is continuous at } x_0\)</span> is</p></li>
 </ol>
+<p><span class="math display">\[(\forall \epsilon)(\epsilon &gt; 0 \implies (\exists \delta)(\delta &gt; 0 \land (\forall x)(|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> Find a simple formula for the denial: <span class="math inline">\(f \text{ is not continuous at } x_0\)</span>. Negation signs should apply only to the basic sentences and not to compound sentences</p>
+<p><span class="math display">\[\neg (\forall \epsilon)(\epsilon &gt; 0 \implies (\exists \delta)(\delta &gt; 0 \land (\forall x)(|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> <span class="math display">\[(\exists \epsilon) \neg (\epsilon &gt; 0 \implies (\exists \delta)(\delta &gt; 0 \land (\forall x)(|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> <span class="math display">\[(\exists \epsilon)(\epsilon &gt; 0 \land \neg (\exists \delta)(\delta &gt; 0 \land (\forall x)(|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> <span class="math display">\[(\exists \epsilon)(\epsilon &gt; 0 \land (\forall \delta) \neg (\delta &gt; 0 \land (\forall x)(|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> <span class="math display">\[(\exists \epsilon)(\epsilon &gt; 0 \land (\forall \delta)(\delta \leq 0 \lor \neg (\forall x)(|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> <span class="math display">\[(\exists \epsilon)(\epsilon &gt; 0 \land (\forall \delta)(\delta \leq 0 \lor (\exists x) \neg (|x - x_0| &lt; \delta \implies |f(x) - f(x_0)| &lt; \epsilon)))\]</span> <span class="math display">\[(\exists \epsilon)(\epsilon &gt; 0 \land (\forall \delta)(\delta \leq 0 \lor (\exists x)(|x - x_0| &lt; \delta \land \neg(|f(x) - f(x_0)| &lt; \epsilon))))\]</span> <span class="math display">\[(\exists \epsilon)(\epsilon &gt; 0 \land (\forall \delta)(\delta \leq 0 \lor (\exists x)(|x - x_0| &lt; \delta \land |f(x) - f(x_0)| \geq \epsilon)))\]</span></p>
+</div>
+<div id="sets" class="section level2">
+<h2><span class="header-section-number">1.9</span> Sets</h2>
+<p>An intuitive meaning of the notion of <strong>set</strong>:</p>
+<ul>
+<li><p>By a set we mean any collection of objects</p>
+<ul>
+<li><p>This naive notion of set have some difficulties. For this reason, an axiomatic treatment of set theory seems to be safety</p>
+<ul>
+<li>Check out <strong>Appendix E</strong> related to axiomatic set theory</li>
+</ul></li>
+</ul></li>
+<li><p>The object of which a set composed are called the <strong>elements</strong> of a set. The elements of a set are said to <strong>belong</strong> to the set</p></li>
+</ul>
+<p>Consider any property <span class="math inline">\(P(x)\)</span> so we shall use:</p>
+<p><span class="math display">\[\{ x:P(x) \}\]</span> to denote the set of all objects <span class="math inline">\(x\)</span> such that <span class="math inline">\(P(x)\)</span> is true. In the case where a set consists of a finite number of elements <span class="math inline">\(a_1, a_2, ..., a_n\)</span> we denote this set by <span class="math inline">\(\{a_1, a_2, ..., a_n \}\)</span></p>
+<p>In particular, <span class="math inline">\(\{ b \}\)</span> is a set whose only element is <span class="math inline">\(b\)</span> and <span class="math inline">\(\{ b, b \}\)</span> is also a set whose only element is <span class="math inline">\(b\)</span>. Therefore <span class="math inline">\(\{ b \} = \{ b, b \}\)</span></p>
+<p>Furthermore, <span class="math inline">\(\{ b, c \}\)</span> is a set whose only elements are <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>. In that sense <span class="math inline">\(\{ b, c \} = \{ c, b \}\)</span></p>
+</div>
+<div id="membership-equality-and-inclusion-of-sets" class="section level2">
+<h2><span class="header-section-number">1.10</span> Membership, equality and inclusion of sets</h2>
+<p>To denote the fact that an object <span class="math inline">\(x\)</span> is a member of a set <span class="math inline">\(A\)</span> we use the customary notation</p>
+<p><span class="math display">\[x \in A\]</span> The negation of <span class="math inline">\(x \in A\)</span> will be written as <span class="math inline">\(x \notin A\)</span>. Thus <span class="math inline">\(x \notin A\)</span> corresponds to <span class="math inline">\(\neg (x \in A)\)</span></p>
+<p>The basic property of <strong>equality</strong> of sets is define as:</p>
+<p><span class="math display">\[A = B \iff (\forall x)(x \in A \iff x \in B)\]</span> In that sense, the equality of sets doesn’t depend upon how they are defined but only on whether or not happen to have the same members</p>
+<p>Another notion is <strong>inclusion</strong> of sets. We say that <span class="math inline">\(A\)</span> is <strong>included</strong> in <span class="math inline">\(B\)</span> if and only if every member of <span class="math inline">\(A\)</span> is a member of <span class="math inline">\(B\)</span> and we denote this fact as <span class="math inline">\(A \subseteq B\)</span>. Thus,</p>
+<p><span class="math display">\[A \subseteq B \iff (\forall x)(x \in A \iff x \in B)\]</span> Because <span class="math inline">\(A \subseteq A\)</span> if <span class="math inline">\(C \subseteq A \land C \neq A\)</span> then we can denote this situation as <span class="math inline">\(C \subset A\)</span></p>
+<p>We can also rewrite the definition of equality of sets as</p>
+<p><span class="math display">\[A = B \iff (A \subseteq B \land B \subseteq A)\]</span></p>
+</div>
+<div id="membership-equality-and-inclusion-of-sets-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.11</span> Membership, equality and inclusion of sets exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Prove that <span class="math inline">\(C \subset A \iff (C \subseteq A \land (\exists y)((y \in B \land y \notin A) \lor (y \in A \land y \notin B))\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  C \subset A &amp; \iff (C \subseteq A \land C \neq A) \\  &amp; \iff (C \subseteq A \land \neg (\forall y)(y \in A \iff y \in C)) \\  &amp; \iff (C \subseteq A \land (\exists y) \neg (y \in A \iff x \in C)) \\  &amp; \iff (C \subseteq A \land (\exists y) \neg ((y \in A \implies y \in C) \land (y \in C \implies y \in A))) \\  &amp; \iff (C \subseteq A \land (\exists y) (\neg (y \in A \implies y \in C) \lor \neg (y \in C \implies y \in A))) \\  &amp; \iff (C \subseteq A \land (\exists y) ((y \in A \land y \notin C) \lor (y \in C \land y \notin A))) \\  &amp; \iff (C \subseteq A \land (\exists y)(y \in A \land y \notin C)) \\  \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(A \neq B \iff (\exists y)((y \in B \land y \notin A) \lor (y \in A \land y \notin B))\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A \neq B &amp; \iff \neg (\forall y)(y \in A \iff y \in B)) \\  &amp; \iff (\exists y) \neg (y \in A \iff x \in B) \\  &amp; \iff (\exists y) \neg ((y \in A \implies y \in B) \land (y \in B \implies y \in A)) \\  &amp; \iff (\neg (y \in A \implies y \in B) \lor \neg (y \in B \implies y \in A)) \\  &amp; \iff (\exists y) ((y \in A \land y \notin B) \lor (y \in B \land y \notin A)) \\  \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(\{ b, c\} = \{ d\} \iff (b = c \land c = d)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \{ b, c\} = \{ d\} &amp; \iff (b \in \{ d\} \land c \in \{ d\}) \land d \in \{ b, c\} \\  &amp; \iff (b = d \land c = d) \land (d = b \lor d = c) \\  &amp; \iff (b = d \land c = d) \\  \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(\{ a, b\} = \{ c, d\} \iff ((a = c \land b = d) \lor (a = d \land b = c))\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \{ a, b\} = \{ c, d\} &amp; \iff a \in \{ c, d\} \land b \in \{ c, d\} \land c \in \{ a, b\} \land d \in \{ a, b\} \\  &amp; \iff (a = c \lor a = d) \land (b = c \lor b = d) \land (c = a \lor c = b) \land (d = a \lor d = b) \\  &amp; \iff (a = c \land b = c) \lor (a = d \land b = c) \lor (a = c \land b = d) \lor (a = d \land b = d) \lor (c = a \land d = a) \lor (c = b \land d = a) \lor (c = a \land d = b) \lor (c = b \land d = b) \\  &amp; \iff (a = d \land b = c) \lor (a = c \land b = d) \lor (c = b \land d = a) \lor (c = a \land d = b) \\  &amp; \iff (a = d \land b = c) \lor (a = c \land b = d) \\  \\  \end{split}\)</span></li>
+</ul></li>
+</ol>
+</div>
+<div id="the-empty-set" class="section level2">
+<h2><span class="header-section-number">1.12</span> The empty set</h2>
+<p>If we take for granted that <span class="math inline">\(x \neq x\)</span> is always false using equality as explained in <strong>Appendix A</strong> we have that the set <span class="math inline">\(\{x: x \neq x\}\)</span> has no members. This set is called the <strong>empty set</strong> and is denoted as <span class="math inline">\(\emptyset\)</span>. Thus,</p>
+<p><span class="math display">\[(\forall x)(x \in \emptyset)\]</span> Also we have that <span class="math inline">\(\emptyset\)</span> is unique. If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> has no members then they have precisely the same members (namely none at all). Therefore, <span class="math inline">\(A = B\)</span></p>
+<p>Another way understand it is negating the <strong>equality</strong> definition of sets:</p>
+<p><span class="math display">\[A \neq B \iff \neg (\forall x)(x \in A \iff x \in B)\]</span> <span class="math display">\[A \neq B \iff  (\exists x)\neg (x \in A \iff x \in B)\]</span> <span class="math display">\[A \neq B \iff  (\exists x)\neg ((x \in A \implies x \in B) \land (x \in B \implies x \in A))\]</span> <span class="math display">\[A \neq B \iff  (\exists x) (\neg (x \in A \implies x \in B) \lor \neg (x \in B \implies x \in A))\]</span> <span class="math display">\[A \neq B \iff  (\exists x) ((x \in A \land x \notin B) \lor (x \in B \land x \notin A))\]</span> In that sense, it is not the case that <span class="math inline">\((x \in A \land x \notin B) \lor (x \in B \land x \notin A)\)</span> because <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> has no elements. Therefore, it must be that <span class="math inline">\(A = B\)</span></p>
+<p>It is also important to point out that de definition of <strong>equality</strong> of sets works because in the case of</p>
+<p><span class="math display">\[A = B \iff  (\forall x) ((x \in A \implies x \in B) \land (x \in B \implies x \in A))\]</span> if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> has no elements then <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x \in B\)</span> are both false so <span class="math inline">\(x \in A \implies x \in B\)</span> and <span class="math inline">\(x \in B \implies x \in A\)</span> are both true</p>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

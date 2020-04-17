@@ -510,7 +510,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
        `$A \\Longleftarrow B$` = c("T", "F", "T", "T"),
        `$\\neg (A \\implies B)$` = c("F", "F", "T", "F"),
        `$\\neg (A \\Longleftarrow B)$` = c("F", "T", "F", "F"),
-       `$A \\Longleftrightarrow B$` = c("T", "F", "F", "T"),
+       `$A \\iff B$` = c("T", "F", "F", "T"),
        `$\\top$` = c("T", "T", "T", "T"),
        `$\\bot$` = c("F", "F", "F", "F")) %>% 
     kable(format = "html", escape = FALSE, align = "c") %>% 
@@ -547,7 +547,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
     
     + $\neg (A \Longleftarrow B)$ is the negation of the converse of the material implication
     
-    + $A \Longleftrightarrow B$ is a biconditional
+    + $A \iff B$ is a biconditional
     
     + $\top$ is a tautology
     
@@ -563,7 +563,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
     
         + We discard $\bot$ because is a contradiction
     
-        + We discard $A \land B$, and $A \Longleftrightarrow B$ becasue are logical connectives with a clear interpretation in mathematical logic
+        + We discard $A \land B$, and $A \iff B$ becasue are logical connectives with a clear interpretation in mathematical logic
     
         + The remaining candidates are $A \downarrow B$ and $\neg (A \Longleftarrow B)$
         
@@ -577,7 +577,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
     
 ## Biconditionals
 
-Given sentences $A$ and $B$, we may form a new sentence $\text{If } A \text{ and only if } B$, which we shall write $A \Longleftrightarrow B$
+Given sentences $A$ and $B$, we may form a new sentence $\text{If } A \text{ and only if } B$, which we shall write $A \iff B$
 
 The corresponding __true table__ is
 
@@ -585,7 +585,7 @@ The corresponding __true table__ is
 
 tibble(`$A$` = c("T", "F", "T", "F"),
        `$B$` = c("T", "T", "F", "F"),
-       `$A \\Longleftrightarrow B$` = c("T", "F", "F", "T")) %>% 
+       `$A \\iff B$` = c("T", "F", "F", "T")) %>% 
     kable(format = "html", escape = FALSE, align = "c") %>% 
     kable_styling(full_width = FALSE, bootstrap_options = "bordered")
 ```
@@ -600,7 +600,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
         
         + $B = s \text{ is cauchy convergent}$
         
-        + $A \Longleftrightarrow B = \text{A necessary and suficient condition for } s \text{ to be convergent is that it is cauchy convergent}$ 
+        + $A \iff B = \text{A necessary and suficient condition for } s \text{ to be convergent is that it is cauchy convergent}$ 
         
     b. Horatio is happy if and only if the sun is shining and business is good
     
@@ -610,7 +610,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
         
         + $C = \text{Business is good}$
         
-        + $A \Longleftrightarrow (B \land C) = \text{Horatio is happy if and only if the sun is shining and business is good}$
+        + $A \iff (B \land C) = \text{Horatio is happy if and only if the sun is shining and business is good}$
         
     c. $f$ is differentiable when and only when it is continuous
     
@@ -618,9 +618,9 @@ tibble(`$A$` = c("T", "F", "T", "F"),
         
         + $B = f \text{ is a continuous function}$
         
-        + $A \Longleftrightarrow B = f \text{ is differentiable when and only when it is continuous}$
+        + $A \iff B = f \text{ is differentiable when and only when it is continuous}$
         
-2. Show that $A \Longleftrightarrow B$ always has the same truth values as $(A \implies B) \land (B \implies A)$. Hence to prove $A \Longleftrightarrow B$ it suffices to prove $A \implies B$ and $B \implies A$
+2. Show that $A \iff B$ always has the same truth values as $(A \implies B) \land (B \implies A)$. Hence to prove $A \iff B$ it suffices to prove $A \implies B$ and $B \implies A$
 
 ```{r }
 
@@ -629,7 +629,7 @@ tibble(`$A$` = c("T", "F", "T", "F"),
        `$A \\Longrightarrow B$` = c("T", "T", "F", "T"),
        `$B \\Longrightarrow A$` = c("T", "F", "T", "T"),
        `$(A \\Longrightarrow B) \\land (B \\Longrightarrow A)$` = c("T", "F", "F", "T"),
-       `$A \\Longleftrightarrow B$` = c("T", "F", "F", "T")
+       `$A \\iff B$` = c("T", "F", "F", "T")
        ) %>% 
     kable(format = "html", escape = FALSE, align = "c") %>% 
     kable_styling(full_width = FALSE, bootstrap_options = "bordered")  %>% 
@@ -730,7 +730,7 @@ tibble(`$A$` = c("T", "F", "F"),
     
         + True
         
-    d. $(A \Longleftrightarrow C) \Longleftrightarrow \neg B$
+    d. $(A \iff C) \iff \neg B$
     
         + True
         
@@ -916,21 +916,251 @@ $$\neg (\forall x)(P(x) \implies O(x))$$
         + $B(x,y,z) = x \text{ is between } y \text{ and } z = y < x < z$
         
         + $(\forall y)(\forall z)((y \in \mathbb{R} \land z \in \mathbb{R} \land y < z) \implies (\exists x)(x \in \mathbb{Q} \land y < x < z))$
+        
+    e. Not all drunkards are truculent
+    
+        + $D(x) = x \text{ is drunkard}$
+        
+        + $T(x) = x \text{ is truculent}$
+        
+        + $(\exists x)(D(x) \land \neg T(x))$
+        
+        + $(\exists x)\neg \neg (D(x) \land \neg T(x))$
+        
+        + $(\exists x)\neg (D(x) \implies T(x))$
+        
+        + $\neg (\forall x) (D(x) \implies T(x))$
+        
+    f. No one loves everybody
+    
+        + $L(x, y) = x \text{ loves } y$
+        
+        + $\neg (\exists x)(\forall y)(L(x,y))$ 
+        
+        + $(\forall x)(\exists y)(\neg L(x,y))$ 
+        
+    g. For every positive real number $x$, there is a unique real number $y$ such that $2^y = x$
+    
+        + $R(x) = x \text{ is a real number} = x \in \mathbb{R}$
+        
+        + $P(x) = x \text{ is positive} = x > 0$
+        
+        + $(\forall x)(x \in \mathbb{R} \land x > 0 \implies (\exists y)(y \in \mathbb{R} \land x = 2^y))$
+        
+    f. At least someone cares about me
+    
+        + $C(x) = x \text{ cares about me}$
+        
+        + $(\exists x)(C(x))$
+        
+    i. If a sequence has a limit, it has only one
+    
+        + $S(x) = x \text{ is a sequence}$
+    
+        + $L(x,y) = x \text{ has a limit } y$
+        
+        + $(\forall x)(S(x) \land L(x,y) \implies (\exists !y)(L(x,y)))$
+
+    j. Two nonparallel lines have exactly one point in common
+    
+        + $L(x) = x \text{ is a line}$
+        
+        + $P(x, y, z) = x \text{ is parallel to } y \text{ and have a } z \text{ in common}$
+        
+        + $Pt(x) = x \text{ is a point}$
+        
+        + $(\forall x)(\forall y)(L(x) \land L(y) \land P(x,y,z) \implies (\exists !z)(Pt(z)))$
+        
+    k. All people are honest or no one is honest
+    
+        + $H(x) = x \text{ is a honest}$
+        
+        + $P(x) = x \text{ is a person}$
+        
+        + $(\forall x)(P(x) \implies H(x)) \lor (\forall x)(P(x) \implies \neg H(x))$
+        
+        + $(\forall x) \neg (P(x) \land \neg H(x)) \lor (\forall x) \neg (P(x) \land \neg \neg H(x))$
+        
+        + $\neg (\exists x) (P(x) \land \neg H(x)) \lor \neg (\exists x) (P(x) \land H(x))$
+        
+    l. Some people are honest and some people aren't honest
+    
+        + $H(x) = x \text{ is a honest}$
+        
+        + $P(x) = x \text{ is a person}$
+        
+        + $(\exists x)(P(x) \land H(x)) \land (\exists x)(P(x) \land \neg H(x))$
+        
+        + $(\exists x) \neg \neg (P(x) \land \neg \neg H(x)) \land (\exists x) \neg \neg (P(x) \land \neg H(x))$
+        
+        + $(\exists x) \neg (P(x) \implies \neg H(x)) \land (\exists x) \neg (P(x) \implies H(x))$
+        
+        + $\neg (\forall x) (P(x) \implies \neg H(x)) \land \neg (\forall x) (P(x) \implies H(x))$
+        
+2. Give idiomatic english versions of the following formulas
+
+    a. $(\forall x)(P(x) \implies (\exists y)(C(y) \land (\exists z)(T(z) \land S(x, y, z)) ))$ where $P(x), C(x), T(x), S(x, y, z)$ mean $x \text{ is a student}$, $x \text{ is a course}$, $x \text{ is a bad teacher}$ and $x \text{ studies } y \text{ with } z$
+    
+        + If you are a student then you study in at least a course that is taught by a bad teacher
+        
+    b. $(\forall x)(C(x) \implies (M(x) \ implies N(x)))$ where $C(x), M(x), N(x)$ mean $x \text{ is good as a chessplayer}$, $x \text{ is a male}$ and $x \text{ is neurotic}$
+    
+        + Every good chess player if is male it is neurotic
+        
+    c. $(\exists y)(P(y) \land (\exists x)(P(x) \land L(y,x)))$ where $P(y)$ and $L(x, y)$ mean $y \text{ is a person}$ and $x \text{ loves } y$
+
+        + There is at least one person that is love by at least one person
+        
+    d. $\neg (\exists x)((\forall x)((D(y) \lor C(y)) \implies H(x,y) \land B(x)))$ where $D(y), C(y), H(x,y), B(x)$ mean $y \text{ is a dog}$, $\; y \text{ is a child}$, $\; x \text{ hates } y$ and $x \text{ is all bad}$
+    
+        + There is no one bad who hates a dog or a child
+        
+    e. $(\exists !x)(A(x) \land \neg 0(x) \land S(x))$ where $A(x), 0(x), S(x)$ mean $x \text{ is a real number}$, $x = 0$ and $x = x ^2$
+    
+        + There is a unique real number different from zero that is equal to its square.
+        
+    f. $(\forall z)[([(\forall u)(E(u,z) \implies I(u))] \land (\exists u)(E(u,z))) \implies (\exists !u)(E(u,z) \land (\forall v)(E(v,z) \implies L(u,v)))]$ where $E(u,z), I(u), L(u,v)$ mean $\; u \in z$, $u \text{ is a positive integer}$ and $u \leq v$
+    
+        + If $z$ is any set that contains at least one element and every element of $z$ is a positive integer then exists a unique  positive integer such that it belongs to $z$ and it is equal or less than every element that belongs to $z$
+        
+        + If $z$ is any subset of $\mathbb{P}$ and $z$ is not an empty set then there exist a positive integer $u$ that belongs to $z$ such that it is the smallest element of $z$
+        
+        + If $z \subseteq \mathbb{P}$ and $z \neq \emptyset$ then exists a unique $u \in z$ such that for all $v \in z$ we have that $u \leq v$
+        
+        + $(\forall z)[(z \subseteq \mathbb{P} \land z \neq \emptyset) \implies (\exists !x)(x \in z \land (\forall v)(v \in z \land x \leq v))]$
+        
+    g. $(\forall x)(P(x) \land O(x) \implies \neg T(x))$ where $P(x), O(x), T(x)$ mean $x \text{ is a person}$, $x \text{ is over 30}$ and $x \text{ can de trusted}$
+    
+        + If $x$ is any person over 30 then it can't be trusted
+        
+    h. $(\forall x)(\forall y)(P(x) \land P(y) \land \neg E(x,y) \implies (\exists !z)(L(z) \land I(z, x) \land I(z,y)))$ where $P(x), E(x,y), L(z), I(z,x)$ mean $x \text{ is a point}$, $x = y$, $x \text{ is a line}$ and $x \text{ lies on } z$
+    
+        + If $x$ and $y$ are two different points then there exist a unique line $z$ such that $x$ and $y$ lies on it
+        
+3. The definition of $f \text{ is continuous at } x_0$ is
+
+$$(\forall \epsilon)(\epsilon > 0 \implies (\exists \delta)(\delta > 0 \land (\forall x)(|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+Find a simple formula for the denial: $f \text{ is not continuous at } x_0$. Negation signs should apply only to the basic sentences and not to compound sentences
+
+$$\neg (\forall \epsilon)(\epsilon > 0 \implies (\exists \delta)(\delta > 0 \land (\forall x)(|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+$$(\exists \epsilon) \neg (\epsilon > 0 \implies (\exists \delta)(\delta > 0 \land (\forall x)(|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+$$(\exists \epsilon)(\epsilon > 0 \land \neg (\exists \delta)(\delta > 0 \land (\forall x)(|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+$$(\exists \epsilon)(\epsilon > 0 \land (\forall \delta) \neg (\delta > 0 \land (\forall x)(|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+$$(\exists \epsilon)(\epsilon > 0 \land (\forall \delta)(\delta \leq 0 \lor \neg (\forall x)(|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+$$(\exists \epsilon)(\epsilon > 0 \land (\forall \delta)(\delta \leq 0 \lor (\exists x) \neg (|x - x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon)))$$
+$$(\exists \epsilon)(\epsilon > 0 \land (\forall \delta)(\delta \leq 0 \lor (\exists x)(|x - x_0| < \delta \land \neg(|f(x) - f(x_0)| < \epsilon))))$$
+$$(\exists \epsilon)(\epsilon > 0 \land (\forall \delta)(\delta \leq 0 \lor (\exists x)(|x - x_0| < \delta \land |f(x) - f(x_0)| \geq \epsilon)))$$
+
+## Sets
+
+An intuitive meaning of the notion of __set__:
+
+- By a set we mean any collection of objects
+
+    + This naive notion of set have some difficulties. For this reason, an axiomatic treatment of set theory seems to be safety
+    
+        + Check out __Appendix E__ related to axiomatic set theory 
+
+- The object of which a set composed are called the __elements__ of a set. The elements of a set are said to __belong__ to the set
+
+Consider any property $P(x)$ so we shall use:
+
+$$\{ x:P(x) \}$$
+to denote the set of all objects $x$ such that $P(x)$ is true. In the case where a set consists of a finite number of elements $a_1, a_2, ..., a_n$ we denote this set by $\{a_1, a_2, ..., a_n \}$
+
+In particular, $\{ b \}$ is a set whose only element is $b$ and $\{ b, b \}$ is also a set whose only element is $b$. Therefore $\{ b \} = \{ b, b \}$
+
+Furthermore, $\{ b, c \}$ is a set whose only elements are $b$ and $c$. In that sense $\{ b, c \} = \{ c, b \}$
+
+## Membership, equality and inclusion of sets
+
+To denote the fact that an object $x$ is a member of a set $A$ we use the customary notation
+
+$$x \in A$$
+The negation of $x \in A$ will be written as $x \notin A$. Thus $x \notin A$ corresponds to $\neg (x \in A)$
+
+The basic property of __equality__ of sets is define as:
+
+$$A = B \iff (\forall x)(x \in A \iff x \in B)$$
+In that sense, the equality of sets doesn't depend upon how they are defined but only on whether or not happen to have the same members
+
+Another notion is __inclusion__ of sets. We say that $A$ is __included__ in $B$ if and only if every member of $A$ is a member of $B$ and we denote this fact as $A \subseteq B$. Thus,
+
+$$A \subseteq B \iff (\forall x)(x \in A \iff x \in B)$$
+Because $A \subseteq A$ if $C \subseteq A \land C \neq A$ then we can denote this situation as $C \subset A$ 
+
+We can also rewrite the definition of equality of sets as
+
+$$A = B \iff (A \subseteq B \land B \subseteq A)$$
+
+## Membership, equality and inclusion of sets exercises and solutions
+
+1. Prove that $C \subset A \iff (C \subseteq A \land (\exists y)((y \in B \land y \notin A) \lor (y \in A \land y \notin B))$
+
+    + $\begin{split}
+       C \subset A & \iff (C \subseteq A \land C \neq A) \\
+       & \iff (C \subseteq A \land \neg (\forall y)(y \in A \iff y \in C)) \\
+       & \iff (C \subseteq A \land (\exists y) \neg (y \in A \iff x \in C)) \\
+       & \iff (C \subseteq A \land (\exists y) \neg ((y \in A \implies y \in C) \land (y \in C \implies y \in A))) \\
+       & \iff (C \subseteq A \land (\exists y) (\neg (y \in A \implies y \in C) \lor \neg (y \in C \implies y \in A))) \\
+       & \iff (C \subseteq A \land (\exists y) ((y \in A \land y \notin C) \lor (y \in C \land y \notin A))) \\
+       & \iff (C \subseteq A \land (\exists y)(y \in A \land y \notin C)) \\
+       \\
+       \end{split}$
+       
+2. Prove that $A \neq B \iff (\exists y)((y \in B \land y \notin A) \lor (y \in A \land y \notin B))$
+
+    + $\begin{split}
+       A \neq B & \iff \neg (\forall y)(y \in A \iff y \in B)) \\
+       & \iff (\exists y) \neg (y \in A \iff x \in B) \\
+       & \iff (\exists y) \neg ((y \in A \implies y \in B) \land (y \in B \implies y \in A)) \\
+       & \iff (\neg (y \in A \implies y \in B) \lor \neg (y \in B \implies y \in A)) \\
+       & \iff (\exists y) ((y \in A \land y \notin B) \lor (y \in B \land y \notin A)) \\
+       \\
+       \end{split}$
+
+3. Prove that $\{ b, c\} = \{ d\} \iff (b = c \land c = d)$
+
+    + $\begin{split}
+       \{ b, c\} = \{ d\} & \iff (b \in \{ d\} \land c \in \{ d\}) \land d \in \{ b, c\} \\
+       & \iff (b = d \land c = d) \land (d = b \lor d = c) \\
+       & \iff (b = d \land c = d) \\
+       \\
+       \end{split}$
+       
+4. Prove that $\{ a, b\} = \{ c, d\} \iff ((a = c \land b = d) \lor (a = d \land b = c))$
+
+    + $\begin{split}
+       \{ a, b\} = \{ c, d\} & \iff a \in \{ c, d\} \land b \in \{ c, d\} \land c \in \{ a, b\} \land d \in \{ a, b\} \\
+       & \iff (a = c \lor a = d) \land (b = c \lor b = d) \land (c = a \lor c = b) \land (d = a \lor d = b) \\
+       & \iff (a = c \land b = c) \lor (a = d \land b = c) \lor (a = c \land b = d) \lor (a = d \land b = d) \lor (c = a \land d = a) \lor (c = b \land d = a) \lor (c = a \land d = b) \lor (c = b \land d = b) \\
+       & \iff (a = d \land b = c) \lor (a = c \land b = d) \lor (c = b \land d = a) \lor (c = a \land d = b) \\
+       & \iff (a = d \land b = c) \lor (a = c \land b = d) \\
+       \\
+       \end{split}$
+
+## The empty set
+
+If we take for granted that $x \neq x$ is always false using equality as explained in __Appendix A__  we have that the set $\{x: x \neq x\}$ has no members. This set is called the __empty set__ and is denoted as $\emptyset$. Thus,
+
+$$(\forall x)(x \in \emptyset)$$
+Also we have that $\emptyset$ is unique. If $A$ and $B$ has no members then they have precisely the same members (namely none at all). Therefore, $A = B$
+
+Another way understand it is negating the __equality__ definition of sets:
+
+$$A \neq B \iff \neg (\forall x)(x \in A \iff x \in B)$$
+$$A \neq B \iff  (\exists x)\neg (x \in A \iff x \in B)$$
+$$A \neq B \iff  (\exists x)\neg ((x \in A \implies x \in B) \land (x \in B \implies x \in A))$$
+$$A \neq B \iff  (\exists x) (\neg (x \in A \implies x \in B) \lor \neg (x \in B \implies x \in A))$$
+$$A \neq B \iff  (\exists x) ((x \in A \land x \notin B) \lor (x \in B \land x \notin A))$$
+In that sense, it is not the case that $(x \in A \land x \notin B) \lor (x \in B \land x \notin A)$ because $A$ and $B$ has no elements. Therefore, it must be that $A = B$ 
+
+It is also important to point out that de definition of __equality__ of sets works because in the case of
+
+$$A = B \iff  (\forall x) ((x \in A \implies x \in B) \land (x \in B \implies x \in A))$$
+if $A$ and $B$ has no elements then $x \in A$ and $x \in B$ are both false so $x \in A \implies x \in B$ and $x \in B \implies x \in A$ are both true 
 
 # Bibliography
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
