@@ -1817,6 +1817,10 @@ summary {
 <li><a href="#membership-equality-and-inclusion-of-sets"><span class="toc-section-number">1.10</span> Membership, equality and inclusion of sets</a></li>
 <li><a href="#membership-equality-and-inclusion-of-sets-exercises-and-solutions"><span class="toc-section-number">1.11</span> Membership, equality and inclusion of sets exercises and solutions</a></li>
 <li><a href="#the-empty-set"><span class="toc-section-number">1.12</span> The empty set</a></li>
+<li><a href="#the-empty-set-exercises-and-solutions"><span class="toc-section-number">1.13</span> The empty set exercises and solutions</a></li>
+<li><a href="#union-and-intersection"><span class="toc-section-number">1.14</span> Union and intersection</a></li>
+<li><a href="#union-and-intersection-exercises-and-solutions"><span class="toc-section-number">1.15</span> Union and intersection exercises and solutions</a></li>
+<li><a href="#difference-and-complement"><span class="toc-section-number">1.16</span> Difference and complement</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -5174,7 +5178,7 @@ T
 <p>The basic property of <strong>equality</strong> of sets is define as:</p>
 <p><span class="math display">\[A = B \iff (\forall x)(x \in A \iff x \in B)\]</span> In that sense, the equality of sets doesn’t depend upon how they are defined but only on whether or not happen to have the same members</p>
 <p>Another notion is <strong>inclusion</strong> of sets. We say that <span class="math inline">\(A\)</span> is <strong>included</strong> in <span class="math inline">\(B\)</span> if and only if every member of <span class="math inline">\(A\)</span> is a member of <span class="math inline">\(B\)</span> and we denote this fact as <span class="math inline">\(A \subseteq B\)</span>. Thus,</p>
-<p><span class="math display">\[A \subseteq B \iff (\forall x)(x \in A \iff x \in B)\]</span> Because <span class="math inline">\(A \subseteq A\)</span> if <span class="math inline">\(C \subseteq A \land C \neq A\)</span> then we can denote this situation as <span class="math inline">\(C \subset A\)</span></p>
+<p><span class="math display">\[A \subseteq B \iff (\forall x)(x \in A \implies x \in B)\]</span> Because <span class="math inline">\(A \subseteq A\)</span> if <span class="math inline">\(C \subseteq A \land C \neq A\)</span> then we can denote this situation as <span class="math inline">\(C \subset A\)</span></p>
 <p>We can also rewrite the definition of equality of sets as</p>
 <p><span class="math display">\[A = B \iff (A \subseteq B \land B \subseteq A)\]</span></p>
 </div>
@@ -5207,6 +5211,173 @@ T
 <p><span class="math display">\[A \neq B \iff \neg (\forall x)(x \in A \iff x \in B)\]</span> <span class="math display">\[A \neq B \iff  (\exists x)\neg (x \in A \iff x \in B)\]</span> <span class="math display">\[A \neq B \iff  (\exists x)\neg ((x \in A \implies x \in B) \land (x \in B \implies x \in A))\]</span> <span class="math display">\[A \neq B \iff  (\exists x) (\neg (x \in A \implies x \in B) \lor \neg (x \in B \implies x \in A))\]</span> <span class="math display">\[A \neq B \iff  (\exists x) ((x \in A \land x \notin B) \lor (x \in B \land x \notin A))\]</span> In that sense, it is not the case that <span class="math inline">\((x \in A \land x \notin B) \lor (x \in B \land x \notin A)\)</span> because <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> has no elements. Therefore, it must be that <span class="math inline">\(A = B\)</span></p>
 <p>It is also important to point out that de definition of <strong>equality</strong> of sets works because in the case of</p>
 <p><span class="math display">\[A = B \iff  (\forall x) ((x \in A \implies x \in B) \land (x \in B \implies x \in A))\]</span> if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> has no elements then <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(x \in B\)</span> are both false so <span class="math inline">\(x \in A \implies x \in B\)</span> and <span class="math inline">\(x \in B \implies x \in A\)</span> are both true</p>
+<p>Also we have that the empty set is a subset of every set:</p>
+<p><span class="math display">\[(\forall B)(\emptyset \subseteq B)\]</span> <span class="math display">\[(\forall B)((\forall x)(x \in \emptyset \implies x \in B))\]</span> This is true because <span class="math inline">\(x \in \emptyset\)</span> is false so <span class="math inline">\(x \in \emptyset \implies x \in B\)</span> is true. Therefore <span class="math inline">\(\emptyset \subseteq B\)</span> is true</p>
+</div>
+<div id="the-empty-set-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.13</span> The empty set exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Prove <span class="math inline">\(\emptyset \in \{ \emptyset \}\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ \emptyset \}\)</span> is a set whose only element is . Therefore <span class="math inline">\(\emptyset \in \{ \emptyset \}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(\emptyset \notin \{ 1, 2\}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\{ 1, 2\}\)</span> is a set whose only elements are <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. Because <span class="math inline">\(\emptyset = 1\)</span> and <span class="math inline">\(\emptyset = 1\)</span> we have that <span class="math inline">\(\emptyset \notin \{ 1, 2\}\)</span></p></li>
+<li><p>Thus, although <span class="math inline">\(\emptyset\)</span> must be a subset of every set, it is not necessarily a member of any given set</p></li>
+</ul></li>
+<li><p>Verify the observation above about the <strong>empty set</strong> that <span class="math inline">\(((\forall x)(x \notin B) \land (\forall x)(x \notin A)) \implies A = B\)</span></p>
+<ul>
+<li><p>Let prove this assertion by <em>reduction ad absurdum</em> as describe in <strong>Exercise 5a</strong> of section <strong>1.2 Biconditionals</strong></p></li>
+<li><p>If <span class="math inline">\(((\forall x)(x \notin B) \land (\forall x)(x \notin A))\)</span> is true then <span class="math inline">\(((\forall x)(x \notin B) \land (\forall x)(x \notin A)) \implies A = B\)</span> is false if <span class="math inline">\(A = B\)</span> is false</p></li>
+<li><p>If <span class="math inline">\(A = B\)</span> is false then <span class="math inline">\(A \neq B\)</span> is true. This implies that <span class="math inline">\((\exists x)((x \in A \land x \notin B) \lor (x \in B \land x \notin A))\)</span> but <span class="math inline">\(((\forall x)(x \notin B) \land (\forall x)(x \notin A))\)</span> is true. In that case we have a contradiction.</p></li>
+<li><p>Therefore by <em>reduction ad absurdum</em> <span class="math inline">\(((\forall x)(x \notin B) \land (\forall x)(x \notin A)) \implies A = B\)</span> must be true.</p></li>
+</ul></li>
+</ol>
+</div>
+<div id="union-and-intersection" class="section level2">
+<h2><span class="header-section-number">1.14</span> Union and intersection</h2>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two sets by <span class="math inline">\(A \cap B\)</span> we mean the set of all objects which belong to both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[A \cap B = \{x: x \in A \land x \in B \}\]</span> where <span class="math inline">\(A \cap B\)</span> is called the <strong>intersection</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
+<p>We have the following results</p>
+<ul>
+<li><p><span class="math inline">\(A \cap A = A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cap A &amp; \iff x \in A \land x \in A \\  &amp; \iff x \in A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \cap B = B \cap A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cap B &amp; \iff x \in A \land x \in B \\  &amp; \iff x \in B \land x \in A \\  &amp; \iff x \in B \cap A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \cap \emptyset = \emptyset\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in A \cap \emptyset &amp; \implies x \in A \land x \in \emptyset \\  &amp; \implies \text{There is a contradiction because } (\forall x)(x \notin \emptyset) \\  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\((\forall x)(x \notin A \cap \emptyset)\)</span> and because <span class="math inline">\(\emptyset\)</span> is unique <span class="math inline">\(A \cap \emptyset = \emptyset\)</span></p></li>
+</ul></li>
+</ul>
+<p><strong><em>Terminology</em></strong> When <span class="math inline">\(A \cap B = \emptyset\)</span> we say that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>disjoint</strong>. Thus, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are disjoint if and only if <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no elements in common</p>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two sets by <span class="math inline">\(A \cup B\)</span> we mean the set of all objects which belong to <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[A \cup B = \{x: x \in A \lor x \in B \}\]</span> where <span class="math inline">\(A \cup B\)</span> is called the <strong>union</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
+<p>We have the following results</p>
+<ul>
+<li><p><span class="math inline">\(A \cup A = A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cup A &amp; \iff x \in A \lor x \in A \\  &amp; \iff x \in A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \cup B = B \cup A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cup B &amp; \iff x \in A \lor x \in B \\  &amp; \iff x \in B \lor x \in A \\  &amp; \iff x \in B \cup A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \cup \emptyset = A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cup \emptyset &amp; \iff x \in A \lor x \in \emptyset \\  &amp; \iff x \in A  \end{split}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="union-and-intersection-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.15</span> Union and intersection exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\{ 1,2,3 \} \cup \{ 4,5,6 \} = \; ?\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ 1,2,3 \} \cup \{ 4,5,6 \} = \{ 1,2,3,4,5,6 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\{ 1,2,3 \} \cap \{ 4,5,6 \} = \; ?\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ 1,2,3 \} \cap \{ 4,5,6 \} = \emptyset\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\{ 0,2,4,6,... \} \cup \{ 1,3,5,... \} = \; ?\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ 0,2,4,6,... \} \cup \{ 1,3,5,... \} = \mathbb{P} \cup \{0 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\{ 0,2,4,6,... \} \cap \{ 1,3,5,... \} = \; ?\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ 0,2,4,6,... \} \cap \{ 1,3,5,... \} = \emptyset\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\{ x: x \text{ is an integer } \land x &lt; 2 \} \cup \{ x: x \text{ is an integer } \land x &gt; 0 \} = \; ?\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ x: x \text{ is an integer } \land x &lt; 2 \} \cup \{ x: x \text{ is an integer } \land x &gt; 0 \} = \mathbb{Z}\)</span></li>
+</ul></li>
+<li><p>Same as Exercise 5, with <span class="math inline">\(\cup\)</span> replaced by <span class="math inline">\(\cap\)</span></p>
+<ul>
+<li><span class="math inline">\(\{ x: x \text{ is an integer } \land x &lt; 2 \} \cup \{ x: x \text{ is an integer } \land x &gt; 0 \} = \{ 1 \}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \cap B \subseteq A \land A \cap B \subseteq B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in A \cap B &amp; \iff x \in A \land x \in B \\  &amp; \implies x \in A  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \in A \cap B &amp; \iff x \in A \land x \in B \\  &amp; \implies x \in B  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \subseteq A \cup B \land B \subseteq A \cup B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in A &amp; \implies x \in A \lor x \in B \\  &amp; \iff x \in A \cup B  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \in B &amp; \implies x \in B \lor x \in A \\  &amp; \iff x \in A \lor x \in B \\  &amp; \iff x \in A \cup B  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((A \cup B) \cup C = A \cup (B \cup C)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in (A \cup B) \cup C &amp; \iff x \in (A \cup B) \lor x \in C \\  &amp; \iff (x \in A \lor x \in B) \lor x \in C \\  &amp; \iff x \in A \lor (x \in B \lor x \in C) \\  &amp; \iff x \in A \lor x \in (B \cup C) \\  &amp; \iff x \in A \cup (B \cup C) \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((A \cap B) \cap C = A \cap (B \cap C)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in (A \cap B) \cap C &amp; \iff x \in (A \cap B) \land x \in C \\  &amp; \iff (x \in A \land x \in B) \land x \in C \\  &amp; \iff x \in A \land (x \in B \land x \in C) \\  &amp; \iff x \in A \land x \in (B \cap C) \\  &amp; \iff x \in A \cap (B \cap C) \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \subseteq B \iff A \cap B = A\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(A \subseteq B\)</span>. Therefore if <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cap B &amp; \iff x \in A \land x \in B \\  &amp; \iff x \in A  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(A \cap B = A\)</span>. Therefore <span class="math inline">\(x \in A \cap B \iff x \in A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A &amp; \iff x \in A \cap B \\  &amp; \iff x \in A \land x \in B \\  &amp; \iff x \in B  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \subseteq B \iff A \cup B = B\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(A \subseteq B\)</span>. Therefore if <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cup B &amp; \iff x \in A \lor x \in B \\  &amp; \iff x \in B \lor x \in B \\  &amp; \iff x \in B  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(A \cup B = B\)</span>. Therefore <span class="math inline">\(x \in A \cup B \iff x \in B\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A &amp; \iff x \in A \lor x \in B \\  &amp; \iff x \in A \cup B \\  &amp; \iff x \in B  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cup (B \cap C) &amp; \iff x \in A \lor x \in (B \cap C) \\  &amp; \iff x \in A \lor (x \in B \land x \in C) \\  &amp; \iff (x \in A \lor x \in B) \land (x \in A \lor x \in C) \\  &amp; \iff x \in (A \cup B) \land x \in (A \cup C) \\  &amp; \iff x \in (A \cup B) \cap (A \cup C) \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \cap B = A \cup B \iff A = B\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(A \cap B = A \cup B\)</span>. Therefore if <span class="math inline">\(x \in A \cap B \iff x \in A \cup B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in A &amp; \iff x \in A \lor x \in B \\  &amp; \iff x \in A \cup B \\  &amp; \iff x \in A \cap B \\  &amp; \iff x \in A \land x \in B \\  &amp; \implies x \in A  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \in B &amp; \iff x \in B \lor x \in A \\  &amp; \iff x \in B \cup A \\  &amp; \iff x \in A \cup B \\  &amp; \iff x \in A \cap B \\  &amp; \iff x \in A \land x \in B \\  &amp; \implies x \in B  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(A = B\)</span>. Therefore <span class="math inline">\(x \in A \iff x \in B\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \cap B &amp; \iff x \in A \land x \in B \\  &amp; \iff x \in A \lor x \in B \\  &amp; \iff x \in A \cup B  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((A \cup C = B \cup C \land A \cap C = B \cap C) \implies A = B\)</span></p>
+<ul>
+<li><p>Assume that <span class="math inline">\((A \cup C = B \cup C \land A \cap C = B \cap C)\)</span> is true. So <span class="math inline">\(x \in A \cup C \iff x \in B \cup C\)</span> and <span class="math inline">\(x \in A \cap C \iff x \in B \cap C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in A &amp; \iff x \in A \lor x \in C \\  &amp; \iff x \in A \cup C \\  &amp; \iff x \in B \cup C \\  &amp; \iff x \in B \lor x \in C \\  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\text{If } x \in B \implies A \subseteq B\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \text{If } x \in C &amp; \implies x \in A \land x \in C \\  &amp; \implies x \in A \cap C \\  &amp; \implies x \in B \cap C \\  &amp; \implies x \in B \land x \in C \\  &amp; \implies x \in B \\  &amp; \implies A \subseteq B  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  x \in B &amp; \iff x \in B \lor x \in C \\  &amp; \iff x \in B \cup C \\  &amp; \iff x \in A \cup C \\  &amp; \iff x \in A \lor x \in C \\  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\text{If } x \in A \implies B \subseteq A\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \text{If } x \in C &amp; \implies x \in B \land x \in C \\  &amp; \implies x \in B \cap C \\  &amp; \implies x \in A \cap C \\  &amp; \implies x \in A \land x \in C \\  &amp; \implies x \in A \\  &amp; \implies B \subseteq A  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(A \subseteq B \land B \subseteq A \iff A = B\)</span></p></li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<div id="difference-and-complement" class="section level2">
+<h2><span class="header-section-number">1.16</span> Difference and complement</h2>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
