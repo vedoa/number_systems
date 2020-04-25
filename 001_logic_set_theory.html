@@ -1821,6 +1821,7 @@ summary {
 <li><a href="#union-and-intersection"><span class="toc-section-number">1.14</span> Union and intersection</a></li>
 <li><a href="#union-and-intersection-exercises-and-solutions"><span class="toc-section-number">1.15</span> Union and intersection exercises and solutions</a></li>
 <li><a href="#difference-and-complement"><span class="toc-section-number">1.16</span> Difference and complement</a></li>
+<li><a href="#difference-and-complement-exercises-and-solutions"><span class="toc-section-number">1.17</span> Difference and complement exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -5378,6 +5379,92 @@ T
 </div>
 <div id="difference-and-complement" class="section level2">
 <h2><span class="header-section-number">1.16</span> Difference and complement</h2>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are two sets by <span class="math inline">\(A - B\)</span> we mean the set of all objects which belongs to <span class="math inline">\(A\)</span> but not to <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[A - B = \{x: x \in A \land x \notin B \}\]</span> <span class="math inline">\(A - B\)</span> is called the <strong>difference</strong> of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span></p>
+<p>We have the following results</p>
+<ul>
+<li><p><span class="math inline">\(A - B \subseteq A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A - B &amp; \iff x \in A \land x \notin B \\  &amp; \implies x \in A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A - \emptyset = A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A - \emptyset &amp; \iff x \in A \land x \notin \emptyset \\  &amp; \iff x \in A  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p>We very often restrict out attention to the elements and subsets of some particular set <span class="math inline">\(U\)</span>:</p>
+<ul>
+<li><p>The set of all integers <span class="math inline">\(\mathbb{Z}\)</span> in number theory</p></li>
+<li><p>The set of all reals <span class="math inline">\(\mathbb{R}\)</span> in real analysis</p></li>
+</ul>
+<p>In each case the set <span class="math inline">\(U\)</span> is temporarily called the <strong>universal set</strong>. If <span class="math inline">\(A \subseteq U\)</span> then by the set <span class="math inline">\(A^{&#39;}\)</span> we mean the set of all objects which belongs to <span class="math inline">\(U\)</span> but not to <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[A^{&#39;} = \{x: x \in U \land x \notin A \}\]</span><br />
+<span class="math inline">\(A^{&#39;}\)</span> is called the <strong>complement</strong> of <span class="math inline">\(A\)</span></p>
+<p>We have the following results</p>
+<ul>
+<li><p><span class="math inline">\(A^{&#39;&#39;} = A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A^{&#39;&#39;} &amp; \iff x \in U \land x \notin A^{&#39;} \\  &amp; \iff x \in U \land \neg (x \in A^{&#39;}) \\  &amp; \iff x \in U \land \neg (x \in U \land x \notin A) \\  &amp; \iff x \in U \land (x \notin U \lor x \in A) \\  &amp; \iff (x \in U \land x \notin U) \lor (x \in U \land x \in A) \\  &amp; \iff x \in U \land x \in A \\  &amp; \iff x \in A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\emptyset^{&#39;} = U\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in \emptyset^{&#39;} &amp; \iff x \in U \land x \notin \emptyset \\  &amp; \iff x \in U  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(U^{&#39;} = \emptyset\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in U^{&#39;} &amp; \iff x \in U \land x \notin U \\  &amp; \implies \text{There is a contradiction}  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\((\forall x)(x \notin U^{&#39;})\)</span> and because <span class="math inline">\(\emptyset\)</span> is unique <span class="math inline">\(U^{&#39;} = \emptyset\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div id="difference-and-complement-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.17</span> Difference and complement exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Prove that <span class="math inline">\(A \subseteq B \iff A - B = \emptyset\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(A \subseteq B\)</span>. Therefore if <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in A - B &amp; \iff x \in A \land x \notin B \\  &amp; \implies (x \in A \land x \in B) \land x \notin B \\  &amp; \iff (x \in A \land (x \in B \land x \notin B) \\  &amp; \iff \text{There is a contradiction}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\((\forall x)(x \notin A - B)\)</span> and because <span class="math inline">\(\emptyset\)</span> is unique <span class="math inline">\(A - B = \emptyset\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(A - B = \emptyset\)</span>. Therefore <span class="math inline">\(x \notin A - B \iff \neg(x \in A \land x \notin B) \iff x \notin A \lor x \in B\)</span>. So <span class="math inline">\((\forall x)(x \notin A \lor x \in B)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A &amp; \implies x \in A \land (x \notin A \lor x \in B) \\  &amp; \implies (x \in A \land x \notin A) \lor (x \in A \land x \in B) \\  &amp; \implies x \in A \land x \in B \\  &amp; \implies x \in B  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Assume that we are given a universal set <span class="math inline">\(U\)</span>. Prove:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A - B = A \cap B^{&#39;}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A - B &amp; \iff x \in A \land x \notin B \\  &amp; \iff x \in A \land (x \in U \land x \notin B) \\  &amp; \iff x \in A \land x \in B^{&#39;} \\  &amp; \iff x \in A \cap B^{&#39;}  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \subseteq B \iff B^{&#39;} \subseteq A^{&#39;}\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(A \subseteq B\)</span>. Therefore <span class="math inline">\((x \in A \implies x \in B) \iff (x \notin B \implies x \notin A)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in B^{&#39;} &amp; \implies x \in U \land x \notin B \\  &amp; \implies x \in U \land x \notin A \\  &amp; \implies x \in A^{&#39;}  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(B^{&#39;} \subseteq A^{&#39;}\)</span>. Therefore <span class="math inline">\((x \in B^{&#39;} \implies x \in A^{&#39;}) \iff (x \notin B \implies x \notin A)\implies (x \in A \implies x \in B)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A &amp; \implies x \in B  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((A \cap B)^{&#39;} = A^{&#39;} \cup B^{&#39;}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in (A \cap B)^{&#39;} &amp; \iff x \in U \land x \notin A \cap B \\  &amp; \iff x \in U \land \neg(x \in A \land x \in B) \\  &amp; \iff x \in U \land (x \notin A \lor x \notin B) \\  &amp; \iff (x \in U \land x \notin A) \lor (x \in U \land x \notin B) \\  &amp; \iff x \in A^{&#39;} \lor x \in B^{&#39;} \\  &amp; \iff x \in A^{&#39;} \cup B^{&#39;}  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((A \cup B)^{&#39;} = A^{&#39;} \cap B^{&#39;}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in (A \cup B)^{&#39;} &amp; \iff x \in U \land x \notin A \cup B \\  &amp; \iff x \in U \land \neg(x \in A \lor x \in B) \\  &amp; \iff x \in U \land (x \notin A \land x \notin B) \\  &amp; \iff (x \in U \land x \notin A) \land (x \in U \land x \notin B) \\  &amp; \iff x \in A^{&#39;} \land x \in B^{&#39;} \\  &amp; \iff x \in A^{&#39;} \cap B^{&#39;}  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((A \cup B) - (A \cap B) = (A - B) \cup (B - A)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in (A \cup B) - (A \cap B) &amp; \iff x \in (A \cup B) \land x \notin (A \cap B) \\  &amp; \iff (x \in A \lor x \in B) \land (x \notin A \lor x \notin B) \\  &amp; \iff (x \in A \land (x \notin A \lor x \notin B)) \lor (x \in B \land (x \notin A \lor x \notin B)) \\  &amp; \iff (x \in A \land x \notin B) \lor (x \in B \land x \notin A) \\  &amp; \iff x \in A - B \lor x \in B - A) \\  &amp; \iff x \in (A - B) \cup (B - A) \\  \end{split}\)</span></li>
+</ul></li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

@@ -1441,9 +1441,171 @@ We have the following results
         
 ## Difference and complement
 
+If $A$ and $B$ are two sets by $A - B$ we mean the set of all objects which belongs to $A$ but not to $B$:
 
+$$A - B = \{x: x \in A \land x \notin B \}$$
+ $A - B$ is called the __difference__ of $A$ and $B$
+ 
+We have the following results
+
+- $A - B \subseteq A$
+
+    + $\begin{split}
+       x \in A - B & \iff x \in A \land x \notin B \\
+       & \implies x \in A
+       \end{split}$
+
+- $A - \emptyset = A$
+
+    + $\begin{split}
+       x \in A - \emptyset & \iff x \in A \land x \notin \emptyset \\
+       & \iff x \in A
+       \end{split}$
+       
+We very often restrict out attention to the elements and subsets of some particular set $U$:
+
+- The set of all integers $\mathbb{Z}$ in number theory
+
+- The set of all reals $\mathbb{R}$ in real analysis
+
+In each case the set $U$ is temporarily called the __universal set__. If $A \subseteq U$ then by the set $A^{'}$ we mean the set of all objects which belongs to $U$ but not to $A$:
+
+$$A^{'} = \{x: x \in U \land x \notin A \}$$  
+ $A^{'}$ is called the __complement__ of $A$
+
+We have the following results
+
+- $A^{''} = A$
+
+    + $\begin{split}
+       x \in A^{''} & \iff x \in U \land x \notin A^{'} \\
+       & \iff x \in U \land \neg (x \in A^{'}) \\
+       & \iff x \in U \land \neg (x \in U \land x \notin A) \\
+       & \iff x \in U \land (x \notin U \lor x \in A) \\
+       & \iff (x \in U \land x \notin U) \lor (x \in U \land x \in A) \\
+       & \iff x \in U \land x \in A \\
+       & \iff x \in A
+       \end{split}$
+
+- $\emptyset^{'} = U$
+
+    + $\begin{split}
+       x \in \emptyset^{'} & \iff x \in U \land x \notin \emptyset \\
+       & \iff x \in U 
+       \end{split}$
+
+- $U^{'} = \emptyset$
+       
+    + $\begin{split}
+       x \in U^{'} & \iff x \in U \land x \notin U \\
+       & \implies \text{There is a contradiction}
+       \end{split}$
+
+    + Therefore $(\forall x)(x \notin U^{'})$ and because $\emptyset$ is unique $U^{'} = \emptyset$
+    
+## Difference and complement exercises and solutions
+
+1. Prove that $A \subseteq B \iff A - B = \emptyset$
+
+    + Assume $A \subseteq B$. Therefore if $x \in A$ then $x \in B$ 
+
+        + $\begin{split}
+           x \in A - B & \iff x \in A \land x \notin B \\
+           & \implies (x \in A \land x \in B) \land x \notin B \\ 
+           & \iff (x \in A \land (x \in B \land x \notin B) \\
+           & \iff \text{There is a contradiction}
+           \end{split}$
+           
+            + Therefore $(\forall x)(x \notin A - B)$ and because $\emptyset$ is unique $A - B = \emptyset$
+           
+    + Assume $A - B = \emptyset$. Therefore $x \notin A - B \iff \neg(x \in A \land x \notin B) \iff x \notin A \lor x \in B$. So $(\forall x)(x \notin A \lor x \in B)$ 
+
+        + $\begin{split}
+           x \in A & \implies x \in A \land (x \notin A \lor x \in B) \\
+           & \implies (x \in A \land x \notin A) \lor (x \in A \land x \in B) \\
+           & \implies x \in A \land x \in B \\
+           & \implies x \in B
+           \end{split}$
+           
+2. Assume that we are given a universal set $U$. Prove:
+
+    a. $A - B = A \cap B^{'}$
+    
+        + $\begin{split}
+           x \in A - B & \iff x \in A \land x \notin B \\
+           & \iff x \in A \land (x \in U \land x \notin B) \\
+           & \iff x \in A \land x \in B^{'} \\
+           & \iff x \in A \cap B^{'}
+           \end{split}$
+           
+    b. $A \subseteq B \iff B^{'} \subseteq A^{'}$
+    
+        + Assume $A \subseteq B$. Therefore $(x \in A \implies x \in B) \iff (x \notin B \implies x \notin A)$
+    
+            + $\begin{split}
+               x \in B^{'}  & \implies x \in U \land x \notin B \\
+               & \implies x \in U \land x \notin A \\
+               & \implies x \in A^{'} 
+               \end{split}$
+               
+        + Assume $B^{'} \subseteq A^{'}$. Therefore $(x \in B^{'} \implies x \in A^{'}) \iff (x \notin B \implies x \notin A)\implies (x \in A \implies x \in B)$
+    
+            + $\begin{split}
+               x \in A  & \implies x \in B 
+               \end{split}$
+               
+    c. $(A \cap B)^{'} = A^{'} \cup B^{'}$
+    
+        + $\begin{split}
+           x \in (A \cap B)^{'} & \iff x \in U \land x \notin A \cap B \\
+           & \iff x \in U \land \neg(x \in A \land x \in B) \\
+           & \iff x \in U \land (x \notin A \lor x \notin B) \\
+           & \iff (x \in U \land x \notin A) \lor (x \in U \land x \notin B) \\
+           & \iff x \in A^{'} \lor  x \in B^{'} \\
+           & \iff x \in A^{'} \cup B^{'}
+           \end{split}$
+           
+    d. $(A \cup B)^{'} = A^{'} \cap B^{'}$
+    
+        + $\begin{split}
+           x \in (A \cup B)^{'} & \iff x \in U \land x \notin A \cup B \\
+           & \iff x \in U \land \neg(x \in A \lor x \in B) \\
+           & \iff x \in U \land (x \notin A \land x \notin B) \\
+           & \iff (x \in U \land x \notin A) \land (x \in U \land x \notin B) \\
+           & \iff x \in A^{'} \land  x \in B^{'} \\
+           & \iff x \in A^{'} \cap B^{'}
+           \end{split}$
+           
+    e. $(A \cup B) - (A \cap B) = (A - B) \cup (B - A)$
+    
+        + $\begin{split}
+           x \in (A \cup B) - (A \cap B) & \iff x \in (A \cup B) \land x \notin (A \cap B) \\
+           & \iff (x \in A \lor x \in B) \land (x \notin A \lor x \notin B) \\
+           & \iff (x \in A \land (x \notin A \lor x \notin B)) \lor (x \in B \land (x \notin A \lor x \notin B)) \\
+           & \iff (x \in A \land x \notin B) \lor (x \in B \land x \notin A) \\
+           & \iff x \in A - B \lor x \in B - A) \\
+           & \iff x \in (A - B) \cup (B - A) \\
+           \end{split}$
 
 # Bibliography
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
