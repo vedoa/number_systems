@@ -1586,6 +1586,37 @@ We have the following results
            & \iff x \in A - B \lor x \in B - A) \\
            & \iff x \in (A - B) \cup (B - A) \\
            \end{split}$
+           
+3. Let $U$ be the set of all integers, $\mathbb{Z}$. Let $E, O, P, N$ be the set of all even, odd, positive, negative integers, respectively. Find $E - P$, $P - E$, $P \cup N$, $P^{'}$, $N ^{'}$. Which pair of sets are disjoint?
+
+    + $E = \{ x: x = 2n \land n \in \mathbb{Z} \}$
+    
+    + $O = \{ x: x = 2n + 1 \land n \in \mathbb{Z} \}$
+    
+    + $P = \{ x: x > 0 \land x \in \mathbb{Z} \}$
+    
+    + $N = \{ x: x < 0 \land x \in \mathbb{Z} \}$
+    
+        + $E - P = \{ x: x = 2n \land n \leq 0 \land n \in \mathbb{Z} \}$
+        
+        + $P - E = \{ x: x \in O \land x > 0 \}$
+        
+        + $P \cup N = \mathbb{Z} - \{ 0 \}$
+        
+        + $P^{'} = N \cup \{0 \}$
+        
+        + $N^{'} = P \cup \{0 \}$
+        
+            + $(E - P) \cap (P - E) = \emptyset$
+          
+            + $(P - E) \cap P^{'} = \emptyset$
+
+## Power set
+
+If $A$ is a set by $\mathscr{P}(A)$ we mean the set of all subsets of $A$:
+
+$$\mathscr{P}(A) = \{B: B \subseteq A \}$$
+$\mathscr{P}(A)$ is called the __power set__ of $A$
 
 # Bibliography
 

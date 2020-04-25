@@ -1822,6 +1822,7 @@ summary {
 <li><a href="#union-and-intersection-exercises-and-solutions"><span class="toc-section-number">1.15</span> Union and intersection exercises and solutions</a></li>
 <li><a href="#difference-and-complement"><span class="toc-section-number">1.16</span> Difference and complement</a></li>
 <li><a href="#difference-and-complement-exercises-and-solutions"><span class="toc-section-number">1.17</span> Difference and complement exercises and solutions</a></li>
+<li><a href="#power-set"><span class="toc-section-number">1.18</span> Power set</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -5464,7 +5465,30 @@ T
 <li><span class="math inline">\(\begin{split}  x \in (A \cup B) - (A \cap B) &amp; \iff x \in (A \cup B) \land x \notin (A \cap B) \\  &amp; \iff (x \in A \lor x \in B) \land (x \notin A \lor x \notin B) \\  &amp; \iff (x \in A \land (x \notin A \lor x \notin B)) \lor (x \in B \land (x \notin A \lor x \notin B)) \\  &amp; \iff (x \in A \land x \notin B) \lor (x \in B \land x \notin A) \\  &amp; \iff x \in A - B \lor x \in B - A) \\  &amp; \iff x \in (A - B) \cup (B - A) \\  \end{split}\)</span></li>
 </ul></li>
 </ol></li>
+<li><p>Let <span class="math inline">\(U\)</span> be the set of all integers, <span class="math inline">\(\mathbb{Z}\)</span>. Let <span class="math inline">\(E, O, P, N\)</span> be the set of all even, odd, positive, negative integers, respectively. Find <span class="math inline">\(E - P\)</span>, <span class="math inline">\(P - E\)</span>, <span class="math inline">\(P \cup N\)</span>, <span class="math inline">\(P^{&#39;}\)</span>, <span class="math inline">\(N ^{&#39;}\)</span>. Which pair of sets are disjoint?</p>
+<ul>
+<li><p><span class="math inline">\(E = \{ x: x = 2n \land n \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(O = \{ x: x = 2n + 1 \land n \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(P = \{ x: x &gt; 0 \land x \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(N = \{ x: x &lt; 0 \land x \in \mathbb{Z} \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(E - P = \{ x: x = 2n \land n \leq 0 \land n \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(P - E = \{ x: x \in O \land x &gt; 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(P \cup N = \mathbb{Z} - \{ 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(P^{&#39;} = N \cup \{0 \}\)</span></p></li>
+<li><p><span class="math inline">\(N^{&#39;} = P \cup \{0 \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\((E - P) \cap (P - E) = \emptyset\)</span></p></li>
+<li><p><span class="math inline">\((P - E) \cap P^{&#39;} = \emptyset\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ol>
+</div>
+<div id="power-set" class="section level2">
+<h2><span class="header-section-number">1.18</span> Power set</h2>
+<p>If <span class="math inline">\(A\)</span> is a set by <span class="math inline">\(\mathscr{P}(A)\)</span> we mean the set of all subsets of <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[\mathscr{P}(A) = \{B: B \subseteq A \}\]</span> <span class="math inline">\(\mathscr{P}(A)\)</span> is called the <strong>power set</strong> of <span class="math inline">\(A\)</span></p>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
