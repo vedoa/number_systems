@@ -1616,7 +1616,118 @@ We have the following results
 If $A$ is a set by $\mathscr{P}(A)$ we mean the set of all subsets of $A$:
 
 $$\mathscr{P}(A) = \{B: B \subseteq A \}$$
-$\mathscr{P}(A)$ is called the __power set__ of $A$
+$\mathscr{P}(A)$ is called the __power set__ of $A$. For example, always $\emptyset \in \mathscr{P}(A)$ and $A \in \mathscr{P}(A)$ so $\mathscr{P}(A) \neq \emptyset$
+
+## Power set exercises and solutions
+
+1. Prove $A \subseteq B \iff \mathscr{P}(A) \subseteq \mathscr{P}(B)$
+
+    + Assume $A \subseteq B$. Therefore if $x \in A$ then $x \in B$ 
+
+        + $\begin{split}
+           S \in \mathscr{P}(A) & \iff S \subseteq A \\
+           & \implies S \subseteq B \\
+           & \iff S \in \mathscr{P}(B)
+           \end{split}$
+           
+    + Assume $\mathscr{P}(A) \subseteq \mathscr{P}(B)$. Therefore $S \in \mathscr{P}(A) \implies S \in \mathscr{P}(B)$ 
+
+        + $\begin{split}
+           x \in A & \iff \{x \} \subseteq A \\
+           & \iff \{x \} \in \mathscr{P}(A) \\
+           & \implies \{x \} \in \mathscr{P}(B) \\
+           & \iff \{x \} \subseteq B \\
+           & \iff x \in B
+           \end{split}$
+
+2. Prove $\mathscr{P}(A) \cap \mathscr{P}(B) = \mathscr{P}(A \cap B)$
+
+    + $\begin{split}
+       S \in \mathscr{P}(A) \cap \mathscr{P}(B) & \iff S \in \mathscr{P}(A) \land S \in \mathscr{P}(B) \\
+       & \iff S \subseteq A \land S \subseteq B \\
+       & \iff S \subseteq A \cap B \\
+       & \iff S \in \mathscr{P}(A \cap B)
+       \end{split}$
+
+3. Give  a counterexample to show that $\mathscr{P}(A) \cup \mathscr{P}(B) = \mathscr{P}(A \cup B)$
+
+    + $A = \{a \}$ then $\mathscr{P}(A) = \{ \emptyset, \{a \} \}$
+    
+    + $B = \{b \}$ then $\mathscr{P}(B) = \{ \emptyset, \{b \} \}$
+    
+    + $A \cup B = \{ a, b \}$
+    
+        + $\mathscr{P}(A) \cup \mathscr{P}(B) = \{ \emptyset, \{a \}, \{b \}\}$
+        
+        + $\mathscr{P}(A \cup B) = \{ \emptyset, \{a \}, \{b \}, \{ a, b \} \}$
+        
+        + $\mathscr{P}(A) \cup \mathscr{P}(B) \subset \mathscr{P}(A \cup B)$
+        
+            + Let's check out if this result can be generalized
+            
+                + $\begin{split}
+                   S \in \mathscr{P}(A) \cup \mathscr{P}(B) & \iff S \in \mathscr{P}(A) \lor S \in \mathscr{P}(B) \\
+                   & \iff S \subseteq A \lor S \subseteq B \\
+                   & \implies S \subseteq A \cup B \\
+                   & \iff S \in \mathscr{P}(A \cup B)
+                   \end{split}$
+                   
+                    + We don´t have $S \subseteq A \cup B \implies S \subseteq A \lor S \subseteq B$ because if $x \in S$ then $x \in A \lor x \in B$. So we don´t necessarily have, for example, that $x \in A$ and we can not guarantee that $S \subseteq A$
+
+4. Prove $\mathscr{P}(A) = \mathscr{P}(B) \implies A = B$
+
+    + $\begin{split}
+       x \in A & \iff \{ x \} \subseteq A \\
+       & \iff \{ x \} \subseteq B \\
+       & \iff x \in B
+       \end{split}$
+       
+        + Also $A = B \implies \mathscr{P}(A) = \mathscr{P}(B)$ is true but it isn´t an interesting result 
+
+5. If $A$ is finite and has $n$ elements, prove that the power set $\mathscr{P}$ has $2^n$ elements. __Hint__: In choosing a subset of $A$, there are two possibilities with respect to each of the $n$ elements, that is, it is in the set or not in it.
+
+    + $A = \{ a_1, ..., a_n\}$
+    
+    + We can build a subset $S$ of $A$ in the following way
+    
+        + $\begin{matrix}
+           \text{Decide if } a_1 \in S \lor a_1 \notin S \\
+           \vdots \\
+           \text{Decide if } a_n \in S \lor a_n \notin S
+           \end{matrix}$
+           
+            + Apply and extend the __fundamental principle of counting__: if there are $a_1$ ways of doing something and $a_2$ ways of doing another thing, then there are $a_1 * a_2$  ways of performing both actions
+              
+            + $\underbrace{2 * \cdots * 2}_{n \text{ times}} = 2^n$
+
+## Arbitrary unions and intersections
+
+Let $\mathscr{X}$ by a set of sets, that is, the members of $\mathscr{X}$ are themselves sets. By the __union__ of $\mathscr{X}$ we mean all the sets of all objects which are at least in one set of $\mathscr{X}$:
+
+$$\bigcup_{A \in \mathscr{X}} A = \{y: (\exists B)(B \in \mathscr{X} \land y \in B) \}$$
+we also can write $\bigcup_{A \in \mathscr{X}} A$. For example, let $A_i = \{ 1, 2, ..., i\}$ and let $\mathscr{X} = \{ A_1, A_2, ..., \}$ then $\bigcup_{A \in \mathscr{X}} A =  A_1 \cup A_2 \cdots = \{  1 \}  \cup \{ 1, 2\} \cup \cdots = \{ 1, 2, ... \} = \mathbb{P}$
+
+Let $\mathscr{X}$ by a non empty set of sets. By the __intersection__ of $\mathscr{X}$ we mean the set of all objects which belong to every set of $\mathscr{X}$:
+
+$$\bigcap_{A \in \mathscr{X}} A = \{y: (\forall B)(B \in \mathscr{X} \implies y \in B) \}$$
+we also can write $\bigcap_{A \in \mathscr{X}} A$. For example, let $B_i = \mathbb{P} - \{ 1, 2, ..., i\}$ and let $\mathscr{X} = \{ B_1, B_2, ..., \}$ then $\bigcap_{A \in \mathscr{X}} A =  B_1 \cap B_2 \cdots = \{  2, 3, ... \}  \cap \{ 1, 3, ...\} \cap \cdots = \emptyset = \mathbb{P}$
+
+## Arbitrary unions and intersections exercises and solutions
+
+1. Prove $B \in \mathscr{X} \implies B \subseteq \bigcup_{A \in \mathscr{X}} A$
+
+    + $\begin{split}
+       x \in B & \implies (\exists B)(x \in B \land B \in \mathscr{X}) \\
+       & \implies x \in \bigcup_{A \in \mathscr{X}} A
+       \end{split}$
+       
+2. Prove $B \in \mathscr{X} \implies \bigcap_{A \in \mathscr{X}} A \subseteq B$
+
+    + $\begin{split}
+       x \in \bigcap_{A \in \mathscr{X}} A & \implies (\forall A)(A \in \mathscr{X} \implies x \in A) \\
+       & \implies (B \in \mathscr{X} \implies x \in B) \\
+       & \implies x \in B
+       \end{split}$
 
 # Bibliography
 
