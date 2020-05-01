@@ -1826,6 +1826,9 @@ summary {
 <li><a href="#power-set-exercises-and-solutions"><span class="toc-section-number">1.19</span> Power set exercises and solutions</a></li>
 <li><a href="#arbitrary-unions-and-intersections"><span class="toc-section-number">1.20</span> Arbitrary unions and intersections</a></li>
 <li><a href="#arbitrary-unions-and-intersections-exercises-and-solutions"><span class="toc-section-number">1.21</span> Arbitrary unions and intersections exercises and solutions</a></li>
+<li><a href="#ordered-pairs"><span class="toc-section-number">1.22</span> Ordered pairs</a></li>
+<li><a href="#ordered-pairs-exercises-and-solutions"><span class="toc-section-number">1.23</span> Ordered pairs exercises and solutions</a></li>
+<li><a href="#cartesian-porduct"><span class="toc-section-number">1.24</span> Cartesian porduct</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -1843,10 +1846,10 @@ text-align: justify}
 <span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(knitr)</span></code></pre></div>
 <div id="logic-and-set-theory" class="section level1">
 <h1><span class="header-section-number">1</span> Logic and set theory</h1>
-<p>This section is based on <span class="citation">(Mendelson 2008, Chapter 1, pp 1-52)</span></p>
+<p>This section is based on <span class="citation">(Mendelson <a href="#ref-mendelson_number_2008" role="doc-biblioref">2008</a>, Chapter 1, pp 1-52)</span></p>
 <p>This is a very brief introduction to the basic concepts and terminology of mathematical logic and set theory</p>
-<p>For another introduction to set theory see <span class="citation">(Halmos 1974)</span> and for an extensive survey of the set theory see <span class="citation">(Jech 2003)</span></p>
-<p>For another introduction to mathematical logic see <span class="citation">(Smullyan 2014)</span> and for an extensive survey of mathematical logic see <span class="citation">(Bilaniuk 2009)</span></p>
+<p>For another introduction to set theory see <span class="citation">(Halmos <a href="#ref-halmos_naive_1974" role="doc-biblioref">1974</a>)</span> and for an extensive survey of the set theory see <span class="citation">(Jech <a href="#ref-jech_set_2003" role="doc-biblioref">2003</a>)</span></p>
+<p>For another introduction to mathematical logic see <span class="citation">(Smullyan <a href="#ref-smullyan_beginners_2014" role="doc-biblioref">2014</a>)</span> and for an extensive survey of mathematical logic see <span class="citation">(Bilaniuk <a href="#ref-bilaniuk_problem_2009" role="doc-biblioref">2009</a>)</span></p>
 <div id="logical-connectives" class="section level2">
 <h2><span class="header-section-number">1.1</span> Logical connectives</h2>
 <div id="conjuction" class="section level3">
@@ -3095,11 +3098,11 @@ T
 <ul>
 <li><p>When <span class="math inline">\(A\)</span> and <span class="math inline">\(A \implies B\)</span> are both true, the <span class="math inline">\(B\)</span> must be true</p>
 <ul>
-<li><span class="math inline">\(\{ A, A \implies B \} \vDash B\)</span> <span class="citation">(Bilaniuk 2009, Chapter 2, Definition 2.4, p 10)</span></li>
+<li><span class="math inline">\(\{ A, A \implies B \} \vDash B\)</span> <span class="citation">(Bilaniuk <a href="#ref-bilaniuk_problem_2009" role="doc-biblioref">2009</a>, Chapter 2, Definition 2.4, p 10)</span></li>
 </ul></li>
 <li><p>In order to prove <span class="math inline">\(A \implies B\)</span>, it suffices to assume <span class="math inline">\(A\)</span> true and then show that <span class="math inline">\(B\)</span> must also be true</p>
 <ul>
-<li><span class="math inline">\(\{ A, A \implies B \} \vdash B\)</span> <span class="citation">(Bilaniuk 2009, Chapter 3, Definition 3.3, p 12)</span></li>
+<li><span class="math inline">\(\{ A, A \implies B \} \vdash B\)</span> <span class="citation">(Bilaniuk <a href="#ref-bilaniuk_problem_2009" role="doc-biblioref">2009</a>, Chapter 3, Definition 3.3, p 12)</span></li>
 </ul></li>
 </ul>
 <div id="necessary-and-sufficient-condition" class="section level3">
@@ -5570,7 +5573,118 @@ T
 <ul>
 <li><span class="math inline">\(\begin{split}  x \in \bigcap_{A \in \mathscr{X}} A &amp; \implies (\forall A)(A \in \mathscr{X} \implies x \in A) \\  &amp; \implies (B \in \mathscr{X} \implies x \in B) \\  &amp; \implies x \in B  \end{split}\)</span></li>
 </ul></li>
+<li><p>Consider a nonempty set <span class="math inline">\(W\)</span>. Let <span class="math inline">\(\mathscr{X}\)</span> be the set of all nonempty finite subsets of <span class="math inline">\(W\)</span>. <span class="math inline">\(\mathscr{X} = \{A: A \subseteq W \land A \neq \emptyset \land A \text{ is finite} \}\)</span>. Find <span class="math inline">\(\bigcup_{A \in \mathscr{X}} A\)</span> and <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(W\)</span> is finite</p>
+<ul>
+<li><p><span class="math inline">\(W \in \mathscr{X}\)</span> and <span class="math inline">\(\bigcup_{A \in \mathscr{X}} A = W \cup \bigcup_{A \in \mathscr{X}, A \neq W} A = W\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in W\)</span> then <span class="math inline">\(\{ x \} \in \mathscr{X}\)</span>. Therefore</p>
+<ul>
+<li><p>If <span class="math inline">\(W = \{ x \}\)</span> then <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A = W\)</span> because <span class="math inline">\(\mathscr{X} = \{ \{ x \} \}\)</span></p></li>
+<li><p>If <span class="math inline">\(W \neq \{ x \}\)</span> then <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A = \{ x \} \cap \bigcap_{A \in \mathscr{X} - \{ x \}} A = \emptyset\)</span> because if <span class="math inline">\(A \in \mathscr{X} - \{ x \}\)</span> then <span class="math inline">\(\neg (\forall A)(A \in \mathscr{X} \implies x \in A)\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(W\)</span> is infinite we can express this set as <span class="math inline">\(W = \bigcup_{A \in \mathscr{X}^*} A\)</span> where <span class="math inline">\(\mathscr{X}^* = \{ \{a_i \}: a_i \in W \}\)</span>. Therefore</p>
+<ul>
+<li><p><span class="math inline">\(\bigcup_{A \in \mathscr{X}} A = \bigcup_{A \in \mathscr{X}^*} A \cup \bigcup_{A \in \mathscr{X} - \mathscr{X}^*} A = W \cup \bigcup_{A \in \mathscr{X} - \mathscr{X}^*} A = W\)</span></p></li>
+<li><p><span class="math inline">\(\bigcap_{A \in \mathscr{X}} A = \{ a_i \} \cap \bigcap_{A \in \mathscr{X} - \{\{ a_i \}\}} A = \emptyset\)</span> because if <span class="math inline">\(A \in \mathscr{X} - \{\{ a_i \}\}\)</span> then <span class="math inline">\(\neg (\forall A)(A \in \mathscr{X} \implies x \in A)\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(\emptyset \in \mathscr{X} \implies \bigcap_{A \in \mathscr{X}} A = \emptyset\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in \bigcap_{A \in \mathscr{X}} A &amp; \implies (\forall A)(A \in \mathscr{X} \implies x \in A)\\  &amp; \implies (\emptyset \in \mathscr{X} \implies x \in \emptyset) \\  &amp; \implies x \in \emptyset  &amp; \implies \text{There is a contradiction}  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\((\forall x)(x \notin \bigcap_{A \in \mathscr{X}} A)\)</span> and because <span class="math inline">\(\emptyset\)</span> is unique <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A = \emptyset\)</span></p></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((\forall B)(B \in \mathscr{X} \implies C \subseteq B) \implies C \subseteq \bigcap_{A \in \mathscr{X}} A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in C &amp; \implies (\forall A)(A \in \mathscr{X} \implies x \in A) \\  &amp; \implies x \in \bigcap_{A \in \mathscr{X}} A  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((\forall B)(B \in \mathscr{X} \implies B \subseteq C)\)</span> show that <span class="math inline">\(\bigcup_{A \in \mathscr{X}} A \subseteq C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in \bigcup_{A \in \mathscr{X}} A &amp; \implies (\exists A)(A \in \mathscr{X} \land x \in A) \\  &amp; \implies (\exists A)(A \in \mathscr{X} \land x \in C) \\  &amp; \implies x \in C  \end{split}\)</span></p>
+<ul>
+<li>This works even for <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(\mathscr{X}\)</span> be the set of all set of integers which contain <span class="math inline">\(1\)</span> or <span class="math inline">\(2\)</span>. Find <span class="math inline">\(\bigcup_{A \in \mathscr{X}} A\)</span> and <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{X} = \{A: A \subseteq \mathbb{Z} \land (1 \in A \lor 2 \in A) \}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(\mathbb{Z} \in \mathscr{X}\)</span>, <span class="math inline">\(\{ 1 \} \in \mathscr{X}\)</span> and <span class="math inline">\(\{ 2 \} \in \mathscr{X}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\bigcup_{A \in \mathscr{X}} A = \mathbb{Z} \cup \bigcup_{A \in \mathscr{X} - \mathbb{Z}} A = \mathbb{Z}\)</span> because if <span class="math inline">\(A \in \mathscr{X} - \mathbb{Z}\)</span> then <span class="math inline">\(A \subset \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(\bigcap_{A \in \mathscr{X}} A = \{ 1 \} \cap \{ 2 \} \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(\mathscr{X}\)</span> be the set of all infinite set of integers. Find <span class="math inline">\(\bigcup_{A \in \mathscr{X}} A\)</span> and <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{X} = \{A: A \subseteq \mathbb{Z} \land A \text{ is infinite} \}\)</span></p>
+<ul>
+<li><p>Therefore <span class="math inline">\(\mathbb{Z} \in \mathscr{X}\)</span>, <span class="math inline">\(\{x: x = 2n \land n \in \mathbb{Z} \} \in \mathscr{X}\)</span> and <span class="math inline">\(\{y: y = 2m + 1 \land m \in \mathbb{Z} \} \in \mathscr{X}\)</span></p>
+<ul>
+<li>Also <span class="math inline">\(\{x: x = 2n \land n \in \mathbb{Z} \} \cap \{y: y = 2m + 1 \land m \in \mathbb{Z} \} = \emptyset\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(\bigcup_{A \in \mathscr{X}} A = \mathbb{Z} \cup \bigcup_{A \in \mathscr{X} - \mathbb{Z}} A = \mathbb{Z}\)</span> because if <span class="math inline">\(A \in \mathscr{X} - \mathbb{Z}\)</span> then <span class="math inline">\(A \subset \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(\bigcap_{A \in \mathscr{X}} A = \{x: x = 2n \land n \in \mathbb{Z} \} \cap \{y: y = 2m + 1 \land m \in \mathbb{Z} \} \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset\)</span></p></li>
+</ul></li>
 </ol>
+<p><strong>Note</strong>: In defining an arbitrary intersection <span class="math inline">\(\bigcap_{A \in \mathscr{X}} A\)</span> we restricted ourselves to the case where <span class="math inline">\(\mathscr{X}\)</span> is nonempty. When <span class="math inline">\(\mathscr{X}\)</span> is empty, <span class="math inline">\(B \in \mathscr{X}\)</span> is always false and therefore <span class="math inline">\(B \in \mathscr{X} \implies y \in B\)</span> would be trivially true. Hence when <span class="math inline">\(\mathscr{X}\)</span> is empty <span class="math inline">\((\forall B)(B \in \mathscr{X} \implies y \in B)\)</span> would be true not matter what <span class="math inline">\(y\)</span> is. Hence <span class="math inline">\(\{y: (\forall B)(B \in \mathscr{X} \implies y \in B) \}\)</span> would be a set containing all objects. However if you check out <strong>Appendix E</strong> this set will lead to a contradiction</p>
+</div>
+<div id="ordered-pairs" class="section level2">
+<h2><span class="header-section-number">1.22</span> Ordered pairs</h2>
+<p>In mathematics we sometimes need to form the ordered pair <span class="math inline">\((b, c)\)</span> for 2 given objects <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>. The order of the objects <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> in the ordered pair <span class="math inline">\((b, c)\)</span> is important where <span class="math inline">\((b, c) \neq (c, b)\)</span> if <span class="math inline">\(b \neq c\)</span></p>
+<p>In that sense 2 ordered pairs, <span class="math inline">\((b, c)\)</span> and <span class="math inline">\((u, v)\)</span>, are equal if <span class="math inline">\(b = u \land c = v\)</span>. Therefore a way to define an ordered pair is like this:</p>
+<p><strong>Definition</strong> <span class="math inline">\((b, c) = \{ \{b \}, \{b, c \} \}\)</span></p>
+<p>Using this artificial definition, which has no intrinsic correctness, we can show the following:</p>
+<p><strong>Theorem</strong> <span class="math inline">\((b, c) = (u, v) \implies (b = u \land c = v)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (b, c) = (u, v) &amp; \iff \{ \{b \}, \{b, c \} \} = \{ \{u \}, \{u, v \} \} \\  &amp; \iff \{ \{b \}, \{b, c \} \} \subseteq \{ \{u \}, \{u, v \} \} \land \{ \{u \}, \{u, v \} \} \subseteq \{ \{b \}, \{b, c \} \} \\  &amp; \implies \{b \} \in \{ \{u \}, \{u, v \} \} \land \{ b, c \} \in \{ \{u \}, \{u, v \} \} \land \{u, v \} \in \{ \{b \}, \{b, c \} \} \\  \end{split}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(\{b \} \in \{ \{u \}, \{u, v \} \}\)</span> then <span class="math inline">\(b = u \lor b = u = v\)</span> so in any case <span class="math inline">\(b = u\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(b = u\)</span></li>
+</ul></li>
+<li><p>Also we have that <span class="math inline">\(u = v \lor u \neq v\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(u = v\)</span> then <span class="math inline">\(\{ b, c \} \in \{ \{u \}, \{u, v \} \}\)</span> can be expressed as <span class="math inline">\(\{ b, c \} \in \{ \{v \} \}\)</span></p>
+<ul>
+<li><p>Therefore <span class="math inline">\(\{ b, c \} = \{v \}\)</span> and so <span class="math inline">\(b = c = v\)</span></p>
+<ul>
+<li>We have that <span class="math inline">\(c = v\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(\{u, v \} \in \{ \{b \}, \{b, c \} \}\)</span> implies that <span class="math inline">\(\{u, v \} = \{b \} \lor \{ u, v \} = \{b, c \}\)</span></p>
+<ul>
+<li><p>It is not the case that <span class="math inline">\(\{u, v \} = \{b \}\)</span> because <span class="math inline">\(b = u \land u \neq v\)</span> so <span class="math inline">\(v \notin \{b \}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\(\{ u, v \} = \{b, c \}\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(b = u \land u \neq v\)</span> we have that <span class="math inline">\(c = v\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>In any case, <span class="math inline">\(u = v \lor u \neq v\)</span>, we have that <span class="math inline">\(c = v\)</span></p></li>
+</ul></li>
+<li><p>We have that <span class="math inline">\(b = u \land c = v\)</span></p></li>
+</ul></li>
+</ul>
+<p>Using ordered pairs we can define <strong>ordered triples</strong>, <strong>ordered quadruples</strong> and so on</p>
+<p><strong>Definition</strong> <span class="math inline">\((b, c, d) = ((b, c), d)\)</span></p>
+<p><strong>Definition</strong> <span class="math inline">\((b, c, d, e) = ((b, c, d), e)\)</span></p>
+</div>
+<div id="ordered-pairs-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.23</span> Ordered pairs exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Prove <span class="math inline">\((b, c, d) = (u, v, w) \implies (b = u \land c = v \land d = w)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (b, c, d) = (u, v, w) &amp; \iff ((b, c), d) = ((u, v), w) \\  &amp; \implies (b, c) = (u, v) \land d = w \\  &amp; \implies b = u \land c = v \land d = w  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((b, c, d, e) = (u, v, w, x) \implies (b = u \land c = v \land d = w \land e = x)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (b, c, d, e) = (u, v, w, x) &amp; \iff ((b, c, d), e) = ((u, v, w), x) \\  &amp; \implies (b, c, d) = (u, v, w) \land e = x \\  &amp; \implies b = u \land c = v \land d = w \land e = x  \end{split}\)</span></li>
+</ul></li>
+</ol>
+</div>
+<div id="cartesian-porduct" class="section level2">
+<h2><span class="header-section-number">1.24</span> Cartesian porduct</h2>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

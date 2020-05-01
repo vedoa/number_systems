@@ -11,6 +11,7 @@ output:
     toc: yes
     toc_depth: 2
 bibliography: number_systems.bib
+link-citations: yes
 ---
 
 <style>
@@ -77,4 +78,5 @@ Let $\mathscr{A}(y,y)$ be $y = z$ and $\mathscr{A}(x,y)$ be $x = z$ then $y = x 
     + Therefore $\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\} \vdash (x = y \land y = z) \implies x = z$ because $\{ y = x \implies (y = z \implies x = z), x = y \implies y = x, x = x\} \cup \{ x = y \land y = z \} \vdash x = z$
 
 # Bibliography
+
 

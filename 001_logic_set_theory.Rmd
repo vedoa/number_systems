@@ -11,6 +11,7 @@ output:
     toc: yes
     toc_depth: 2
 bibliography: number_systems.bib
+link-citations: yes
 ---
 
 <style>
@@ -1728,8 +1729,152 @@ we also can write $\bigcap_{A \in \mathscr{X}} A$. For example, let $B_i = \math
        & \implies (B \in \mathscr{X} \implies x \in B) \\
        & \implies x \in B
        \end{split}$
+       
+3. Consider a nonempty set $W$. Let $\mathscr{X}$ be the set of all nonempty finite subsets of $W$. $\mathscr{X} = \{A: A \subseteq W \land A \neq \emptyset \land A \text{ is finite} \}$. Find $\bigcup_{A \in \mathscr{X}} A$ and $\bigcap_{A \in \mathscr{X}} A$
+
+    + If $W$ is finite
+    
+        + $W \in \mathscr{X}$ and $\bigcup_{A \in \mathscr{X}} A = W \cup  \bigcup_{A \in \mathscr{X}, A \neq W} A = W$
+        
+        + If $x \in W$ then $\{ x \} \in \mathscr{X}$. Therefore
+        
+            + If $W = \{ x \}$ then $\bigcap_{A \in \mathscr{X}} A = W$ because $\mathscr{X} = \{ \{ x \} \}$
+            
+            + If $W \neq \{ x \}$ then $\bigcap_{A \in \mathscr{X}} A = \{ x \} \cap \bigcap_{A \in \mathscr{X} - \{ x \}} A = \emptyset$ because if $A \in \mathscr{X} - \{ x \}$ then $\neg (\forall A)(A \in \mathscr{X} \implies x \in A)$
+            
+    + If $W$ is infinite we can express this set as $W = \bigcup_{A \in \mathscr{X}^*} A$ where $\mathscr{X}^* = \{ \{a_i \}: a_i \in W \}$. Therefore
+    
+        + $\bigcup_{A \in \mathscr{X}} A = \bigcup_{A \in \mathscr{X}^*} A \cup  \bigcup_{A \in \mathscr{X} - \mathscr{X}^*} A = W \cup  \bigcup_{A \in \mathscr{X} - \mathscr{X}^*} A = W$
+        
+        + $\bigcap_{A \in \mathscr{X}} A = \{ a_i \} \cap \bigcap_{A \in \mathscr{X} - \{\{ a_i \}\}} A = \emptyset$ because if $A \in \mathscr{X} - \{\{ a_i \}\}$ then $\neg (\forall A)(A \in \mathscr{X} \implies x \in A)$
+        
+4. Prove $\emptyset \in \mathscr{X} \implies \bigcap_{A \in \mathscr{X}} A = \emptyset$
+
+    + $\begin{split}
+       x \in \bigcap_{A \in \mathscr{X}} A & \implies (\forall A)(A \in \mathscr{X} \implies x \in A)\\
+       & \implies (\emptyset \in \mathscr{X} \implies x \in \emptyset) \\
+       & \implies x \in \emptyset
+       & \implies \text{There is a contradiction}
+       \end{split}$
+
+    + Therefore $(\forall x)(x \notin \bigcap_{A \in \mathscr{X}} A)$ and because $\emptyset$ is unique $\bigcap_{A \in \mathscr{X}} A = \emptyset$
+    
+5. Prove $(\forall B)(B \in \mathscr{X} \implies C \subseteq B) \implies C \subseteq \bigcap_{A \in \mathscr{X}} A$
+
+    + $\begin{split}
+       x \in C & \implies (\forall A)(A \in \mathscr{X} \implies x \in A) \\
+       & \implies x \in \bigcap_{A \in \mathscr{X}} A
+       \end{split}$
+    
+6. Prove $(\forall B)(B \in \mathscr{X} \implies B \subseteq C)$ show that $\bigcup_{A \in \mathscr{X}} A \subseteq C$
+
+    + $\begin{split}
+       x \in \bigcup_{A \in \mathscr{X}} A & \implies (\exists A)(A \in \mathscr{X} \land x \in A) \\
+       & \implies (\exists A)(A \in \mathscr{X} \land x \in C) \\
+       & \implies  x \in C
+       \end{split}$
+
+        + This works even for $\bigcap_{A \in \mathscr{X}} A$
+        
+7. Let $\mathscr{X}$ be the set of all set of integers which contain $1$ or $2$. Find $\bigcup_{A \in \mathscr{X}} A$ and $\bigcap_{A \in \mathscr{X}} A$
+
+    + $\mathscr{X} = \{A: A \subseteq \mathbb{Z} \land (1 \in A \lor 2 \in A) \}$
+    
+        + Therefore $\mathbb{Z} \in \mathscr{X}$, $\{ 1 \} \in \mathscr{X}$ and $\{ 2 \} \in \mathscr{X}$
+        
+    + $\bigcup_{A \in \mathscr{X}} A = \mathbb{Z} \cup \bigcup_{A \in \mathscr{X} - \mathbb{Z}} A = \mathbb{Z}$ because if $A \in \mathscr{X} - \mathbb{Z}$ then $A \subset \mathbb{Z}$
+    
+    + $\bigcap_{A \in \mathscr{X}} A = \{ 1 \} \cap \{ 2 \} \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset$
+    
+8. Let $\mathscr{X}$ be the set of all infinite set of integers. Find $\bigcup_{A \in \mathscr{X}} A$ and $\bigcap_{A \in \mathscr{X}} A$
+
+    + $\mathscr{X} = \{A: A \subseteq \mathbb{Z} \land A \text{ is infinite} \}$
+    
+        +  Therefore $\mathbb{Z} \in \mathscr{X}$, $\{x: x = 2n \land n \in \mathbb{Z} \} \in \mathscr{X}$ and $\{y: y = 2m + 1 \land m \in \mathbb{Z} \} \in \mathscr{X}$
+        
+            + Also $\{x: x = 2n \land n \in \mathbb{Z} \} \cap \{y: y = 2m + 1 \land m \in \mathbb{Z} \} = \emptyset$
+            
+    + $\bigcup_{A \in \mathscr{X}} A = \mathbb{Z} \cup \bigcup_{A \in \mathscr{X} - \mathbb{Z}} A = \mathbb{Z}$ because if $A \in \mathscr{X} - \mathbb{Z}$ then $A \subset \mathbb{Z}$
+    
+    + $\bigcap_{A \in \mathscr{X}} A = \{x: x = 2n \land n \in \mathbb{Z} \} \cap \{y: y = 2m + 1 \land m \in \mathbb{Z} \} \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset \cap \bigcap_{A \in \mathscr{X} - \{\{ 1 \}, \{ 2 \} \}} A = \emptyset$
+    
+__Note__: In defining an arbitrary intersection $\bigcap_{A \in \mathscr{X}} A$ we restricted ourselves to the case where $\mathscr{X}$ is nonempty. When $\mathscr{X}$ is empty, $B \in \mathscr{X}$ is always false and therefore $B \in \mathscr{X} \implies y \in B$ would be trivially true. Hence when $\mathscr{X}$ is empty $(\forall B)(B \in \mathscr{X} \implies y \in B)$ would be true not matter what $y$ is. Hence $\{y: (\forall B)(B \in \mathscr{X} \implies y \in B) \}$ would be a set containing all objects. However if you check out __Appendix E__ this set will lead to a contradiction
+
+## Ordered pairs
+
+In mathematics we sometimes need to form the ordered pair $(b, c)$ for 2 given objects $b$ and $c$. The order of the objects $b$ and $c$ in the ordered pair $(b, c)$ is important where $(b, c) \neq (c, b)$ if $b \neq c$
+
+In that sense 2 ordered pairs, $(b, c)$ and $(u, v)$, are equal if $b = u \land c = v$. Therefore a way to define an ordered pair is like this:
+
+__Definition__ $(b, c) = \{ \{b \}, \{b, c \} \}$
+
+Using this artificial definition, which has no intrinsic correctness, we can show the following:
+
+__Theorem__ $(b, c) = (u, v) \implies (b = u \land c = v)$
+
+- $\begin{split}
+   (b, c) = (u, v) & \iff \{ \{b \}, \{b, c \} \} = \{ \{u \}, \{u, v \} \} \\
+   & \iff \{ \{b \}, \{b, c \} \} \subseteq \{ \{u \}, \{u, v \} \} \land \{ \{u \}, \{u, v \} \} \subseteq \{ \{b \}, \{b, c \} \} \\
+   & \implies \{b \} \in \{ \{u \}, \{u, v \} \} \land \{ b, c \} \in \{ \{u \}, \{u, v \} \} \land \{u, v \} \in \{ \{b \}, \{b, c \} \} \\
+   \end{split}$
+   
+    + If $\{b \} \in \{ \{u \}, \{u, v \} \}$ then $b = u \lor b = u = v$ so in any case $b = u$
+    
+        + Therefore $b = u$ 
+    
+    + Also we have that $u = v \lor u \neq v$
+    
+        + If $u = v$ then $\{ b, c \} \in \{ \{u \}, \{u, v \} \}$ can be expressed as $\{ b, c \} \in \{ \{v \} \}$
+        
+            + Therefore $\{ b, c \} = \{v \}$ and so $b = c = v$
+            
+                + We have that $c = v$
+            
+        + If $\{u, v \} \in \{ \{b \}, \{b, c \} \}$ implies that $\{u, v \} = \{b \} \lor \{ u, v \} = \{b, c \}$
+        
+            + It is not the case that $\{u, v \} = \{b \}$ because $b = u \land u \neq v$ so $v \notin \{b \}$
+            
+            + Therefore $\{ u, v \} = \{b, c \}$
+            
+                + Because $b = u \land u \neq v$ we have that $c = v$
+                
+        + In any case, $u = v \lor u \neq v$, we have that $c = v$
+        
+    + We have that $b = u \land c = v$
+    
+Using ordered pairs we can define __ordered triples__, __ordered quadruples__ and so on
+
+__Definition__ $(b, c, d) = ((b, c), d)$
+
+__Definition__ $(b, c, d, e) = ((b, c, d), e)$
+
+## Ordered pairs exercises and solutions
+
+1. Prove $(b, c, d) = (u, v, w) \implies (b = u \land c = v \land d = w)$
+
+    + $\begin{split}
+       (b, c, d) = (u, v, w) & \iff ((b, c), d) = ((u, v), w) \\
+       & \implies (b, c) = (u, v) \land d = w \\
+       & \implies b = u \land c = v \land d = w
+       \end{split}$
+
+2. Prove $(b, c, d, e) = (u, v, w, x) \implies (b = u \land c = v \land d = w \land e = x)$
+
+    + $\begin{split}
+       (b, c, d, e) = (u, v, w, x) & \iff ((b, c, d), e) = ((u, v, w), x) \\
+       & \implies (b, c, d) = (u, v, w) \land e = x \\
+       & \implies b = u \land c = v \land d = w \land e = x
+       \end{split}$
+
+## Cartesian porduct
+
+
 
 # Bibliography
+
+
+
+
 
 
 

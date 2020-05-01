@@ -11,6 +11,7 @@ output:
     toc: yes
     toc_depth: 2
 bibliography: number_systems.bib
+link-citations: yes
 ---
 
 <style>
@@ -48,4 +49,5 @@ which the last term is also written as $\sum_{i = 1}^n f(i)$
 - $\sum_{i = 1}^{n+1} f(i) = \sum_{i = 1}^n f(i) + f(n+1)$
 
 # Bibliography
+
 
