@@ -1866,7 +1866,7 @@ __Definition__ $(b, c, d, e) = ((b, c, d), e)$
        & \implies b = u \land c = v \land d = w \land e = x
        \end{split}$
 
-## Cartesian porduct
+## Cartesian product
 
 
 
