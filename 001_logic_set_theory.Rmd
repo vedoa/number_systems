@@ -34,6 +34,7 @@ library(tidyverse)
 library(kableExtra)
 library(tidyquant)
 library(knitr)
+library(latex2exp)
 ```
 
 # Logic and set theory
@@ -1868,7 +1869,207 @@ __Definition__ $(b, c, d, e) = ((b, c, d), e)$
 
 ## Cartesian product
 
+If $A$ and $B$ are sets the __cartesian product__ $A \times B$ is the set of all ordered pairs $(a,b)$ such that $a \in A \land b \in B$:
 
+$$A \times B = \{x: (\exists a)(\exists B)(x = (a,b) \land a \in A \land b \in B) \}$$
+__Notation__
+
+$$\begin{split}
+ A^2 & = A \times A \\
+ A^3 & = A^2 \times A \\
+ & \vdots \\
+ A^n & = A^{n-1} \times A \times A
+ \end{split}$$
+
+## Cartesian product exercises and solutions
+
+1. Let $A = \{a \}$ and $B = \{c, d \}$. Find $A \times B$ and $B \times A$
+
+    + $A \times B = \{ (a, b), (a, d) \}$
+    
+    + $B \times a = \{ (c, a), (d, a) \}$
+    
+2. Let $A = \{a, b\}$ and $B = \{c, d \}$. Find $A \times B$
+
+    + $A \times B = \{ (a, b), (a, c), (b, c), (b, d) \}$
+    
+3. If $A$ and $B$ are finite sets where $A$ has $n$ elements and $B$ has $k$ elements, how many elements does $A \times B$ have?
+
+    + For every element $x = (a, b) \in $A \times B$ we have that in the first position there are $n$ options and in the second position there are $k$ options. Using the __fundamental principle of counting__, $A \times B$ has $n \times k$ elements
+    
+4. $A \times \emptyset = ?$ and $\emptyset \times A = ?$
+
+    + $\begin{split}
+       x = (a, b) \in A \times \emptyset & \implies a \in A \land b \in \emptyset \\
+       & \implies \text{There is a contradiction because } (\forall x)(x \notin \emptyset) \\ 
+       \end{split}$
+       
+        + Therefore $(\forall x)(x \notin A \times \emptyset)$ and because $\emptyset$ is unique $A \times \emptyset = \emptyset$
+        
+    + $\begin{split}
+       x = (a, b) \emptyset \times A & \implies a \in \emptyset \land b \in A \\
+       & \implies \text{There is a contradiction because } (\forall x)(x \notin \emptyset) \\ 
+       \end{split}$
+       
+        + Therefore $(\forall x)(x \notin \emptyset \times A)$ and because $\emptyset$ is unique $\emptyset \times A = \emptyset$
+        
+5. Show that $A \times B = B \times A \iff (A = \emptyset \lor B = \emptyset \lor A = B)$
+
+    + Let's prove $(A = \emptyset \lor B = \emptyset \lor A = B) \implies A \times B = B \times A$
+
+        + If $A = \emptyset$ then $A \times B = \emptyset = B \times A$
+    
+        + If $B = \emptyset$ then $A \times B =  \emptyset = B \times A$
+    
+        + If $A = B$ replacing $A$ with $B$ and $B$ with $A$ in $A \times B$ we have that $A \times B = B \times A$
+        
+    + Let's prove $A \times B = B \times A \implies (A = \emptyset \lor B = \emptyset \lor A = B)$
+
+        + If $A \times B = B \times A$ then $A \times B \subseteq B \times A$: 
+        
+            + $A \times B = \emptyset \lor (x = (a,b) \in A \times B \implies x = (a,b) \in B \times A)$
+            
+                + $A \times B = \emptyset \implies (A = \emptyset \lor B = \emptyset)$
+                
+                + $(x = (a,b) \in A \times B \implies x = (a,b) \in B \times A) \implies ((a \in A \land b \in B) \implies (a \in B \land b \in A))$
+                
+                    + $A = B$
+
+6. Show that $(A \times B) \times C$ is the set of all ordered triples $(a, b, c)$ such that $a \in A$, $b \in B$ and $c \in C$
+
+    + $\begin{split}
+       (A \times B) \times C & = \{(y, c): y \in A \times B \land c \in C \} \\
+       & = \{((a, b), c): (a \in A \land b \in B) \land c \in C \} \\
+       & = \{(a, b, c): (a \in A \land b \in B) \land c \in C \}
+       \end{split}$
+       
+7. Let $A$ be the set of real numbers. Describe the geometric meaning of the following subsets of $A \times A$:
+
+    + \{(b, c): b \in A \land c \in A \land b = c\}
+    
+        + A line with slope equal to $1$ that passes through $(0, 0)$
+        
+    + \{(b, c): b \in A \land c \in A \land b = - c\}
+    
+        + A line with slope equal to $-1$ that passes through $(0, 0)$
+        
+    + \{(b, c): b \in A \land c \in A \land b = 2\}
+    
+        + A line with an infinite slope that cuts the horizontal axis in $(2, 0)$
+        
+## Relations
+
+By a __binary relation__ we mean a set of ordered pairs. Therefore if $A$ and $B$ are sets a __binary relation__ $R$ is $R \subseteq A \times B$
+
+- $\emptyset$ is a binary relation because $\emptyset \subseteq A \times B$
+
+- $\{ 1\}$ is not a binary relation because $\{ 1\}$ is not a set or ordered pairs
+
+__Definition__ Consider a relation $R$. By the __domain__ of $R$ we mean the set $\mathscr{D}(R)$ of all the objects $x$ such that $(x, y) \in R$ for some $y$:
+
+$$\mathscr{D}(R) = \{x: (\exists y)((x, y \in R)) \}$$
+__Definition__ Consider a relation $R$. By the __range__ of $R$ we mean the set $\mathscr{D}(R)$ of all the objects $y$ such that $(x, y) \in R$ for some $x$:
+
+$$\mathscr{R}(R) = \{y: (\exists x)((x, y \in R)) \}$$
+
+## Relations exercises and solutions
+
+1. Let $B$ be the set of all real numbers. Determine de domain and range of the following relations
+
+    + $R = \{(x, y): x \in B \land y \in B \land y = |x| \}$ where
+    
+        + $x = \begin{cases}
+               x & \text{if } x \geq 0\\
+               x & \text{if } x \leq 
+               \end{cases}$
+               
+            + $\mathscr{D}(R) = \{x: x \in \mathbb{R} \}$
+            
+            + $\mathscr{R}(R) = \{y: y \in \mathbb{R} \land y \geq 0 \}$
+
+    + $R = \{(x, y): x \in B \land y \in B \land x + y = 0 \}$
+    
+        + $\mathscr{D}(R) = \{x: x \in \mathbb{R} \}$
+            
+        + $\mathscr{R}(R) = \{y: y \in \mathbb{R} \}$
+        
+    + $R = \{(x, y): x \in B \land y \in B \land |x| = |y| \}$
+    
+        + $\mathscr{D}(R) = \{x: x \in \mathbb{R} \}$
+            
+        + $\mathscr{R}(R) = \{y: y \in \mathbb{R} \}$
+        
+    + $R = \{(x, y): x \in B \land y \in B \land x < y \}$
+    
+        + $\mathscr{D}(R) = \{x: x \in \mathbb{R} \}$
+            
+        + $\mathscr{R}(R) = \{y: y \in \mathbb{R} \}$
+                    
+```{r}
+
+ggplot(data = tibble(x = c(-5, 5)), mapping = aes(x = x)) + 
+  stat_function(fun = function(x) { abs(x) }) + 
+  labs(title = TeX('$y = |x|$'))
+```
+
+```{r}
+
+ggplot(data = tibble(x = c(-5, 5)), mapping = aes(x = x)) + 
+  stat_function(fun = function(x) { -x }) + 
+  labs(title = TeX('$x + y = 0$'))
+```
+
+```{r}
+
+ggplot(data = tibble(x = c(-5, 5)), mapping = aes(x = x)) + 
+  stat_function(fun = function(x) { abs(x) }) + 
+  stat_function(fun = function(x) { -abs(x) }) +
+  labs(title = TeX('$|y| = |x|$')) 
+```
+
+```{r}
+
+ggplot(data = tibble(x = c(-5, 5)), mapping = aes(x = x)) + 
+  stat_function(fun = function(x) { x }, linetype = "dashed") +
+  geom_segment(data = tibble(x = -5, xend = -5, y = -5, yend = 5), 
+               mapping = aes(x = x, xend = xend, y = y, yend = yend)) +
+  geom_segment(data = tibble(x = -5, xend = 5, y = 5, yend = 5), 
+               mapping = aes(x = x, xend = xend, y = y, yend = yend)) +  
+  labs(title = TeX('$x < y$')) 
+```
+
+2. If $R$ is a binary relation, show that $R \subseteq \mathscr{D}(R) \times \mathscr{R}(R)$
+
+    + $\mathscr{D}(R) \times \mathscr{R}(R) = \{(w, z): (\exists y)((w, y) \in R) \land  (\exists x)((x, z) \in R)\}$
+    
+        + If $y = z \land x = w$ then $(x, y) \in R \land (x, y) \in \mathscr{D}(R) \times \mathscr{R}(R)$
+        
+        + However we can have that $(w, z) \in \mathscr{D}(R) \times \mathscr{R}(R)$ but $w \neq x \land z \neq y$. If this is the case $(w, z) \notin R$
+        
+            + Therefore $R \subseteq \mathscr{D}(R) \times \mathscr{R}(R)$
+            
+                + An example is $R = \{(x, y): x \in B \land y \in B \land y = |x| \}$
+                
+                    + $0 \in \mathscr{D}(R) \land 0 \in \mathscr{R}(D) \land 0 \in \mathscr{R}(D)$ so $(0,0) \in \mathscr{D}(R) \times \mathscr{R}(R) \land (0,1) \in \mathscr{D}(R) \times \mathscr{R}(R)$
+                    
+                    + In that sense $(0, 0) \in R$ but $(0, 1) \notin R$
+
+## Inverse and composition of relations
+
+If $R$ is a relation the __inverse__ of $R$, $R^{-1}$, is the set of all ordered pairs $(x, y)$ for which $(y, z) \in R$:
+
+$$R^{-1} = \{(x, y): (y, x) \in R \}$$
+In that sense $R^{-1}$ is obtained from $R$ by switching the first and second components of every ordered pair in $R$
+
+We are going to introduce the following notation when $R$ is a relation:
+
+$$(x, y) \in R \iff xRy$$
+This notation make sense because we usually write $x < y$ or $x + y$ instead of $(x,y) \in \; <$ or $(x, y) \in +$
+
+If $R$ and $S$ are relations the __compisition__ of $R$ and $S$, $S \circ R$ is defined as_
+
+$$S \circ R = \{(x,y): (\exists z)(xRz \land zRy) \}$$
+Thus, $x(S \circ R)y$ means that their is an _"intermediate"_ object $z$ such that $xRz \land zRy$. Note that $R$ is applied before $S$
 
 # Bibliography
 
