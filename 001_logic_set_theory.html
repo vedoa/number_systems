@@ -1833,6 +1833,7 @@ summary {
 <li><a href="#relations"><span class="toc-section-number">1.26</span> Relations</a></li>
 <li><a href="#relations-exercises-and-solutions"><span class="toc-section-number">1.27</span> Relations exercises and solutions</a></li>
 <li><a href="#inverse-and-composition-of-relations"><span class="toc-section-number">1.28</span> Inverse and composition of relations</a></li>
+<li><a href="#inverse-and-composition-of-relations-exercises-and-solutions"><span class="toc-section-number">1.29</span> Inverse and composition of relations exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -5861,6 +5862,34 @@ T
 <p><span class="math display">\[(x, y) \in R \iff xRy\]</span> This notation make sense because we usually write <span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x + y\)</span> instead of <span class="math inline">\((x,y) \in \; &lt;\)</span> or <span class="math inline">\((x, y) \in +\)</span></p>
 <p>If <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> are relations the <strong>compisition</strong> of <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span>, <span class="math inline">\(S \circ R\)</span> is defined as_</p>
 <p><span class="math display">\[S \circ R = \{(x,y): (\exists z)(xRz \land zRy) \}\]</span> Thus, <span class="math inline">\(x(S \circ R)y\)</span> means that their is an <em>“intermediate”</em> object <span class="math inline">\(z\)</span> such that <span class="math inline">\(xRz \land zRy\)</span>. Note that <span class="math inline">\(R\)</span> is applied before <span class="math inline">\(S\)</span></p>
+</div>
+<div id="inverse-and-composition-of-relations-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.29</span> Inverse and composition of relations exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(A\)</span> be the set of people, and let <span class="math inline">\(F, M, P\)</span> be the fatherhood, motherhood and parenthood relations, respectively. In addition, let <span class="math inline">\(B, S, H, W\)</span> be the brother, sister, husband, wife relations, respectively</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Verifiy that <span class="math inline">\(P^{-1} \circ H\)</span> is the son-in-law relation</p>
+<ul>
+<li><p><span class="math inline">\(P = \{ (x, y): x \in A \land y \in A \land x \text{ is a parent of } y \}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  P^{-1} &amp; = \{ (x, y): (y, x) \in P \} \\  &amp; = \{ (x, y): x \in A \land y \in A \land x \text{ is a child of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(H = \{ (x, y): x \in A \land y \in A \land x \text{ is a husband of } y \}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  P^{-1} \circ H = \{(x, y): (\exists z)(xHz \land zP^{-1}y) \} &amp; = \{(x, y): x \text{ is a husband of } z \land z \text{ is a child of } y \} \\  &amp; = \{ (x, y): x \text{ is a son in law of } y \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Find simple names, if possible, for: <span class="math inline">\(H^{-1}\)</span>, <span class="math inline">\(F \cup M\)</span>, <span class="math inline">\(H \cup W\)</span>, <span class="math inline">\(M \circ F\)</span>, <span class="math inline">\(F \circ M\)</span>, <span class="math inline">\(P \circ M\)</span>, <span class="math inline">\(M \circ P\)</span>, <span class="math inline">\(P \circ B\)</span>, <span class="math inline">\((H \cup W) \circ F\)</span>, <span class="math inline">\((P \circ B) \cup ((P \circ S) \circ H)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  H^{-1} &amp; = \{(x,y): (y, x) \in H \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a wife of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  F \cup M &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a father of } y \} \cup \{(x,y): x \in A \land y \in A \land x \text{ is a mother of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a parent of } y \} \\  &amp; = P  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  H \cup W &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a husband of } y \} \cup \{(x,y): x \in A \land y \in A \land x \text{ is a wife of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a partner of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  M \circ F &amp; = \{(x,y): (\exists z)(xFz \land zMy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a father of } z \land z \text{ is a mother of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a grandfather of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  F \circ M &amp; = \{(x,y): (\exists z)(xMz \land zFy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a mother of } z \land z \text{ is a father of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a grandmother of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  P \circ M &amp; = \{(x,y): (\exists z)(xMz \land zPy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a mother of } z \land z \text{ is a parent of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a grandmother of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  M \circ P &amp; = \{(x,y): (\exists z)(xPz \land zMy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a parent of } z \land z \text{ is a mother of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a grandparent of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  P \circ B &amp; = \{(x,y): (\exists z)(xPz \land zMy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a brother of } z \land z \text{ is a parent of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (H \cup W) \circ F &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a partner of } y \} \circ F \\  &amp; = Par \circ F \\  &amp; = \{(x,y): (\exists z)(xFz \land zPary) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a parent of } z \land z \text{ is a partner of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a parent-in-law of } y \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (P \circ B) \cup ((P \circ S) \circ H) &amp; = \\  \end{split}\)</span></p></li>
+</ul></li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

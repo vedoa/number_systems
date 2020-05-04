@@ -2071,7 +2071,90 @@ If $R$ and $S$ are relations the __compisition__ of $R$ and $S$, $S \circ R$ is 
 $$S \circ R = \{(x,y): (\exists z)(xRz \land zRy) \}$$
 Thus, $x(S \circ R)y$ means that their is an _"intermediate"_ object $z$ such that $xRz \land zRy$. Note that $R$ is applied before $S$
 
+## Inverse and composition of relations exercises and solutions
+
+1. Let $A$ be the set of people, and let $F, M, P$ be the fatherhood, motherhood and parenthood relations, respectively. In addition, let $B, S, H, W$ be the brother, sister, husband, wife relations, respectively
+
+    a. Verifiy that $P^{-1} \circ H$ is the son-in-law relation
+    
+        + $P = \{ (x, y): x \in A \land y \in A \land x \text{ is a parent of } y \}$
+        
+        + $\begin{split}
+           P^{-1} & = \{ (x, y): (y, x) \in P \} \\ 
+           & = \{ (x, y): x \in A \land y \in A \land x \text{ is a child of } y \}
+           \end{split}$    
+        
+        + $H = \{ (x, y): x \in A \land y \in A \land x \text{ is a husband of } y \}$
+        
+        + $\begin{split}
+           P^{-1} \circ H = \{(x, y): (\exists z)(xHz \land zP^{-1}y) \} & = \{(x, y): x \text{ is a husband of } z \land z \text{ is a child of } y \} \\
+           & = \{ (x, y): x \text{ is a son in law of } y \}
+           \end{split}$
+           
+    b. Find simple names, if possible, for: $H^{-1}$, $F \cup M$, $H \cup W$, $M \circ F$, $F \circ M$, $P \circ M$, $M \circ P$, $P \circ B$, $(H \cup W) \circ F$, $(P \circ B) \cup ((P \circ S) \circ H)$
+    
+        + $\begin{split}
+           H^{-1} & = \{(x,y): (y, x) \in H \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a wife of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           F \cup M & = \{(x,y): x \in A \land y \in A \land x \text{ is a father of } y \} \cup \{(x,y): x \in A \land y \in A \land x \text{ is a mother of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a parent of } y \} \\ 
+           & = P
+           \end{split}$
+           
+        + $\begin{split}
+           H \cup W & = \{(x,y): x \in A \land y \in A \land x \text{ is a husband of } y \} \cup \{(x,y): x \in A \land y \in A \land x \text{ is a wife of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a partner of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           M \circ F & = \{(x,y): (\exists z)(xFz \land zMy) \} \\
+           & = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a father of } z \land z \text{ is a mother of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a grandfather of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           F \circ M & = \{(x,y): (\exists z)(xMz \land zFy) \} \\
+           & = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a mother of } z \land z \text{ is a father of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a grandmother of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           P \circ M & = \{(x,y): (\exists z)(xMz \land zPy) \} \\
+           & = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a mother of } z \land z \text{ is a parent of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a grandmother of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           M \circ P & = \{(x,y): (\exists z)(xPz \land zMy) \} \\
+           & = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a parent of } z \land z \text{ is a mother of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a grandparent of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           P \circ B & = \{(x,y): (\exists z)(xPz \land zMy) \} \\
+           & = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a brother of } z \land z \text{ is a parent of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           (H \cup W) \circ F & = \{(x,y): x \in A \land y \in A \land x \text{ is a partner of } y \} \circ F \\
+           & = Par \circ F \\
+           & = \{(x,y): (\exists z)(xFz \land zPary) \} \\
+           & = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a parent of } z \land z \text{ is a partner of } y \} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is a parent-in-law of } y \}
+           \end{split}$
+           
+        + $\begin{split}
+           (P \circ B) \cup ((P \circ S) \circ H) & = \\
+           \end{split}$
+           
+
 # Bibliography
+
+
 
 
 
