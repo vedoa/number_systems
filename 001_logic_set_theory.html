@@ -5886,9 +5886,28 @@ T
 <li><p><span class="math inline">\(\begin{split}  M \circ P &amp; = \{(x,y): (\exists z)(xPz \land zMy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a parent of } z \land z \text{ is a mother of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a grandparent of } y \}  \end{split}\)</span></p></li>
 <li><p><span class="math inline">\(\begin{split}  P \circ B &amp; = \{(x,y): (\exists z)(xPz \land zMy) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a brother of } z \land z \text{ is a parent of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle of } y \}  \end{split}\)</span></p></li>
 <li><p><span class="math inline">\(\begin{split}  (H \cup W) \circ F &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a partner of } y \} \circ F \\  &amp; = Par \circ F \\  &amp; = \{(x,y): (\exists z)(xFz \land zPary) \} \\  &amp; = \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a parent of } z \land z \text{ is a partner of } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is a parent-in-law of } y \}  \end{split}\)</span></p></li>
-<li><p><span class="math inline">\(\begin{split}  (P \circ B) \cup ((P \circ S) \circ H) &amp; = \\  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (P \circ B) \cup ((P \circ S) \circ H) &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle of } y \} \cup (\{(x,y): x \in A \land y \in A \land x \text{ is an aunt of } y \}) \circ H \\  &amp; = U \cup (A \circ H) \\  &amp; = U \cup \{(x,y): (\exists z)(xHz \land zAy) \} \\  &amp; = U \cup \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a husband of } z \land z \text{ is an aunt of } y \} \\  &amp; = U \cup \{(x,y): x \in A \land y \in A \land x \text{ is a uncle-in-law of } y \} \\  &amp; = U \cup U^{*} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle or uncle-in-law of } y \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Express in symbols the following relations: child, sibling, grandchild, daughter-in-law, mother-in-law</p>
+<ul>
+<li><p>child: <span class="math inline">\(P^{-1}\)</span></p></li>
+<li><p>sibling: <span class="math inline">\(B \cup S\)</span></p></li>
+<li><p>grandchild: <span class="math inline">\((P \circ P)^{-1}\)</span></p></li>
+<li><p>daughter-in-law: <span class="math inline">\(P^{-1} \circ W\)</span></p></li>
+<li><p>mother-in-law: <span class="math inline">\((P^{-1} \circ (H \cup W))^{-1}\)</span></p></li>
 </ul></li>
 </ol></li>
+<li><p>Show that, if <span class="math inline">\(R\)</span> is a relation, then <span class="math inline">\(\mathscr{D}(R^{-1}) = \mathscr{R}(R)\)</span> and <span class="math inline">\(\mathscr{R}(R^{-1}) = \mathscr{D}(R)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(R^{-1}) &amp; = \{x: (\exists y)((x,y) \in R^{-1})\} \\  &amp; = \{x: (\exists y)((y,x) \in R)\} \\  &amp; = \mathscr{R}(R)  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(R^{-1}) &amp; = \{y: (\exists x)((x,y) \in R^{-1})\} \\  &amp; = \{y: (\exists x)((y,x) \in R)\} \\  &amp; = \mathscr{D}(R)  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(B\)</span> be the set of real numbers let:</p></li>
+</ol>
+<p><span class="math display">\[S = \{(x,y): x \in B \land y \in B \land y = x^2\}\]</span> <span class="math display">\[W = \{(x,y): x \in B \land y \in B \land y = -x\}\]</span> <span class="math display">\[R = \{(x,y): x \in B \land y \in B \land y = x + 1\}\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Describe the following relations: <span class="math inline">\(S^{-1}\)</span>, <span class="math inline">\(R^{-1}\)</span>, <span class="math inline">\(W^{-1}\)</span>, <span class="math inline">\(S \circ S\)</span>, <span class="math inline">\(W \circ W\)</span>, <span class="math inline">\(R \circ R\)</span>, <span class="math inline">\(S \circ W\)</span>, <span class="math inline">\(W \circ S\)</span>, <span class="math inline">\(S \circ R\)</span>, <span class="math inline">\(R \circ S\)</span>, <span class="math inline">\(R \circ W\)</span>, <span class="math inline">\(W \circ R\)</span></p></li>
+<li><p>Determine the domain and range of <span class="math inline">\(S, W, R\)</span> and of the relations in Part a</p></li>
 </ol>
 </div>
 </div>

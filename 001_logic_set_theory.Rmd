@@ -2148,9 +2148,54 @@ Thus, $x(S \circ R)y$ means that their is an _"intermediate"_ object $z$ such th
            \end{split}$
            
         + $\begin{split}
-           (P \circ B) \cup ((P \circ S) \circ H) & = \\
+           (P \circ B) \cup ((P \circ S) \circ H) & = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle of } y \} \cup (\{(x,y): x \in A \land y \in A \land x \text{ is an aunt of } y \}) \circ H \\
+           & = U \cup  (A \circ H) \\
+           & = U \cup \{(x,y): (\exists z)(xHz \land zAy) \} \\
+           & = U \cup \{(x,y): x \in A \land y \in A \land z \in A \land x \text{ is a husband of } z \land z \text{ is an aunt of } y \} \\
+           & = U \cup \{(x,y): x \in A \land y \in A \land x \text{ is a uncle-in-law of } y \} \\
+           & = U \cup U^{*} \\
+           & = \{(x,y): x \in A \land y \in A \land x \text{ is an uncle or uncle-in-law of } y \}
            \end{split}$
            
+    c. Express in symbols the following relations: child, sibling, grandchild, daughter-in-law, mother-in-law
+    
+        + child: $P^{-1}$
+        
+        + sibling: $B \cup S$
+        
+        + grandchild: $(P \circ P)^{-1}$
+        
+        + daughter-in-law: $P^{-1} \circ W$
+        
+        + mother-in-law: $(P^{-1} \circ (H \cup W))^{-1}$
+
+2. Show that, if $R$ is a relation, then $\mathscr{D}(R^{-1}) = \mathscr{R}(R)$ and $\mathscr{R}(R^{-1}) = \mathscr{D}(R)$
+
+    + $\begin{split}
+       \mathscr{D}(R^{-1}) & = \{x: (\exists y)((x,y) \in R^{-1})\} \\
+       & = \{x: (\exists y)((y,x) \in R)\} \\
+       & = \mathscr{R}(R)
+       \end{split}$
+       
+    + $\begin{split}
+       \mathscr{R}(R^{-1}) & = \{y: (\exists x)((x,y) \in R^{-1})\} \\
+       & = \{y: (\exists x)((y,x) \in R)\} \\
+       & = \mathscr{D}(R)
+       \end{split}$
+       
+3. Let $B$ be the set  of real numbers let:
+
+$$S = \{(x,y): x \in B \land y \in B \land y = x^2\}$$
+$$W = \{(x,y): x \in B \land y \in B \land y = -x\}$$
+$$R = \{(x,y): x \in B \land y \in B \land y = x + 1\}$$
+
+a. Describe the following relations: $S^{-1}$, $R^{-1}$, $W^{-1}$, $S \circ S$, $W \circ W$, $R \circ R$, $S \circ W$, $W \circ S$, $S \circ R$, $R \circ S$, $R \circ W$, $W \circ R$
+
+
+
+b. Determine the domain and range of $S, W, R$ and of the relations in Part a
+
+
 
 # Bibliography
 
