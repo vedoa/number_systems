@@ -2191,7 +2191,40 @@ $$R = \{(x,y): x \in B \land y \in B \land y = x + 1\}$$
 
 a. Describe the following relations: $S^{-1}$, $R^{-1}$, $W^{-1}$, $S \circ S$, $W \circ W$, $R \circ R$, $S \circ W$, $W \circ S$, $S \circ R$, $R \circ S$, $R \circ W$, $W \circ R$
 
+    + $\begin{split}
+       (x,y) \in S^{-1} & \iff (y,x) \in S \\
+       & \iff y \in B \land x \in B \land x = y^2 \\
+       & \iff y \in B \land x \in B \land \sqrt{x} = |y|
+       \end{split}$
+       
+        + $S^{-1} = \{(x,y): x \in B \land y \in B \land |y| = \sqrt{x} \}$
 
+    + $\begin{split}
+       (x,y) \in R^{-1} & \iff (y,x) \in R \\
+       & \iff y \in B \land x \in B \land x = y + 1 \\
+       & \iff y \in B \land x \in B \land x - 1 = y
+       \end{split}$
+       
+        + $R^{-1} = \{(x,y): x \in B \land y \in B \land y = x - 1\}$ 
+       
+    + $\begin{split}
+       (x,y) \in W^{-1} & \iff (y,x) \in W \\
+       & \iff y \in B \land x \in B \land x = -y  \\
+       & \iff y \in B \land x \in B \land -x = y
+       \end{split}$
+       
+        + $W^{-1} = \{(x,y): x \in B \land y \in B \land y = -x\}$
+        
+            + In this case $W = W^{-1}$
+            
+     + $\begin{split}
+       x(S \circ S)y & \iff (\exists z)(xSz \land zRy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = x^2 \land y = z^2 \\
+       & \iff x \in B \land y \in B \land y = (x^2)^2 \\
+       & \iff x \in B \land y \in B \land y = x^4 \\
+       \end{split}$
+
+        + $S \circ S = \{(x,y): x \in B \land y \in B \land y = x^4 \}$
 
 b. Determine the domain and range of $S, W, R$ and of the relations in Part a
 

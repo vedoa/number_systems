@@ -5906,7 +5906,28 @@ T
 </ol>
 <p><span class="math display">\[S = \{(x,y): x \in B \land y \in B \land y = x^2\}\]</span> <span class="math display">\[W = \{(x,y): x \in B \land y \in B \land y = -x\}\]</span> <span class="math display">\[R = \{(x,y): x \in B \land y \in B \land y = x + 1\}\]</span></p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Describe the following relations: <span class="math inline">\(S^{-1}\)</span>, <span class="math inline">\(R^{-1}\)</span>, <span class="math inline">\(W^{-1}\)</span>, <span class="math inline">\(S \circ S\)</span>, <span class="math inline">\(W \circ W\)</span>, <span class="math inline">\(R \circ R\)</span>, <span class="math inline">\(S \circ W\)</span>, <span class="math inline">\(W \circ S\)</span>, <span class="math inline">\(S \circ R\)</span>, <span class="math inline">\(R \circ S\)</span>, <span class="math inline">\(R \circ W\)</span>, <span class="math inline">\(W \circ R\)</span></p></li>
+<li><p>Describe the following relations: <span class="math inline">\(S^{-1}\)</span>, <span class="math inline">\(R^{-1}\)</span>, <span class="math inline">\(W^{-1}\)</span>, <span class="math inline">\(S \circ S\)</span>, <span class="math inline">\(W \circ W\)</span>, <span class="math inline">\(R \circ R\)</span>, <span class="math inline">\(S \circ W\)</span>, <span class="math inline">\(W \circ S\)</span>, <span class="math inline">\(S \circ R\)</span>, <span class="math inline">\(R \circ S\)</span>, <span class="math inline">\(R \circ W\)</span>, <span class="math inline">\(W \circ R\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in S^{-1} &amp; \iff (y,x) \in S \\  &amp; \iff y \in B \land x \in B \land x = y^2 \\  &amp; \iff y \in B \land x \in B \land \sqrt{x} = |y|  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(S^{-1} = \{(x,y): x \in B \land y \in B \land |y| = \sqrt{x} \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in R^{-1} &amp; \iff (y,x) \in R \\  &amp; \iff y \in B \land x \in B \land x = y + 1 \\  &amp; \iff y \in B \land x \in B \land x - 1 = y  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(R^{-1} = \{(x,y): x \in B \land y \in B \land y = x - 1\}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in W^{-1} &amp; \iff (y,x) \in W \\  &amp; \iff y \in B \land x \in B \land x = -y \\  &amp; \iff y \in B \land x \in B \land -x = y  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(W^{-1} = \{(x,y): x \in B \land y \in B \land y = -x\}\)</span></p>
+<ul>
+<li>In this case <span class="math inline">\(W = W^{-1}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(S \circ S)y &amp; \iff (\exists z)(xSz \land zRy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = x^2 \land y = z^2 \\ &amp; \iff x \in B \land y \in B \land y = (x^2)^2 \\ &amp; \iff x \in B \land y \in B \land y = x^4 \\ \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(S \circ S = \{(x,y): x \in B \land y \in B \land y = x^4 \}\)</span></li>
+</ul></li>
+</ul></li>
 <li><p>Determine the domain and range of <span class="math inline">\(S, W, R\)</span> and of the relations in Part a</p></li>
 </ol>
 </div>
