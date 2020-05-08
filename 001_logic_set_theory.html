@@ -1834,6 +1834,8 @@ summary {
 <li><a href="#relations-exercises-and-solutions"><span class="toc-section-number">1.27</span> Relations exercises and solutions</a></li>
 <li><a href="#inverse-and-composition-of-relations"><span class="toc-section-number">1.28</span> Inverse and composition of relations</a></li>
 <li><a href="#inverse-and-composition-of-relations-exercises-and-solutions"><span class="toc-section-number">1.29</span> Inverse and composition of relations exercises and solutions</a></li>
+<li><a href="#reflexivity-symmetry-and-transitivity"><span class="toc-section-number">1.30</span> Reflexivity, symmetry and transitivity</a></li>
+<li><a href="#reflexivity-symmetry-and-transitivity-exercises-and-solutions"><span class="toc-section-number">1.31</span> Reflexivity, symmetry and transitivity exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -5927,8 +5929,253 @@ T
 <ul>
 <li><span class="math inline">\(S \circ S = \{(x,y): x \in B \land y \in B \land y = x^4 \}\)</span></li>
 </ul></li>
+<li><p><span class="math inline">\(\begin{split} x(W \circ W)y &amp; \iff (\exists z)(xWz \land zWy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = -x \land y = -z \\ &amp; \iff x \in B \land y \in B \land y = -(-x) \\ &amp; \iff x \in B \land y \in B \land y = x \\ \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(W \circ W = \{(x,y): x \in B \land y \in B \land y = x \}\)</span></li>
 </ul></li>
-<li><p>Determine the domain and range of <span class="math inline">\(S, W, R\)</span> and of the relations in Part a</p></li>
+<li><p><span class="math inline">\(\begin{split} x(R \circ R)y &amp; \iff (\exists z)(xRz \land zRy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = x + 1 \land y = z + 1 \\ &amp; \iff x \in B \land y \in B \land y = (x + 1) + 1 \\ &amp; \iff x \in B \land y \in B \land y = x + 2 \\ \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(R \circ R = \{(x,y): x \in B \land y \in B \land y = x + 2 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(S \circ W)y &amp; \iff (\exists z)(xWz \land zSy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = -x \land y = z^2 \\ &amp; \iff x \in B \land y \in B \land y = (-x)^2 \\ &amp; \iff x \in B \land y \in B \land y = x^2 \\ \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(S \circ W = \{(x,y): x \in B \land y \in B \land y = x^2 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(W \circ S)y &amp; \iff (\exists z)(xSz \land zWy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = x^2 \land y = -z \\ &amp; \iff x \in B \land y \in B \land y = -(x^2) \\ &amp; \iff x \in B \land y \in B \land y = -x^2 \\ \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(W \circ S = \{(x,y): x \in B \land y \in B \land y = -x^2 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(S \circ R)y &amp; \iff (\exists z)(xRz \land zSy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = x + 1 \land y = z^2 \\ &amp; \iff x \in B \land y \in B \land y = (x + 1)^2 \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(S \circ R = \{(x,y): x \in B \land y \in B \land y = (x + 1)^2 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(R \circ S)y &amp; \iff (\exists z)(xSz \land zRy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = x^2 \land y = z + 1 \\ &amp; \iff x \in B \land y \in B \land y = x^2 + 1 \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(R \circ S = \{(x,y): x \in B \land y \in B \land y = x^2 + 1 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(R \circ W)y &amp; \iff (\exists z)(xWz \land zRy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = -x \land y = z + 1 \\ &amp; \iff x \in B \land y \in B \land y = -x + 1 \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(R \circ W = \{(x,y): x \in B \land y \in B \land y = -x + 1 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split} x(W \circ R)y &amp; \iff (\exists z)(xRz \land zWy) \\ &amp; \iff x \in B \land y \in B \land z \in B \land z = x + 1 \land y = -z \\ &amp; \iff x \in B \land y \in B \land y = -(x + 1) \\ &amp; \iff x \in B \land y \in B \land y = -x - 1 \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(W \circ R = \{(x,y): x \in B \land y \in B \land y = -x - 1 \}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Determine the domain and range of <span class="math inline">\(S, W, R\)</span> and of the relations in Part a</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{D}(S) \land \mathscr{R}(S)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(S) &amp; = \{x: (\exists y)(xSy) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x^2 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(S) &amp; = \{y: (\exists x)(xSy) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x^2 \} \\  &amp; = \{y: y \in B \land y \geq 0 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(R) \land \mathscr{R}(R)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(R) &amp; = \{x: (\exists y)(xRy) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x + 1 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(R) &amp; = \{y: (\exists x)(xRy) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x + 1 \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(W) \land \mathscr{R}(W)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(W) &amp; = \{x: (\exists y)(xWy) \} \\  &amp; = \{x: x \in B \land y \in B \land y = -x \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(W) &amp; = \{y: (\exists x)(xWy) \} \\  &amp; = \{y: x \in B \land y \in B \land y = -x \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(S^{-1}) \land \mathscr{R}(S^{-1})\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(S^{-1}) &amp; = \{x: (\exists y)(xS^{-1}y) \} \\  &amp; = \{x: x \in B \land y \in B \land \sqrt{x} = |y| \} \\  &amp; = \{x: x \in B \land x \geq 0 \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(S^{-1}) &amp; = \{y: (\exists x)(xS^{-1}y) \} \\  &amp; = \{y: x \in B \land y \in B \land \sqrt{x} = |y| \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(S \circ S) \land \mathscr{R}(S \circ S)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(S \circ S) &amp; = \{x: (\exists y)(x(S \circ S)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x^4 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(S \circ S) &amp; = \{y: (\exists x)(x(S \circ S)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x^4 \} \\  &amp; = \{y: y \in B \land y \geq 0 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(W \circ W) \land \mathscr{R}(W \circ W)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(W \circ W) &amp; = \{x: (\exists y)(x(W \circ W)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(W \circ W) &amp; = \{y: (\exists x)(x(W \circ W)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(R \circ R) \land \mathscr{R}(R \circ R)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(R \circ R) &amp; = \{x: (\exists y)(x(R \circ R)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x + 2 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(R \circ R) &amp; = \{y: (\exists x)(x(R \circ R)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x + 2 \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(S \circ W) \land \mathscr{R}(S \circ W)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(S \circ W) &amp; = \{x: (\exists y)(x(S \circ W)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x^2 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(S \circ W) &amp; = \{y: (\exists x)(x(S \circ W)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x^2 \} \\  &amp; = \{y: y \in B \land y \geq 0 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(W \circ S) \land \mathscr{R}(W \circ S)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(W \circ S) &amp; = \{x: (\exists y)(x(W \circ S)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = -x^2 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(W \circ S) &amp; = \{y: (\exists x)(x(W \circ S)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = -x^2 \} \\  &amp; = \{y: y \in B \land y \leq 0 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(S \circ R) \land \mathscr{R}(S \circ R)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(S \circ R) &amp; = \{x: (\exists y)(x(S \circ R)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = (x + 1)^2 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(S \circ R) &amp; = \{y: (\exists x)(x(S \circ R)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = (x + 1)^2 \} \\  &amp; = \{y: y \in B \land y \geq 0 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(R \circ S) \land \mathscr{R}(R \circ S)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(R \circ S) &amp; = \{x: (\exists y)(x(R \circ S)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = x^2 + 1 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(R \circ S) &amp; = \{y: (\exists x)(x(R \circ S)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = x^2 + 1 \} \\  &amp; = \{y: y \in B \land y \geq 1 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(R \circ W) \land \mathscr{R}(R \circ W)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(R \circ W) &amp; = \{x: (\exists y)(x(R \circ W)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = -x + 1 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(R \circ W) &amp; = \{y: (\exists x)(x(R \circ W)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = -x + 1 \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(\mathscr{D}(W \circ R) \land \mathscr{R}(W \circ R)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(W \circ R) &amp; = \{x: (\exists y)(x(W \circ R)y) \} \\  &amp; = \{x: x \in B \land y \in B \land y = -x - 1 \} \\  &amp; = \{x: x \in B \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{R}(W \circ R) &amp; = \{y: (\exists x)(x(W \circ R)y) \} \\  &amp; = \{y: x \in B \land y \in B \land y = -x - 1 \} \\  &amp; = \{y: y \in B \}  \end{split}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<div id="reflexivity-symmetry-and-transitivity" class="section level2">
+<h2><span class="header-section-number">1.30</span> Reflexivity, symmetry and transitivity</h2>
+<p>Consider a relation <span class="math inline">\(R\)</span> and a set <span class="math inline">\(A\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is <strong>reflexive</strong> in <span class="math inline">\(A\)</span> <span class="math inline">\(\iff (\forall x)(x \in A \implies xRx)\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is <strong>irreflexive</strong> in <span class="math inline">\(A\)</span> <span class="math inline">\(\iff (\forall x)(x \in A \implies \neg xRx)\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is <strong>symmetric</strong> in <span class="math inline">\(A\)</span> <span class="math inline">\(\iff (\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies yRx)\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is <strong>transitive</strong> in <span class="math inline">\(A\)</span> <span class="math inline">\(\iff (\forall x)(\forall y)(\forall z)((x \in A \land y \in A \land z \in A \land xRy \land yRz) \implies xRz)\)</span></p></li>
+</ul>
+</div>
+<div id="reflexivity-symmetry-and-transitivity-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.31</span> Reflexivity, symmetry and transitivity exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li>Determine whether each of the following relations <span class="math inline">\(R\)</span> is reflexive, symmetric or transitive in the given set <span class="math inline">\(A\)</span></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A\)</span> is the set of positive integers</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land y \text{ is divisible by } x \} \\  &amp; = \{(x,y): x \in A \land y \in A \land y = kx \text{ where } k \in \mathbb{Z} \}  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive because if <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x = 1x\)</span> where <span class="math inline">\(1 \in \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is not symmetric because <span class="math inline">\(2R4\)</span> but not <span class="math inline">\(4R2\)</span> because there is no <span class="math inline">\(k \in \mathbb{Z}\)</span> such that <span class="math inline">\(2 = k4\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \in A, y \in A \land z \in A \land xRy \land yRz\)</span> then <span class="math inline">\(y = k_1x \land z = k_2y\)</span> where <span class="math inline">\(k_1 \in \mathbb{Z} \land k_2 \in \mathbb{Z}\)</span>. Therefore <span class="math inline">\(z = k_1k_2x\)</span> where <span class="math inline">\(k_1k_2 \in \mathbb{Z}\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all line segments in the plane</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is longer than } y \} \\  &amp; = \{(x,y): x = (x_1, x_2) \in A \land y = (y_1, y_2) \in A \land |x_2 - x_1| &gt; |y_2 - y_1| \}  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is not reflexive because it is not true that |x_2 - x_1| &gt; |x_2 - x_1|</p></li>
+<li><p><span class="math inline">\(R\)</span> is not symmetric because if |x_2 - x_1| &gt; |y_2 - y_1| it is not the case that |y_2 - y_1| &gt; |x_2 - x_1|</p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(|x_2 - x_1| &gt; |y_2 - y_1| \land |y_2 - y_1| &gt; |z_2 - z_1|\)</span> then <span class="math inline">\(|x_2 - x_1| &gt; |z_2 - z_1|\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all lines in the plane</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land x \text{ is perpendicular to } y \} \\  &amp; = \{(x,y): x \in A \land y \in A \land x \bot y \}  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x\)</span> is not parallel to itself</p></li>
+<li><p><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x \in A \land y \in A \land x \bot y\)</span> then <span class="math inline">\(y \bot x\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is not transitive. For example, we have that <span class="math inline">\(x \bot y \land y \bot x\)</span> because <span class="math inline">\(R\)</span> is symmetric. However it is not the case that <span class="math inline">\(x \bot x\)</span> because <span class="math inline">\(R\)</span> isn’t reflexive</p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all subsets of a given set <span class="math inline">\(B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land x \cap y \neq \emptyset \} \\  &amp; = \{(x,y): x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land x \cap y \neq \emptyset \}  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> isn’t reflexive because <span class="math inline">\(\emptyset \in \mathscr{P}(B)\)</span> but <span class="math inline">\(\emptyset \cap \emptyset = \emptyset\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land x \cap y \neq \emptyset\)</span> then <span class="math inline">\(y \cap x \neq \emptyset\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> can and can’t be transitive depending on the set <span class="math inline">\(B\)</span></p>
+<ul>
+<li><p>For <span class="math inline">\(B = \emptyset\)</span> we have that <span class="math inline">\(\mathscr{P}(B) = \{ \emptyset \}\)</span>. Therefore:</p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(\forall y)(\forall z)((\emptyset \in \mathscr{P}(B) \land \emptyset R \emptyset \land \emptyset R \emptyset) \implies \emptyset R \emptyset)\)</span> is true because the antecedent and consequent in the conditional are false. So <span class="math inline">\(R\)</span> is transitive.</p>
+<ul>
+<li>A similar argument applies if <span class="math inline">\(B = \{ b_1 \}\)</span> where <span class="math inline">\(\mathscr{P}(B) = \{ \emptyset, \{ b_1 \} \}\)</span>.</li>
+</ul></li>
+</ul></li>
+<li><p>For <span class="math inline">\(B = \{ b_1, b_2 \}\)</span> we have that <span class="math inline">\(\mathscr{P}(B) = \{ \emptyset, \{ b_1 \}, \{ b_2 \}, \{ b_1, b_2 \} \}\)</span>. So, for example:</p>
+<ul>
+<li><p><span class="math inline">\(\{ b_1 \} \cap \{ b_1, b_2 \} \neq \emptyset \land \{ b_1, b_2 \} \cap \{ b_2 \} \neq \emptyset\)</span> but <span class="math inline">\(\{ b_1 \} \cap \{ b_2 \} = \emptyset\)</span>. So <span class="math inline">\(R\)</span> isn’t transitive</p>
+<ul>
+<li>A similar argument applies if <span class="math inline">\(B\)</span> is a set with three or more elements</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all subsets of a given set <span class="math inline">\(B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land x \subseteq y \} \\  &amp; = \{(x,y): x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land x \subseteq y \}  \end{split}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(x \subseteq x\)</span> for any <span class="math inline">\(x \in \mathscr{P}(B)\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is symmetric only if <span class="math inline">\(B = \emptyset\)</span>. If <span class="math inline">\(B \neq \emptyset\)</span> we have for example that if <span class="math inline">\(\emptyset \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land y \neq \emptyset\)</span> then <span class="math inline">\(\emptyset \subseteq y\)</span> but not <span class="math inline">\(y \subseteq \emptyset\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land z \in \mathscr{P}(B) \land x \subseteq y \land y \subseteq z\)</span> then <span class="math inline">\(x \subseteq z\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all people</p>
+<ul>
+<li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \text{ is the ancestor of } y \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x\)</span> isn’t an ancestor of itself</p></li>
+<li><p><span class="math inline">\(R\)</span> is not symmetric because if <span class="math inline">\(x \text{ is the ancestor of } y \}\)</span> then it is not the case that <span class="math inline">\(y \text{ is the ancestor of } x \}\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \text{ is the ancestor of } y \land y \text{ is the ancestor of } z\)</span> then <span class="math inline">\(x \text{ is the ancestor of } z\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is any set</p>
+<ul>
+<li><p><span class="math inline">\(R = I_A = \{(x,y): x \in A \land y \in A \land x = y \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive because <span class="math inline">\(x = x\)</span> for any <span class="math inline">\(x \in A\)</span></p>
+<ul>
+<li>For the case of <span class="math inline">\(A = \emptyset\)</span>, <span class="math inline">\(I_A\)</span> is reflexive because <span class="math inline">\(x \in \emptyset \implies xI_{A}x\)</span> is true since the antecedent is false</li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x \in A \land y \in A \land x = y\)</span> then <span class="math inline">\(y = x\)</span></p>
+<ul>
+<li>For the case of <span class="math inline">\(A = \emptyset\)</span>, <span class="math inline">\(I_A\)</span> is symmetric because <span class="math inline">\((x \in A \land y \in A \land x \neq y) \implies y \neq x\)</span> is true since the antecedent is false</li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \in A \land y \in A \land z \in A \land x = y \land y = z\)</span> then <span class="math inline">\(x = z\)</span></p>
+<ul>
+<li>For the case of <span class="math inline">\(A = \emptyset\)</span>, <span class="math inline">\(I_A\)</span> is transitive because <span class="math inline">\(x \in A \land y \in A \land z \in A \land x = y \land y = z\)</span> is true since the antecedent is false</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is any set</p>
+<ul>
+<li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \neq y \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive for <span class="math inline">\(A = \emptyset\)</span> because <span class="math inline">\(x \in \emptyset \implies xI_{A}x\)</span> is true since the antecedent is false. However if <span class="math inline">\(A \neq \emptyset\)</span>, <span class="math inline">\(R\)</span> is not reflexive because <span class="math inline">\(x = x\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is symmetric because if <span class="math inline">\(x \in A \land y \in A \land x \neq y\)</span> then <span class="math inline">\(y \neq x\)</span></p>
+<ul>
+<li>For the case of <span class="math inline">\(A = \emptyset\)</span>, <span class="math inline">\(R\)</span> is symmetric because <span class="math inline">\((x \in A \land y \in A \land x \neq y) \implies y \neq x\)</span> is true since the antecedent is false</li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is transitive if <span class="math inline">\(A = \emptyset\)</span> because <span class="math inline">\((x \in A \land y \in A \land z \in A \land xRy \land yRz) \implies xRz\)</span> is true since the antecedent is false. However if <span class="math inline">\(A \neq \emptyset\)</span>, <span class="math inline">\(R\)</span> isn’t transitive because if <span class="math inline">\(x \in A \land y \in A \land z \in A \land x \neq y \land y \neq x\)</span> then is false that <span class="math inline">\(x \neq x\)</span></p></li>
+</ul></li>
+</ul></li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li><p>A relation <span class="math inline">\(R\)</span> is said to be <strong>asymmetric</strong> in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(xRy\)</span> implies <span class="math inline">\(\neg(yRx)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(A\)</span>. A relation <span class="math inline">\(R\)</span> is said to be <strong>antisymmetric</strong> in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(xRy \land yRx\)</span> implies <span class="math inline">\(x = y\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(A\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Give examples of relations <span class="math inline">\(R\)</span> and sets <span class="math inline">\(A\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A = \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x &gt; y \}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is not asymmetric in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A = \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x = y \}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is antisymmetric in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> is any set</p></li>
+<li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \subseteq y \}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is not antisymmetric in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(A = \mathscr{P}(B)\)</span> where <span class="math inline">\(B\)</span> is any set</p></li>
+<li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \cap y \neq \emptyset \}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ol></li>
 </ol>
 </div>
 </div>

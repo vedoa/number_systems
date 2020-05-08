@@ -2226,11 +2226,421 @@ a. Describe the following relations: $S^{-1}$, $R^{-1}$, $W^{-1}$, $S \circ S$, 
 
         + $S \circ S = \{(x,y): x \in B \land y \in B \land y = x^4 \}$
 
+     + $\begin{split}
+       x(W \circ W)y & \iff (\exists z)(xWz \land zWy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = -x \land y = -z \\
+       & \iff x \in B \land y \in B \land y = -(-x) \\
+       & \iff x \in B \land y \in B \land y = x \\
+       \end{split}$
+
+        + $W \circ W = \{(x,y): x \in B \land y \in B \land y = x \}$
+        
+     + $\begin{split}
+       x(R \circ R)y & \iff (\exists z)(xRz \land zRy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = x + 1 \land y = z + 1 \\
+       & \iff x \in B \land y \in B \land y = (x + 1) + 1 \\
+       & \iff x \in B \land y \in B \land y = x + 2 \\
+       \end{split}$
+
+        + $R \circ R = \{(x,y): x \in B \land y \in B \land y = x + 2 \}$
+        
+     + $\begin{split}
+       x(S \circ W)y & \iff (\exists z)(xWz \land zSy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = -x \land y = z^2 \\
+       & \iff x \in B \land y \in B \land y = (-x)^2 \\
+       & \iff x \in B \land y \in B \land y = x^2 \\
+       \end{split}$
+
+        + $S \circ W = \{(x,y): x \in B \land y \in B \land y = x^2 \}$
+        
+     + $\begin{split}
+       x(W \circ S)y & \iff (\exists z)(xSz \land zWy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = x^2 \land y = -z \\
+       & \iff x \in B \land y \in B \land y = -(x^2) \\
+       & \iff x \in B \land y \in B \land y = -x^2 \\
+       \end{split}$
+
+        + $W \circ S = \{(x,y): x \in B \land y \in B \land y = -x^2 \}$
+        
+     + $\begin{split}
+       x(S \circ R)y & \iff (\exists z)(xRz \land zSy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = x + 1 \land y = z^2 \\
+       & \iff x \in B \land y \in B \land y = (x + 1)^2
+       \end{split}$
+
+        + $S \circ R = \{(x,y): x \in B \land y \in B \land y = (x + 1)^2 \}$
+        
+     + $\begin{split}
+       x(R \circ S)y & \iff (\exists z)(xSz \land zRy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = x^2 \land y = z + 1 \\
+       & \iff x \in B \land y \in B \land y = x^2 + 1
+       \end{split}$
+
+        + $R \circ S = \{(x,y): x \in B \land y \in B \land y = x^2 + 1 \}$
+        
+     + $\begin{split}
+       x(R \circ W)y & \iff (\exists z)(xWz \land zRy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = -x \land y = z + 1 \\
+       & \iff x \in B \land y \in B \land y = -x + 1
+       \end{split}$
+       
+        + $R \circ W = \{(x,y): x \in B \land y \in B \land y = -x + 1 \}$
+        
+     + $\begin{split}
+       x(W \circ R)y & \iff (\exists z)(xRz \land zWy) \\
+       & \iff x \in B \land y \in B \land z \in B \land z = x + 1 \land y = -z \\
+       & \iff x \in B \land y \in B \land y = -(x + 1) \\
+       & \iff x \in B \land y \in B \land y = -x - 1
+       \end{split}$
+       
+        + $W \circ R = \{(x,y): x \in B \land y \in B \land y = -x - 1 \}$
+
 b. Determine the domain and range of $S, W, R$ and of the relations in Part a
 
+    + $\mathscr{D}(S) \land \mathscr{R}(S)$
 
+        + $\begin{split}
+           \mathscr{D}(S) & = \{x: (\exists y)(xSy) \} \\
+           & = \{x: x \in B \land y \in B \land y = x^2 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(S) & = \{y: (\exists x)(xSy) \} \\
+           & = \{y: x \in B \land y \in B \land y = x^2 \} \\
+           & = \{y: y \in B \land y \geq 0 \}
+           \end{split}$
+
+    + $\mathscr{D}(R) \land \mathscr{R}(R)$
+
+        + $\begin{split}
+           \mathscr{D}(R) & = \{x: (\exists y)(xRy) \} \\
+           & = \{x: x \in B \land y \in B \land y = x + 1 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(R) & = \{y: (\exists x)(xRy) \} \\ 
+           & = \{y: x \in B \land y \in B \land y = x + 1 \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+        
+    + $\mathscr{D}(W) \land \mathscr{R}(W)$
+
+        + $\begin{split}
+           \mathscr{D}(W) & = \{x: (\exists y)(xWy) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = -x \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(W) & = \{y: (\exists x)(xWy) \} \\
+           & = \{y: x \in B \land y \in B \land y = -x \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+           
+    + $\mathscr{D}(S^{-1}) \land \mathscr{R}(S^{-1})$
+
+        + $\begin{split}
+           \mathscr{D}(S^{-1}) & = \{x: (\exists y)(xS^{-1}y) \} \\
+           & = \{x: x \in B \land y \in B \land \sqrt{x} = |y| \} \\
+           & = \{x: x \in B \land x \geq 0 \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(S^{-1}) & = \{y: (\exists x)(xS^{-1}y) \} \\
+           & = \{y: x \in B \land y \in B \land \sqrt{x} = |y| \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+           
+    + $\mathscr{D}(S \circ S) \land \mathscr{R}(S \circ S)$
+
+        + $\begin{split}
+           \mathscr{D}(S \circ S) & = \{x: (\exists y)(x(S \circ S)y) \} \\
+           & = \{x: x \in B \land y \in B \land y = x^4 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(S \circ S) & = \{y: (\exists x)(x(S \circ S)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = x^4 \} \\
+           & = \{y: y \in B \land y \geq 0 \}
+           \end{split}$
+           
+    + $\mathscr{D}(W \circ W) \land \mathscr{R}(W \circ W)$
+
+        + $\begin{split}
+           \mathscr{D}(W \circ W) & = \{x: (\exists y)(x(W \circ W)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = x \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(W \circ W) & = \{y: (\exists x)(x(W \circ W)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = x \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+           
+    + $\mathscr{D}(R \circ R) \land \mathscr{R}(R \circ R)$
+
+        + $\begin{split}
+           \mathscr{D}(R \circ R) & = \{x: (\exists y)(x(R \circ R)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = x + 2 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(R \circ R) & = \{y: (\exists x)(x(R \circ R)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = x + 2 \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+           
+    + $\mathscr{D}(S \circ W) \land \mathscr{R}(S \circ W)$
+
+        + $\begin{split}
+           \mathscr{D}(S \circ W) & = \{x: (\exists y)(x(S \circ W)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = x^2 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(S \circ W) & = \{y: (\exists x)(x(S \circ W)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = x^2 \} \\
+           & = \{y: y \in B \land y \geq 0 \}
+           \end{split}$
+           
+    + $\mathscr{D}(W \circ S) \land \mathscr{R}(W \circ S)$
+
+        + $\begin{split}
+           \mathscr{D}(W \circ S) & = \{x: (\exists y)(x(W \circ S)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = -x^2 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(W \circ S) & = \{y: (\exists x)(x(W \circ S)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = -x^2 \} \\
+           & = \{y: y \in B \land y \leq 0 \}
+           \end{split}$
+           
+    + $\mathscr{D}(S \circ R) \land \mathscr{R}(S \circ R)$
+
+        + $\begin{split}
+           \mathscr{D}(S \circ R) & = \{x: (\exists y)(x(S \circ R)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = (x + 1)^2 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(S \circ R) & = \{y: (\exists x)(x(S \circ R)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = (x + 1)^2 \} \\
+           & = \{y: y \in B \land y \geq 0 \}
+           \end{split}$
+           
+    + $\mathscr{D}(R \circ S) \land \mathscr{R}(R \circ S)$
+
+        + $\begin{split}
+           \mathscr{D}(R \circ S) & = \{x: (\exists y)(x(R \circ S)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = x^2 + 1 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(R \circ S) & = \{y: (\exists x)(x(R \circ S)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = x^2 + 1 \} \\
+           & = \{y: y \in B \land y \geq 1 \}
+           \end{split}$
+
+    + $\mathscr{D}(R \circ W) \land \mathscr{R}(R \circ W)$
+
+        + $\begin{split}
+           \mathscr{D}(R \circ W) & = \{x: (\exists y)(x(R \circ W)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = -x + 1 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(R \circ W) & = \{y: (\exists x)(x(R \circ W)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = -x + 1 \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+           
+    + $\mathscr{D}(W \circ R) \land \mathscr{R}(W \circ R)$
+
+        + $\begin{split}
+           \mathscr{D}(W \circ R) & = \{x: (\exists y)(x(W \circ R)y) \} \\ 
+           & = \{x: x \in B \land y \in B \land y = -x - 1 \} \\
+           & = \{x: x \in B \}
+           \end{split}$
+        
+        + $\begin{split}
+           \mathscr{R}(W \circ R) & = \{y: (\exists x)(x(W \circ R)y) \} \\
+           & = \{y: x \in B \land y \in B \land y = -x - 1 \} \\
+           & = \{y: y \in B \}
+           \end{split}$
+
+## Reflexivity, symmetry and transitivity
+
+Consider a relation $R$ and a set $A$:
+
+- $R$ is __reflexive__ in $A$ $\iff (\forall x)(x \in A \implies xRx)$
+
+- $R$ is __irreflexive__ in $A$ $\iff (\forall x)(x \in A \implies \neg xRx)$
+
+- $R$ is __symmetric__ in $A$ $\iff (\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies yRx)$
+
+- $R$ is __transitive__ in $A$ $\iff (\forall x)(\forall y)(\forall z)((x \in A \land y \in A \land z \in A \land xRy \land yRz) \implies xRz)$
+ 
+## Reflexivity, symmetry and transitivity exercises and solutions
+
+1. Determine whether each of the following relations $R$ is reflexive, symmetric or transitive in the given set $A$
+
+a. $A$ is the set of positive integers
+
+    + $\begin{split}
+       R & = \{(x,y): x \in A \land y \in A \land y \text{ is divisible by } x \} \\
+       & = \{(x,y): x \in A \land y \in A \land y = kx \text{ where } k \in \mathbb{Z} \}
+       \end{split}$
+       
+        + $R$ is reflexive because if $x \in A$ then $x = 1x$ where $1 \in \mathbb{Z}$
+        
+        + $R$ is not symmetric because $2R4$ but not $4R2$ because there is no $k \in \mathbb{Z}$ such that $2 = k4$
+        
+        + $R$ is transitive because if $x \in A, y \in A \land z \in A \land xRy \land yRz$ then $y = k_1x \land z = k_2y$ where $k_1 \in \mathbb{Z} \land k_2 \in \mathbb{Z}$. Therefore $z = k_1k_2x$ where $k_1k_2 \in \mathbb{Z}$
+        
+b. $A$ is the set of all line segments in the plane
+
+    + $\begin{split}
+       R & = \{(x,y): x \in A \land y \in A \land x \text{ is longer than } y \} \\
+       & = \{(x,y): x = (x_1, x_2) \in A \land y = (y_1, y_2) \in A \land |x_2 - x_1| > |y_2 - y_1| \}
+       \end{split}$
+       
+        + $R$ is not reflexive because it is not true that |x_2 - x_1| > |x_2 - x_1|
+        
+        + $R$ is not symmetric because if |x_2 - x_1| > |y_2 - y_1| it is not the case that |y_2 - y_1| > |x_2 - x_1|
+        
+        + $R$ is transitive because if $|x_2 - x_1| > |y_2 - y_1| \land |y_2 - y_1| > |z_2 - z_1|$ then $|x_2 - x_1| > |z_2 - z_1|$
+        
+c. $A$ is the set of all lines in the plane
+
+    + $\begin{split}
+       R & = \{(x,y): x \in A \land y \in A \land x \text{ is perpendicular to } y \} \\
+       & = \{(x,y): x \in A \land y \in A \land x \bot y \}
+       \end{split}$
+       
+        + $R$ is not reflexive because $x$ is not parallel to itself
+        
+        + $R$ is symmetric because if $x \in A \land y \in A \land x \bot y$ then $y \bot x$ 
+        
+        + $R$ is not transitive. For example, we have that $x \bot y \land y \bot x$ because $R$ is symmetric. However it is not the case that $x \bot x$ because $R$ isn't reflexive
+        
+d. $A$ is the set of all subsets of a given set $B$
+
+    + $\begin{split}
+       R & = \{(x,y): x \in A \land y \in A \land x \cap y \neq \emptyset \} \\
+       & = \{(x,y): x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land x \cap y \neq \emptyset \}
+       \end{split}$
+       
+        + $R$ isn't reflexive because $\emptyset \in \mathscr{P}(B)$ but $\emptyset \cap \emptyset = \emptyset$
+        
+        + $R$ is symmetric because if $x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land x \cap y \neq \emptyset$ then $y \cap x \neq \emptyset$ 
+        
+        + $R$ can and can't be transitive depending on the set $B$
+        
+            + For $B = \emptyset$ we have that $\mathscr{P}(B) = \{ \emptyset \}$. Therefore:
+            
+                + $(\forall x)(\forall y)(\forall z)((\emptyset \in \mathscr{P}(B) \land \emptyset R \emptyset \land \emptyset R \emptyset) \implies \emptyset R \emptyset)$ is true because the antecedent and consequent in the conditional are false. So $R$ is transitive.
+                
+                    + A similar argument applies if $B = \{ b_1 \}$ where $\mathscr{P}(B) = \{ \emptyset, \{ b_1 \} \}$.   
+                
+            +  For $B = \{ b_1, b_2 \}$ we have that $\mathscr{P}(B) = \{ \emptyset, \{  b_1 \}, \{  b_2 \}, \{  b_1, b_2 \} \}$. So, for example:
+            
+                + $\{  b_1 \} \cap \{  b_1, b_2 \} \neq \emptyset \land \{  b_1, b_2 \} \cap \{  b_2 \} \neq \emptyset$ but $\{  b_1 \} \cap \{  b_2 \} = \emptyset$. So $R$ isn't transitive
+                
+                    + A similar argument applies if $B$ is a set with three or more elements
+                    
+e. $A$ is the set of all subsets of a given set $B$
+
+    + $\begin{split}
+       R & = \{(x,y): x \in A \land y \in A \land x \subseteq y \} \\
+       & = \{(x,y): x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land x \subseteq y \}
+       \end{split}$
+       
+        + $R$ is reflexive because $x \subseteq x$ for any $x \in \mathscr{P}(B)$
+        
+        + $R$ is symmetric only if $B = \emptyset$. If $B \neq \emptyset$ we have for example that if $\emptyset \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land y \neq \emptyset$ then $\emptyset \subseteq y$ but not $y \subseteq \emptyset$ 
+        
+        + $R$ is transitive because if $x \in \mathscr{P}(B) \land y \in \mathscr{P}(B) \land z \in \mathscr{P}(B) \land x \subseteq y \land y \subseteq z$ then $x \subseteq z$
+        
+f. $A$ is the set of all people
+
+    + $R = \{(x,y): x \in A \land y \in A \land x \text{ is the ancestor of } y \}$
+
+        + $R$ is not reflexive because $x$ isn't an ancestor of itself
+        
+        + $R$ is not symmetric because if $x \text{ is the ancestor of } y \}$ then it is not the case that $y \text{ is the ancestor of } x \}$
+        
+        + $R$ is transitive because if $x \text{ is the ancestor of } y  \land y \text{ is the ancestor of } z$ then $x \text{ is the ancestor of } z$
+        
+g. $A$ is any set
+
+    + $R = I_A = \{(x,y): x \in A \land y \in A \land x = y \}$
+
+        + $R$ is reflexive because $x = x$ for any $x \in A$
+        
+            + For the case of $A = \emptyset$, $I_A$ is reflexive because $x \in \emptyset \implies xI_{A}x$ is true since the antecedent is false 
+        
+        + $R$ is symmetric because if $x \in A \land y \in A \land x = y$ then $y = x$
+        
+            + For the case of $A = \emptyset$, $I_A$ is symmetric because $(x \in A \land y \in A \land x \neq y) \implies y \neq x$ is true since the antecedent is false
+            
+        
+        + $R$ is transitive because if $x \in A \land y \in A \land z \in A \land x = y \land y = z$ then $x = z$
+        
+            + For the case of $A = \emptyset$, $I_A$ is transitive because $x \in A \land y \in A \land z \in A \land x = y \land y = z$ is true since the antecedent is false
+        
+h. $A$ is any set
+
+    + $R = \{(x,y): x \in A \land y \in A \land x \neq y \}$
+
+        + $R$ is reflexive for $A = \emptyset$ because $x \in \emptyset \implies xI_{A}x$ is true since the antecedent is false. However if $A \neq \emptyset$, $R$ is not reflexive because $x = x$   
+        
+        + $R$ is symmetric because if $x \in A \land y \in A \land x \neq y$ then $y \neq x$
+        
+            + For the case of $A = \emptyset$, $R$ is symmetric because $(x \in A \land y \in A \land x \neq y) \implies y \neq x$ is true since the antecedent is false
+        
+        + $R$ is transitive if $A = \emptyset$ because $(x \in A \land y \in A \land z \in A \land xRy \land yRz) \implies xRz$ is true since the antecedent is false. However if $A \neq \emptyset$, $R$ isn't transitive because if $x \in A \land y \in A \land z \in A \land x \neq y \land y \neq x$ then is false that $x \neq x$
+        
+2. A relation $R$ is said to be __asymmetric__ in $A$ if and only if $xRy$ implies $\neg(yRx)$ for all $x$ and $y$ in $A$. A relation $R$ is said to be __antisymmetric__ in $A$ if and only if $xRy \land yRx$ implies $x = y$ for all $x$ and $y$ in $A$
+
+    a. Give examples of relations $R$ and sets $A$ such that
+    
+        + $R$ is asymmetric in $A$
+        
+            + $A = \mathbb{R}$
+            
+            + $R = \{(x,y): x \in A \land y \in A \land x > y \}$
+            
+        + $R$ is not asymmetric in $A$
+        
+            + $A = \mathbb{R}$
+            
+            + $R = \{(x,y): x \in A \land y \in A \land x = y \}$
+            
+        + $R$ is antisymmetric in $A$
+        
+            + $A$ is any set
+            
+            + $R = \{(x,y): x \in A \land y \in A \land x \subseteq y \}$
+            
+        + $R$ is not antisymmetric in $A$
+        
+            + $A = \mathscr{P}(B)$ where $B$ is any set
+            
+            + $R = \{(x,y): x \in A \land y \in A \land x \cap y \neq \emptyset \}$
 
 # Bibliography
+
 
 
 
