@@ -1836,6 +1836,7 @@ summary {
 <li><a href="#inverse-and-composition-of-relations-exercises-and-solutions"><span class="toc-section-number">1.29</span> Inverse and composition of relations exercises and solutions</a></li>
 <li><a href="#reflexivity-symmetry-and-transitivity"><span class="toc-section-number">1.30</span> Reflexivity, symmetry and transitivity</a></li>
 <li><a href="#reflexivity-symmetry-and-transitivity-exercises-and-solutions"><span class="toc-section-number">1.31</span> Reflexivity, symmetry and transitivity exercises and solutions</a></li>
+<li><a href="#equivalence-relations"><span class="toc-section-number">1.32</span> Equivalence relations</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -6050,11 +6051,11 @@ T
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(A\)</span> is the set of positive integers</p>
 <ul>
-<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land y \text{ is divisible by } x \} \\  &amp; = \{(x,y): x \in A \land y \in A \land y = kx \text{ where } k \in \mathbb{Z} \}  \end{split}\)</span></p>
+<li><p><span class="math inline">\(\begin{split}  R &amp; = \{(x,y): x \in A \land y \in A \land y \text{ is divisible by } x \} \\  &amp; = \{(x,y): x \in A \land y \in A \land (\exists !k)(k \in \mathbb{Z} \land y = kx) \}  \end{split}\)</span></p>
 <ul>
-<li><p><span class="math inline">\(R\)</span> is reflexive because if <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x = 1x\)</span> where <span class="math inline">\(1 \in \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is reflexive because if <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(x = 1x\)</span> where <span class="math inline">\(1 \in \mathbb{Z}\)</span> and <span class="math inline">\(1\)</span> is unique</p></li>
 <li><p><span class="math inline">\(R\)</span> is not symmetric because <span class="math inline">\(2R4\)</span> but not <span class="math inline">\(4R2\)</span> because there is no <span class="math inline">\(k \in \mathbb{Z}\)</span> such that <span class="math inline">\(2 = k4\)</span></p></li>
-<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \in A, y \in A \land z \in A \land xRy \land yRz\)</span> then <span class="math inline">\(y = k_1x \land z = k_2y\)</span> where <span class="math inline">\(k_1 \in \mathbb{Z} \land k_2 \in \mathbb{Z}\)</span>. Therefore <span class="math inline">\(z = k_1k_2x\)</span> where <span class="math inline">\(k_1k_2 \in \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is transitive because if <span class="math inline">\(x \in A, y \in A \land z \in A \land xRy \land yRz\)</span> then <span class="math inline">\(y = k_1x \land z = k_2y\)</span> where <span class="math inline">\(k_1 \in \mathbb{Z}\)</span>, <span class="math inline">\(k_1\)</span> is unique, <span class="math inline">\(k_2 \in \mathbb{Z}\)</span> and <span class="math inline">\(k_2\)</span> is unique. Therefore <span class="math inline">\(z = k_1k_2x\)</span> where <span class="math inline">\(k_1k_2 \in \mathbb{Z}\)</span> and <span class="math inline">\(k_1k_2\)</span> is unique</p></li>
 </ul></li>
 </ul></li>
 <li><p><span class="math inline">\(A\)</span> is the set of all line segments in the plane</p>
@@ -6175,8 +6176,160 @@ T
 <li><p><span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \cap y \neq \emptyset \}\)</span></p></li>
 </ul></li>
 </ul></li>
+<li><p>Prove that asymmetry implies antisymmetric</p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is antisymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\((\forall x)(\forall y)((x \in A \land y \in A \land xRy \land yRx) \implies x = y)\)</span></p></li>
+<li><p><span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\((\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies \neg(yRx))\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>, <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(y \in A\)</span> and <span class="math inline">\(x = y\)</span> then by <em>reductio ad absurdum</em> <span class="math inline">\(\neg(xRy)\)</span>. In particular if <span class="math inline">\(R\)</span> is asymmetric and <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(\neg(xRx)\)</span>. In that sense, if <span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>, <span class="math inline">\(x \in A\)</span> and <span class="math inline">\(y \in A\)</span> then <span class="math inline">\(x \neq y \iff xRy \oplus yRx\)</span> where <span class="math inline">\(\oplus\)</span> refers to the exclusive or</p></li>
+<li><p>We can rewrite the definition of antisymmetric as: <span class="math inline">\(R\)</span> is antisymmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\((\forall x)(\forall y)(x \neq y \implies (x \notin A \lor y \notin A \lor \neg(xRy) \lor \neg(yRx)))\)</span></p></li>
+<li><p>We have that if <span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>, <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(y \in A\)</span> then <span class="math inline">\(x \neq y \iff xRy \oplus xRy\)</span>. Let us assume that <span class="math inline">\(xRy\)</span> without loss of generality. Since <span class="math inline">\(R\)</span> is asymmetric <span class="math inline">\(xRy \implies \neg(yRx)\)</span>. Therefore we have that:</p>
+<ul>
+<li><span class="math inline">\(R\)</span> is asymmetric in <span class="math inline">\(A\)</span>, <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(y \in A\)</span> and <span class="math inline">\(xRy\)</span> then <span class="math inline">\(x \neq y \implies \neg(yRx)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>So <span class="math inline">\(R\)</span> is also antisymmetric</p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the <span class="math inline">\(\leq\)</span> relation on the set of integers. Sohw that <span class="math inline">\(R\)</span> is antisymmetric but not asymmetric on the set on integers</p>
+<ul>
+<li><p><span class="math inline">\(R = \{(x,y): x\in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \}\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(x \leq y \land y \leq x\)</span> then <span class="math inline">\(x = y\)</span>. So <span class="math inline">\(\leq\)</span> is antisymmetric in <span class="math inline">\(\mathbb{Z}\)</span></p></li>
+<li><p>Let <span class="math inline">\(x \leq x\)</span> but <span class="math inline">\(\neg(x \leq x) = x &gt; x\)</span> where <span class="math inline">\(x &gt; x\)</span> is not true. Therefore <span class="math inline">\(R\)</span> is not asymmetric on the set on integers</p></li>
+</ul></li>
+</ul></li>
+<li><p>If a relation <span class="math inline">\(R\)</span> is irreflexive in a set A and transitive in A, prove that <span class="math inline">\(R\)</span> is asymmetric in A</p>
+<ul>
+<li><p>Let <span class="math inline">\(R\)</span> be a transitive and irreflexive relation in a set A where <span class="math inline">\(xRy\)</span> for any <span class="math inline">\(x \in A \land y \in A\)</span></p>
+<ul>
+<li><p>We are going to prove that <span class="math inline">\(R\)</span> is symmetric by <em>reduction ad absurdum</em></p></li>
+<li><p>Let assume that <span class="math inline">\(yRx\)</span> so <span class="math inline">\(xRy\)</span> an transitivity implies that <span class="math inline">\(xRy \land yRx \implies xRy\)</span>. However <span class="math inline">\(R\)</span> is an irreflexive relation</p>
+<ul>
+<li>Therefore <span class="math inline">\(yRx\)</span> is not true. So <span class="math inline">\(\neg(yRx)\)</span> must be true.</li>
+</ul></li>
+</ul></li>
+<li><p>We conclude that <span class="math inline">\(R\)</span> is asymmetric</p></li>
+</ul></li>
+</ol></li>
+<li><p>Show that a relation <span class="math inline">\(R\)</span> is reflexive in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(I_A \subseteq R\)</span>, where <span class="math inline">\(I_A\)</span> is the identity relation on <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(x \in A \implies xRx) \iff I_A \subseteq R\)</span></p></li>
+<li><p><span class="math inline">\(I_A = \{(x,y): x \in A \land y \in A \land x = y \}\)</span></p>
+<ul>
+<li><p>Assume that <span class="math inline">\((\forall x)(x \in A \implies xRx)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  xI_Ay &amp; \implies x \in A \land y \in A \land x = y \\  &amp; \implies x \in A \land x \in A \land x = y\\  &amp; \implies x \in A \land x = y \\  &amp; \implies xRx \land x = y \\  &amp; \implies xRy  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume that <span class="math inline">\(I_A \subseteq R\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A &amp; \implies xI_Ax \\  &amp; \implies xRx  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Show that a relation <span class="math inline">\(R\)</span> is irreflexive in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R\)</span> and <span class="math inline">\(I_A\)</span> are disjoint</p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(x \in A \implies \neg(xRx)) \iff R \cap I_A = \emptyset\)</span></p></li>
+<li><p><span class="math inline">\(I_A = \{(x,y): x \in A \land y \in A \land x = y \}\)</span></p>
+<ul>
+<li><p>Assume that <span class="math inline">\((\forall x)(x \in A \implies \neg(xRx))\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x, y) \in I_A &amp; \iff x \in A \land y \in A \land x = y \\  &amp; \implies x \in A \land x \in A \land x = y \\  &amp; \implies x \in A \land x = y \\  &amp; \implies \neg(xRx) \land x = y \\  &amp; \implies (x, x) \notin R \land x = y \\  &amp; \implies (x, y) \notin R \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume that <span class="math inline">\(R \cap I_A = \emptyset\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A &amp; \implies (x, x) \in I_A \\  &amp; \implies (x, x) \notin R \\  &amp; \implies \neg(xRx)  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is symmetric in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R = R^{-1}\)</span></p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies yRx) \iff R = R^{-1}\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\((\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies yRx)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  xR^{-1}y &amp; \implies x \in A \land y \in A \land yRx \\  &amp; \implies xRy  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R = R^{-1}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \land y \in A \land xRy &amp; \implies xR^{-1}y \\  &amp; \implies yRx  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \subseteq A \times A\)</span>. Show that <span class="math inline">\(R\)</span> is transitive in <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R \circ R \subseteq R\)</span></p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(\forall y)(\forall z)((x \in A \land y \in A \land z \in A \land xRy \land yRz) \implies xRz) \iff R \circ R \subseteq R\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\((\forall x)(\forall y)(\forall z)((x \in A \land y \in A \land z \in A \land xRy \land yRz)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x(R \circ R)y &amp; \implies (\exists z)(xRz \land zRy) \\  &amp; \implies xRy  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(R \circ R \subseteq R\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in A \land y \in A \land z \in A \land xRy \land yRz &amp; \implies x(R \circ R)y \\  &amp; \implies xRy  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of integers. Find a relation <span class="math inline">\(R\)</span> which is</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Reflexive and symmetric in <span class="math inline">\(A\)</span> but not transitive in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land x*y \geq 0 \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive:</p>
+<ul>
+<li><span class="math inline">\(\forall(x)(x \in \mathbb{Z} \implies x*x \geq 0)\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is symmetric:</p>
+<ul>
+<li><span class="math inline">\(\forall(x)((x \in \mathbb{Z} \land x*y \geq 0) \implies y*x \geq 0)\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is not transitive:</p>
+<ul>
+<li>For example <span class="math inline">\(-1*0 \geq 0 \land 1*0 \geq 0\)</span> but not <span class="math inline">\(-1*1 \geq 0\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Reflexive and transitive in <span class="math inline">\(A\)</span> but not symmetric in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is reflexive:</p>
+<ul>
+<li><span class="math inline">\(\forall(x)(x \in \mathbb{Z} \implies x \leq x)\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is transitive:</p>
+<ul>
+<li><span class="math inline">\((\forall x)(\forall y)(\forall z)((x \in \mathbb{Z} \land y \in \mathbb{Z} \land z \in \mathbb{Z} \land x \leq y \land y \leq z) \implies x \leq z)\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is not symmetric:</p>
+<ul>
+<li>For example <span class="math inline">\(0 \leq 1\)</span> but not <span class="math inline">\(1 \leq 0\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Symmetric and transitive in <span class="math inline">\(A\)</span> but not reflexive in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \neq y \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(R\)</span> is symmetric:</p>
+<ul>
+<li><span class="math inline">\(\forall(x)((x \in \mathbb{Z} \land x \neq y) \implies y \neq x)\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is transitive:</p>
+<ul>
+<li><span class="math inline">\((\forall x)(\forall y)(\forall z)((x \in \mathbb{Z} \land y \in \mathbb{Z} \land z \in \mathbb{Z} \land x \neq y \land y \neq z) \implies x \neq z)\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(R\)</span> is not reflexive:</p>
+<ul>
+<li>It is not the case that <span class="math inline">\(x \neq x\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ol></li>
 </ol>
+</div>
+<div id="equivalence-relations" class="section level2">
+<h2><span class="header-section-number">1.32</span> Equivalence relations</h2>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

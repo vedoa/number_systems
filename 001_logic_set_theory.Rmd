@@ -2499,14 +2499,14 @@ a. $A$ is the set of positive integers
 
     + $\begin{split}
        R & = \{(x,y): x \in A \land y \in A \land y \text{ is divisible by } x \} \\
-       & = \{(x,y): x \in A \land y \in A \land y = kx \text{ where } k \in \mathbb{Z} \}
+       & = \{(x,y): x \in A \land y \in A \land (\exists !k)(k \in \mathbb{Z} \land y = kx) \}
        \end{split}$
        
-        + $R$ is reflexive because if $x \in A$ then $x = 1x$ where $1 \in \mathbb{Z}$
+        + $R$ is reflexive because if $x \in A$ then $x = 1x$ where $1 \in \mathbb{Z}$ and $1$ is unique
         
         + $R$ is not symmetric because $2R4$ but not $4R2$ because there is no $k \in \mathbb{Z}$ such that $2 = k4$
         
-        + $R$ is transitive because if $x \in A, y \in A \land z \in A \land xRy \land yRz$ then $y = k_1x \land z = k_2y$ where $k_1 \in \mathbb{Z} \land k_2 \in \mathbb{Z}$. Therefore $z = k_1k_2x$ where $k_1k_2 \in \mathbb{Z}$
+        + $R$ is transitive because if $x \in A, y \in A \land z \in A \land xRy \land yRz$ then $y = k_1x \land z = k_2y$ where $k_1 \in \mathbb{Z}$, $k_1$ is unique, $k_2 \in \mathbb{Z}$ and $k_2$ is unique. Therefore $z = k_1k_2x$ where $k_1k_2 \in \mathbb{Z}$ and $k_1k_2$ is unique
         
 b. $A$ is the set of all line segments in the plane
 
@@ -2638,7 +2638,181 @@ h. $A$ is any set
             + $A = \mathscr{P}(B)$ where $B$ is any set
             
             + $R = \{(x,y): x \in A \land y \in A \land x \cap y \neq \emptyset \}$
+            
+    b. Prove that asymmetry implies antisymmetric
+    
+        + $R$ is antisymmetric in $A$ if and only if $(\forall x)(\forall y)((x \in A \land y \in A \land xRy \land yRx) \implies x = y)$
+    
+        + $R$ is asymmetric in $A$ if and only if $(\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies \neg(yRx))$
+        
+            + If $R$ is asymmetric in $A$, $x \in A$, $y \in A$ and $x = y$ then by _reductio ad absurdum_ $\neg(xRy)$. In particular if $R$ is asymmetric and $x \in A$ then $\neg(xRx)$. In that sense, if $R$ is asymmetric in $A$, $x \in A$ and $y \in A$ then $x \neq y \iff xRy \oplus yRx$ where $\oplus$ refers to the exclusive or
+            
+            + We can rewrite the definition of antisymmetric as: $R$ is antisymmetric in $A$ if and only if $(\forall x)(\forall y)(x \neq y \implies (x \notin A \lor y \notin A \lor \neg(xRy) \lor \neg(yRx)))$
+            
+            + We have that if $R$ is asymmetric in $A$, $x \in A$, $y \in A$ then $x \neq y \iff xRy \oplus xRy$. Let us assume that $xRy$ without loss of generality. Since $R$ is asymmetric $xRy \implies \neg(yRx)$. Therefore we have that:
+            
+                + $R$ is asymmetric in $A$, $x \in A$, $y \in A$ and $xRy$ then $x \neq y \implies \neg(yRx)$
 
+        + So $R$ is also antisymmetric
+      
+    c. Let $R$ be the $\leq$ relation on the set of integers. Sohw that $R$ is antisymmetric but not asymmetric on the set on integers
+      
+        + $R = \{(x,y): x\in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \}$
+        
+            + Let $x \leq y \land y \leq x$ then $x = y$. So $\leq$ is antisymmetric in $\mathbb{Z}$
+            
+            + Let $x \leq x$ but $\neg(x \leq x) = x > x$ where $x > x$ is not true. Therefore $R$ is not asymmetric on the set on integers
+            
+    d. If a relation $R$ is irreflexive in a set A and transitive in A, prove that $R$ is asymmetric in A
+    
+        + Let $R$ be a transitive and irreflexive relation in a set A where $xRy$ for any $x \in A \land y \in A$
+        
+            + We are going to prove that $R$ is symmetric by _reduction ad absurdum_
+            
+            + Let assume that $yRx$ so $xRy$ an transitivity implies that $xRy \land yRx \implies xRy$. However $R$ is an irreflexive relation
+            
+                + Therefore $yRx$ is not true. So $\neg(yRx)$ must be true.
+                
+        + We conclude that $R$ is asymmetric
+        
+3. Show that a relation $R$ is reflexive in a set $A$ if and only if $I_A \subseteq R$, where $I_A$ is the identity relation on $A$
+
+    + $(\forall x)(x \in A \implies xRx) \iff I_A \subseteq R$
+    
+    + $I_A = \{(x,y): x \in A \land y \in A \land x = y \}$
+        
+        + Assume that $(\forall x)(x \in A \implies xRx)$
+        
+            + $\begin{split}
+               xI_Ay & \implies x \in A \land y \in A \land x = y \\
+               & \implies x \in A \land x \in A \land x = y\\
+               & \implies x \in A \land x = y \\
+               & \implies xRx \land x = y \\
+               & \implies xRy
+               \end{split}$
+               
+        + Assume that $I_A \subseteq R$
+      
+            + $\begin{split}
+               x \in A & \implies xI_Ax \\
+               & \implies xRx
+               \end{split}$
+
+4. Show that a relation $R$ is irreflexive in a set $A$ if and only if $R$ and $I_A$ are disjoint
+
+    + $(\forall x)(x \in A \implies \neg(xRx)) \iff R \cap I_A = \emptyset$
+    
+    + $I_A = \{(x,y): x \in A \land y \in A \land x = y \}$
+    
+        + Assume that $(\forall x)(x \in A \implies \neg(xRx))$
+        
+            + $\begin{split}
+               (x, y) \in I_A & \iff x \in A \land y \in A \land x = y \\
+               & \implies x \in A \land x \in A \land x = y \\
+               & \implies x \in A \land x = y \\
+               & \implies \neg(xRx) \land x = y \\
+               & \implies (x, x) \notin R \land x = y \\
+               & \implies (x, y) \notin R \\
+               \end{split}$
+               
+        + Assume that $R \cap I_A = \emptyset$
+        
+            + $\begin{split}
+               x \in A & \implies (x, x) \in I_A \\
+               & \implies (x, x) \notin R \\
+               & \implies \neg(xRx)
+               \end{split}$
+
+5. Assume $R \subseteq A \times A$. Show that $R$ is symmetric in $A$ if and only if $R = R^{-1}$
+
+    + $(\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies yRx) \iff R = R^{-1}$
+    
+        + Assume $(\forall x)(\forall y)((x \in A \land y \in A \land xRy) \implies yRx)$
+        
+            + $\begin{split}
+               xR^{-1}y & \implies x \in A \land y \in A \land yRx \\
+               & \implies xRy
+               \end{split}$
+               
+        + Assume $R = R^{-1}$
+        
+            + $\begin{split}
+               x \in A \land y \in A \land xRy & \implies xR^{-1}y \\
+               & \implies yRx
+               \end{split}$
+               
+6. Assume $R \subseteq A \times A$. Show that $R$ is transitive in $A$ if and only if $R \circ R \subseteq R$
+
+    + $(\forall x)(\forall y)(\forall z)((x \in A \land y \in A \land z \in A \land xRy \land yRz) \implies xRz) \iff R \circ R \subseteq R$
+
+        + Assume $(\forall x)(\forall y)(\forall z)((x \in A \land y \in A \land z \in A \land xRy \land yRz)$
+        
+            + $\begin{split}
+               x(R \circ R)y & \implies (\exists z)(xRz \land zRy) \\
+               & \implies xRy
+               \end{split}$
+        
+        + Assume $R \circ R \subseteq R$
+        
+            + $\begin{split}
+               x \in A \land y \in A \land z \in A \land xRy \land yRz & \implies x(R \circ R)y \\
+               & \implies xRy
+               \end{split}$
+               
+7. Let $A$ be the set of integers. Find a relation $R$ which is
+
+    a. Reflexive and symmetric in $A$ but not transitive in $A$
+    
+        + $R = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land x*y \geq 0 \}$
+        
+            + $R$ is reflexive:
+            
+                + $\forall(x)(x \in \mathbb{Z} \implies x*x \geq 0)$
+            
+            + $R$ is symmetric: 
+            
+                + $\forall(x)((x \in \mathbb{Z} \land x*y \geq 0) \implies y*x \geq 0)$
+            
+            + $R$ is not transitive:
+            
+                + For example $-1*0 \geq 0 \land 1*0 \geq 0$ but not $-1*1 \geq 0$
+        
+    b. Reflexive and transitive in $A$ but not symmetric in $A$
+    
+        + $R = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \leq y \}$
+        
+            + $R$ is reflexive:
+            
+                + $\forall(x)(x \in \mathbb{Z} \implies x \leq x)$
+            
+            + $R$ is transitive: 
+            
+                + $(\forall x)(\forall y)(\forall z)((x \in \mathbb{Z} \land y \in \mathbb{Z} \land z \in \mathbb{Z} \land x \leq y \land y \leq z) \implies x \leq z)$
+            
+            + $R$ is not symmetric:
+            
+                + For example $0 \leq 1$ but not $1 \leq 0$
+        
+    c. Symmetric and transitive in $A$ but not reflexive in $A$
+    
+        + $R = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land x \neq y \}$
+        
+            + $R$ is symmetric:
+            
+                + $\forall(x)((x \in \mathbb{Z} \land x \neq y) \implies y \neq x)$
+            
+            + $R$ is transitive: 
+            
+                + $(\forall x)(\forall y)(\forall z)((x \in \mathbb{Z} \land y \in \mathbb{Z} \land z \in \mathbb{Z} \land x \neq y \land y \neq z) \implies x \neq z)$
+            
+            + $R$ is not reflexive:
+            
+                + It is not the case that $x \neq x$
+                
+## Equivalence relations
+
+
+        
 # Bibliography
 
 
