@@ -2811,6 +2811,8 @@ h. $A$ is any set
                 
 ## Equivalence relations
 
+A relation $R$ is said to be an __equivalence relation__ in a set $A$ if and only if $R$ is reflexive, symmetric and transitive in $A$
+
 
         
 # Bibliography
