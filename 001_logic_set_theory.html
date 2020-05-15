@@ -1837,6 +1837,7 @@ summary {
 <li><a href="#reflexivity-symmetry-and-transitivity"><span class="toc-section-number">1.30</span> Reflexivity, symmetry and transitivity</a></li>
 <li><a href="#reflexivity-symmetry-and-transitivity-exercises-and-solutions"><span class="toc-section-number">1.31</span> Reflexivity, symmetry and transitivity exercises and solutions</a></li>
 <li><a href="#equivalence-relations"><span class="toc-section-number">1.32</span> Equivalence relations</a></li>
+<li><a href="#equivalence-relations-exercises-and-solutions"><span class="toc-section-number">1.33</span> Equivalence relations exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -6331,6 +6332,92 @@ T
 <div id="equivalence-relations" class="section level2">
 <h2><span class="header-section-number">1.32</span> Equivalence relations</h2>
 <p>A relation <span class="math inline">\(R\)</span> is said to be an <strong>equivalence relation</strong> in a set <span class="math inline">\(A\)</span> if and only if <span class="math inline">\(R\)</span> is reflexive, symmetric and transitive in <span class="math inline">\(A\)</span></p>
+<p>Consider an equivalence relation <span class="math inline">\(R\)</span> in a set <span class="math inline">\(A\)</span>. Each element <span class="math inline">\(x\)</span> of <span class="math inline">\(A\)</span> determines the set of all elements <span class="math inline">\(z\)</span> of <span class="math inline">\(A\)</span> such that <span class="math inline">\(xRy\)</span>. This set is denoted <span class="math inline">\([x]\)</span> and called the <strong>equivalence class</strong> of <span class="math inline">\(x\)</span> relative to the relation <span class="math inline">\(R\)</span>:</p>
+<p><span class="math display">\[[x] = \{z: z \in A \land xRz \land R \text{ is an equivalence relation }\}\]</span> If we want to be explicit about the specific relation associated with the equivalence class we can use the notation <span class="math inline">\([x]_R\)</span></p>
+<p>Consider an equivalence relation <span class="math inline">\(R\)</span> in a set <span class="math inline">\(A\)</span>. Therefore two elements <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> determine the same equivalence class if and only if <span class="math inline">\(xRy\)</span>:</p>
+<p><span class="math display">\[[x] = [y] \iff xRy\]</span> <em><strong>Proof</strong></em></p>
+<ul>
+<li><p>Assume <span class="math inline">\([x] = [y]\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in [x] &amp; \implies x \in [y] \\  \implies yRx \\  \implies xRy \\  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(xRy\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  z \in [x] \land w \in [y] &amp; \implies zRx \land yRw \\  &amp; \implies (zRx \land xRy) \land (yRw \land xRy) \\  &amp; \implies (zRx \land xRy) \land (xRy \land yRw) \\  &amp; \implies zRy \land xRw \\  &amp; \implies yRz \land xRw \\  &amp; \implies z \in [y] \land w \in [x] \\  &amp; \implies [x] = [y]  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p>If two equivalence classes are not identical then they are disjoint:</p>
+<p><span class="math display">\[[x] \neq [y] \implies [x] \cap [y] = \emptyset\]</span> <em><strong>Proof</strong></em></p>
+<ul>
+<li><p><span class="math inline">\([x] \neq [y] \implies [x] \cap [y] = \emptyset\)</span> is equivalent to <span class="math inline">\([x] \cap [y] \neq \emptyset \implies [x] = [y]\)</span> and we have that <span class="math inline">\([x] = [y] \iff xRy\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  [x] \cap [y] \neq \emptyset &amp; \implies (\exists z)(z \in [x] \land z \in [y]) \\  &amp; \implies xRz \land yRz \\  &amp; \implies xRz \land zRy \\  &amp; \implies xRy \\  &amp; \implies [x] = [y]  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p>Therefore, and equivalence relation on a set <span class="math inline">\(A\)</span> divides <span class="math inline">\(A\)</span> into a collection of mutually exclusive subsets known as equivalence classes</p>
+</div>
+<div id="equivalence-relations-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.33</span> Equivalence relations exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>For each relation <span class="math inline">\(R\)</span> and set <span class="math inline">\(A\)</span> determine whether <span class="math inline">\(R\)</span> is an equivalence relation in <span class="math inline">\(A\)</span>. If it is, describe the equivalence classes</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(A\)</span> is the set of lines in the plane and <span class="math inline">\(R = \{(x,y): x \in A \land (x = y \lor x \text{ is parallel to } y) \}\)</span></li>
+</ol>
+<ul>
+<li><p>If <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(xRx\)</span> because <span class="math inline">\(x = x\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in A \land xRy\)</span> then <span class="math inline">\(x = y\)</span> or <span class="math inline">\(x \text{ is parallel to } y) \}\)</span>. In any case <span class="math inline">\(y = x\)</span> or <span class="math inline">\(y \text{ is parallel to } x) \}\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in A \land y \in A \land z \in A \land xRy \land yRz\)</span> then <span class="math inline">\(x = y \lor x \text{ is parallel to } y\)</span> and <span class="math inline">\(y = z \lor y \text{ is parallel to } z)\)</span>. In any case <span class="math inline">\(x = z\)</span> or <span class="math inline">\(x \text{ is parallel to } z)\)</span> so <span class="math inline">\(xRz\)</span></p>
+<ul>
+<li><span class="math inline">\([x]\)</span> contains the line <span class="math inline">\(x\)</span> and all the lines parallel to <span class="math inline">\(x\)</span></li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A\)</span> is the set of all people and <span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \text{ is related to } y \}\)</span></p>
+<ul>
+<li>There is not a known relation between <span class="math inline">\(x\)</span> and <span class="math inline">\(x\)</span> because it is not clear the meaning of <span class="math inline">\(x \text{ is related to } x \}\)</span>. Therefore <span class="math inline">\(R\)</span> is not an equivalence relation.</li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all directed line segments in a plane and <span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \text{ have the same length and the same direction } y \}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x \in A\)</span> then <span class="math display">\[x = \{x_{1} = (x_{11}, x_{12}), x_{2} = (x_{21}, x_{22}) \land x_{1} \in \mathbb{R}^2 \land x_{2} \in \mathbb{R}^2 \land (x_{11} \neq x_{21} \lor x_{12} \neq x_{22})\}\]</span></p>
+<ul>
+<li><p>The direction of <span class="math inline">\(x\)</span> can be <span class="math inline">\((x_{1}, x_{2})\)</span> or <span class="math inline">\((x_{2}, x_{1})\)</span>. The first component in the direction of <span class="math inline">\(x\)</span> is the origin and the second component the end</p></li>
+<li><p>The length of <span class="math inline">\(x\)</span> is <span class="math inline">\(\sqrt{(x_{11} - x_{21})^2 + (x_{12} - x_{22})^2}\)</span></p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(xRx\)</span> because <span class="math inline">\(x\)</span> has the same length and direction as itself</p></li>
+<li><p>If <span class="math inline">\(x \in A \land y \in A \land xRy\)</span> then <span class="math inline">\(yRx\)</span> because <span class="math inline">\(y\)</span> have the same length and the same direction as <span class="math inline">\(x\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in A \land y \in A \land z \in A \land xRy \land yRz\)</span> then <span class="math inline">\(x\)</span> have the same length and the same direction as <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> have the same length and the same direction as <span class="math inline">\(z\)</span>. Therefore, <span class="math inline">\(x\)</span> have the same length and direction as <span class="math inline">\(z\)</span> so <span class="math inline">\(xRz\)</span></p>
+<ul>
+<li><span class="math inline">\([x]\)</span> contains the directed line segment <span class="math inline">\(x\)</span> and all the directed lines segments with the same length and direction as <span class="math inline">\(x\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all people and <span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \text{ has at least one parent in common with } y \}\)</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not an equivalence class if <span class="math inline">\(x \in A\)</span> has two parents and <span class="math inline">\(x\)</span> has two brothers with different parents. <span class="math inline">\(R\)</span> would be an equivalence relation if it includes <span class="math inline">\(x\)</span> has exactly one parent in common with <span class="math inline">\(y\)</span> instead of <span class="math inline">\(x\)</span> has at least one parent in common with <span class="math inline">\(y\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all people and <span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land x \text{ live within one mile of } y \}\)</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not an equivalence class if <span class="math inline">\(x \in A\)</span> live within two miles of <span class="math inline">\(z\)</span> but <span class="math inline">\(y\)</span> live within one mile of <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all points on earth and <span class="math display">\[R = \{(x,y): x \in A \land y \in A \land x \text{ and } y \text{ are at the same distance from the north pole} \}\]</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x \in A\)</span> then <span class="math inline">\(xRx\)</span> because <span class="math inline">\(x\)</span> and <span class="math inline">\(x\)</span> are at the same distance from the north pole. Sounds weird in plain english but is true!</p></li>
+<li><p>If <span class="math inline">\(x \in A \land y \in A \land xRy\)</span> then <span class="math inline">\(yRx\)</span> because <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> are at the same distance from the north pole.</p></li>
+<li><p>If <span class="math inline">\(x \in A \land y \in A \land z \in A \land xRy \land yRz\)</span> then <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are at the same distance from the north pole and also <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span> are at the same distance from the north pole. Therefore <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> are at the same distance from the north pole so <span class="math inline">\(xRz\)</span></p>
+<ul>
+<li><span class="math inline">\([x]\)</span> contains <span class="math inline">\(x\)</span> and all <span class="math inline">\(z\)</span>s where <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> are at the same distance from the north pole</li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all points inside a circle excluding the center of the circle and <span class="math display">\[R = \{(x,y): x \in A \land y \in A \land (x = y or \text{ the line connecting } x \text{ and } y \text{ passes through the center of the circle}) \}\]</span></p>
+<ul>
+<li><span class="math inline">\(R\)</span> is not an equivalence class if <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(y \in A\)</span>, <span class="math inline">\(z \in A\)</span>, <span class="math inline">\(x \neq y \neq z\)</span>, <span class="math inline">\(xRy\)</span> and <span class="math inline">\(yRz\)</span> then the line connecting <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> doesn’t pass through the center of the circle</li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> is the set of all subsets of the set of integers and <span class="math inline">\(R = \{(x,y): x \in A \land y \in A \land (x - y) \cup (y - x) \text{ is finite} \}\)</span></p>
+<ul>
+<li><p>Hint: <span class="math inline">\(xRy\)</span> if and only if <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> differ by only a finite number of elements</p></li>
+<li><p><span class="math inline">\(A = \mathscr{P}(\mathbb{Z})\)</span></p></li>
+</ul></li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

@@ -2813,7 +2813,115 @@ h. $A$ is any set
 
 A relation $R$ is said to be an __equivalence relation__ in a set $A$ if and only if $R$ is reflexive, symmetric and transitive in $A$
 
+Consider an equivalence relation $R$ in a set $A$. Each element $x$ of $A$ determines the set of all elements $z$ of $A$ such that $xRy$. This set is denoted $[x]$ and called the __equivalence class__ of $x$ relative to the relation $R$:
 
+$$[x] = \{z: z \in A \land xRz \land R \text{ is an equivalence relation }\}$$
+If we want to be explicit about the specific relation associated with the equivalence class we can use the notation $[x]_R$
+
+Consider an equivalence relation $R$ in a set $A$. Therefore two elements $x$ and $y$ determine the same equivalence class if and only if $xRy$:
+
+$$[x] = [y] \iff xRy$$
+_**Proof**_
+
+- Assume $[x] = [y]$ 
+
+    + $\begin{split}
+        x \in [x] & \implies x \in [y] \\
+        \implies yRx \\
+        \implies xRy \\
+        \end{split}$
+ 
+- Assume $xRy$
+
+    + $\begin{split}
+        z \in [x] \land w \in [y] & \implies zRx \land yRw \\
+        & \implies (zRx \land xRy) \land (yRw \land xRy) \\
+        & \implies (zRx \land xRy) \land (xRy \land yRw) \\
+        & \implies zRy \land xRw \\
+        & \implies yRz \land xRw \\
+        & \implies z \in [y] \land w \in [x] \\
+        & \implies [x] = [y]
+        \end{split}$
+        
+If two equivalence classes are not identical then they are disjoint:
+
+$$[x] \neq [y] \implies [x] \cap [y] = \emptyset$$
+_**Proof**_
+
+- $[x] \neq [y] \implies [x] \cap [y] = \emptyset$ is equivalent to $[x] \cap [y] \neq \emptyset \implies [x] = [y]$ and we have that $[x] = [y] \iff xRy$ 
+
+    + $\begin{split}
+        [x] \cap [y] \neq \emptyset & \implies (\exists z)(z \in [x] \land z \in [y]) \\
+        & \implies xRz \land yRz \\
+        & \implies xRz \land zRy \\
+        & \implies xRy \\
+        & \implies [x] = [y]
+        \end{split}$
+        
+Therefore, and equivalence relation on a set $A$ divides $A$ into a collection of mutually exclusive subsets known as equivalence classes 
+
+## Equivalence relations exercises and solutions
+
+1. For each relation $R$ and set $A$ determine whether $R$ is an equivalence relation in $A$. If it is, describe the equivalence classes
+
+    a. $A$ is the set of lines in the plane and $R = \{(x,y): x \in A \land (x = y \lor x \text{ is parallel to } y) \}$
+    
+    
+      + If $x \in A$ then $xRx$ because $x = x$
+      
+      + If $x \in A \land xRy$ then $x = y$ or $x \text{ is parallel to } y) \}$. In any case $y = x$ or $y \text{ is parallel to } x) \}$
+      
+      + If $x \in A \land y \in A \land z \in A \land xRy \land yRz$ then $x = y \lor x \text{ is parallel to } y$ and $y = z \lor y \text{ is parallel to } z)$. In any case $x = z$ or $x \text{ is parallel to } z)$ so $xRz$
+      
+          + $[x]$ contains the line $x$ and all the lines parallel to $x$
+          
+    b. $A$ is the set of all people and $R = \{(x,y): x \in A \land y \in A \land x \text{ is related to } y \}$
+      
+        + There is not a known relation between $x$ and $x$ because it is not clear the meaning of $x \text{ is related to } x \}$. Therefore $R$ is not an equivalence relation.
+      
+    c. $A$ is the set of all directed line segments in a plane and $R = \{(x,y): x \in A \land y \in A \land x \text{ have the same length and the same direction } y \}$
+      
+        + If $x \in A$ then $$x = \{x_{1} = (x_{11}, x_{12}), x_{2} = (x_{21}, x_{22}) \land x_{1} \in \mathbb{R}^2 \land x_{2} \in \mathbb{R}^2 \land (x_{11} \neq x_{21} \lor x_{12} \neq x_{22})\}$$
+        
+            + The direction of $x$ can be $(x_{1}, x_{2})$ or $(x_{2}, x_{1})$. The first component in the direction of $x$ is the origin and the second component the end
+            
+            + The length of $x$ is $\sqrt{(x_{11} - x_{21})^2 + (x_{12} - x_{22})^2}$
+            
+        + If $x \in A$ then $xRx$ because $x$ has the same length and direction as itself
+        
+        + If $x \in A \land y \in A \land xRy$ then $yRx$ because $y$ have the same length and the same direction as $x$ 
+        
+        + If $x \in A \land y \in A \land z \in A \land xRy \land yRz$ then $x$ have the same length and the same direction as $y$ and $y$ have the same length and the same direction as $z$. Therefore, $x$ have the same length and direction as $z$ so $xRz$
+        
+            + $[x]$ contains the directed line segment $x$ and all the directed lines segments with the same length and direction as $x$
+            
+    d. $A$ is the set of all people and $R = \{(x,y): x \in A \land y \in A \land x \text{ has at least one parent in common with } y \}$
+    
+        + $R$ is not an equivalence class if $x \in A$ has two parents and $x$ has two brothers with different parents. $R$ would be an equivalence relation if it includes $x$ has exactly one parent in common with $y$ instead of $x$ has at least one parent in common with $y$ 
+        
+    e. $A$ is the set of all people and $R = \{(x,y): x \in A \land y \in A \land x \text{ live within one mile of } y \}$
+    
+        + $R$ is not an equivalence class if $x \in A$ live within two miles of $z$ but $y$ live within one mile of $x$ and $z$
+
+    f. $A$ is the set of all points on earth and $$R = \{(x,y): x \in A \land y \in A \land x \text{ and } y \text{ are at the same distance from the north pole} \}$$
+    
+        + If $x \in A$ then $xRx$ because $x$ and $x$ are at the same distance from the north pole. Sounds weird in plain english but is true!
+        
+        + If $x \in A \land y \in A \land xRy$ then $yRx$ because $y$ and $x$ are at the same distance from the north pole.
+        
+        + If $x \in A \land y \in A \land z \in A \land xRy \land yRz$ then $x$ and $y$ are at the same distance from the north pole and also $y$ and $z$ are at the same distance from the north pole. Therefore $x$ and $z$ are at the same distance from the north pole so $xRz$
+        
+            + $[x]$ contains $x$ and all $z$s where $x$ and $z$ are at the same distance from the north pole
+            
+    g. $A$ is the set of all points inside a circle excluding the center of the circle and $$R = \{(x,y): x \in A \land y \in A \land (x = y or \text{ the line connecting } x \text{ and } y \text{ passes through the center of the circle}) \}$$
+    
+        + $R$ is not an equivalence class if $x \in A$, $y \in A$, $z \in A$, $x \neq y \neq z$, $xRy$ and $yRz$ then the line connecting $x$ and $z$ doesn't pass through the center of the circle
+        
+    g. $A$ is the set of all subsets of the set of integers and $R = \{(x,y): x \in A \land y \in A \land (x - y) \cup (y - x) \text{ is finite} \}$
+    
+        + Hint: $xRy$ if and only if $x$ and $y$ differ by only a finite number of elements
+        
+        + $A = \mathscr{P}(\mathbb{Z})$ 
         
 # Bibliography
 
