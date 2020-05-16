@@ -35,6 +35,7 @@ library(kableExtra)
 library(tidyquant)
 library(knitr)
 library(latex2exp)
+library(ggforce)
 ```
 
 # Logic and set theory
@@ -2866,7 +2867,6 @@ Therefore, and equivalence relation on a set $A$ divides $A$ into a collection o
 
     a. $A$ is the set of lines in the plane and $R = \{(x,y): x \in A \land (x = y \lor x \text{ is parallel to } y) \}$
     
-    
       + If $x \in A$ then $xRx$ because $x = x$
       
       + If $x \in A \land xRy$ then $x = y$ or $x \text{ is parallel to } y) \}$. In any case $y = x$ or $y \text{ is parallel to } x) \}$
@@ -2917,46 +2917,142 @@ Therefore, and equivalence relation on a set $A$ divides $A$ into a collection o
     
         + $R$ is not an equivalence class if $x \in A$, $y \in A$, $z \in A$, $x \neq y \neq z$, $xRy$ and $yRz$ then the line connecting $x$ and $z$ doesn't pass through the center of the circle
         
-    g. $A$ is the set of all subsets of the set of integers and $R = \{(x,y): x \in A \land y \in A \land (x - y) \cup (y - x) \text{ is finite} \}$
+    h. $A$ is the set of all subsets of the set of integers and $R = \{(x,y): x \in A \land y \in A \land (x - y) \cup (y - x) \text{ is finite} \}$
     
-        + Hint: $xRy$ if and only if $x$ and $y$ differ by only a finite number of elements
+        + __Hint__: $xRy$ if and only if $x$ and $y$ differ by only a finite number of elements
         
-        + $A = \mathscr{P}(\mathbb{Z})$ 
+        + $A = \mathscr{P}(\mathbb{Z})$
         
+        + In this context a set $B\subseteq \mathbb{Z}$ is finite if $(\forall x)(x \in B \implies ((\exists z)(x \leq z \land z \in \mathbb{Z}) \land (\exists w)(x \geq w \land w \in \mathbb{Z})))$
+        
+            + $C \text{ is finite } \land D \text{ is finite } \iff C \cup D \text{ is finite }$
+            
+                + Assume that $C \text{ is finite } \land D \text{ is finite }$
+            
+                    + $\begin{split}
+                       x \in C \land w_{1}, z_{1} \in \mathbb{Z} \land x \leq z_{1} \land x \geq w_{1} \in B \land w_{1}, z_{1} \in \mathbb{Z} \land y \leq z_{2} \land y \geq w_{2} & \implies z_{1}, w_{1}, z_{2}, w_{2} \in \mathbb{Z} \land (z_{2} \leq z_{1} \lor z_{2} > z_{1} \lor w_{2} \leq w_{1} \lor w_{2} > w_{1}) \\ 
+                       & \implies (\forall u)(u \in C \cup D \implies ((\exists z)((z = z_1 \lor z = z_2) \land u \leq z) \land (\exists w)((w = w_1 \lor w = w_2) \land u \geq w)) \\
+                       & \implies C \cup D \text{ is finite}
+                       \end{split}$
+                       
+                + Assume that $C \cup D \text{ is finite}$. We can also assume that $C \text{ is not finite} \lor D \text{ is not finite}$, find a contradiction and conclude that $C \text{ is finite} \land D \text{ is finite }$
+                  
+                    + Without loss of generality assume that $C \text{ is not finite}$. Therefore, there is no $z$ or $w$ such that for all $x \in C$ then $x \leq z \land x \geq w$. Also because $x \in C$ then for $x \in C \cup B$ there will be no $z$ or $w$ such that $x \leq z \land x \geq w$. In that case $C \cup D \text{ is not finite}$ but we assume that $C \cup D \text{ is finite}$. We find a contradiction so $C \text{ is finite}$
+                    
+                        + The same argument will apply if we asume that $D \text{ is finite}$
+                        
+        + We can use the __hint__, $C \text{ is finite } \land D \text{ is finite} \iff C \cup D \text{ is finite}$ and the plot below to prove that $R$ is an equivalence relation
+        
+```{r}
+
+
+tibble(x      = c(-0.8, 0.8,  0),
+       y      = c(0.5,  0.5, -1),
+       labels = c('x', 'y', 'z')) %>% 
+    ggplot() +
+    geom_circle(aes(x0 = x, y0 = y, r = 1.5, fill = labels),
+                alpha  = .3, 
+                size   = 1, 
+                colour = 'grey') +
+    annotate(geom = "label", x = -1, y =  1,   label = "A") +
+    annotate(geom = "label", x = -1, y = -0.5, label = "B") +
+    annotate(geom = "label", x =  1, y =  1,   label = "C") +
+    annotate(geom = "label", x =  1, y = -0.5, label = "D") +
+    annotate(geom = "label", x =  0, y =  1,   label = "E") +
+    annotate(geom = "label", x =  0, y =  0,   label = "F") +
+    annotate(geom = "label", x =  0, y = -1.5,   label = "G") +
+    labs(fill = "") +
+    coord_fixed() +
+    theme_void() +
+    theme(legend.position = "bottom")
+
+```
+
+
+- If $x \in A$ then $xRx$ because $(x - x) \cup (x - x) = \emptyset$ where $\emptyset$ is finite. Why? In the definition of a finite set the antecedent of the conditional is false if $B = \emptyset$ so all the expression is true.  
+      
+- If $x \in A \land x \in A \land xRy$. Therefore $(x - y) \cup (y - x)$ is finite. Also $(x - y) \cup (y - x) = (y - x) \cup (x -y)$. So $yRx$    
+
+      
+- If $x \in A \land y \in A \land z \in A \land xRy \land yRz$ then $(x - y) \cup (y - x)$ and $(y - z) \cup (z - y)$ are finite. Furthermore $(x - y)$, $(y - x)$, $(y - z)$ and $(z - y)$ are also finite. We also have that
+
+    + $(x - y)$ is the union of regions $A$ and $B$ in the plot. Therefore $A$ region is a finite set
+    
+    + $(y - x)$ is the union of regions $C$ and $D$ in the plot. Therefore $D$ region is a finite set
+    
+    + $(y - z)$ is the union of regions $E$ and $C$ in the plot. Therefore $E$ region is a finite set
+    
+    + $(z - y)$ is the union of regions $B$ and $G$ in the plot. Therefore $G$ region is a finite set
+    
+        + Because the union of $A$ and $E$ regions is equal to $(x - z)$ we have that $(x - z)$ is finite
+        
+        + Because the union of $D$ and $G$ regions is equal to $(z - x)$ we have that $(z - x)$ is finite
+        
+            + In that sense $(x - z) \cup (z - x)$ is finite. So $xRz$ 
+            
+                + $[x] = \{z: z \in  \mathscr{P}(\mathbb{Z}) \land (x - z) \cup (z - x) \text{ is finite} \}$
+                
+                    + If $x \subset \mathbb{Z}$, $x$ is finite and $xRz$ then $z$ must be finite. On the contrary, if $z$ is not finite $(z - x)$ will so $(x - z) \cup (z - x)$ will also not be finite and $\neg(xRz)$ 
+                    
+                    + If $x \subset \mathbb{Z}$, $x$ is not finite and $xRz$ then $x$ and $z$ must differ by only a finite number of elements. On the contrary, $(x - z) \cup (z - x)$ will not be finite and $\neg(xRz)$
+                    
+                        + For example for $e = \{x: x = 2n \land n \in \mathbb{Z} \}$ and $o = \{x: x = 2n + 1 \land n \in \mathbb{Z} \}$ we have that $\neg(eRo)$
+                        
+                        + For example for $\mathbb{Z}$ and $\mathbb{Z} - \{0 \}$ we have that $\mathbb{Z}R\mathbb{Z} - \{0 \}$
+                        
+                            + In that case we can take an $x$ that is not finite and begin to extract a finite number of elements from $x$ or add a finite number of elements not in $x$ to form sets that belong to $[x]$
+                            
+    i. $A$ is the set of all integers and $R = \{(x,y): x \in A \land y \in A \land |x| = |y| \}$
+    
+        + If $x \in A$ then $xRx$ because $|x| = |x|$
+      
+        + If $x \in A \land xRy$ then $|x| = |y|$. Therefore $|y| = |x|$ and $yRx$ 
+      
+        + If $x \in A \land y \in A \land z \in A \land xRy \land yRz$ then $|x| = |y|$ and $|y| = |z|$. Therefore $|x| = |z|$ and $xRz$ 
+        
+            + $[x] = \{ x, -x \}$
+
+## Functions
+
+A function is a relation $F$ such that:
+
+$$(xFy \land xFz) \implies y = z$$
+This means that there cannot be two ordered pairs in $F$ having the same first component but different second components. Therefore if $x \in \mathscr{D}(F) \implies (\exists !y)(xFy)$ where this unique $y$ will be denoted as $F(x)$
+
+Also we have that:
+
+- $\begin{split}
+   y \in \mathscr{R}(F) & \iff (\exists x)(xFy) \\
+   & \iff  (\exists x)(xFy \land y \text{ is unique}) \\
+   & \iff  (\exists x)(xFy \land F(x) = y)
+   \end{split}$
+   
+## Functions exercises and solutions
+
+1. For each of the following relation $F$, determine whether it is a function. If it is, find its domain and if possible an explicit formula for $F(x)$
+
+    a. Let $A$ be the set of real numbers and $$F = \{(x,y): x \in A \land y \in A \land x^2 + y^2 = 1 \}$$
+    
+        + $(0, 1) \in F \land (0, -1) \in F$. Therefore $F$ is not a function
+        
+    b. Let $A$ be the set of real numbers and $$F = \{(x,y): x \in A \land y \in A \land 2x + 3y = 12 \}$$
+    
+        + $\begin{split}
+           2x + 3y = 12 \land 2x + 3z = 12 & \implies 2x + 3y = 2x + 3z \\
+           & \implies 3y = 3z \\
+           & \implies y = z
+           \end{split}$
+           
+        + $\begin{split}
+           \mathscr{D}(F) & = \{ x: (\exists !y)(xFy) \} \\
+           & = \{ x: 2x + 3F(x) = 12 \} \\
+           & = \{ x: F(x) = 4 - \frac{2x}{3} \} \\
+           & = \mathbb{R}
+           \end{split}$
+            
+         + $F(x) = 4 - \frac{2x}{3}$
+
 # Bibliography
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
