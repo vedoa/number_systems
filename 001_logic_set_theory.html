@@ -1841,7 +1841,6 @@ summary {
 <li><a href="#functions"><span class="toc-section-number">1.34</span> Functions</a></li>
 <li><a href="#functions-exercises-and-solutions"><span class="toc-section-number">1.35</span> Functions exercises and solutions</a></li>
 </ul></li>
-<li><a href="#bibliography">Bibliography</a></li>
 </ul>
 </div>
 
@@ -5786,8 +5785,8 @@ T
 <li><p><span class="math inline">\(\{ 1\}\)</span> is not a binary relation because <span class="math inline">\(\{ 1\}\)</span> is not a set or ordered pairs</p></li>
 </ul>
 <p><strong>Definition</strong> Consider a relation <span class="math inline">\(R\)</span>. By the <strong>domain</strong> of <span class="math inline">\(R\)</span> we mean the set <span class="math inline">\(\mathscr{D}(R)\)</span> of all the objects <span class="math inline">\(x\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(y\)</span>:</p>
-<p><span class="math display">\[\mathscr{D}(R) = \{x: (\exists y)((x, y \in R)) \}\]</span> <strong>Definition</strong> Consider a relation <span class="math inline">\(R\)</span>. By the <strong>range</strong> of <span class="math inline">\(R\)</span> we mean the set <span class="math inline">\(\mathscr{D}(R)\)</span> of all the objects <span class="math inline">\(y\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[\mathscr{R}(R) = \{y: (\exists x)((x, y \in R)) \}\]</span></p>
+<p><span class="math display">\[\mathscr{D}(R) = \{x: (\exists y)((x, y) \in R) \}\]</span> <strong>Definition</strong> Consider a relation <span class="math inline">\(R\)</span>. By the <strong>range</strong> of <span class="math inline">\(R\)</span> we mean the set <span class="math inline">\(\mathscr{D}(R)\)</span> of all the objects <span class="math inline">\(y\)</span> such that <span class="math inline">\((x, y) \in R\)</span> for some <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[\mathscr{R}(R) = \{y: (\exists x)((x, y) \in R) \}\]</span></p>
 </div>
 <div id="relations-exercises-and-solutions" class="section level2">
 <h2><span class="header-section-number">1.27</span> Relations exercises and solutions</h2>
@@ -6506,7 +6505,7 @@ T
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">1.34</span> Functions</h2>
 <p>A function is a relation <span class="math inline">\(F\)</span> such that:</p>
-<p><span class="math display">\[(xFy \land xFz) \implies y = z\]</span> This means that there cannot be two ordered pairs in <span class="math inline">\(F\)</span> having the same first component but different second components. Therefore if <span class="math inline">\(x \in \mathscr{D}(F) \implies (\exists !y)(xFy)\)</span> where this unique <span class="math inline">\(y\)</span> will be denoted as <span class="math inline">\(F(x)\)</span></p>
+<p><span class="math display">\[(xFy \land xFz) \implies y = z\]</span> This means that there cannot be two ordered pairs in <span class="math inline">\(F\)</span> having the same first component but different second components. Therefore <span class="math inline">\(x \in \mathscr{D}(F) \iff (\exists !y)(xFy)\)</span> where this unique <span class="math inline">\(y\)</span> will be denoted as <span class="math inline">\(F(x)\)</span></p>
 <p>Also we have that:</p>
 <ul>
 <li><span class="math inline">\(\begin{split}  y \in \mathscr{R}(F) &amp; \iff (\exists x)(xFy) \\  &amp; \iff (\exists x)(xFy \land y \text{ is unique}) \\  &amp; \iff (\exists x)(xFy \land F(x) = y)  \end{split}\)</span></li>
@@ -6524,15 +6523,114 @@ T
 <li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers and <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land 2x + 3y = 12 \}\]</span></p>
 <ul>
 <li><p><span class="math inline">\(\begin{split}  2x + 3y = 12 \land 2x + 3z = 12 &amp; \implies 2x + 3y = 2x + 3z \\  &amp; \implies 3y = 3z \\  &amp; \implies y = z  \end{split}\)</span></p></li>
-<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{ x: (\exists !y)(xFy) \} \\  &amp; = \{ x: 2x + 3F(x) = 12 \} \\  &amp; = \{ x: F(x) = 4 - \frac{2x}{3} \} \\  &amp; = \mathbb{R}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{ x: (\exists !y)(xFy) \} \\  &amp; = \{ x: 2x + 3F(x) = 12 \land x \in \mathbb{R} \land F(x) \in \mathbb{R} \} \\  &amp; = \{ x: F(x) = 4 - \frac{2x}{3} \land x \in \mathbb{R} \land F(x) \in \mathbb{R} \} \\  &amp; = \mathbb{R}  \end{split}\)</span></p></li>
 <li><p><span class="math inline">\(F(x) = 4 - \frac{2x}{3}\)</span></p></li>
 </ul></li>
+<li><p>Same as b, except that <span class="math inline">\(A\)</span> is the set of positive integers</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F &amp; = \{(x,y): x \in \mathbb{P} \land y \in \mathbb{P} \land 2x + 3y = 12 \} \\  &amp; = \emptyset  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(\emptyset \text{ is a function}\)</span> is true because <span class="math inline">\((x, y) \in F \land (x, z) \in F\)</span> is false so <span class="math inline">\((x, y) \in F \land (x, z) \in F \implies y = z\)</span> is true</li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{ x: (\exists !y)(xFy) \} \\  &amp; = \{ x: 2x + 3F(x) = 12 \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\  &amp; = \{ x: F(x) = 4 - \frac{2x}{3} \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\  &amp; = \emptyset  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of integers, and let <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land x^2 = y^2 \}\]</span></p>
+<ul>
+<li><span class="math inline">\((1, -1) \in F \land (1, 1) \in F\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function</li>
+</ul></li>
+<li><p>Same as d, except that <span class="math inline">\(A\)</span> is the set of positive integers</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x^2 = y^2 \land x^2 = z^2 \land x &gt; 0 &amp; \implies |x| = |y| \land |x| = |z| \land x &gt; 0 \land y &gt; 0 \land z &gt; 0 \\  &amp; \implies x = y \land x = z \\  &amp; \implies y = z  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{ x: (\exists !y)(xFy) \} \\  &amp; = \{ x: x^2 = F(x)^2 \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\  &amp; = \{ x: |x| = |F(x)| \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\  &amp; = \{ x: x = F(x) \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\  &amp; = \mathbb{P}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = x\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land x + 1 &gt; y - 2 \}\]</span></p>
+<ul>
+<li><span class="math inline">\((0, 1) \in F \land (0, -1) \in F\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function</li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land x + y = y^2 \}\]</span></p>
+<ul>
+<li><span class="math inline">\((0, 0) \in F \land (0, 1) \in F\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function</li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of people, and let <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land x \text{ is the mother of } y \}\]</span></p>
+<ul>
+<li><span class="math inline">\(F\)</span> is not a function because if <span class="math inline">\(x\)</span> isthe mother of <span class="math inline">\(y\)</span> and <span class="math inline">\(y\)</span> has a biological brother <span class="math inline">\(z\)</span> then <span class="math inline">\(xFy \land xFz\)</span> but <span class="math inline">\(y \neq z\)</span></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of people, and let <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land \text{ is a daughter of } y \}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> is a function if daughter doesn’t refer also to a stepdaughter. In that case daughter will mean biological daughter so a woman can’t have 2 biological mothers</p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{ x: (\exists !y)(xFy) \} \\  &amp; = \{ x: x \in A \land y \in A \land x \text{ is a daughter of } y \} \\  &amp; = \{ x: x \text{ has a biological mother} \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let <span class="math display">\[F = \{(x,y): x \in A \land y \in A \land x = y^2 + 1 \}\]</span></p>
+<ul>
+<li><span class="math inline">\((2, 1) \in F \land (2, -1) \in F\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function</li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let <span class="math display">\[F = \{((x,y), z): x \in A \land y \in A \land z \in A \land x + y + z = 0 \}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x + y + z_1 = 0 \land x + y + z_2 = 0 &amp; \implies x + y + z_1 = x + y + z_2 \\  &amp; \implies z_1 = z_2  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{(x,y): (\exists !z)((x,y)Fz) \} \\  &amp; = \{ (x,y): F((x,y)) = -x - y \land (x,z) \in \mathbb{R}^2 \land F((x,y)) \in R \} \\  &amp; = \mathbb{R}^2  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(F((x,y)) = -x - y\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(A\)</span> be the set of real numbers, and let <span class="math display">\[F = \{((x,y), z): x \in A \land y \in A \land z \in A \land x^2 + y^2 = z^2 \}\]</span></p>
+<ul>
+<li><span class="math inline">\(((3, 4), 5) \in F \land ((3, 4), -5) \in F\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function</li>
+</ul></li>
+<li><p>Same as l, except that <span class="math inline">\(z \in A\)</span> is replaced by <span class="math inline">\(z \in A\)</span> and <span class="math inline">\(z \geq 0\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x^2 + y^2 = z_1^2 \land x^2 + y^2 = z_2^2 \land z \geq 0 &amp; \implies \sqrt{x^2 + y^2} = |z_1| \land \sqrt{x^2 + y^2} = |z_2| \land z \geq 0 \\  &amp; \implies \sqrt{x^2 + y^2} = z_1 \land \sqrt{x^2 + y^2} = z_2 \\  &amp; \implies z_1 = z_2  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{(x,y): (\exists !z)((x,y)Fz) \} \\  &amp; = \{ (x,y): F((x,y)) = \sqrt{x^2 + y^2} \land (x,z) \in \mathbb{R}^2 \land F((x,y)) \in R \land F((x,y) \geq 0 \} \\  &amp; = \mathbb{R}^2  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(F((x,y)) = \sqrt{x^2 + y^2}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(F = \{ (1,1), (2,4), (4,16) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> is a function because if <span class="math inline">\((x, y) \in F \land (x, z) \in F \implies y = z\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{x: (\exists !y)(xFy) \} \\  &amp; = \{x: F(x) \in \{ 1, 4, 16 \} \} \\  &amp; = \{ 1, 2, 4 \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(F(x) = x^2\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(F = \{ (0,3), (1,4), (2,6), (3,3) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> is a function because if <span class="math inline">\((x, y) \in F \land (x, z) \in F \implies y = z\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{x: (\exists !y)(xFy) \} \\  &amp; = \{x: F(x) \in \{ 3, 4, 6, 3 \} \} \\  &amp; = \{ 0, 1, 2, 3 \}  \end{split}\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(F = \{ (0,3), (1,4), (2,6), (0,5) \}\)</span></p>
+<ul>
+<li><span class="math inline">\((0, 3) \in F \land (0, 5) \in F\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function</li>
+</ul></li>
 </ol></li>
+<li><p>For each of the following formulas determining functions, find the domain which is implicitly assumed</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(F(x) = \sqrt{x + 2}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{x: x \geq 2 \land x \in \mathbb{R} \} \\  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \sqrt{x^2 - 1}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{x: x \leq -1 \land x \geq 1 \land x \in \mathbb{R} \} \\  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \text{the employer of x}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{x: x \text{ is a employee} \} \\  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \text{the wife of x}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{x: x \text{ is a husband} \} \\  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \sqrt{x + y} + 2\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{(x,y): x + y \geq 0 \land x \in \mathbb{R} \land y \in \mathbb{R} \} \\  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \sqrt{4 - x^2} + \sqrt{x^2 - 1}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(F) &amp; = \{(x,y): x \leq - 2 \land -1 \leq x \leq 1 \land x \geq 2 \land x \in \mathbb{R} \} \\  \end{split}\)</span></li>
+</ul></li>
+</ol></li>
+<li><p>Consider any function <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>. Prove that if</p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have the same domain A</p></li>
+<li><p>for any x in A, <span class="math inline">\(F(x) = G(x)\)</span></p></li>
+</ul></li>
 </ol>
-</div>
-</div>
-<div id="bibliography" class="section level1 unnumbered">
-<h1>Bibliography</h1>
+<p>then <span class="math inline">\(F = G\)</span> (Hint: Show that <span class="math inline">\((x, y) \in F \iff (x, y) \in G\)</span>). This result provides the method by which we shall , in the course of the book, prove that two functions are equal. # Bibliography</p>
 <div id="refs" class="references">
 <div id="ref-bilaniuk_problem_2009">
 <p>Bilaniuk, Stefan. 2009. <em>A Problem Course in Mathematical Logic</em>. <a href="http://euclid.trentu.ca/math/sb/pcml/pcml.html">http://euclid.trentu.ca/math/sb/pcml/pcml.html</a>.</p>
@@ -6548,6 +6646,7 @@ T
 </div>
 <div id="ref-smullyan_beginners_2014">
 <p>Smullyan, Raymond M. 2014. <em>A Beginner’s Guide to Mathematical Logic</em>. Dover Books on Mathematics. Mineola, New York: Dover Publications, Inc.</p>
+</div>
 </div>
 </div>
 </div>

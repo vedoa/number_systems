@@ -1968,10 +1968,10 @@ By a __binary relation__ we mean a set of ordered pairs. Therefore if $A$ and $B
 
 __Definition__ Consider a relation $R$. By the __domain__ of $R$ we mean the set $\mathscr{D}(R)$ of all the objects $x$ such that $(x, y) \in R$ for some $y$:
 
-$$\mathscr{D}(R) = \{x: (\exists y)((x, y \in R)) \}$$
+$$\mathscr{D}(R) = \{x: (\exists y)((x, y) \in R) \}$$
 __Definition__ Consider a relation $R$. By the __range__ of $R$ we mean the set $\mathscr{D}(R)$ of all the objects $y$ such that $(x, y) \in R$ for some $x$:
 
-$$\mathscr{R}(R) = \{y: (\exists x)((x, y \in R)) \}$$
+$$\mathscr{R}(R) = \{y: (\exists x)((x, y) \in R) \}$$
 
 ## Relations exercises and solutions
 
@@ -2968,7 +2968,6 @@ tibble(x      = c(-0.8, 0.8,  0),
 
 ```
 
-
 - If $x \in A$ then $xRx$ because $(x - x) \cup (x - x) = \emptyset$ where $\emptyset$ is finite. Why? In the definition of a finite set the antecedent of the conditional is false if $B = \emptyset$ so all the expression is true.  
       
 - If $x \in A \land x \in A \land xRy$. Therefore $(x - y) \cup (y - x)$ is finite. Also $(x - y) \cup (y - x) = (y - x) \cup (x -y)$. So $yRx$    
@@ -3017,7 +3016,7 @@ tibble(x      = c(-0.8, 0.8,  0),
 A function is a relation $F$ such that:
 
 $$(xFy \land xFz) \implies y = z$$
-This means that there cannot be two ordered pairs in $F$ having the same first component but different second components. Therefore if $x \in \mathscr{D}(F) \implies (\exists !y)(xFy)$ where this unique $y$ will be denoted as $F(x)$
+This means that there cannot be two ordered pairs in $F$ having the same first component but different second components. Therefore $x \in \mathscr{D}(F) \iff (\exists !y)(xFy)$ where this unique $y$ will be denoted as $F(x)$
 
 Also we have that:
 
@@ -3045,16 +3044,182 @@ Also we have that:
            
         + $\begin{split}
            \mathscr{D}(F) & = \{ x: (\exists !y)(xFy) \} \\
-           & = \{ x: 2x + 3F(x) = 12 \} \\
-           & = \{ x: F(x) = 4 - \frac{2x}{3} \} \\
+           & = \{ x: 2x + 3F(x) = 12 \land  x \in \mathbb{R} \land F(x) \in \mathbb{R} \} \\
+           & = \{ x: F(x) = 4 - \frac{2x}{3} \land  x \in \mathbb{R} \land F(x) \in \mathbb{R} \} \\
            & = \mathbb{R}
            \end{split}$
             
          + $F(x) = 4 - \frac{2x}{3}$
+         
+    c. Same as b, except that $A$ is the set of positive integers
+    
+        + $\begin{split}
+           F & = \{(x,y): x \in \mathbb{P} \land y \in \mathbb{P} \land 2x + 3y = 12 \} \\
+           & = \emptyset
+           \end{split}$
+           
+            + $\emptyset \text{ is a function}$ is true because $(x, y) \in F \land (x, z) \in F$ is false so $(x, y) \in F \land (x, z) \in F \implies y = z$ is true
+           
+        + $\begin{split}
+           \mathscr{D}(F) & = \{ x: (\exists !y)(xFy) \} \\
+           & = \{ x: 2x + 3F(x) = 12 \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\
+           & = \{ x: F(x) = 4 - \frac{2x}{3}  \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\
+           & = \emptyset
+           \end{split}$
+         
+    d. Let $A$ be the set of integers, and let $$F = \{(x,y): x \in A \land y \in A \land x^2 = y^2 \}$$
 
+        + $(1, -1) \in F \land (1, 1) \in F$. Therefore $F$ is not a function
+        
+    e. Same as d, except that $A$ is the set of positive integers
+    
+        + $\begin{split}
+           x^2 = y^2 \land x^2 = z^2 \land x > 0 & \implies |x| = |y| \land |x| = |z| \land x > 0 \land y > 0 \land z > 0 \\
+           & \implies x = y \land x = z \\
+           & \implies y = z
+           \end{split}$
+           
+        + $\begin{split}
+           \mathscr{D}(F) & = \{ x: (\exists !y)(xFy) \} \\
+           & = \{ x: x^2 = F(x)^2 \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\
+           & = \{ x: |x| = |F(x)| \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\
+           & = \{ x: x = F(x) \land x \in \mathbb{P} \land F(x) \in \mathbb{P} \} \\
+           & = \mathbb{P}
+           \end{split}$
+           
+        + $F(x) = x$
+
+    f. Let $A$ be the set of real numbers, and let $$F = \{(x,y): x \in A \land y \in A \land x + 1 > y - 2 \}$$
+
+        + $(0, 1) \in F \land (0, -1) \in F$. Therefore $F$ is not a function
+        
+    g. Let $A$ be the set of real numbers, and let $$F = \{(x,y): x \in A \land y \in A \land x + y = y^2 \}$$
+    
+        + $(0, 0) \in F \land (0, 1) \in F$. Therefore $F$ is not a function
+        
+    h. Let $A$ be the set of people, and let $$F = \{(x,y): x \in A \land y \in A \land x \text{ is the mother of } y \}$$
+    
+        + $F$ is not a function because if $x$ isthe mother of $y$ and $y$ has a biological brother $z$ then $xFy \land xFz$ but $y \neq z$  
+
+    i. Let $A$ be the set of people, and let $$F = \{(x,y): x \in A \land y \in A \land \text{ is a daughter of } y \}$$
+    
+        + $F$ is a function if daughter doesn't refer also to a stepdaughter. In that case daughter will mean biological daughter so a woman can't have 2 biological mothers
+        
+        + $\begin{split}
+           \mathscr{D}(F) & = \{ x: (\exists !y)(xFy) \} \\
+           & = \{ x: x \in A \land y \in A \land x \text{ is a daughter of } y \} \\
+           & = \{ x: x \text{ has a biological mother} \}
+           \end{split}$
+
+    j.  Let $A$ be the set of real numbers, and let $$F = \{(x,y): x \in A \land y \in A \land x = y^2 + 1 \}$$
+    
+        + $(2, 1) \in F \land (2, -1) \in F$. Therefore $F$ is not a function
+        
+    k.  Let $A$ be the set of real numbers, and let $$F = \{((x,y), z): x \in A \land y \in A \land z \in A \land x + y + z = 0 \}$$
+    
+        + $\begin{split}
+           x + y + z_1 = 0 \land x + y + z_2 = 0 & \implies x + y + z_1 = x + y + z_2 \\
+           & \implies z_1 = z_2
+           \end{split}$
+           
+        + $\begin{split}
+           \mathscr{D}(F) & = \{(x,y): (\exists !z)((x,y)Fz) \} \\
+           & = \{ (x,y): F((x,y)) = -x - y \land (x,z) \in \mathbb{R}^2 \land F((x,y)) \in R \} \\
+           & = \mathbb{R}^2
+           \end{split}$
+           
+        + $F((x,y)) = -x - y$
+        
+    l.  Let $A$ be the set of real numbers, and let $$F = \{((x,y), z): x \in A \land y \in A \land z \in A \land x^2 + y^2 = z^2 \}$$
+    
+        + $((3, 4), 5) \in F \land ((3, 4), -5) \in F$. Therefore $F$ is not a function
+        
+    m.  Same as l, except that $z \in A$ is replaced by $z \in A$ and $z \geq 0$
+    
+        + $\begin{split}
+           x^2 + y^2 = z_1^2 \land x^2 + y^2 = z_2^2 \land z \geq 0 & \implies \sqrt{x^2 + y^2} = |z_1| \land \sqrt{x^2 + y^2} = |z_2| \land z \geq 0 \\
+           & \implies \sqrt{x^2 + y^2} = z_1 \land \sqrt{x^2 + y^2} = z_2 \\
+           & \implies z_1 = z_2
+           \end{split}$
+           
+        + $\begin{split}
+           \mathscr{D}(F) & = \{(x,y): (\exists !z)((x,y)Fz) \} \\
+           & = \{ (x,y): F((x,y)) = \sqrt{x^2 + y^2} \land (x,z) \in \mathbb{R}^2 \land F((x,y)) \in R \land F((x,y) \geq 0 \} \\
+           & = \mathbb{R}^2
+           \end{split}$
+           
+        + $F((x,y)) = \sqrt{x^2 + y^2}$
+        
+    n.  $F = \{ (1,1), (2,4), (4,16) \}$
+    
+        + $F$ is a function because if $(x, y) \in F \land (x, z) \in F \implies y = z$
+        
+        + $\begin{split}
+           \mathscr{D}(F) & = \{x: (\exists !y)(xFy) \} \\
+           & = \{x: F(x) \in \{ 1, 4, 16 \} \} \\
+           & = \{ 1, 2, 4 \}
+           \end{split}$
+        
+        + $F(x) = x^2$
+        
+    o.  $F = \{ (0,3), (1,4), (2,6), (3,3) \}$
+    
+        + $F$ is a function because if $(x, y) \in F \land (x, z) \in F \implies y = z$
+        
+        + $\begin{split}
+           \mathscr{D}(F) & = \{x: (\exists !y)(xFy) \} \\
+           & = \{x: F(x) \in \{ 3, 4, 6, 3 \} \} \\
+           & = \{ 0, 1, 2, 3 \}
+           \end{split}$
+        
+    p.  $F = \{ (0,3), (1,4), (2,6), (0,5) \}$
+    
+        + $(0, 3) \in F \land (0, 5) \in F$. Therefore $F$ is not a function
+  
+2. For each of the following formulas determining functions, find the domain which is implicitly assumed
+
+    a. $F(x) = \sqrt{x + 2}$
+    
+        + $\begin{split}
+           \mathscr{D}(F) & = \{x: x \geq 2 \land x \in \mathbb{R} \} \\
+           \end{split}$
+           
+    b. $F(x) = \sqrt{x^2 - 1}$
+    
+        + $\begin{split}
+           \mathscr{D}(F) & = \{x: x \leq -1 \land x \geq 1 \land x \in \mathbb{R} \} \\
+           \end{split}$
+           
+    c. $F(x) = \text{the employer of x}$
+    
+        + $\begin{split}
+           \mathscr{D}(F) & = \{x: x \text{ is a employee} \} \\
+           \end{split}$
+           
+    d. $F(x) = \text{the wife of x}$
+    
+        + $\begin{split}
+           \mathscr{D}(F) & = \{x: x \text{ is a husband} \} \\
+           \end{split}$
+           
+    e. $F(x) = \sqrt{x + y} + 2$
+    
+        + $\begin{split}
+           \mathscr{D}(F) & = \{(x,y): x + y \geq 0 \land x \in \mathbb{R} \land y \in \mathbb{R} \} \\
+           \end{split}$ 
+        
+    f. $F(x) = \sqrt{4 - x^2} + \sqrt{x^2 - 1}$
+    
+        + $\begin{split}
+           \mathscr{D}(F) & = \{(x,y): x \leq - 2 \land -1 \leq x \leq 1 \land x \geq 2 \land x \in \mathbb{R} \} \\
+           \end{split}$
+
+3. Consider any function $F$ and $G$. Prove that if
+
+    + $F$ and $G$ have the same domain A
+    
+    + for any x in A, $F(x) = G(x)$
+    
+then $F = G$ (Hint: Show that $(x, y) \in F \iff (x, y) \in G$). This result provides the method by which we shall , in the course of the book, prove that two functions are equal. 
 # Bibliography
-
-
-
-
 
