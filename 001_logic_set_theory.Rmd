@@ -3293,7 +3293,101 @@ $$F: A \xrightarrow[\text{onto}]{\text{}} B \iff (F: A \longrightarrow B \land \
         
             + $0 \in C$ but $0 \notin \mathscr{R}(F)$ because $2^x \geq 1$ and $2y + 1 \geq 1$ so $z = 2^x(2y + 1) \geq 1$
             
-    c. 
+    c. $A$ and $B$ are both equal to the set of real numbers. $F(x) = 3x$ for all $x$ in $A$
+    
+        + $F: \mathbb{R} \longrightarrow \mathbb{R}$
+        
+        + $F = \{(x,y): x \in \mathbb{R} \land y \in \mathbb{R} \land F(x) = 3x \}$
+        
+        + $\mathscr{R}(F) = \{y: (\exists x)(y = 3x) \} \subseteq \mathbb{R}$
+        
+            + Let $z \in \mathbb{R}$ then $z \in \mathscr{R}(F)$ because $\frac{z}{3} = x \in \mathbb{R} \land y = z$
+            
+    d. $C$ and $D$ are arbitrary sets. Let $A = C \times D$ and $B = D \times C$. $F((x,y)) = (y, x)$ for all $(x, y)$ in $C \times D$
+    
+        + $F: C \times D \longrightarrow D \times C$
+        
+        + $F = \{(y,x): y \in D \land x \in C \land F((x,y)) = (y, x) \}$
+        
+        + $\mathscr{R}(F) = \{(y,x): (\exists (x,y))(F((x,y)) = (y, x)) \} \subseteq D \times C$
+        
+            + Let $(v, u) \in \subseteq D \times C$ then $(v, u) \in \mathscr{R}(F)$ because $(u, v) = (x, y) \in C \times D \land (y, x) = (v, u)$
+            
+    e. $A$ and $B$ are both equal to the set of real numbers. $F(x) = 2x + 1$ for all $x$ in $A$
+    
+        + $F: \mathbb{R} \longrightarrow \mathbb{R}$
+        
+        + $F = \{(x,y): x \in \mathbb{R} \land y \in \mathbb{R} \land F(x) = 2x + 1 \}$
+        
+        + $\mathscr{R}(F) = \{y: (\exists x)(y = 2x + 1) \} \subseteq \mathbb{R}$
+        
+            + Let $z \in \mathbb{R}$ then $z \in \mathscr{R}(F)$ because $\frac{z - 1}{2} = x \in \mathbb{R} \land y = z$
+            
+    f. Same as e, except that $A$ and $B$ are both equal to the set of integers. 
+      
+        + $F: \mathbb{Z} \longrightarrow \mathbb{Z}$
+        
+        + $F = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land F(x) = 2x + 1 \}$
+        
+        + $\mathscr{R}(F) = \{y: (\exists x)(y = 2x + 1) \} \subseteq \mathbb{Z}$
+        
+            + $2 \in \mathbb{Z}$ but $2 \notin \mathscr{R}(F)$ because $\frac{1}{2} = x \notin \mathbb{Z}$ so $y = 2x + 1 \neq 2$
+
+    g. Same as e, except that $A$ and $B$ are both equal to the set of nonnegative real numbers.
+      
+        + $F: \mathbb{R}^+ \longrightarrow \mathbb{R}^+$
+        
+            + $\mathbb{R}^+ = \{ x: x \in \mathbb{R} \land x \geq 0 \}$
+        
+        + $F = \{(x,y): x \in \mathbb{R}^+ \land y \in \mathbb{R}^+ \land F(x) = 2x + 1 \}$
+        
+        + $\mathscr{R}(F) = \{y: (\exists x)(y = 2x + 1) \} \subseteq \mathbb{R}^+$
+        
+            + $\frac{1}{2} \in \mathbb{R}^+$ but $\frac{1}{2} \notin \mathscr{R}(F)$ because $-\frac{1}{4} = x \notin \mathbb{R}^+$ so $y = 2x + 1 \neq \frac{1}{2}$
+            
+## One-one functions
+
+A function $F$ is _one-one_ (or 1-1) if and only if distinct objects $x$ and $y$ in the domain of $F$ implies $F(x) \neq F(y)$. Thus,
+
+$$F \text{ is one-one} \iff (\forall x)(\forall y)((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \implies F(x) \neq F(y))$$
+The above condition is equivalent to
+
+$$F \text{ is one-one} \iff (\forall x)(\forall y)(F(x) = F(y) \implies x = y)$$
+If we assume that $x \in \mathscr{D}(F) \land y \in \mathscr{D}(F)$ is true. 
+
+We use $F: A \xrightarrow[\text{}]{\text{1-1}} B$ to signify that $F: A \longrightarrow B$ and $F$ is one-one
+
+__Theorem__ If $F$ is a one-one function then $F^{-1}$ is a function and specifically a one-one function
+
+- $F^{-1}$ is a function
+
+    + $\begin{split}
+        (x, y) \in F^{-1} \land (x, z) \in F^{-1} & \iff (y, x) \in F \land (z, x) \in F \\
+        & \implies F(y) = x \land F(z) = x \\
+        & \implies F(y) = F(z) \\
+        & \implies y = z
+        \end{split}$
+        
+- $F^{-1}$ is a one-one function
+
+    + $\begin{split}
+        F^{-1}(x) = F^{-1}(y) = z & \iff F^{-1}(x) = z \land F^{-1}(y) = z \\
+        & \iff (x, z) \in F^{-1} \land (x, z) \in F^{-1} \\  
+        & \iff (z, x) \in F \land (z, y) \in F \\
+        & \implies x = y
+        \end{split}$
+        
+If $G: C \xrightarrow[\text{}]{\text{1-1}} D$ and $G: C \xrightarrow[\text{onto}]{\text{}} D$ we write this condition as $G: C \xrightarrow[\text{onto}]{\text{1-1}} D$. Taking into account this observation notice that if $F: A \xrightarrow[\text{}]{\text{1-1}} B$ then $F^{-1}: \mathscr{R}(F) \xrightarrow[\text{onto}]{\text{1-1}} A$:
+
+- $F: A \xrightarrow[\text{}]{\text{1-1}} B$:
+
+    + $\mathscr{D}(F) = A \land \mathscr{R}(F) \subseteq B$
+
+    + $\mathscr{D}(F^{-1}) = \mathscr{R}(F) \subseteq B \land \mathscr{R}(F^{-1}) = \mathscr{D}(F) = A$
+
+        + $F^{-1}: \mathscr{R}(F) \xrightarrow[\text{}]{\text{1-1}} A$
+    
+            + Because $\mathscr{R}(F^{-1}) = A$ we have that $F^{-1}: \mathscr{R}(F) \xrightarrow[\text{onto}]{\text{1-1}} A$ 
+
 
 # Bibliography
-

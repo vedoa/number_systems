@@ -1842,6 +1842,7 @@ summary {
 <li><a href="#functions-exercises-and-solutions"><span class="toc-section-number">1.35</span> Functions exercises and solutions</a></li>
 <li><a href="#functions-from-a-into-onto-b"><span class="toc-section-number">1.36</span> Functions from <span class="math inline">\(A\)</span> into (onto) <span class="math inline">\(B\)</span></a></li>
 <li><a href="#functions-from-a-into-onto-b-exercises-and-solutions"><span class="toc-section-number">1.37</span> Functions from <span class="math inline">\(A\)</span> into (onto) <span class="math inline">\(B\)</span> exercises and solutions</a></li>
+<li><a href="#one-one-functions"><span class="toc-section-number">1.38</span> One-one functions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -6694,9 +6695,88 @@ T
 <li><span class="math inline">\(0 \in C\)</span> but <span class="math inline">\(0 \notin \mathscr{R}(F)\)</span> because <span class="math inline">\(2^x \geq 1\)</span> and <span class="math inline">\(2y + 1 \geq 1\)</span> so <span class="math inline">\(z = 2^x(2y + 1) \geq 1\)</span></li>
 </ul></li>
 </ul></li>
-<li></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of real numbers. <span class="math inline">\(F(x) = 3x\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F: \mathbb{R} \longrightarrow \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{(x,y): x \in \mathbb{R} \land y \in \mathbb{R} \land F(x) = 3x \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{y: (\exists x)(y = 3x) \} \subseteq \mathbb{R}\)</span></p>
+<ul>
+<li>Let <span class="math inline">\(z \in \mathbb{R}\)</span> then <span class="math inline">\(z \in \mathscr{R}(F)\)</span> because <span class="math inline">\(\frac{z}{3} = x \in \mathbb{R} \land y = z\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> and <span class="math inline">\(D\)</span> are arbitrary sets. Let <span class="math inline">\(A = C \times D\)</span> and <span class="math inline">\(B = D \times C\)</span>. <span class="math inline">\(F((x,y)) = (y, x)\)</span> for all <span class="math inline">\((x, y)\)</span> in <span class="math inline">\(C \times D\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F: C \times D \longrightarrow D \times C\)</span></p></li>
+<li><p><span class="math inline">\(F = \{(y,x): y \in D \land x \in C \land F((x,y)) = (y, x) \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{(y,x): (\exists (x,y))(F((x,y)) = (y, x)) \} \subseteq D \times C\)</span></p>
+<ul>
+<li>Let <span class="math inline">\((v, u) \in \subseteq D \times C\)</span> then <span class="math inline">\((v, u) \in \mathscr{R}(F)\)</span> because <span class="math inline">\((u, v) = (x, y) \in C \times D \land (y, x) = (v, u)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of real numbers. <span class="math inline">\(F(x) = 2x + 1\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F: \mathbb{R} \longrightarrow \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{(x,y): x \in \mathbb{R} \land y \in \mathbb{R} \land F(x) = 2x + 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{y: (\exists x)(y = 2x + 1) \} \subseteq \mathbb{R}\)</span></p>
+<ul>
+<li>Let <span class="math inline">\(z \in \mathbb{R}\)</span> then <span class="math inline">\(z \in \mathscr{R}(F)\)</span> because <span class="math inline">\(\frac{z - 1}{2} = x \in \mathbb{R} \land y = z\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Same as e, except that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of integers.</p>
+<ul>
+<li><p><span class="math inline">\(F: \mathbb{Z} \longrightarrow \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land F(x) = 2x + 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{y: (\exists x)(y = 2x + 1) \} \subseteq \mathbb{Z}\)</span></p>
+<ul>
+<li><span class="math inline">\(2 \in \mathbb{Z}\)</span> but <span class="math inline">\(2 \notin \mathscr{R}(F)\)</span> because <span class="math inline">\(\frac{1}{2} = x \notin \mathbb{Z}\)</span> so <span class="math inline">\(y = 2x + 1 \neq 2\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Same as e, except that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both equal to the set of nonnegative real numbers.</p>
+<ul>
+<li><p><span class="math inline">\(F: \mathbb{R}^+ \longrightarrow \mathbb{R}^+\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathbb{R}^+ = \{ x: x \in \mathbb{R} \land x \geq 0 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F = \{(x,y): x \in \mathbb{R}^+ \land y \in \mathbb{R}^+ \land F(x) = 2x + 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{y: (\exists x)(y = 2x + 1) \} \subseteq \mathbb{R}^+\)</span></p>
+<ul>
+<li><span class="math inline">\(\frac{1}{2} \in \mathbb{R}^+\)</span> but <span class="math inline">\(\frac{1}{2} \notin \mathscr{R}(F)\)</span> because <span class="math inline">\(-\frac{1}{4} = x \notin \mathbb{R}^+\)</span> so <span class="math inline">\(y = 2x + 1 \neq \frac{1}{2}\)</span></li>
+</ul></li>
+</ul></li>
 </ol></li>
 </ol>
+</div>
+<div id="one-one-functions" class="section level2">
+<h2><span class="header-section-number">1.38</span> One-one functions</h2>
+<p>A function <span class="math inline">\(F\)</span> is <em>one-one</em> (or 1-1) if and only if distinct objects <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the domain of <span class="math inline">\(F\)</span> implies <span class="math inline">\(F(x) \neq F(y)\)</span>. Thus,</p>
+<p><span class="math display">\[F \text{ is one-one} \iff (\forall x)(\forall y)((x \in \mathscr{D}(F) \land y \in \mathscr{D}(F) \land x \neq y) \implies F(x) \neq F(y))\]</span> The above condition is equivalent to</p>
+<p><span class="math display">\[F \text{ is one-one} \iff (\forall x)(\forall y)(F(x) = F(y) \implies x = y)\]</span> If we assume that <span class="math inline">\(x \in \mathscr{D}(F) \land y \in \mathscr{D}(F)\)</span> is true.</p>
+<p>We use <span class="math inline">\(F: A \xrightarrow[\text{}]{\text{1-1}} B\)</span> to signify that <span class="math inline">\(F: A \longrightarrow B\)</span> and <span class="math inline">\(F\)</span> is one-one</p>
+<p><strong>Theorem</strong> If <span class="math inline">\(F\)</span> is a one-one function then <span class="math inline">\(F^{-1}\)</span> is a function and specifically a one-one function</p>
+<ul>
+<li><p><span class="math inline">\(F^{-1}\)</span> is a function</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x, y) \in F^{-1} \land (x, z) \in F^{-1} &amp; \iff (y, x) \in F \land (z, x) \in F \\  &amp; \implies F(y) = x \land F(z) = x \\  &amp; \implies F(y) = F(z) \\  &amp; \implies y = z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F^{-1}\)</span> is a one-one function</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  F^{-1}(x) = F^{-1}(y) = z &amp; \iff F^{-1}(x) = z \land F^{-1}(y) = z \\  &amp; \iff (x, z) \in F^{-1} \land (x, z) \in F^{-1} \\  &amp; \iff (z, x) \in F \land (z, y) \in F \\  &amp; \implies x = y  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p>If <span class="math inline">\(G: C \xrightarrow[\text{}]{\text{1-1}} D\)</span> and <span class="math inline">\(G: C \xrightarrow[\text{onto}]{\text{}} D\)</span> we write this condition as <span class="math inline">\(G: C \xrightarrow[\text{onto}]{\text{1-1}} D\)</span>. Taking into account this observation notice that if <span class="math inline">\(F: A \xrightarrow[\text{}]{\text{1-1}} B\)</span> then <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[\text{onto}]{\text{1-1}} A\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(F: A \xrightarrow[\text{}]{\text{1-1}} B\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{D}(F) = A \land \mathscr{R}(F) \subseteq B\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{D}(F^{-1}) = \mathscr{R}(F) \subseteq B \land \mathscr{R}(F^{-1}) = \mathscr{D}(F) = A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[\text{}]{\text{1-1}} A\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(\mathscr{R}(F^{-1}) = A\)</span> we have that <span class="math inline">\(F^{-1}: \mathscr{R}(F) \xrightarrow[\text{onto}]{\text{1-1}} A\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
