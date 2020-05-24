@@ -3013,19 +3013,16 @@ tibble(x      = c(-0.8, 0.8,  0),
 
 ## Functions
 
-A function is a relation $F$ such that:
+A function is a binary relation $F$ such that:
 
 $$(xFy \land xFz) \implies y = z$$
-This means that there cannot be two ordered pairs in $F$ having the same first component but different second components. Therefore $x \in \mathscr{D}(F) \iff (\exists !y)(xFy)$ where this unique $y$ will be denoted as $F(x)$
-
-Also we have that:
+In other words, a binary relation $F$ is a function if and only if for all $x \in \mathscr{D}(F)$ there is exactly one $y$ such that $xFy$. This unique $y$ will be denoted as $F(x)$. 
 
 - $\begin{split}
-   y \in \mathscr{R}(F) & \iff (\exists x)(xFy) \\
-   & \iff  (\exists x)(xFy \land y \text{ is unique}) \\
-   & \iff  (\exists x)(xFy \land F(x) = y)
+   F \text{ is a function} & \iff  F \text{ is a binary relation} \land (\forall x)(x \in \mathscr{D}(F) \implies (\exists !y)(xFy)) \\
+   & \iff  F \text{ is a binary relation} \land (\forall x)(x \in \mathscr{D}(F) \implies F(x) = y)  
    \end{split}$
-   
+
 ## Functions exercises and solutions
 
 1. For each of the following relation $F$, determine whether it is a function. If it is, find its domain and if possible an explicit formula for $F(x)$
@@ -3216,10 +3213,87 @@ Also we have that:
 
 3. Consider any function $F$ and $G$. Prove that if
 
-    + $F$ and $G$ have the same domain A
+    + $F$ and $G$ have the same domain $A$
     
-    + for any x in A, $F(x) = G(x)$
+        + $\mathscr{D}(F) = \mathscr{D}(G)$ 
     
-then $F = G$ (Hint: Show that $(x, y) \in F \iff (x, y) \in G$). This result provides the method by which we shall , in the course of the book, prove that two functions are equal. 
+    + for any $x$ in $A$, $F(x) = G(x)$
+    
+        + $(\forall)(x \in \mathscr{D}(F) \implies F(x) = G(x))$
+    
+then $F = G$ (Hint: Show that $(x, y) \in F \iff (x, y) \in G$). This result provides the method by which we shall, in the course of the book, prove that two functions are equal.
+
+- $\begin{split}
+    (x,y) \in F & \iff xFy \\
+    & \iff x \in \mathscr{D}(F) \land F(x) = y \\
+    & \iff x \in \mathscr{D}(G) \land G(x) = y \\
+    & \iff xGy \\
+    & \iff (x,y) \in G
+    \end{split}$
+    
+    + We conclude that $F \subseteq G \land G \subseteq F$ so $F = G$
+ 
+4. Let $\mathscr{X}$ be any set of functions such that any two of them have disjoint domains, that is $$(\forall F)(\forall G)(F \in \mathscr{X} \land G \in \mathscr{X} \land F \neq G \implies \mathscr{D}(F) \cap \mathscr{D}(G) = \emptyset)$$ Prove that $\bigcup_{F \in \mathscr{X}} F$ is a function and that it's domain is the union of the domain s of the functions in $\mathscr{X}$
+
+- $\begin{split}
+    (x,y) \in \bigcup_{F \in \mathscr{X}} F \land (x,z) \in \bigcup_{F \in \mathscr{X}} F 
+    & \implies (\exists F_1)(xF_1y \land F_1 \in \mathscr{X}) \land (\exists F_2)(xF_2z \land F_2 \in \mathscr{X}) \\
+    & \implies (\exists F_1)(x \in \mathscr{D}(F_1) \land F_1(x) = y \land  F_1 \in \mathscr{X}) \land (\exists F_2)(x \in \mathscr{D}(F_2) \land F_2(x) = z \land F_2 \in \mathscr{X}) \\   
+    \end{split}$
+
+    + If $F_1 \in \mathscr{X} \land F_2 \in \mathscr{X} \land F_1 \neq F_2$ then $\mathscr{D}(F_1) \cap \mathscr{D}(F_2) = \emptyset$. But $x \in \mathscr{D}(F_1) \land x \in \mathscr{D}(F_2)$ so $\mathscr{D}(F_1) \cap \mathscr{D}(F_2) \neq \emptyset$. Therefore $F_1 = F_2$ and $y = z$
+    
+- Because $\bigcup_{F \in \mathscr{X}} F$ is a function we have that:
+    
+    + $\begin{split}
+        \mathscr{D}(\bigcup_{F \in \mathscr{X}} F) & = \{x: (\exists y)((x,y) \in \bigcup_{F \in \mathscr{X}} F) \} \\
+        & = \{x: (\exists y)(\exists !F)(F \in \mathscr{X} \land xFy \}       \\
+        & = \{x: (\exists !F)(F \in \mathscr{X} \land (\exists y)(xFy) \}     \\
+        & = \{x: (\exists !F)(F \in \mathscr{X} \land x \in \mathscr{D}(F) \} \\
+        & = \bigcup_{F \in \mathscr{X}} \mathscr{D}(F)
+        \end{split}$
+
+## Functions from $A$ into (onto) $B$
+
+$F: A  \longrightarrow B$ means:
+
+- $F$ is a function
+
+- $\mathscr{D}(F) = A$
+
+- $\mathscr{R}(F) \subseteq B$
+
+If $F: A \to B$, we shall say that $F$ is a function from $A$ into $B$
+
+If $F$ is a function from $A$ into $B$ and the range of $F$ is all of $B$, then we shall say that $F$ is a function from $A$ __onto__ $B$. This will be written $F: A \xrightarrow[\text{onto}]{\text{}} B$. Thus
+
+$$F: A \xrightarrow[\text{onto}]{\text{}} B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)$$
+
+## Functions from $A$ into (onto) $B$ exercises and solutions
+
+1. For each of the following functions $F$ and sets $A$ and $B$, determine whether $F$ is a function from $A$ __onto__ $B$
+
+    a. $A$ and $B$ are both the set of integers, $F(x) = -x$ for each integer $x$
+    
+        + $F: \mathbb{Z} \longrightarrow \mathbb{Z}$
+        
+        + $F = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land F(x) = -x \}$
+        
+        + $\mathscr{R}(F) = \{y: (\exists x)(y = -x) \} \subseteq \mathbb{Z}$
+        
+            + Let $z \in \mathbb{Z}$ then $z \in \mathscr{R}(F)$ because $-z = x \in \mathbb{Z} \land y = -(-z) = z$
+            
+    b. Let $C$ be the set of nonnegative integers: $C = \mathbb{P} \cup \{ 0 \}$. Let $A = C \times C$ and let $B = C$. Let $F(x,y) = 2^x(2y + 1)$ for all $x$ and $y$ in $C$
+    
+        + $F: C^2 \longrightarrow C$
+        
+        + $F = \{((x,y),z): (x,y) \in C^2 \land z \in C \land F((x,y)) = 2^x(2y + 1) \}$
+        
+        + $\mathscr{R}(F) = \{z: (\exists (x,y))(z = 2^x(2y + 1)) \} \subseteq C$
+        
+            + $0 \in C$ but $0 \notin \mathscr{R}(F)$ because $2^x \geq 1$ and $2y + 1 \geq 1$ so $z = 2^x(2y + 1) \geq 1$
+            
+    c. 
+
 # Bibliography
 

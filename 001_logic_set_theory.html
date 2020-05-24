@@ -1840,7 +1840,10 @@ summary {
 <li><a href="#equivalence-relations-exercises-and-solutions"><span class="toc-section-number">1.33</span> Equivalence relations exercises and solutions</a></li>
 <li><a href="#functions"><span class="toc-section-number">1.34</span> Functions</a></li>
 <li><a href="#functions-exercises-and-solutions"><span class="toc-section-number">1.35</span> Functions exercises and solutions</a></li>
+<li><a href="#functions-from-a-into-onto-b"><span class="toc-section-number">1.36</span> Functions from <span class="math inline">\(A\)</span> into (onto) <span class="math inline">\(B\)</span></a></li>
+<li><a href="#functions-from-a-into-onto-b-exercises-and-solutions"><span class="toc-section-number">1.37</span> Functions from <span class="math inline">\(A\)</span> into (onto) <span class="math inline">\(B\)</span> exercises and solutions</a></li>
 </ul></li>
+<li><a href="#bibliography">Bibliography</a></li>
 </ul>
 </div>
 
@@ -6504,11 +6507,10 @@ T
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">1.34</span> Functions</h2>
-<p>A function is a relation <span class="math inline">\(F\)</span> such that:</p>
-<p><span class="math display">\[(xFy \land xFz) \implies y = z\]</span> This means that there cannot be two ordered pairs in <span class="math inline">\(F\)</span> having the same first component but different second components. Therefore <span class="math inline">\(x \in \mathscr{D}(F) \iff (\exists !y)(xFy)\)</span> where this unique <span class="math inline">\(y\)</span> will be denoted as <span class="math inline">\(F(x)\)</span></p>
-<p>Also we have that:</p>
+<p>A function is a binary relation <span class="math inline">\(F\)</span> such that:</p>
+<p><span class="math display">\[(xFy \land xFz) \implies y = z\]</span> In other words, a binary relation <span class="math inline">\(F\)</span> is a function if and only if for all <span class="math inline">\(x \in \mathscr{D}(F)\)</span> there is exactly one <span class="math inline">\(y\)</span> such that <span class="math inline">\(xFy\)</span>. This unique <span class="math inline">\(y\)</span> will be denoted as <span class="math inline">\(F(x)\)</span>.</p>
 <ul>
-<li><span class="math inline">\(\begin{split}  y \in \mathscr{R}(F) &amp; \iff (\exists x)(xFy) \\  &amp; \iff (\exists x)(xFy \land y \text{ is unique}) \\  &amp; \iff (\exists x)(xFy \land F(x) = y)  \end{split}\)</span></li>
+<li><span class="math inline">\(\begin{split}  F \text{ is a function} &amp; \iff F \text{ is a binary relation} \land (\forall x)(x \in \mathscr{D}(F) \implies (\exists !y)(xFy)) \\  &amp; \iff F \text{ is a binary relation} \land (\forall x)(x \in \mathscr{D}(F) \implies F(x) = y)  \end{split}\)</span></li>
 </ul>
 </div>
 <div id="functions-exercises-and-solutions" class="section level2">
@@ -6626,11 +6628,79 @@ T
 </ol></li>
 <li><p>Consider any function <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>. Prove that if</p>
 <ul>
-<li><p><span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have the same domain A</p></li>
-<li><p>for any x in A, <span class="math inline">\(F(x) = G(x)\)</span></p></li>
+<li><p><span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span> have the same domain <span class="math inline">\(A\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(F) = \mathscr{D}(G)\)</span></li>
+</ul></li>
+<li><p>for any <span class="math inline">\(x\)</span> in <span class="math inline">\(A\)</span>, <span class="math inline">\(F(x) = G(x)\)</span></p>
+<ul>
+<li><span class="math inline">\((\forall)(x \in \mathscr{D}(F) \implies F(x) = G(x))\)</span></li>
+</ul></li>
 </ul></li>
 </ol>
-<p>then <span class="math inline">\(F = G\)</span> (Hint: Show that <span class="math inline">\((x, y) \in F \iff (x, y) \in G\)</span>). This result provides the method by which we shall , in the course of the book, prove that two functions are equal. # Bibliography</p>
+<p>then <span class="math inline">\(F = G\)</span> (Hint: Show that <span class="math inline">\((x, y) \in F \iff (x, y) \in G\)</span>). This result provides the method by which we shall, in the course of the book, prove that two functions are equal.</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in F &amp; \iff xFy \\  &amp; \iff x \in \mathscr{D}(F) \land F(x) = y \\  &amp; \iff x \in \mathscr{D}(G) \land G(x) = y \\  &amp; \iff xGy \\  &amp; \iff (x,y) \in G  \end{split}\)</span></p>
+<ul>
+<li>We conclude that <span class="math inline">\(F \subseteq G \land G \subseteq F\)</span> so <span class="math inline">\(F = G\)</span></li>
+</ul></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\mathscr{X}\)</span> be any set of functions such that any two of them have disjoint domains, that is <span class="math display">\[(\forall F)(\forall G)(F \in \mathscr{X} \land G \in \mathscr{X} \land F \neq G \implies \mathscr{D}(F) \cap \mathscr{D}(G) = \emptyset)\]</span> Prove that <span class="math inline">\(\bigcup_{F \in \mathscr{X}} F\)</span> is a function and that it’s domain is the union of the domain s of the functions in <span class="math inline">\(\mathscr{X}\)</span></li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in \bigcup_{F \in \mathscr{X}} F \land (x,z) \in \bigcup_{F \in \mathscr{X}} F  &amp; \implies (\exists F_1)(xF_1y \land F_1 \in \mathscr{X}) \land (\exists F_2)(xF_2z \land F_2 \in \mathscr{X}) \\  &amp; \implies (\exists F_1)(x \in \mathscr{D}(F_1) \land F_1(x) = y \land F_1 \in \mathscr{X}) \land (\exists F_2)(x \in \mathscr{D}(F_2) \land F_2(x) = z \land F_2 \in \mathscr{X}) \\  \end{split}\)</span></p>
+<ul>
+<li>If <span class="math inline">\(F_1 \in \mathscr{X} \land F_2 \in \mathscr{X} \land F_1 \neq F_2\)</span> then <span class="math inline">\(\mathscr{D}(F_1) \cap \mathscr{D}(F_2) = \emptyset\)</span>. But <span class="math inline">\(x \in \mathscr{D}(F_1) \land x \in \mathscr{D}(F_2)\)</span> so <span class="math inline">\(\mathscr{D}(F_1) \cap \mathscr{D}(F_2) \neq \emptyset\)</span>. Therefore <span class="math inline">\(F_1 = F_2\)</span> and <span class="math inline">\(y = z\)</span></li>
+</ul></li>
+<li><p>Because <span class="math inline">\(\bigcup_{F \in \mathscr{X}} F\)</span> is a function we have that:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \mathscr{D}(\bigcup_{F \in \mathscr{X}} F) &amp; = \{x: (\exists y)((x,y) \in \bigcup_{F \in \mathscr{X}} F) \} \\  &amp; = \{x: (\exists y)(\exists !F)(F \in \mathscr{X} \land xFy \} \\  &amp; = \{x: (\exists !F)(F \in \mathscr{X} \land (\exists y)(xFy) \} \\  &amp; = \{x: (\exists !F)(F \in \mathscr{X} \land x \in \mathscr{D}(F) \} \\  &amp; = \bigcup_{F \in \mathscr{X}} \mathscr{D}(F)  \end{split}\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="functions-from-a-into-onto-b" class="section level2">
+<h2><span class="header-section-number">1.36</span> Functions from <span class="math inline">\(A\)</span> into (onto) <span class="math inline">\(B\)</span></h2>
+<p><span class="math inline">\(F: A \longrightarrow B\)</span> means:</p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> is a function</p></li>
+<li><p><span class="math inline">\(\mathscr{D}(F) = A\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) \subseteq B\)</span></p></li>
+</ul>
+<p>If <span class="math inline">\(F: A \to B\)</span>, we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span></p>
+<p>If <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span> and the range of <span class="math inline">\(F\)</span> is all of <span class="math inline">\(B\)</span>, then we shall say that <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> <strong>onto</strong> <span class="math inline">\(B\)</span>. This will be written <span class="math inline">\(F: A \xrightarrow[\text{onto}]{\text{}} B\)</span>. Thus</p>
+<p><span class="math display">\[F: A \xrightarrow[\text{onto}]{\text{}} B \iff (F: A \longrightarrow B \land \mathscr{R}(F) = B)\]</span></p>
+</div>
+<div id="functions-from-a-into-onto-b-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.37</span> Functions from <span class="math inline">\(A\)</span> into (onto) <span class="math inline">\(B\)</span> exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>For each of the following functions <span class="math inline">\(F\)</span> and sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, determine whether <span class="math inline">\(F\)</span> is a function from <span class="math inline">\(A\)</span> <strong>onto</strong> <span class="math inline">\(B\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are both the set of integers, <span class="math inline">\(F(x) = -x\)</span> for each integer <span class="math inline">\(x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F: \mathbb{Z} \longrightarrow \mathbb{Z}\)</span></p></li>
+<li><p><span class="math inline">\(F = \{(x,y): x \in \mathbb{Z} \land y \in \mathbb{Z} \land F(x) = -x \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{y: (\exists x)(y = -x) \} \subseteq \mathbb{Z}\)</span></p>
+<ul>
+<li>Let <span class="math inline">\(z \in \mathbb{Z}\)</span> then <span class="math inline">\(z \in \mathscr{R}(F)\)</span> because <span class="math inline">\(-z = x \in \mathbb{Z} \land y = -(-z) = z\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(C\)</span> be the set of nonnegative integers: <span class="math inline">\(C = \mathbb{P} \cup \{ 0 \}\)</span>. Let <span class="math inline">\(A = C \times C\)</span> and let <span class="math inline">\(B = C\)</span>. Let <span class="math inline">\(F(x,y) = 2^x(2y + 1)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F: C^2 \longrightarrow C\)</span></p></li>
+<li><p><span class="math inline">\(F = \{((x,y),z): (x,y) \in C^2 \land z \in C \land F((x,y)) = 2^x(2y + 1) \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) = \{z: (\exists (x,y))(z = 2^x(2y + 1)) \} \subseteq C\)</span></p>
+<ul>
+<li><span class="math inline">\(0 \in C\)</span> but <span class="math inline">\(0 \notin \mathscr{R}(F)\)</span> because <span class="math inline">\(2^x \geq 1\)</span> and <span class="math inline">\(2y + 1 \geq 1\)</span> so <span class="math inline">\(z = 2^x(2y + 1) \geq 1\)</span></li>
+</ul></li>
+</ul></li>
+<li></li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
 <div id="refs" class="references">
 <div id="ref-bilaniuk_problem_2009">
 <p>Bilaniuk, Stefan. 2009. <em>A Problem Course in Mathematical Logic</em>. <a href="http://euclid.trentu.ca/math/sb/pcml/pcml.html">http://euclid.trentu.ca/math/sb/pcml/pcml.html</a>.</p>
@@ -6646,7 +6716,6 @@ T
 </div>
 <div id="ref-smullyan_beginners_2014">
 <p>Smullyan, Raymond M. 2014. <em>A Beginner’s Guide to Mathematical Logic</em>. Dover Books on Mathematics. Mineola, New York: Dover Publications, Inc.</p>
-</div>
 </div>
 </div>
 </div>
