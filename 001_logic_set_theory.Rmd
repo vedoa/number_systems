@@ -3387,7 +3387,194 @@ If $G: C \xrightarrow[\text{}]{\text{1-1}} D$ and $G: C \xrightarrow[\text{onto}
 
         + $F^{-1}: \mathscr{R}(F) \xrightarrow[\text{}]{\text{1-1}} A$
     
-            + Because $\mathscr{R}(F^{-1}) = A$ we have that $F^{-1}: \mathscr{R}(F) \xrightarrow[\text{onto}]{\text{1-1}} A$ 
+            + Because $\mathscr{R}(F^{-1}) = A$ we have that $F^{-1}: \mathscr{R}(F) \xrightarrow[\text{onto}]{\text{1-1}} A$
+            
+When $F: A \xrightarrow[\text{onto}]{\text{1-1}} B$, we say that $F$ is a one-one correspondence between $A$ and $B$. If there is one-one correspondence between $A$ and $B$, then $A$ and $B$ are said to be __equinumerous__
+
+## One-one functions exercises and solutions
+
+1. Determine whether each of the following functions $F$ is one-one. If it is one-one, describe $F^{-1}$ by a formula or otherwise and find the domain of $F^{-1}$
+
+    a. $F(x) = |x|$ for all real numbers $x$
+    
+        + $F(-1) = F(1) = 1$ but $-1 \neq 1$
+        
+    b. $F(x) = x^2 - 1$ for all real numbers $x$
+    
+        + $F(-1) = F(1) = 0$ but $-1 \neq 1$
+        
+    c. $F(x) = 7x + 3$ for all real numbers $x$
+    
+        + $\begin{split}
+            F(x) = F(y) & \implies 7x + 3 = 7y + 3 \\
+            & \implies x = y
+            \end{split}$
+            
+        + $\begin{split}
+            (x, y) \in F{-1} & \iff (y, x) \in F \\
+            & \iff x = 7y + 3 \\
+            & \iff \frac{x - 3}{7} = y \\
+            & \iff \frac{x - 3}{7} = F^{-1}(x)
+            \end{split}$
+            
+    d. $F(x) = 7x + 3$ for all integers $x$
+    
+        + $\begin{split}
+            F(x) = F(y) & \implies 7x + 3 = 7y + 3 \\
+            & \implies x = y
+            \end{split}$
+            
+        + $\begin{split}
+            (x, y) \in F{-1} & \iff (y, x) \in F \\
+            & \iff x = 7y + 3 \\
+            & \iff \frac{x - 3}{7} = y \\
+            & \iff \frac{x - 3}{7} = F^{-1}(x)
+            \end{split}$
+
+    e. $F(x)$ is the father of $x$, for all $x$ such that $x$ is an only child
+    
+        + $\begin{split}
+            F(x) = F(y) & \implies x = y
+            \end{split}$
+            
+        + $F^{-1}: x \text{ is the son of } y$
+        
+            + $F^{-1}: \mathscr{R}(F) \longrightarrow \mathscr{D}(F)$
+            
+                + $\mathscr{D}(F^{-1}) = \mathscr{R}(F) = \{x: x \text{ is an only child}\}$
+            
+                + $\mathscr{R}(F^{-1}) = \mathscr{D}(F) = \{y: y \text{ is a father} \}$
+                
+    f. $F((x,y)) = \sqrt{x^2 + y^2}$ for all real numbers $x$
+    
+        + $F((-1,-1)) = F((1,1)) = \sqrt{2}$ but $(-1,-1) \neq (1,1)$
+        
+    g. $F(x)$ is the height of $x$ in inches, for all people $x$
+    
+        + $F(x) = F(y)$ but it is not necessarily true that $x$ and $y$ are the same individual
+        
+            + It can be that $x \neq y$ and have the same height
+            
+    h. $F((x,y)) = x + y$ for all real numbers $x$ and $y$
+    
+        + $F((2,2)) = F((1,3)) = 4$ but $(2,2) \neq (1,3)$
+        
+    i. Consider an equivalence relation $R$ in a set $A$. Let $F(x) = [x]$ for all $x$ in $A$ (Remember that $[x]$ is the equivalence class of $x$, relative to $R$)
+    
+        + $F(x) = [x] = \{z: z \in A \land xRz \}$
+        
+            + $F$ is a function because $xF[x] \land xF[y] \implies [x] = [y]$
+            
+            + However, we can have $F[x] = F[y]$ but $x \neq y$ for some equivalence relations $R$ in a set $A$
+            
+                + For example, let $A = \mathbb{R}$ and $R = \{(x,y): x \in \mathbb{R} \land y \in \mathbb{R} \land |x| = |y|\}$
+                
+                    + $[x] = [-x]$ so $F(x) = F(-x)$ but it is not true that $x = -x$ for any $x \in \mathbb{R}$
+                    
+2. In each of the following cases, show that $A$ and $B$ are equinumerous
+
+    a. $A$ is the set of all even integers and $B$ is the set of all odd integers
+    
+        + $A = \{x: x = 2n \land n \in \mathbb{Z} \}$ and $B = \{x: x = 2n + 1 \land n \in \mathbb{Z} \}$
+        
+        + $F = \{(x,y): x \in A \land y \in B \land y = x + 1\}$
+        
+            + Let $z \in B$ then $z \in \mathscr{R}(F)$ because $x = z - 1$ so $y = z$
+            
+            + $F(x) = F(z)$ then $x + 1 = z + 1$ so $x = z$
+            
+    b. $A$ is the set of all even integers and $B$ is the set of all all integers
+    
+        + $A = \{x: x = 2n \land n \in \mathbb{Z} \}$ and $B = \mathbb{Z}$
+        
+        + $F = \{(x,y): x \in A \land y \in B \land y = \frac{x}{2} \}$
+        
+            + Let $z \in B$ then $z \in \mathscr{R}(F)$ because $x = 2z$ so $y = z$
+            
+            + $F(x) = F(z)$ then $\frac{x}{2} = \frac{z}{2}$ so $x = z$
+            
+    c. $A$ is the set of all real numbers between 0 and 1 (incluiding 0 and 1) and $B$ is the set of all real numbers between 1 and 3 (incluiding 1 and 3)
+    
+        + $A = \{x:  0 \leq x \leq 1 \land x \in \mathbb{R} \}$ and $B = \{x:  1 \leq x \leq 3 \land x \in \mathbb{R} \}$
+        
+        + $F = \{(x,y): x \in A \land y \in B \land y = 2x + 1 \}$
+        
+            + Let $z \in B$ then $z \in \mathscr{R}(F)$ because $x = \frac{z - 1}{2}$ so $y = z$
+            
+            + $F(x) = F(z)$ then $2x + 1 = 2z + 1$ so $x = z$
+            
+                + In general if $A = \{x:  a \leq x \leq b \land a \neq b \land x \in \mathbb{R} \}$ and $B = \{x:  c \leq x \leq d \land c \neq d \land x \in \mathbb{R} \}$ then $F: A \longrightarrow B$ with $F(x) = \frac{d - c}{b - a}x + c$ is onto and one to one
+                
+## Composition of functions
+
+__Theorem__ If $F$ and $G$ are functions then $F \circ G$ is a function
+
+- $\begin{split}
+    (x, y) \in F \circ G \land (x, z) \in F \circ G & \iff (\exists w_1)(xGw_1 \land w_1Fy) \land (\exists w_2)(xGw_2 \land w_2Fz) \\
+    & \implies w_1 = w_2 \land w_1Fy \land w_2Fz \\
+    & \implies y = z
+    \end{split}$
+    
+Notice also that: 
+
+- $\begin{split}
+    \mathscr{D}(F \circ G) & = \{x: (\exists y)(x(F \circ G)y) \} \\
+    & = \{x: (\exists y)(\exists z)(xGz \land zGy) \} \\
+    & = \{x: (\exists y)(\exists z)(G(x) = z \land F(z) = y) \} \\
+    & = \{x: (\exists y)(F(G(x)) = y) \} \\
+    \end{split}$
+    
+    + Therefore $x \in \mathscr{D}(F \circ G)$ if and only if $x \in \mathscr{D}(G) \land G(x) \in \mathscr{D}(F)$. Furthermore, because $x \in \mathscr{D}(G) \iff G(x) \in \mathscr{R}(G)$ and $G(x) \in \mathscr{D}(F)$ then $\mathscr{R}(G) = \mathscr{D}(F)$
+    
+        + In general, we can have $\mathscr{R}(G) \subseteq \mathscr{D}(F)$. There can be $w \in \mathscr{D}(F) \land w \notin \mathscr{R}(G)$ but $(F \circ G)$ defined  
+    
+    + Also for any $(x, y) \in F$ because $(F \circ G)(x) = y$ we have that $(F \circ G)(x) = F(G(x))$
+
+Thus, the value of $(F \circ G)(x)$ is obtained by first applying $G$ to $x$ and then applying $F$ to the result $G(x)$
+
+__Theorem__ Consider functions $G: A \longrightarrow B$ and $F: B \longrightarrow C$. Then, $F \circ G: A \longrightarrow C$
+
+- If $G: A \longrightarrow B$ and $F: B \longrightarrow C$ are functions then $F \circ G$ is a function.   
+
+- Then we prove that $\mathscr{D}(F \circ G) = \mathscr{D}(G)$ 
+
+    + $\begin{split}
+        x \in \mathscr{D}(F \circ G) & \iff x \in \mathscr{D}(G) \land G(x) \in \mathscr{D}(F) \\
+        & \implies x \in \mathscr{D}(G)
+        \end{split}$
+        
+    + $\begin{split}
+        x \in \mathscr{D}(G) & \iff G(x) \in \mathscr{D}(G) \\
+        & \implies x \in \mathscr{D}(G) \land G(x) \in \mathscr{D}(G) \\
+        & \implies x \in \mathscr{D}(G) \land G(x) \in \mathscr{D}(F) \\
+        & \iff x \in \mathscr{D}(F \circ G)
+        \end{split}$
+    
+        + $\mathscr{D}(F \circ G) \subseteq \mathscr{D}(G) \land \mathscr{D}(G) \subseteq \mathscr{D}(F \circ G)$ then $\mathscr{D}(F \circ G) = \mathscr{D}(G) = A$
+
+- Finally we prove that $\mathscr{R}(F \circ G) \subseteq C$
+    
+    + $\begin{split}
+        y \in \mathscr{R}(F \circ G) & \iff (\exists x)(F(G(x)) = y) \\
+        & \implies (\exists G(x))(F(G(x)) = y) \\
+        & \implies y \in \mathscr{R}(F) 
+        \end{split}$
+            
+    + Therefore $\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)$
+            
+        + $\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \land \mathscr{R}(F) \subseteq C$ then $\mathscr{R}(F \circ G) \subseteq C$
+     
+__Theorem__ If $G: A \xrightarrow[\text{}]{\text{1-1}} B$ and $F: B \xrightarrow[\text{}]{\text{1-1}} C$, then $F \circ G: A \xrightarrow[\text{}]{\text{1-1}} C$
+
+- $\begin{split}
+    (F \circ G)(x) = (F \circ G)(y) & \implies F(G(x)) = F(G(y)) \\
+    & \implies G(x) = G(y) \\
+    & \implies x = y
+    \end{split}$
+    
+__Theorem__ If $G: A \xrightarrow[\text{onto}]{\text{}} B$ and $F: B \xrightarrow[\text{onto}]{\text{}} C$, then $F \circ G: A \xrightarrow[\text{onto}]{\text{}} C$
 
 
+   
 # Bibliography
+
