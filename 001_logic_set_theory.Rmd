@@ -3556,7 +3556,7 @@ __Theorem__ Consider functions $G: A \longrightarrow B$ and $F: B \longrightarro
     
     + $\begin{split}
         y \in \mathscr{R}(F \circ G) & \iff (\exists x)(F(G(x)) = y) \\
-        & \implies (\exists G(x))(F(G(x)) = y) \\
+        & \implies (\exists G(x))(F(G(x)) = y) \land G(x) \in \mathscr{D}(F)\\
         & \implies y \in \mathscr{R}(F) 
         \end{split}$
             
@@ -3574,7 +3574,189 @@ __Theorem__ If $G: A \xrightarrow[\text{}]{\text{1-1}} B$ and $F: B \xrightarrow
     
 __Theorem__ If $G: A \xrightarrow[\text{onto}]{\text{}} B$ and $F: B \xrightarrow[\text{onto}]{\text{}} C$, then $F \circ G: A \xrightarrow[\text{onto}]{\text{}} C$
 
+- Because $\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) = C$, $\mathscr{R}(G) = B = \mathscr{D}(F)$ so we need to prove that $\mathscr{R}(F) \subseteq \mathscr{R}(F \circ G)$
 
+    + $\begin{split}
+        y \in \mathscr{R}(F) & \iff (\exists z)(F(z) = y) \\
+        & \iff (\exists z)(F(z) = y) \land z \in \mathscr{D}(F) \\
+        & \iff (\exists z)(F(z) = y) \land G(x) = z \land z \in \mathscr{R}(G) \land z \in z \in \mathscr{D}(F) \\
+        & \iff (\exists z)(F(G(x)) = y) \land G(x) \in \mathscr{R}(G) \land G(x) \in \mathscr{D}(F) \\
+        & \iff (\exists z)(F(G(x)) = y) \land x \in \mathscr{D}(G) \land G(x) \in \mathscr{D}(F) \\
+        & \iff (\exists z)(F(G(x)) = y) \land x \in \mathscr{D}(F \circ G) \\
+        & \iff (\exists z)(F(G(x)) = y) \\
+        & \iff y \in \mathscr{R}(F \circ G)
+        \end{split}$
+        
+        + Therefore $\mathscr{R}(F \circ G) = \mathscr{R}(F) = C$
+        
+Using the above two theorems we obtain the following:
+
+__Corollary__ If $G: A \xrightarrow[\text{onto}]{\text{1-1}} B$ and $F: B \xrightarrow[\text{onto}]{\text{1-1}} C$, then $F \circ G: A \xrightarrow[\text{onto}]{\text{1-1}} C$ 
+
+## Composition of functions exercises and solutions
+
+1. Assume $F: A \longrightarrow B$, $F: B \longrightarrow C$ and $H: C \longrightarrow D$. Show that $H \circ (G \circ F) = (H \circ G) \circ F)$
+
+- $\begin{split}
+   (x, y) \in (H \circ (G \circ F)) & \iff (H \circ (G \circ F))(x) = y \\ 
+   & \iff H(G \circ F)(x)) = y \\
+   & \iff H(G(F(x))) = y \\
+   & \iff (H \circ G)(F(x)) = y \\
+   & \iff ((H \circ G) \circ F)(x) \\
+   & \iff (x, y) \in ((H \circ G) \circ F)
+   \end{split}$
    
+2. Assume $F: A \xrightarrow[\text{onto}]{\text{1-1}} B$. Prove:
+
+    a. $F{-1} \circ F = I_A$
+    
+        + $\begin{split}
+            F: A \xrightarrow[\text{onto}]{\text{1-1}} B & \implies F^{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} A \\
+            & \implies F^{-1} \circ F: A \xrightarrow[\text{onto}]{\text{1-1}} A \\
+            & \implies \mathscr{D}(F^{-1} \circ F) = A 
+            \end{split}$
+            
+        + $\begin{split}
+            (x,y) \in (F^{-1} \circ F) & \iff F^{-1}(F(x)) = y \land (\exists z)(F(x) = z) \\                & \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F) \\
+            & \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F \land (z,x) \in F^{-1}) \\
+            & \iff F^{-1}(F(x)) = y \land (x,x) \in (F^{-1} \circ F) \\
+            & \iff F^{-1}(F(x)) = y \land F^{-1}(F(x)) = x \\
+            & \implies y = x \\
+            & \implies (F^{-1} \circ F)(x) = x = I_A(x)
+            \end{split}$
+            
+            + Therefore $(F^{-1} \circ F)(x) = I_A(x)$
+            
+    b. $F \circ F^{-1} = I_B$
+    
+        + $\begin{split}
+            F: A \xrightarrow[\text{onto}]{\text{1-1}} B & \implies F^{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} A \\
+            & \implies F \circ F{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} B \\
+            & \implies \mathscr{D}(F \circ F{-1}) = B 
+            \end{split}$
+            
+        + $\begin{split}
+            (x,y) \in (F^{-1} \circ F) & \iff F^{-1}(F(x)) = y \land (\exists z)(F(x) = z) \\                & \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F) \\
+            & \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F \land (z,x) \in F^{-1}) \\
+            & \iff F^{-1}(F(x)) = y \land (x,x) \in (F^{-1} \circ F) \\
+            & \iff F^{-1}(F(x)) = y \land F^{-1}(F(x)) = x \\
+            & \implies y = x \\
+            & \implies (F^{-1} \circ F)(x) = x = I_B(x)
+            \end{split}$
+            
+            + Therefore $(F^{-1} \circ F)(x) = I_B(x)$
+            
+            
+    b. $(F^{-1})^{-1} = F$
+    
+        + $\begin{split}
+            (x,y) \in (F^{-1})^{-1} & \iff (y,x) \in F^{-1} \\
+            & \iff (x,y) \in F 
+            \end{split}$
+            
+3. For each of the following functions $F$ and $G$, determine the compositions $F \circ G$, $G \circ F$ and find their domains
+
+    a. $F(x) = x + 5$ for all integers $x$ and $G(x) = x^3$ for all integers $x$
+    
+        + $(F \circ G)(x) = x^3 + 5$
+        
+            + $\mathscr{D}(F \circ G) = \mathscr{D}(F) = \mathbb{Z}$
+        
+        + $(G \circ F)(x) = (x + 5)^3$
+        
+            + $\mathscr{D}(G \circ F) = \mathscr{D}(G) = \mathbb{Z}$
+    
+    b. $F(x) = x^2$ for all real numbers $x$ and $G(x) = \sqrt{x}$ for all nonnegative real numbers $x$
+    
+        + $(F \circ G)(x) = (\sqrt{x})^2 = x$
+        
+            + $\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{R}^+$
+        
+        + $(G \circ F)(x) = \sqrt{x^2} = |x|$
+        
+            + $\mathscr{D}(G \circ F) = \mathscr{D}(F) = \mathbb{R}$
+
+    c. $F(x) = -x$ for all positive integers $x$ and $G(x) = \sqrt{x}$ for all positive integers $x$ 
+        + $\sqrt{2} \in \mathscr{R}(G) \land \sqrt{2} \notin \mathscr{D}(F)$
+        
+            + Therefore $F \circ G$ isn't defined because $\mathscr{R}(G) \nsubseteq \mathscr{D}(F) = \mathbb{P}$
+            
+        + $-2 \in \mathscr{R}(F) \land -2 \notin \mathscr{D}(G)$
+        
+            + Therefore $G \circ F$ isn't defined because $\mathscr{R}(F) \nsubseteq \mathscr{D}(G) = \mathbb{P}$
+            
+    d. $F(x) = \frac{x}{2}$ for all integers $x$ and $G(x) = 6x$ for all positive integers
+    
+        + $(F \circ G)(x) = \frac{6x}{2} = 3x$
+        
+            + $\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{P}$
+            
+        + $\frac{1}{2} \in \mathscr{R}(F) \land \frac{1}{2} \notin \mathscr{D}(G)$
+        
+            + Therefore $G \circ F$ isn't defined because $\mathscr{R}(F) \nsubseteq \mathscr{D}(G) = \mathbb{P}$
+        
+    e. $F(x) = -x$ for all real numbers $x$ and $G(x) = |x|$ for all real numbers $x$
+    
+        + $(F \circ G)(x) = -|x|$
+        
+            + $\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{R}$
+        
+        + $(G \circ F)(x) = \sqrt{x^2} = |-x|$
+        
+            + $\mathscr{D}(G \circ F) = \mathscr{D}(F) = \mathbb{R}$
+            
+    f. $F(x) = \frac{x}{x^2 + 1}$ for all real numbers $x$ and $G(x) = \frac{1}{x}$ for all nonzero real numbers $x$
+    
+        + $(F \circ G)(x) = \frac{\frac{1}{x}}{(\frac{1}{x})^2 + 1} = \frac{\frac{1}{x}}{\frac{1}{x^2} + 1}$
+        
+            + $\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{R} - \{ 0 \}$
+        
+        + $0 \in \mathscr{R}(F) \land 0 \notin \mathscr{D}(G)$
+        
+            + Therefore $G \circ F$ isn't defined because $\mathscr{R}(F) \nsubseteq \mathscr{D}(G) = \mathbb{P}$
+
+4. Assume that $G: A \xrightarrow[\text{}]{\text{1-1}} B$ and $F: B \xrightarrow[\text{}]{\text{1-1}} C$. Prove that $(F \circ G)^{-1} = G^{-1} \circ F^{-1}$
+
+- $\begin{split}
+   (x, y) \in (F \circ G)^{-1} & \iff (y, x) \in (F \circ G) \\ 
+   & \iff (\exists z)((y,z) \in G \land (z,x) \in F) \\
+   & \iff (\exists z)((z,y) \in G^{-1} \land (x,z) \in F^{-1}) \\
+   & \iff (\exists z)((x,z) \in F^{-1} \land (z,y) \in G^{-1}) \\
+   & \iff (x, y) \in (G^{-1} \circ F^{-1}) \\
+   \end{split}$
+
+    + Therefore $(F \circ G)^{-1} = G^{-1} \circ F^{-1}$ 
+
+5. Assume $G: A \longrightarrow B$ and $F: B \longrightarrow C$
+
+    a. If $F\circ G$ is one-one, prove that $G$ is one-one
+    
+- $\begin{split}
+   G(x) = G(y)  & \implies F(G(x)) = F(G(y)) \\ 
+   & \implies (F\circ G)(x) = (F\circ G)(y) \\
+   & \implies x = y
+   \end{split}$    
+    
+    b. If $F \circ G: A \xrightarrow[\text{onto}]{\text{}} C$ prove that $F: B \xrightarrow[\text{onto}]{\text{}} C$
+    
+- $C = \mathscr{R}(F \circ G) \land \mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \implies C\subseteq \mathscr{R}(F)$
+
+- $\mathscr{R}(F) \subseteq C$
+
+    + Therefore $\mathscr{R}(F) = C$
+    
+## Operations
+
+Let $A$ be a set. By a __singulary operation on $A$__ we mean a function $F$ from $A$ into $A$. Thus,
+
+$$F \text{ is a singulary operation on } A \iff F: A \longrightarrow A$$
+This means that the values of $F$ as well as its arguments must belong to $A$
+
+Let $A$ be a set. By a __binary operation on $A$__ we mean a function $F$ from $A \times A$ into $A$. Thus, $$F \text{ is a binary operation on } A \iff F: A \times A \longrightarrow A$$
+
+## Operations exercises and solutions
+
+
+
 # Bibliography
 

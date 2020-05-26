@@ -1845,6 +1845,9 @@ summary {
 <li><a href="#one-one-functions"><span class="toc-section-number">1.38</span> One-one functions</a></li>
 <li><a href="#one-one-functions-exercises-and-solutions"><span class="toc-section-number">1.39</span> One-one functions exercises and solutions</a></li>
 <li><a href="#composition-of-functions"><span class="toc-section-number">1.40</span> Composition of functions</a></li>
+<li><a href="#composition-of-functions-exercises-and-solutions"><span class="toc-section-number">1.41</span> Composition of functions exercises and solutions</a></li>
+<li><a href="#operations"><span class="toc-section-number">1.42</span> Operations</a></li>
+<li><a href="#operations-exercises-and-solutions"><span class="toc-section-number">1.43</span> Operations exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -6912,7 +6915,7 @@ T
 </ul></li>
 <li><p>Finally we prove that <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq C\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\begin{split}  y \in \mathscr{R}(F \circ G) &amp; \iff (\exists x)(F(G(x)) = y) \\  &amp; \implies (\exists G(x))(F(G(x)) = y) \\  &amp; \implies y \in \mathscr{R}(F)  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  y \in \mathscr{R}(F \circ G) &amp; \iff (\exists x)(F(G(x)) = y) \\  &amp; \implies (\exists G(x))(F(G(x)) = y) \land G(x) \in \mathscr{D}(F)\\  &amp; \implies y \in \mathscr{R}(F)  \end{split}\)</span></p></li>
 <li><p>Therefore <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F)\)</span></p>
 <ul>
 <li><span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \land \mathscr{R}(F) \subseteq C\)</span> then <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq C\)</span></li>
@@ -6924,6 +6927,153 @@ T
 <li><span class="math inline">\(\begin{split}  (F \circ G)(x) = (F \circ G)(y) &amp; \implies F(G(x)) = F(G(y)) \\  &amp; \implies G(x) = G(y) \\  &amp; \implies x = y  \end{split}\)</span></li>
 </ul>
 <p><strong>Theorem</strong> If <span class="math inline">\(G: A \xrightarrow[\text{onto}]{\text{}} B\)</span> and <span class="math inline">\(F: B \xrightarrow[\text{onto}]{\text{}} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[\text{onto}]{\text{}} C\)</span></p>
+<ul>
+<li><p>Because <span class="math inline">\(\mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) = C\)</span>, <span class="math inline">\(\mathscr{R}(G) = B = \mathscr{D}(F)\)</span> so we need to prove that <span class="math inline">\(\mathscr{R}(F) \subseteq \mathscr{R}(F \circ G)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  y \in \mathscr{R}(F) &amp; \iff (\exists z)(F(z) = y) \\  &amp; \iff (\exists z)(F(z) = y) \land z \in \mathscr{D}(F) \\  &amp; \iff (\exists z)(F(z) = y) \land G(x) = z \land z \in \mathscr{R}(G) \land z \in z \in \mathscr{D}(F) \\  &amp; \iff (\exists z)(F(G(x)) = y) \land G(x) \in \mathscr{R}(G) \land G(x) \in \mathscr{D}(F) \\  &amp; \iff (\exists z)(F(G(x)) = y) \land x \in \mathscr{D}(G) \land G(x) \in \mathscr{D}(F) \\  &amp; \iff (\exists z)(F(G(x)) = y) \land x \in \mathscr{D}(F \circ G) \\  &amp; \iff (\exists z)(F(G(x)) = y) \\  &amp; \iff y \in \mathscr{R}(F \circ G)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(\mathscr{R}(F \circ G) = \mathscr{R}(F) = C\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Using the above two theorems we obtain the following:</p>
+<p><strong>Corollary</strong> If <span class="math inline">\(G: A \xrightarrow[\text{onto}]{\text{1-1}} B\)</span> and <span class="math inline">\(F: B \xrightarrow[\text{onto}]{\text{1-1}} C\)</span>, then <span class="math inline">\(F \circ G: A \xrightarrow[\text{onto}]{\text{1-1}} C\)</span></p>
+</div>
+<div id="composition-of-functions-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.41</span> Composition of functions exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li>Assume <span class="math inline">\(F: A \longrightarrow B\)</span>, <span class="math inline">\(F: B \longrightarrow C\)</span> and <span class="math inline">\(H: C \longrightarrow D\)</span>. Show that <span class="math inline">\(H \circ (G \circ F) = (H \circ G) \circ F)\)</span></li>
+</ol>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x, y) \in (H \circ (G \circ F)) &amp; \iff (H \circ (G \circ F))(x) = y \\  &amp; \iff H(G \circ F)(x)) = y \\  &amp; \iff H(G(F(x))) = y \\  &amp; \iff (H \circ G)(F(x)) = y \\  &amp; \iff ((H \circ G) \circ F)(x) \\  &amp; \iff (x, y) \in ((H \circ G) \circ F)  \end{split}\)</span></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Assume <span class="math inline">\(F: A \xrightarrow[\text{onto}]{\text{1-1}} B\)</span>. Prove:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(F{-1} \circ F = I_A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F: A \xrightarrow[\text{onto}]{\text{1-1}} B &amp; \implies F^{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} A \\  &amp; \implies F^{-1} \circ F: A \xrightarrow[\text{onto}]{\text{1-1}} A \\  &amp; \implies \mathscr{D}(F^{-1} \circ F) = A  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in (F^{-1} \circ F) &amp; \iff F^{-1}(F(x)) = y \land (\exists z)(F(x) = z) \\ &amp; \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F) \\  &amp; \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F \land (z,x) \in F^{-1}) \\  &amp; \iff F^{-1}(F(x)) = y \land (x,x) \in (F^{-1} \circ F) \\  &amp; \iff F^{-1}(F(x)) = y \land F^{-1}(F(x)) = x \\  &amp; \implies y = x \\  &amp; \implies (F^{-1} \circ F)(x) = x = I_A(x)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\((F^{-1} \circ F)(x) = I_A(x)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F \circ F^{-1} = I_B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F: A \xrightarrow[\text{onto}]{\text{1-1}} B &amp; \implies F^{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} A \\  &amp; \implies F \circ F{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} B \\  &amp; \implies \mathscr{D}(F \circ F{-1}) = B  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (x,y) \in (F^{-1} \circ F) &amp; \iff F^{-1}(F(x)) = y \land (\exists z)(F(x) = z) \\ &amp; \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F) \\  &amp; \iff F^{-1}(F(x)) = y \land (\exists z)((x,z) \in F \land (z,x) \in F^{-1}) \\  &amp; \iff F^{-1}(F(x)) = y \land (x,x) \in (F^{-1} \circ F) \\  &amp; \iff F^{-1}(F(x)) = y \land F^{-1}(F(x)) = x \\  &amp; \implies y = x \\  &amp; \implies (F^{-1} \circ F)(x) = x = I_B(x)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\((F^{-1} \circ F)(x) = I_B(x)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((F^{-1})^{-1} = F\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x,y) \in (F^{-1})^{-1} &amp; \iff (y,x) \in F^{-1} \\  &amp; \iff (x,y) \in F  \end{split}\)</span></li>
+</ul></li>
+</ol></li>
+<li><p>For each of the following functions <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>, determine the compositions <span class="math inline">\(F \circ G\)</span>, <span class="math inline">\(G \circ F\)</span> and find their domains</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(F(x) = x + 5\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(G(x) = x^3\)</span> for all integers <span class="math inline">\(x\)</span></p>
+<ul>
+<li><p><span class="math inline">\((F \circ G)(x) = x^3 + 5\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(F \circ G) = \mathscr{D}(F) = \mathbb{Z}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((G \circ F)(x) = (x + 5)^3\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(G \circ F) = \mathscr{D}(G) = \mathbb{Z}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = x^2\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(G(x) = \sqrt{x}\)</span> for all nonnegative real numbers <span class="math inline">\(x\)</span></p>
+<ul>
+<li><p><span class="math inline">\((F \circ G)(x) = (\sqrt{x})^2 = x\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{R}^+\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((G \circ F)(x) = \sqrt{x^2} = |x|\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(G \circ F) = \mathscr{D}(F) = \mathbb{R}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = -x\)</span> for all positive integers <span class="math inline">\(x\)</span> and <span class="math inline">\(G(x) = \sqrt{x}\)</span> for all positive integers <span class="math inline">\(x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\sqrt{2} \in \mathscr{R}(G) \land \sqrt{2} \notin \mathscr{D}(F)\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(F \circ G\)</span> isn’t defined because <span class="math inline">\(\mathscr{R}(G) \nsubseteq \mathscr{D}(F) = \mathbb{P}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(-2 \in \mathscr{R}(F) \land -2 \notin \mathscr{D}(G)\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(G \circ F\)</span> isn’t defined because <span class="math inline">\(\mathscr{R}(F) \nsubseteq \mathscr{D}(G) = \mathbb{P}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \frac{x}{2}\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(G(x) = 6x\)</span> for all positive integers</p>
+<ul>
+<li><p><span class="math inline">\((F \circ G)(x) = \frac{6x}{2} = 3x\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{P}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\frac{1}{2} \in \mathscr{R}(F) \land \frac{1}{2} \notin \mathscr{D}(G)\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(G \circ F\)</span> isn’t defined because <span class="math inline">\(\mathscr{R}(F) \nsubseteq \mathscr{D}(G) = \mathbb{P}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = -x\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(G(x) = |x|\)</span> for all real numbers <span class="math inline">\(x\)</span></p>
+<ul>
+<li><p><span class="math inline">\((F \circ G)(x) = -|x|\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{R}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((G \circ F)(x) = \sqrt{x^2} = |-x|\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(G \circ F) = \mathscr{D}(F) = \mathbb{R}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \frac{x}{x^2 + 1}\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(G(x) = \frac{1}{x}\)</span> for all nonzero real numbers <span class="math inline">\(x\)</span></p>
+<ul>
+<li><p><span class="math inline">\((F \circ G)(x) = \frac{\frac{1}{x}}{(\frac{1}{x})^2 + 1} = \frac{\frac{1}{x}}{\frac{1}{x^2} + 1}\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{D}(F \circ G) = \mathscr{D}(G) = \mathbb{R} - \{ 0 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(0 \in \mathscr{R}(F) \land 0 \notin \mathscr{D}(G)\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(G \circ F\)</span> isn’t defined because <span class="math inline">\(\mathscr{R}(F) \nsubseteq \mathscr{D}(G) = \mathbb{P}\)</span></li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li><p>Assume that <span class="math inline">\(G: A \xrightarrow[\text{}]{\text{1-1}} B\)</span> and <span class="math inline">\(F: B \xrightarrow[\text{}]{\text{1-1}} C\)</span>. Prove that <span class="math inline">\((F \circ G)^{-1} = G^{-1} \circ F^{-1}\)</span></p></li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (x, y) \in (F \circ G)^{-1} &amp; \iff (y, x) \in (F \circ G) \\  &amp; \iff (\exists z)((y,z) \in G \land (z,x) \in F) \\  &amp; \iff (\exists z)((z,y) \in G^{-1} \land (x,z) \in F^{-1}) \\  &amp; \iff (\exists z)((x,z) \in F^{-1} \land (z,y) \in G^{-1}) \\  &amp; \iff (x, y) \in (G^{-1} \circ F^{-1}) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\((F \circ G)^{-1} = G^{-1} \circ F^{-1}\)</span></li>
+</ul></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Assume <span class="math inline">\(G: A \longrightarrow B\)</span> and <span class="math inline">\(F: B \longrightarrow C\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>If <span class="math inline">\(F\circ G\)</span> is one-one, prove that <span class="math inline">\(G\)</span> is one-one</li>
+</ol></li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  G(x) = G(y) &amp; \implies F(G(x)) = F(G(y)) \\  &amp; \implies (F\circ G)(x) = (F\circ G)(y) \\  &amp; \implies x = y  \end{split}\)</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>If <span class="math inline">\(F \circ G: A \xrightarrow[\text{onto}]{\text{}} C\)</span> prove that <span class="math inline">\(F: B \xrightarrow[\text{onto}]{\text{}} C\)</span></li>
+</ol></li>
+<li><p><span class="math inline">\(C = \mathscr{R}(F \circ G) \land \mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \implies C\subseteq \mathscr{R}(F)\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(F) \subseteq C\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(\mathscr{R}(F) = C\)</span></li>
+</ul></li>
+</ul>
+</div>
+<div id="operations" class="section level2">
+<h2><span class="header-section-number">1.42</span> Operations</h2>
+<p>Let <span class="math inline">\(A\)</span> be a set. By a <strong>singulary operation on <span class="math inline">\(A\)</span></strong> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A\)</span> into <span class="math inline">\(A\)</span>. Thus,</p>
+<p><span class="math display">\[F \text{ is a singulary operation on } A \iff F: A \longrightarrow A\]</span> This means that the values of <span class="math inline">\(F\)</span> as well as its arguments must belong to <span class="math inline">\(A\)</span></p>
+<p>Let <span class="math inline">\(A\)</span> be a set. By a <strong>binary operation on <span class="math inline">\(A\)</span></strong> we mean a function <span class="math inline">\(F\)</span> from <span class="math inline">\(A \times A\)</span> into <span class="math inline">\(A\)</span>. Thus, <span class="math display">\[F \text{ is a binary operation on } A \iff F: A \times A \longrightarrow A\]</span></p>
+</div>
+<div id="operations-exercises-and-solutions" class="section level2">
+<h2><span class="header-section-number">1.43</span> Operations exercises and solutions</h2>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
