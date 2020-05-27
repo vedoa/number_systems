@@ -7074,6 +7074,56 @@ T
 </div>
 <div id="operations-exercises-and-solutions" class="section level2">
 <h2><span class="header-section-number">1.43</span> Operations exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>If <span class="math inline">\(F\)</span> is a binary operation on <span class="math inline">\(A\)</span>, and <span class="math inline">\(C \subseteq A\)</span>, we say that <span class="math inline">\(C\)</span> is <strong>closed</strong> under <span class="math inline">\(F\)</span> if and only if <span class="math inline">\(F(x,y) \in C\)</span> whenever <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are in <span class="math inline">\(C\)</span>. In each of the following cases, determine whether <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(F(x,y) = x - y\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(C\)</span> is the set of all integers</p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x - y \in \mathbb{Z}\)</span> whenever <span class="math inline">\(x \in \mathbb{Z} \land y \in \mathbb{Z}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all nonnegative integers</p>
+<ul>
+<li><span class="math inline">\(F((0,1)) = -1 \notin \mathbb{Z^+} \cup \{ 0 \}\)</span> but <span class="math inline">\(0 \in \mathbb{Z^+} \cup \{ 0 \} \land 1 \in \mathbb{Z^+} \cup \{ 0 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all even integers</p>
+<ul>
+<li><p><span class="math inline">\(even = \{e: e = 2n \land n \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(F((e_1,e_2)) = 2n_1 - 2n_2 = 2(n_1 - n_2) \in e \text{ because } (n_1 - n_2) \in \mathbb{Z}\)</span> where <span class="math inline">\(e_1 \in e \land e_2 \in e\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all odd integers</p>
+<ul>
+<li><p><span class="math inline">\(odd = \{o: o = 2n + 1 \land n \in \mathbb{Z} \}\)</span></p></li>
+<li><p><span class="math inline">\(F((o_1,o_2)) = 2n_1 + 1 - 2n_2 - 1 = 2(n_1 - n_2) \notin o \text{ because } 2(n_1 - n_2) \in e\)</span> where <span class="math inline">\(o_1 \in o \land o_2 \in o\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(C = \{ -1, 0, 1\}\)</span></p>
+<ul>
+<li><span class="math inline">\(F((1,-1)) = 2 \notin \{ -1, 0, 1\}\)</span> but <span class="math inline">\(1 \in \{ -1, 0, 1\} \land -1 \in \{ -1, 0, 1\}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x,y) = x \times y\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(C = \{ 0, 1\}\)</span></p>
+<ul>
+<li><span class="math inline">\(F(0,1) = F(1,0) = 0 \in \{ 0, 1\}\)</span> where <span class="math inline">\(0 \in \{ 0, 1\} \land 1 \in \{ 0, 1\}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of positive real numbers</p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x \times y \in \mathbb{R}^+ - \{ 0 \}\)</span> because <span class="math inline">\(x \times y &gt; 0\)</span> whenever <span class="math inline">\(x \in \mathbb{R}^+ - \{ 0 \} \land y \in \mathbb{R}^+ - \{ 0 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of nonnegative real numbers</p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x \times y \in \mathbb{R}^+\)</span> because <span class="math inline">\(x \times y \geq 0\)</span> whenever <span class="math inline">\(x \in \mathbb{R}^+ \land y \in \mathbb{R}^+\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all negative real numbers</p>
+<ul>
+<li><span class="math inline">\(F(-1,-1) = 1 \notin \mathbb{R}^- - \{ 0 \}\)</span> where <span class="math inline">\(-1 \in \mathbb{R}^- - \{ 0 \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all real numbers <span class="math inline">\(x\)</span> such that <span class="math inline">\(-1 \leq x \leq 1\)</span></p></li>
+</ul></li>
+</ol></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">

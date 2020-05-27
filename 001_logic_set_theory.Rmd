@@ -3756,7 +3756,53 @@ Let $A$ be a set. By a __binary operation on $A$__ we mean a function $F$ from $
 
 ## Operations exercises and solutions
 
+1. If $F$ is a binary operation on $A$, and $C \subseteq A$, we say that $C$ is __closed__ under $F$ if and only if $F(x,y) \in C$ whenever $x$ and $y$ are in $C$. In each of the following cases, determine whether $C$ is closed under $F$
 
+    a. $F(x,y) = x - y$ for all integers $x$ and $y$
+    
+        + $C$ is the set of all integers
+        
+            + $F(x,y) = x - y \in \mathbb{Z}$ whenever $x \in \mathbb{Z} \land y \in \mathbb{Z}$
+            
+        + $C$ is the set of all nonnegative integers
+        
+            + $F((0,1)) = -1 \notin \mathbb{Z^+} \cup \{ 0 \}$ but $0 \in \mathbb{Z^+} \cup \{ 0 \} \land 1 \in \mathbb{Z^+} \cup \{ 0 \}$
+            
+        + $C$ is the set of all even integers
+        
+            + $even = \{e: e = 2n \land n \in \mathbb{Z} \}$
+            
+            + $F((e_1,e_2)) = 2n_1 - 2n_2 = 2(n_1 - n_2) \in e \text{ because } (n_1 - n_2) \in \mathbb{Z}$ where $e_1 \in e \land e_2 \in e$ 
+            
+        + $C$ is the set of all odd integers
+        
+            + $odd = \{o: o = 2n + 1 \land n \in \mathbb{Z} \}$
+            
+            + $F((o_1,o_2)) = 2n_1 + 1 - 2n_2 - 1 = 2(n_1 - n_2) \notin o \text{ because } 2(n_1 - n_2) \in e$ where $o_1 \in o \land o_2 \in o$
+            
+        + $C = \{ -1, 0, 1\}$
+        
+            + $F((1,-1)) = 2 \notin \{ -1, 0, 1\}$ but $1 \in \{ -1, 0, 1\} \land -1 \in \{ -1, 0, 1\}$
+            
+    b. $F(x,y) = x \times y$ for all real numbers $x$ and $y$
+    
+        + $C = \{ 0, 1\}$
+        
+            + $F(0,1) = F(1,0) = 0 \in \{ 0, 1\}$ where $0 \in \{ 0, 1\} \land 1 \in \{ 0, 1\}$
+            
+        + $C$ is the set of positive real numbers
+        
+            + $F(x,y) = x \times y \in \mathbb{R}^+ - \{ 0 \}$ because $x \times y > 0$ whenever $x \in \mathbb{R}^+ - \{ 0 \} \land y \in \mathbb{R}^+ - \{ 0 \}$ 
+            
+        + $C$ is the set of nonnegative real numbers
+        
+            + $F(x,y) = x \times y \in \mathbb{R}^+$ because $x \times y \geq 0$ whenever $x \in \mathbb{R}^+ \land y \in \mathbb{R}^+$ 
+            
+        + $C$ is the set of all negative real numbers
+        
+            + $F(-1,-1) = 1 \notin \mathbb{R}^- - \{ 0 \}$ where $-1 \in \mathbb{R}^- - \{ 0 \}$
+            
+        + $C$ is the set of all real numbers $x$ such that $-1 \leq x \leq 1$
 
 # Bibliography
 
