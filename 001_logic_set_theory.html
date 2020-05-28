@@ -7228,7 +7228,25 @@ T
 <ol style="list-style-type: lower-alpha">
 <li><p>Prove that the restriction <span class="math inline">\(G\)</span> of <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span> is a binary operation on <span class="math inline">\(C\)</span> if and only if <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span></p>
 <ul>
-<li><span class="math inline">\(\begin{split}  F: A \times A \longrightarrow A \land C \subseteq A \land G \text{ is a restriction of the operation of } F \text{ to } C \iff \\  \end{split}\)</span></li>
+<li><span class="math inline">\(\begin{split}  F: A \times A \longrightarrow A \land C \subseteq A \land C \text{ is closed under } F &amp; \iff F: A \times A \longrightarrow A \land C \subseteq A \land (\forall x)(\forall y)(x \in C \land y \in C \implies F((x,y)) \in C) \\  &amp; \iff F: A \times A \longrightarrow A \land C \subseteq A \land (\forall x)(\forall y)((x,y) \in C \times C \implies F((x,y)) \in C) \\  &amp; \iff F: A \times A \longrightarrow A \land C \subseteq A \land (\exists G)( G \text{ is a function } \land \mathscr{D}(G) = C \times C \land (\forall x)(\forall y)(x \in C \land y \in C \implies G(x,y) = F(x,y))) \\  &amp; \iff F: A \times A \longrightarrow A \land C \subseteq A \land G \text{ is a restriction of the operation } F \text{ to } C  \end{split}\)</span></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(F(x,y) = (x \times y) - |x||y|\)</span> for all real numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. <span class="math inline">\(F\)</span> is a binary operation on the set of real numbers. What is the restriction of <span class="math inline">\(F\)</span> to the set of nonnegative real numbers?</p>
+<ul>
+<li><p><span class="math inline">\(F: \mathbb{R}^2 \longrightarrow \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{R}^+ \subseteq \mathbb{R}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(G\)</span> is a function</p></li>
+<li><p><span class="math inline">\(\mathscr{D}(G) = \mathbb{R}^+ \times \mathbb{R}^+\)</span></p></li>
+<li><p><span class="math inline">\(G(x,y) = F(x,y) = (x \times y) - |x||y|\)</span></p>
+<ul>
+<li><p>Possible <span class="math inline">\(G\)</span>s:</p>
+<ul>
+<li><p><span class="math inline">\(G: \mathbb{R}^+ \times \mathbb{R}^+ \xrightarrow[\text{onto}]{\text{}} \{ 0 \}\)</span></p></li>
+<li><p><span class="math inline">\(G: \mathbb{R}^+ \times \mathbb{R}^+ \longrightarrow \mathbb{R}^+\)</span></p></li>
+<li><p><span class="math inline">\(G: \mathbb{R}^+ \times \mathbb{R}^+ \longrightarrow \mathbb{R}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ol></li>
 </ol>

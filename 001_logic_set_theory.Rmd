@@ -3901,8 +3901,30 @@ Let $A$ be a set. By a __binary operation on $A$__ we mean a function $F$ from $
     a. Prove that the restriction $G$ of $F$ to $C$ is a binary operation on $C$ if and only if $C$ is closed under $F$
     
         + $\begin{split}
-            F: A \times A \longrightarrow A \land C \subseteq A \land G \text{ is a restriction of the operation of } F \text{ to } C \iff \\ 
+            F: A \times A \longrightarrow A \land C \subseteq A \land C \text{ is closed under } F & \iff F: A \times A \longrightarrow A \land C \subseteq A \land (\forall x)(\forall y)(x \in C \land y \in C \implies F((x,y)) \in C) \\
+            & \iff F: A \times A \longrightarrow A \land C \subseteq A \land (\forall x)(\forall y)((x,y) \in C \times C \implies F((x,y)) \in C) \\
+            & \iff F: A \times A \longrightarrow A \land C \subseteq A \land (\exists G)( G \text{ is a function } \land \mathscr{D}(G) = C \times C \land (\forall x)(\forall y)(x \in C \land y \in C \implies G(x,y) = F(x,y))) \\
+            & \iff F: A \times A \longrightarrow A \land C \subseteq A \land G \text{ is a restriction of the operation } F \text{ to } C
             \end{split}$
+            
+      b. Let $F(x,y) = (x \times y) - |x||y|$ for all real numbers $x$ and $y$. $F$ is a binary operation on the set of real numbers. What is the restriction of $F$ to the set of nonnegative real numbers?
+      
+          + $F: \mathbb{R}^2 \longrightarrow \mathbb{R}$
+          
+          + $\mathbb{R}^+ \subseteq \mathbb{R}$
+          
+              + $G$ is a function
+              
+              + $\mathscr{D}(G) = \mathbb{R}^+ \times \mathbb{R}^+$
+              
+              + $G(x,y) = F(x,y) = (x \times y) - |x||y|$
+              
+                  + Possible $G$s:
+                  
+                      + $G: \mathbb{R}^+ \times \mathbb{R}^+ \xrightarrow[\text{onto}]{\text{}} \{ 0 \}$
+                      + $G: \mathbb{R}^+ \times \mathbb{R}^+ \longrightarrow \mathbb{R}^+$
+                      
+                      + $G: \mathbb{R}^+ \times \mathbb{R}^+ \longrightarrow \mathbb{R}$
 
 # Bibliography
 
