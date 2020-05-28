@@ -7120,7 +7120,115 @@ T
 <ul>
 <li><span class="math inline">\(F(-1,-1) = 1 \notin \mathbb{R}^- - \{ 0 \}\)</span> where <span class="math inline">\(-1 \in \mathbb{R}^- - \{ 0 \}\)</span></li>
 </ul></li>
-<li><p><span class="math inline">\(C\)</span> is the set of all real numbers <span class="math inline">\(x\)</span> such that <span class="math inline">\(-1 \leq x \leq 1\)</span></p></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all real numbers <span class="math inline">\(x\)</span> such that <span class="math inline">\(-1 \leq x \leq 1\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(-1 \leq y \leq 1 \land y \in \mathbb{R}\)</span> then:</p>
+<ul>
+<li><p>If <span class="math inline">\(1 \geq x \geq 0\)</span> then <span class="math inline">\(1 \leq -x \leq xy \leq x \leq 1\)</span></p></li>
+<li><p>If <span class="math inline">\(0 \geq x \geq -1\)</span> then <span class="math inline">\(1 \geq -x \geq xy \geq x \geq -1\)</span></p>
+<ul>
+<li><span class="math inline">\(-1 \leq F(x,y) = x \times y \leq 1\)</span> whenever <span class="math inline">\(-1 \leq x \leq 1\)</span> and <span class="math inline">\(-1 \leq y \leq 1\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all integers</p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x \times y \in \mathbb{Z}\)</span> whenever <span class="math inline">\(x \in \mathbb{Z} \land y \in \mathbb{Z}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all rational numbers</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{Q} = \{q: q = \frac{a}{b} \text{ where } a \in \mathbb{Z} \land b \in \mathbb{Z} - \{ 0 \} \}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(q_1 \in \mathbb{Q} \land q_2 \in \mathbb{Q}\)</span> then <span class="math inline">\(q_1q_2 = \frac{a_1}{b_1}\frac{a_2}{b_2} = \frac{a_1a2}{b_1b_2} \in \mathbb{Q}\)</span></p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x \times y \in \mathbb{Q}\)</span> whenever <span class="math inline">\(x \in \mathbb{Q} \land y \in \mathbb{Q}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all rational numbers of the form <span class="math inline">\(\frac{k}{2^n}\)</span> where <span class="math inline">\(k\)</span> and <span class="math inline">\(n\)</span> are integers</p>
+<ul>
+<li><p>Let <span class="math inline">\(q_1 = \frac{k_1}{2^{n_1}}\)</span> and <span class="math inline">\(q_2 = \frac{k_2}{2^{n_2}}\)</span> then <span class="math inline">\(q_1q_2 = \frac{k_1}{2^{n_1}}\frac{k_2}{2^{n_2}} = \frac{k_1k_2}{2^{n_1 + n_2}}\)</span> where <span class="math inline">\(k_1k_2 \in \mathbb{Z} \ land (n_1 + n_2) \in \mathbb{Z}\)</span></p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x \times y \in \widehat{\mathbb{Q}} = \{ \widehat{q}: q = \frac{k}{2^n} \land k \in \mathbb{Z} \land n \in \mathbb{Z} \}\)</span> whenever <span class="math inline">\(x \in \widehat{\mathbb{Q}} \land y \in \widehat{\mathbb{Q}}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(C\)</span> is the set of all real numbers of the form <span class="math inline">\(a + b\sqrt{2}\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are integers</p>
+<ul>
+<li><p>Let <span class="math inline">\(a_1 + b_1\sqrt{2}\)</span> and <span class="math inline">\(a_2 + b_2\sqrt{2}\)</span> with <span class="math inline">\(a_1, a_2, b_1\)</span> and <span class="math inline">\(b_2\)</span> belong to <span class="math inline">\(\mathbb{Z}\)</span> then:</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (a_1 + b_1\sqrt{2})(a_2 + b_2\sqrt{2}) &amp; = a_1a_2 + a_1b_2\sqrt{2} + a_2b_1\sqrt{2} + 2b_1b_2 \\  &amp; = (a_1a_2 + 2b_1b_2) + (a_1b_2 + a_2b_1)\sqrt{2} \text{ where } (a_1a_2 + 2b_1b_2) \in \mathbb{Z} \land (a_1b_2 + a_2b_1) \in \mathbb{Z}  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(F(x,y) = x \times y \in C\)</span> whenever <span class="math inline">\(x \in C \land y \in C\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li><p>In each of the following cases, determine whether the given function <span class="math inline">\(F\)</span> is a singulary or binary operation on the given set <span class="math inline">\(A\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(F(x)\)</span> is the spouse of <span class="math inline">\(x\)</span>, for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of married people</p>
+<ul>
+<li><span class="math inline">\(F: A \longrightarrow A\)</span> therefore is a singulary operation</li>
+</ul></li>
+<li><p><span class="math inline">\(F(x)\)</span> is the father of <span class="math inline">\(x\)</span>, for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of people</p>
+<ul>
+<li><span class="math inline">\(F: A \longrightarrow A\)</span> therefore is a singulary operation</li>
+</ul></li>
+<li><p><span class="math inline">\(F(x) = \frac{1}{x}\)</span> for all <span class="math inline">\(x\)</span> in the set <span class="math inline">\(A\)</span> of nonzero integers</p>
+<ul>
+<li><p><span class="math inline">\(F: A \longrightarrow \mathbb{Q}\)</span> therefore is not a singulary or binary operation</p>
+<ul>
+<li><span class="math inline">\(\frac{1}{x} \not in A\)</span> if <span class="math inline">\(x \neq 1\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F((x,y)) = x + y - 1\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>in the set <span class="math inline">\(A\)</span> of positive integers</p>
+<ul>
+<li><span class="math inline">\(F: A \times A \longrightarrow A\)</span> therefore is a binary operation</li>
+</ul></li>
+<li><p><span class="math inline">\(F((x,y)) = (x \times y) - (x + y)\)</span> for all integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> such that <span class="math inline">\(x \geq 2\)</span> and <span class="math inline">\(y \geq 2\)</span>. Also <span class="math inline">\(A = \{x: x \in \mathbb{Z} \land x \geq 2 \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F: A \times A \longrightarrow \mathbb{Z}\)</span> therefore is not a singulary or binary operation</p>
+<ul>
+<li><span class="math inline">\(F((2,2)) = (2 \times 2) - (2 + 2) = 0 \notin A\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F((x,y)) = (x \times y) - (x + y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A\)</span> of integers</p>
+<ul>
+<li><span class="math inline">\(F: A \times A \longrightarrow A\)</span> therefore is a binary operation</li>
+</ul></li>
+<li><p><span class="math inline">\(F((x,y)) = x \times y\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A = \{a + b\sqrt{3}: a \text{ and } b \text{ are rational numbers}\}\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\((a_1 + b_1\sqrt{3})(a_2 + b_2\sqrt{3})\)</span> where <span class="math inline">\(a_1 + b_1\sqrt{3} \in A\)</span> and <span class="math inline">\(a_2 + b_2\sqrt{3} \in A\)</span> then:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (a_1 + b_1\sqrt{3})(a_2 + b_2\sqrt{3}) &amp; = a_1a_2 + a_1b_2\sqrt{3} + a_2b_1\sqrt{3} + 3b_1b_2 \\  &amp; = (a_1a_2 + 3b_1b_2) + (a_1b_2 + a_2b_1)\sqrt{3} \text{ where } (a_1a_2 + 3b_1b_2) \in \mathbb{Q} \land (a_1b_2 + a_2b_1) \in \mathbb{Q}  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F((x,y)) = \frac{x}{y}\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the set <span class="math inline">\(A = \{a + b\sqrt{2}: a \text{ and } b \text{ are integers which are not both } 0\}\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}}\)</span> where <span class="math inline">\(a_1 + b_1\sqrt{2} \in A\)</span> and <span class="math inline">\(a_2 + b_2\sqrt{2} \in A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}} = \frac{a_1}{a_2 + b_2\sqrt{2}} + \frac{b_1}{a_2 + b_2\sqrt{2}}\sqrt{2}\)</span> where <span class="math inline">\(\frac{a_1}{a_2 + b_2\sqrt{2}} \notin \mathbb{Z}\)</span> and <span class="math inline">\(\frac{b_1}{a_2 + b_2\sqrt{2}} \notin \mathbb{Z}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(F((x,y)) = \frac{x}{y} \notin A\)</span> so it is not a singulary or binary operation</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Same as h, except that <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are rational numbers insted of integers</p>
+<ul>
+<li><p>Let <span class="math inline">\(\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}}\)</span> where <span class="math inline">\(a_1 + b_1\sqrt{2} \in A\)</span> and <span class="math inline">\(a_2 + b_2\sqrt{2} \in A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\frac{a_1 + b_1\sqrt{2}}{a_2 + b_2\sqrt{2}} = \frac{a_1}{a_2 + b_2\sqrt{2}} + \frac{b_1}{a_2 + b_2\sqrt{2}}\sqrt{2}\)</span> where <span class="math inline">\(\frac{a_1}{a_2 + b_2\sqrt{2}} \notin \mathbb{Q}\)</span> and <span class="math inline">\(\frac{b_1}{a_2 + b_2\sqrt{2}} \notin \mathbb{Q}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(F((x,y)) = \frac{x}{y} \notin A\)</span> so it is not a singulary or binary operation</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li><p>Consider a binary operation <span class="math inline">\(F\)</span> on a set <span class="math inline">\(A\)</span> <span class="math display">\[F: A \times A \longrightarrow A\]</span> Assume <span class="math inline">\(C \subseteq A\)</span>. By the <strong>restriction of the operation <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span></strong>, we mean the function <span class="math inline">\(G\)</span> such that <span class="math inline">\(\mathscr{D}(G) = C \times C\)</span> and <span class="math inline">\(G(x,y) = F(x,y)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(C\)</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Prove that the restriction <span class="math inline">\(G\)</span> of <span class="math inline">\(F\)</span> to <span class="math inline">\(C\)</span> is a binary operation on <span class="math inline">\(C\)</span> if and only if <span class="math inline">\(C\)</span> is closed under <span class="math inline">\(F\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  F: A \times A \longrightarrow A \land C \subseteq A \land G \text{ is a restriction of the operation of } F \text{ to } C \iff \\  \end{split}\)</span></li>
 </ul></li>
 </ol></li>
 </ol>
