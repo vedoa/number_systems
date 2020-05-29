@@ -1,0 +1,107 @@
+---
+title: "Appendix D Finite, infinite and denumerable sets"
+date: 2020-05-28 11:04:33
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    highlight: tango
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 2
+bibliography: number_systems.bib
+link-citations: yes
+---
+
+<style>
+
+body {
+text-align: justify}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo      = TRUE, 
+                      warning   = FALSE, 
+                      message   = FALSE,
+                      fig.align = "center")
+```
+
+```{r libraries}
+
+
+```
+
+# Finite, infinite and denumerable sets
+
+This section is based on [@mendelson_number_2008, Appendix D, pp 293-313]
+
+## Equinumerous sets
+
+$A$ and $B$ are __equinumerous__ if and only if $(\exists)(F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} B)$. We write $A \approx B$ to mean that $A$ and $B$ are equinumerous
+
+__Theorem__ 
+
+- $A \approx A$
+
+    + $I_A : A \xrightarrow[\text{onto}]{\text{1-1}} A$
+
+- $A \approx B \implies B \approx A$
+
+    + $\begin{split}
+        A \approx B & \iff F: A \xrightarrow[\text{onto}]{\text{1-1}} B \\ 
+        & \iff F^{-1}: B \xrightarrow[\text{onto}]{\text{1-1}} A \\
+        & \iff B \approx A
+        \end{split}$
+
+- $(A \approx B \land B \approx C) \implies A \approx C$
+
+    + $\begin{split}
+        A \approx B \land B \approx C & \iff (F_1: A \xrightarrow[\text{onto}]{\text{1-1}} B \land F_2: B \xrightarrow[\text{onto}]{\text{1-1}} C) \\
+        & \implies F_2 \circ F_1: A \xrightarrow[\text{onto}]{\text{1-1}} C \\
+        & \iff A \approx C
+        \end{split}$
+
+Two sets which are equinumerous are said to have the same __cardinal number__. We assume that each set $A$ has an associated cardinal number $\mathscr{K}(A)$. Hence, $\mathscr{K}(A) = \mathscr{K}(B) \iff A \approx B$
+
+__Definitions__ $$A \leq B \text{ means } (\exists F)(F: A \xrightarrow[]{\text{1-1}} B)$$ $$A < B \text{ means } A \leq B \land A \not\approx B$$
+
+## Equinumerous sets exercises and solutions
+
+1. If $A \approx \emptyset$, prove that $A = \emptyset$
+
+    + $\begin{split}
+        A \approx \emptyset & \iff F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset \\
+        & \implies \mathscr{D}(F) = A \land \mathscr{D}(F) = \emptyset \land F \subseteq \mathscr{D}(F) \times \mathscr{R}(F) = \emptyset \\
+        & \implies A = \{y: (\exists x)((x,y) \in F) \} \land F = \emptyset \\
+        & \implies A = \{y: (\exists x)((x,y) \in \emptyset) \} \\
+        & \implies A = \emptyset
+        \end{split}$
+
+2. Prove $A \approx A \times \{ y \}$ (Hint: Let $\theta(x) = (x,y)$ for all $x$ in $A$)
+
+    + $\begin{split}
+        \theta(a) = \theta(b) & \implies (a,y) = (b, y) \\
+        & \implies a = b \land y = y \\
+        & \implies a = b
+        \end{split}$
+        
+    + $\mathscr{R}(\theta) = A \times \{ y \}$
+        
+        + $\mathscr{R}(\theta) = \{ (a,y): (\exists x)(\theta(x) = (a,y)) \}$
+    
+        + $A \times \{ y \} = \{ (a,y): a \in A \land y \in \{ y \} \}$
+        
+            + $\mathscr{R}(\theta) \subseteq A \times \{ y \}$
+
+            + $\begin{split}
+                (a,y) \in A \times \{ y \} & \implies \theta(a) = (a,y) \\
+                & \implies (a,y) \in \mathscr{R}(\theta) 
+                \end{split}$
+    
+
+3. Prove that there is no universal set $U$ of all sets. (Hint: $\mathscr{P}(U) \leq U$ since $\mathscr{P}(U) \subseteq U$. Use $A \leq B \implies B \not < A$ and $A < \mathscr{P}(A)$)
+
+# Bibliography
+
