@@ -67,6 +67,246 @@ Two sets which are equinumerous are said to have the same __cardinal number__. W
 
 __Definitions__ $$A \leq B \text{ means } (\exists F)(F: A \xrightarrow[]{\text{1-1}} B)$$ $$A < B \text{ means } A \leq B \land A \not\approx B$$
 
+__Theorem__ 
+
+- $A \leq A$
+    
+    + $I_A: A \xrightarrow[]{\text{1-1}} A$
+    
+- $(A \leq B \land B \leq C) \implies A \leq C$
+
+    + $\begin{split}
+       A \leq B \land B \leq C & \iff F: A \xrightarrow[]{\text{1-1}} B \land F: B \xrightarrow[]{\text{1-1}} C \\ 
+       & \implies F: A \xrightarrow[]{\text{1-1}} C
+       \end{split}$
+       
+- $A \not< A$
+
+    + $\begin{split}
+       A \not< A & \iff \neg(A \leq B \land A \not\approx A) \\
+       & \iff \neg(A \leq B) \lor \neg(A \not\approx A) \\ 
+       & \iff \neg(\exists F)(F: A \xrightarrow[]{\text{1-1}} A) \lor A \approx A \\ 
+       & \iff A \approx A
+       \end{split}$
+       
+- $A \subseteq B \implies A \leq B$
+
+    + $I_A: A \xrightarrow[]{\text{1-1}} B$
+    
+        + $\mathscr{R}(I_A) = A \subseteq B$
+        
+- $A \leq B \iff (A < B \lor A \approx B)$
+
+    + $\begin{split}
+       A < B \lor A \approx B & \iff (A \leq B \land A \not\approx B) \lor A \approx B  \\
+       & \iff (A \leq B \lor A \approx B) \land (A \not\approx B \lor A \approx B) \\
+       & \iff (A \leq B \lor A \approx B) \\
+       & \iff (\exists F)(F: A \xrightarrow[]{\text{1-1}} B) \\
+       & \iff A \leq B
+       \end{split}$
+       
+- $A \leq B \iff (\exists W)(W \subseteq B \land A \approx W)$
+
+    + $\begin{split}
+       (\exists W)(W \subseteq B \land A \approx W) 
+       & \iff (\exists W)(W \subseteq B \land (\exists F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} W)) \\ 
+       & \iff (\exists W)(\exists F)(\mathscr{R}(F) = W \subseteq B \land (F: A \xrightarrow[]{\text{1-1}} B)) \\
+       & \iff A \leq B
+       \end{split}$
+       
+- $(A \leq B \land B \approx C) \implies A \leq C$
+
+    + $\begin{split}
+       (A \leq B \land B \approx C) & \iff F: A \xrightarrow[]{\text{1-1}} B \land G: B \xrightarrow[\text{onto}]{\text{1-1}} C \\
+       & \implies G \circ F: A \xrightarrow[]{\text{1-1}} C
+       & \iff A \leq C
+       \end{split}$
+
+- $(A \leq B \land A \approx C) \implies C \leq B$
+
+    + $\begin{split}
+       (A \leq B \land A \approx C) & \iff F: A \xrightarrow[]{\text{1-1}} B \land G: A \xrightarrow[\text{onto}]{\text{1-1}} C \\
+       & \iff F: A \xrightarrow[]{\text{1-1}} B \land G^{-1}: C \xrightarrow[\text{onto}]{\text{1-1}} A \\
+       & \implies F \circ G^{-1}: C \xrightarrow[]{\text{1-1}} B  
+       \end{split}$
+       
+Let $\mathscr{K}$ be the set of cardinal numbers. We can define the binary relations $<_\mathscr{K}$ and  $\leq_\mathscr{K}$ on $\mathscr{K}$. Let $\mathfrak{m}$ and $\mathfrak{n}$ be cardinal numbers. Take any sets $A$ and $B$ such that $\mathscr{K}(A) = \mathfrak{m}$ and $\mathscr{K}(B) = \mathfrak{n}$. Then:
+
+$$\mathfrak{m} <_\mathscr{K} \mathfrak{n} \iff A < B$$
+$$\mathfrak{m} \leq_\mathscr{K} \mathfrak{n} \iff A \leq B$$
+__Theorem__ (_Cantor's Theorem_) $A < \mathscr{P}(A)$
+
+- $\theta(a) = \{a\}$ for all $a \in A$
+
+    + $\theta: A \xrightarrow[]{\text{1-1}} \mathscr{P}(A)$
+    
+- We need to prove that $A \not\approx \mathscr{P}(A) \iff \neg(\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))$
+
+    + Let as assume that $(\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))$
+    
+        + Therefore if $a \in A$ then $G(a)$ is a set. In that sense, $(\forall a)(a \in A \implies a \in G(a) \lor a \notin G(a))$
+        
+            + Let $B = \{b: b \in A \land b \notin G(b) \}$. We have that $B \neq \emptyset$ because there most be some $c \in A$ such that $G(c) = \emptyset$ where $c \notin \emptyset$
+
+                + $\begin{split}
+                    B \subset A & \iff B \in \mathscr{P}(A) \\
+                    & \implies (\exists x)(x \in A \land G(x) = B)  
+                    \end{split}$
+                    
+                    + If $x \in B$ then $x \notin G(x)$ but $G(x) = B$ so $x \notin G(x)$ where this is a contradiction
+                    
+                    + If $x \notin B$ then $x \notin G(x)$ so $x \in B$ where this is a contradiction
+                    
+        + The assumption $(\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))$ generates a contradiction so $\neg(\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))$
+        
+__Theorem__ (_Schröder–Bernstein Theorem_) $(A \leq B \land B \leq A) \implies A \approx B$ [See [@hinkis_proofs_2013] for a compilation of proofs of this theorem]
+
+- Let assume that $A \cap B = \emptyset$
+
+    + If this is not the case we could use $A_1 = A \times {0}$ and $B_1 = B \times {1}$ where 
+    $A_1 \cap B_1 = \emptyset$, $A_1 \approx A$ and $B_1 \approx B$
+    
+- $(A \leq B \land B \leq A) \iff F: A \xrightarrow[]{\text{1-1}} B \land G: B \xrightarrow[]{\text{1-1}} A$
+
+    + By a __B-thread__ we mean a function $f: \mathbb{P} \longrightarrow A \cup B$ such that:
+    
+        + $y_1 = f(1) \in B - \mathscr{R}(F)$
+        
+        + $f(n) \in B \implies f(n + 1) = G(f(n))$
+        
+        + $f(n) \in A \implies f(n + 1) = F(f(n))$
+        
+            + $\mathscr{D}(f) = \mathbb{P}$
+            
+            + $\mathscr{R}(f) \subseteq A \cup B$
+            
+            + $f$ is a function because $A \cap B = \emptyset$, $G$ is a function and $F$ is also a function  
+    
+    + Therefore a B-thread is an infinite sequence of points starting with a point $y_1 \in B \land y_1 \notin \mathscr{R}(F)$ and then using the functions $G$ and $F$ alternately
+            
+        + Let $W = \{x: x \in A \land (\exists f)(x \in \mathscr{R}(f)) \}$. Therefore $A = W \cup A - W$
+        
+            + If $f(1) \in B - \mathscr{R}(F)$ then $f(2) = G(f(1)) \in A$ so $G(f(1)) \in W$. Therefore $W \neq \emptyset$
+            
+                + In the case of $B = \emptyset$ we will have that $F: A \xrightarrow[]{\text{1-1}} \emptyset$ where $\mathscr{R}(F) = \emptyset$ so $F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset$ so there would be nothing to prove    
+            
+        + Let $H: A \longrightarrow B$ such that:
+            
+            + $H(x) = \begin{cases}
+                       G^{-1}(x) & \text{ if } x \in W \\
+                       F(x)      & \text{ if } x \in A - W
+                       \end{cases}$
+                           
+            + $\mathscr{D}(H) = W \cup A - W = A$
+                
+            + $\mathscr{R}(H) \subseteq B$
+                
+            + $H$ is a function because $W \cap A - W = \emptyset$, $G^{-1}$ is a function and $F$ is also a function
+                
+                + What we want to prove is that $H: A \xrightarrow[\text{onto}]{\text{1-1}} B$
+                    
+                    + Let's prove that $\mathscr{R}(H) = B$
+                        
+                        + If $b \in B$ then $G(b)$ and there will be two possible cases:
+                            
+                            + $\begin{split}
+                                G(b) \in W & \implies H(G(b)) = G^{-1}(G(b)) = b \\ 
+                                & \implies b \in \mathscr{R}(H)
+                                \end{split}$ 
+                                
+                            + $\begin{split}
+                                G(b) \in A - W & \implies (\exists x)(F(x) = b) \land G(b) \notin W\\
+                                & \implies x \in A \land b \notin W \\
+                                & \implies x \in A - W \\
+                                & \implies H(x) = b \\
+                                & \implies b \in \mathscr{R}(H)
+                                \end{split}$
+                                
+                            + Therefore $\mathscr{R}(H) = B$
+                            
+                        + Let's prove that $H(x) = H(y) \implies x = y$ which is equivalent to $\neg (H(x) = H(y) \land x \neq y)$
+                        
+                            + Suppose instead that $H(x) = H(y) \land x \neq y$
+                            
+                                + $\begin{split}
+                                    H(x) = H(y) \land x \neq y & \implies x \in W \land y \in A - W \\
+                                    & \implies G^{-1}(x) = F(y) \land y \notin W \\
+                                    & \implies G(G^{-1}(x)) = G(F(y)) \land y \notin W \\
+                                    & \implies x = G(F(y)) \land y \notin W \\
+                                    & \implies G(F(y)) \in W \land y \notin W \\
+                                    & \implies G(F(y)) \in \mathscr{R}(f) \land y \notin W \\
+                                    & \implies F(y) \in \mathscr{R}(f) \land y \notin W \\
+                                    & \implies y \in \mathscr{R}(f) \land y \notin W \\
+                                    & \implies y \in W \land y \notin W \\
+                                    & \implies \text{There is a contradiction}
+                                    \end{split}$
+                                    
+                                + Therefore $H(x) = H(y) \land x \neq y$ is false so $\neg (H(x) = H(y) \land x \neq y)$ is true 
+
+__Corollary__
+
+- $A \leq B \implies B \not < A$
+
+    + $\begin{split}
+        (A \leq B \implies B \not < A) & \iff (A \leq B \implies \neg(B < A)) \\
+        & \iff \neg(A \leq B \land \neg\neg(B < A)) \\
+        & \iff \neg(A \leq B \land B < A)
+        \end{split}$
+        
+        + Suppose instead that $A \leq B \land B < A$
+        
+            + $\begin{split}
+                A \leq B \land B < A & \iff A \leq B \land B \leq A \land A \not\approx B \\
+                & \iff A \approx B \land A \not\approx B \\
+                & \iff \text{There is a contradiction}
+                \end{split}$
+                
+            + Therefore $A \leq B \land B < A$ is false so $\neg(A \leq B \land B < A)$ is true
+            
+- $(A \leq B \land B < C) \implies A < C$
+
+    + $\begin{split}
+        A \leq B \land B < C & \iff A \leq B \land B \leq C \land B \not\approx C \\
+        & \implies A \leq C \land B \not\approx C \\
+        & \implies A \leq C \land (\neg(B \leq C) \lor \neg(C \leq B)) \\
+        & \implies A \leq C \land \neg(C \leq B)
+        \end{split}$
+        
+        + Suppose instead that $A \approx C$
+        
+            + $\begin{split}
+                A \approx C & \implies C \leq A \\
+                & \implies C \leq B
+                \end{split}$
+                
+                + However $A \leq B \land B < C$ implies $A \leq C \land \neg(C \leq B)$. Therefore if $A \leq B \land B < C$ it must be the case that $A \not\approx C$. Thus, we have that $A \leq C \land A \not\approx C$ which implies $A < C$
+                
+- $(A < B \land B \leq C) \implies A < C$
+
+    + $\begin{split}
+        A < B \land B \leq C & \iff A \leq B \land B \leq C \land A \not\approx B \\
+        & \implies A \leq C \land A \not\approx B \\
+        & \implies A \leq C \land (\neg(A \leq B) \lor \neg(B \leq A)) \\
+        & \implies A \leq C \land \neg(B \leq A)
+        \end{split}$
+        
+        + Suppose instead that $A \approx C$
+        
+            + $\begin{split}
+                A \approx C & \implies C \leq A \\
+                & \implies C < B \\
+                & \implies C < C
+                \end{split}$
+                
+                + However $C < C$ is false. Therefore if $A < B \land B \leq C$ it must be the case that $A \not\approx C$. Thus, we have that $A \leq C \land A \not\approx C$ which implies $A < C$
+                
+- $(A < B \land B < C) \implies A < C$
+
+    + $\begin{split}
+        A < B \land B < C & \implies A < B \land B \leq C \\
+        & \implies A < C
+        \end{split}$
+                   
 ## Equinumerous sets exercises and solutions
 
 1. If $A \approx \emptyset$, prove that $A = \emptyset$
@@ -99,9 +339,33 @@ __Definitions__ $$A \leq B \text{ means } (\exists F)(F: A \xrightarrow[]{\text{
                 (a,y) \in A \times \{ y \} & \implies \theta(a) = (a,y) \\
                 & \implies (a,y) \in \mathscr{R}(\theta) 
                 \end{split}$
-    
 
 3. Prove that there is no universal set $U$ of all sets. (Hint: $\mathscr{P}(U) \leq U$ since $\mathscr{P}(U) \subseteq U$. Use $A \leq B \implies B \not < A$ and $A < \mathscr{P}(A)$)
 
+    + Assume that there is universal set $U$ of all sets 
+
+        + $\begin{split}
+            \mathscr{P}(U) \subseteq U & \implies \mathscr{P}(U) \leq U \\
+            & \implies U \not < \mathscr{P}(U)
+            \end{split}$
+            
+        + Also by the _Cantor's Theorem_ $U < \mathscr{P}(U)$
+    
+            + Therefore we have that $U \not < \mathscr{P}(U) \land U < \mathscr{P}(U)$ which is a contradiction. Thus, by _reductio ad absurdum_ there is no universal set $U$ of all sets
+            
+__Observation__: Another apparently simple fact about sets is that for any sets $A$ and $B$ we have that $A \leq B$ or $B \leq A$.
+
+- In terms of cardinal numbers this reads as: for any cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$ then $\mathfrak{m} \leq_{\mathscr{K}} \mathfrak{n}$ or $\mathfrak{n} \leq_{\mathscr{K}} \mathfrak{m}$    
+
+This result is known as _Trichotomy Law_ and it turns out to be equivalent to a proposition of set theory known as _Axiom of Choice_.
+
+- A _choice function_ on a collection $A$ of nonempty sets is a function $F$ with $\mathscr{D}(F) = A$ such that $F(B) \in B$ for every $B \in A$
+
+    + For example if $A = \{ \{ 0 \}, \{ 1 \}, {0,1}\}$ then the possible choice functions are:
+    
+        + $F_1(\{ 0 \}) = 0 \in \{ 0 \}, F_1(\{ 1 \}) = 1 \in \{ 1 \}, F_1(\{ 0, 1 \}) = 0 \in \{ 0, 1 \}$
+        
+        + $F_2(\{ 0 \}) = 0 \in \{ 0 \}, F_2(\{ 1 \}) = 1 \in \{ 1 \}, F_2(\{ 0, 1 \}) = 1 \in \{ 0, 1 \}$
+    
 # Bibliography
 

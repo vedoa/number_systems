@@ -1745,6 +1745,174 @@ text-align: justify}
 </ul>
 <p>Two sets which are equinumerous are said to have the same <strong>cardinal number</strong>. We assume that each set <span class="math inline">\(A\)</span> has an associated cardinal number <span class="math inline">\(\mathscr{K}(A)\)</span>. Hence, <span class="math inline">\(\mathscr{K}(A) = \mathscr{K}(B) \iff A \approx B\)</span></p>
 <p><strong>Definitions</strong> <span class="math display">\[A \leq B \text{ means } (\exists F)(F: A \xrightarrow[]{\text{1-1}} B)\]</span> <span class="math display">\[A &lt; B \text{ means } A \leq B \land A \not\approx B\]</span></p>
+<p><strong>Theorem</strong></p>
+<ul>
+<li><p><span class="math inline">\(A \leq A\)</span></p>
+<ul>
+<li><span class="math inline">\(I_A: A \xrightarrow[]{\text{1-1}} A\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((A \leq B \land B \leq C) \implies A \leq C\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A \leq B \land B \leq C &amp; \iff F: A \xrightarrow[]{\text{1-1}} B \land F: B \xrightarrow[]{\text{1-1}} C \\  &amp; \implies F: A \xrightarrow[]{\text{1-1}} C  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \not&lt; A\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A \not&lt; A &amp; \iff \neg(A \leq B \land A \not\approx A) \\  &amp; \iff \neg(A \leq B) \lor \neg(A \not\approx A) \\  &amp; \iff \neg(\exists F)(F: A \xrightarrow[]{\text{1-1}} A) \lor A \approx A \\  &amp; \iff A \approx A  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \subseteq B \implies A \leq B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(I_A: A \xrightarrow[]{\text{1-1}} B\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{R}(I_A) = A \subseteq B\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(A \leq B \iff (A &lt; B \lor A \approx B)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A &lt; B \lor A \approx B &amp; \iff (A \leq B \land A \not\approx B) \lor A \approx B \\  &amp; \iff (A \leq B \lor A \approx B) \land (A \not\approx B \lor A \approx B) \\  &amp; \iff (A \leq B \lor A \approx B) \\  &amp; \iff (\exists F)(F: A \xrightarrow[]{\text{1-1}} B) \\  &amp; \iff A \leq B  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(A \leq B \iff (\exists W)(W \subseteq B \land A \approx W)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (\exists W)(W \subseteq B \land A \approx W)  &amp; \iff (\exists W)(W \subseteq B \land (\exists F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} W)) \\  &amp; \iff (\exists W)(\exists F)(\mathscr{R}(F) = W \subseteq B \land (F: A \xrightarrow[]{\text{1-1}} B)) \\  &amp; \iff A \leq B  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((A \leq B \land B \approx C) \implies A \leq C\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (A \leq B \land B \approx C) &amp; \iff F: A \xrightarrow[]{\text{1-1}} B \land G: B \xrightarrow[\text{onto}]{\text{1-1}} C \\  &amp; \implies G \circ F: A \xrightarrow[]{\text{1-1}} C  &amp; \iff A \leq C  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((A \leq B \land A \approx C) \implies C \leq B\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (A \leq B \land A \approx C) &amp; \iff F: A \xrightarrow[]{\text{1-1}} B \land G: A \xrightarrow[\text{onto}]{\text{1-1}} C \\  &amp; \iff F: A \xrightarrow[]{\text{1-1}} B \land G^{-1}: C \xrightarrow[\text{onto}]{\text{1-1}} A \\  &amp; \implies F \circ G^{-1}: C \xrightarrow[]{\text{1-1}} B  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p>Let <span class="math inline">\(\mathscr{K}\)</span> be the set of cardinal numbers. We can define the binary relations <span class="math inline">\(&lt;_\mathscr{K}\)</span> and <span class="math inline">\(\leq_\mathscr{K}\)</span> on <span class="math inline">\(\mathscr{K}\)</span>. Let <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> be cardinal numbers. Take any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> such that <span class="math inline">\(\mathscr{K}(A) = \mathfrak{m}\)</span> and <span class="math inline">\(\mathscr{K}(B) = \mathfrak{n}\)</span>. Then:</p>
+<p><span class="math display">\[\mathfrak{m} &lt;_\mathscr{K} \mathfrak{n} \iff A &lt; B\]</span> <span class="math display">\[\mathfrak{m} \leq_\mathscr{K} \mathfrak{n} \iff A \leq B\]</span> <strong>Theorem</strong> (<em>Cantor’s Theorem</em>) <span class="math inline">\(A &lt; \mathscr{P}(A)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\theta(a) = \{a\}\)</span> for all <span class="math inline">\(a \in A\)</span></p>
+<ul>
+<li><span class="math inline">\(\theta: A \xrightarrow[]{\text{1-1}} \mathscr{P}(A)\)</span></li>
+</ul></li>
+<li><p>We need to prove that <span class="math inline">\(A \not\approx \mathscr{P}(A) \iff \neg(\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))\)</span></p>
+<ul>
+<li><p>Let as assume that <span class="math inline">\((\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))\)</span></p>
+<ul>
+<li><p>Therefore if <span class="math inline">\(a \in A\)</span> then <span class="math inline">\(G(a)\)</span> is a set. In that sense, <span class="math inline">\((\forall a)(a \in A \implies a \in G(a) \lor a \notin G(a))\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{b: b \in A \land b \notin G(b) \}\)</span>. We have that <span class="math inline">\(B \neq \emptyset\)</span> because there most be some <span class="math inline">\(c \in A\)</span> such that <span class="math inline">\(G(c) = \emptyset\)</span> where <span class="math inline">\(c \notin \emptyset\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  B \subset A &amp; \iff B \in \mathscr{P}(A) \\  &amp; \implies (\exists x)(x \in A \land G(x) = B)  \end{split}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \notin G(x)\)</span> but <span class="math inline">\(G(x) = B\)</span> so <span class="math inline">\(x \notin G(x)\)</span> where this is a contradiction</p></li>
+<li><p>If <span class="math inline">\(x \notin B\)</span> then <span class="math inline">\(x \notin G(x)\)</span> so <span class="math inline">\(x \in B\)</span> where this is a contradiction</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>The assumption <span class="math inline">\((\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))\)</span> generates a contradiction so <span class="math inline">\(\neg(\exists G)(G: A \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{P}(A))\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> (<em>Schröder–Bernstein Theorem</em>) <span class="math inline">\((A \leq B \land B \leq A) \implies A \approx B\)</span> [See <span class="citation">(Hinkis <a href="#ref-hinkis_proofs_2013" role="doc-biblioref">2013</a>)</span> for a compilation of proofs of this theorem]</p>
+<ul>
+<li><p>Let assume that <span class="math inline">\(A \cap B = \emptyset\)</span></p>
+<ul>
+<li>If this is not the case we could use <span class="math inline">\(A_1 = A \times {0}\)</span> and <span class="math inline">\(B_1 = B \times {1}\)</span> where <span class="math inline">\(A_1 \cap B_1 = \emptyset\)</span>, <span class="math inline">\(A_1 \approx A\)</span> and <span class="math inline">\(B_1 \approx B\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((A \leq B \land B \leq A) \iff F: A \xrightarrow[]{\text{1-1}} B \land G: B \xrightarrow[]{\text{1-1}} A\)</span></p>
+<ul>
+<li><p>By a <strong>B-thread</strong> we mean a function <span class="math inline">\(f: \mathbb{P} \longrightarrow A \cup B\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(y_1 = f(1) \in B - \mathscr{R}(F)\)</span></p></li>
+<li><p><span class="math inline">\(f(n) \in B \implies f(n + 1) = G(f(n))\)</span></p></li>
+<li><p><span class="math inline">\(f(n) \in A \implies f(n + 1) = F(f(n))\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{D}(f) = \mathbb{P}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(f) \subseteq A \cup B\)</span></p></li>
+<li><p><span class="math inline">\(f\)</span> is a function because <span class="math inline">\(A \cap B = \emptyset\)</span>, <span class="math inline">\(G\)</span> is a function and <span class="math inline">\(F\)</span> is also a function</p></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore a B-thread is an infinite sequence of points starting with a point <span class="math inline">\(y_1 \in B \land y_1 \notin \mathscr{R}(F)\)</span> and then using the functions <span class="math inline">\(G\)</span> and <span class="math inline">\(F\)</span> alternately</p>
+<ul>
+<li><p>Let <span class="math inline">\(W = \{x: x \in A \land (\exists f)(x \in \mathscr{R}(f)) \}\)</span>. Therefore <span class="math inline">\(A = W \cup A - W\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(f(1) \in B - \mathscr{R}(F)\)</span> then <span class="math inline">\(f(2) = G(f(1)) \in A\)</span> so <span class="math inline">\(G(f(1)) \in W\)</span>. Therefore <span class="math inline">\(W \neq \emptyset\)</span></p>
+<ul>
+<li>In the case of <span class="math inline">\(B = \emptyset\)</span> we will have that <span class="math inline">\(F: A \xrightarrow[]{\text{1-1}} \emptyset\)</span> where <span class="math inline">\(\mathscr{R}(F) = \emptyset\)</span> so <span class="math inline">\(F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset\)</span> so there would be nothing to prove</li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(H: A \longrightarrow B\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(H(x) = \begin{cases}  G^{-1}(x) &amp; \text{ if } x \in W \\  F(x) &amp; \text{ if } x \in A - W  \end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{D}(H) = W \cup A - W = A\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(H) \subseteq B\)</span></p></li>
+<li><p><span class="math inline">\(H\)</span> is a function because <span class="math inline">\(W \cap A - W = \emptyset\)</span>, <span class="math inline">\(G^{-1}\)</span> is a function and <span class="math inline">\(F\)</span> is also a function</p>
+<ul>
+<li><p>What we want to prove is that <span class="math inline">\(H: A \xrightarrow[\text{onto}]{\text{1-1}} B\)</span></p>
+<ul>
+<li><p>Let’s prove that <span class="math inline">\(\mathscr{R}(H) = B\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(b \in B\)</span> then <span class="math inline">\(G(b)\)</span> and there will be two possible cases:</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  G(b) \in W &amp; \implies H(G(b)) = G^{-1}(G(b)) = b \\  &amp; \implies b \in \mathscr{R}(H)  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  G(b) \in A - W &amp; \implies (\exists x)(F(x) = b) \land G(b) \notin W\\  &amp; \implies x \in A \land b \notin W \\  &amp; \implies x \in A - W \\  &amp; \implies H(x) = b \\  &amp; \implies b \in \mathscr{R}(H)  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\(\mathscr{R}(H) = B\)</span></p></li>
+</ul></li>
+<li><p>Let’s prove that <span class="math inline">\(H(x) = H(y) \implies x = y\)</span> which is equivalent to <span class="math inline">\(\neg (H(x) = H(y) \land x \neq y)\)</span></p>
+<ul>
+<li><p>Suppose instead that <span class="math inline">\(H(x) = H(y) \land x \neq y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  H(x) = H(y) \land x \neq y &amp; \implies x \in W \land y \in A - W \\  &amp; \implies G^{-1}(x) = F(y) \land y \notin W \\  &amp; \implies G(G^{-1}(x)) = G(F(y)) \land y \notin W \\  &amp; \implies x = G(F(y)) \land y \notin W \\  &amp; \implies G(F(y)) \in W \land y \notin W \\  &amp; \implies G(F(y)) \in \mathscr{R}(f) \land y \notin W \\  &amp; \implies F(y) \in \mathscr{R}(f) \land y \notin W \\  &amp; \implies y \in \mathscr{R}(f) \land y \notin W \\  &amp; \implies y \in W \land y \notin W \\  &amp; \implies \text{There is a contradiction}  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\(H(x) = H(y) \land x \neq y\)</span> is false so <span class="math inline">\(\neg (H(x) = H(y) \land x \neq y)\)</span> is true</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Corollary</strong></p>
+<ul>
+<li><p><span class="math inline">\(A \leq B \implies B \not &lt; A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (A \leq B \implies B \not &lt; A) &amp; \iff (A \leq B \implies \neg(B &lt; A)) \\  &amp; \iff \neg(A \leq B \land \neg\neg(B &lt; A)) \\  &amp; \iff \neg(A \leq B \land B &lt; A)  \end{split}\)</span></p>
+<ul>
+<li><p>Suppose instead that <span class="math inline">\(A \leq B \land B &lt; A\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  A \leq B \land B &lt; A &amp; \iff A \leq B \land B \leq A \land A \not\approx B \\  &amp; \iff A \approx B \land A \not\approx B \\  &amp; \iff \text{There is a contradiction}  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\(A \leq B \land B &lt; A\)</span> is false so <span class="math inline">\(\neg(A \leq B \land B &lt; A)\)</span> is true</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((A \leq B \land B &lt; C) \implies A &lt; C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  A \leq B \land B &lt; C &amp; \iff A \leq B \land B \leq C \land B \not\approx C \\  &amp; \implies A \leq C \land B \not\approx C \\  &amp; \implies A \leq C \land (\neg(B \leq C) \lor \neg(C \leq B)) \\  &amp; \implies A \leq C \land \neg(C \leq B)  \end{split}\)</span></p>
+<ul>
+<li><p>Suppose instead that <span class="math inline">\(A \approx C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  A \approx C &amp; \implies C \leq A \\  &amp; \implies C \leq B  \end{split}\)</span></p>
+<ul>
+<li>However <span class="math inline">\(A \leq B \land B &lt; C\)</span> implies <span class="math inline">\(A \leq C \land \neg(C \leq B)\)</span>. Therefore if <span class="math inline">\(A \leq B \land B &lt; C\)</span> it must be the case that <span class="math inline">\(A \not\approx C\)</span>. Thus, we have that <span class="math inline">\(A \leq C \land A \not\approx C\)</span> which implies <span class="math inline">\(A &lt; C\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((A &lt; B \land B \leq C) \implies A &lt; C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  A &lt; B \land B \leq C &amp; \iff A \leq B \land B \leq C \land A \not\approx B \\  &amp; \implies A \leq C \land A \not\approx B \\  &amp; \implies A \leq C \land (\neg(A \leq B) \lor \neg(B \leq A)) \\  &amp; \implies A \leq C \land \neg(B \leq A)  \end{split}\)</span></p>
+<ul>
+<li><p>Suppose instead that <span class="math inline">\(A \approx C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  A \approx C &amp; \implies C \leq A \\  &amp; \implies C &lt; B \\  &amp; \implies C &lt; C  \end{split}\)</span></p>
+<ul>
+<li>However <span class="math inline">\(C &lt; C\)</span> is false. Therefore if <span class="math inline">\(A &lt; B \land B \leq C\)</span> it must be the case that <span class="math inline">\(A \not\approx C\)</span>. Thus, we have that <span class="math inline">\(A \leq C \land A \not\approx C\)</span> which implies <span class="math inline">\(A &lt; C\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((A &lt; B \land B &lt; C) \implies A &lt; C\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A &lt; B \land B &lt; C &amp; \implies A &lt; B \land B \leq C \\  &amp; \implies A &lt; C  \end{split}\)</span></li>
+</ul></li>
+</ul>
 </div>
 <div id="equinumerous-sets-exercises-and-solutions" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Equinumerous sets exercises and solutions</h2>
@@ -1766,13 +1934,41 @@ text-align: justify}
 </ul></li>
 </ul></li>
 </ul></li>
-<li><p>Prove that there is no universal set <span class="math inline">\(U\)</span> of all sets. (Hint: <span class="math inline">\(\mathscr{P}(U) \leq U\)</span> since <span class="math inline">\(\mathscr{P}(U) \subseteq U\)</span>. Use <span class="math inline">\(A \leq B \implies B \not &lt; A\)</span> and <span class="math inline">\(A &lt; \mathscr{P}(A)\)</span>)</p></li>
+<li><p>Prove that there is no universal set <span class="math inline">\(U\)</span> of all sets. (Hint: <span class="math inline">\(\mathscr{P}(U) \leq U\)</span> since <span class="math inline">\(\mathscr{P}(U) \subseteq U\)</span>. Use <span class="math inline">\(A \leq B \implies B \not &lt; A\)</span> and <span class="math inline">\(A &lt; \mathscr{P}(A)\)</span>)</p>
+<ul>
+<li><p>Assume that there is universal set <span class="math inline">\(U\)</span> of all sets</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{P}(U) \subseteq U &amp; \implies \mathscr{P}(U) \leq U \\  &amp; \implies U \not &lt; \mathscr{P}(U)  \end{split}\)</span></p></li>
+<li><p>Also by the <em>Cantor’s Theorem</em> <span class="math inline">\(U &lt; \mathscr{P}(U)\)</span></p>
+<ul>
+<li>Therefore we have that <span class="math inline">\(U \not &lt; \mathscr{P}(U) \land U &lt; \mathscr{P}(U)\)</span> which is a contradiction. Thus, by <em>reductio ad absurdum</em> there is no universal set <span class="math inline">\(U\)</span> of all sets</li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ol>
+<p><strong>Observation</strong>: Another apparently simple fact about sets is that for any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> we have that <span class="math inline">\(A \leq B\)</span> or <span class="math inline">\(B \leq A\)</span>.</p>
+<ul>
+<li>In terms of cardinal numbers this reads as: for any cardinal numbers <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> then <span class="math inline">\(\mathfrak{m} \leq_{\mathscr{K}} \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{n} \leq_{\mathscr{K}} \mathfrak{m}\)</span></li>
+</ul>
+<p>This result is known as <em>Trichotomy Law</em> and it turns out to be equivalent to a proposition of set theory known as <em>Axiom of Choice</em>.</p>
+<ul>
+<li><p>A <em>choice function</em> on a collection <span class="math inline">\(A\)</span> of nonempty sets is a function <span class="math inline">\(F\)</span> with <span class="math inline">\(\mathscr{D}(F) = A\)</span> such that <span class="math inline">\(F(B) \in B\)</span> for every <span class="math inline">\(B \in A\)</span></p>
+<ul>
+<li><p>For example if <span class="math inline">\(A = \{ \{ 0 \}, \{ 1 \}, {0,1}\}\)</span> then the possible choice functions are:</p>
+<ul>
+<li><p><span class="math inline">\(F_1(\{ 0 \}) = 0 \in \{ 0 \}, F_1(\{ 1 \}) = 1 \in \{ 1 \}, F_1(\{ 0, 1 \}) = 0 \in \{ 0, 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(F_2(\{ 0 \}) = 0 \in \{ 0 \}, F_2(\{ 1 \}) = 1 \in \{ 1 \}, F_2(\{ 0, 1 \}) = 1 \in \{ 0, 1 \}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
 <h1 class="unnumbered" number>Bibliography</h1>
 <div id="refs" class="references hanging-indent">
+<div id="ref-hinkis_proofs_2013">
+<p>Hinkis, Arie. 2013. <em>Proofs of the Cantor-Bernstein Theorem</em>. Basel: Springer Basel. <a href="https://doi.org/10.1007/978-3-0348-0224-6">https://doi.org/10.1007/978-3-0348-0224-6</a>.</p>
+</div>
 <div id="ref-mendelson_number_2008">
 <p>Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.</p>
 </div>
