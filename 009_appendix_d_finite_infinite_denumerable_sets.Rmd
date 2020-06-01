@@ -366,6 +366,99 @@ This result is known as _Trichotomy Law_ and it turns out to be equivalent to a 
         + $F_1(\{ 0 \}) = 0 \in \{ 0 \}, F_1(\{ 1 \}) = 1 \in \{ 1 \}, F_1(\{ 0, 1 \}) = 0 \in \{ 0, 1 \}$
         
         + $F_2(\{ 0 \}) = 0 \in \{ 0 \}, F_2(\{ 1 \}) = 1 \in \{ 1 \}, F_2(\{ 0, 1 \}) = 1 \in \{ 0, 1 \}$
+        
+        + In the example $A$ is a finite set where we will define later the meaning of $A$ being finite. What happen when $A$ is not finite? See for example [@houston-edwards_how_2017] of how the axiom of choice is used
+        
+__Notation__ If $n$ is a natural number, let $$P_n = \{k: k \in \mathbb{P} \land k \leq n \}$$
+For example $P_1 = \{ 1\}$, $P_2 = \{ 1,2 \}$ and $P_3 = \{ 1,2,3 \}$
+
+__Definition__ We say that $A$ is __finite__ if and only if $A = \emptyset$ or $(\exists n)(A \approx P_n)$
+
+__Definition__ We say that $A$ is __infinite__ if and only if $A$ is not finite:
+
+- $\begin{split}
+    A \text{ is not finite} & \iff \neg(A = \emptyset \lor (\exists n)(A \approx P_n) \\
+    & \iff A \neq \emptyset \land \neg(\exists n)(A \approx P_n) \\
+    & \iff A \neq \emptyset \land (\forall n)(\neg(\exists F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} P_n))
+    \end{split}$
+
+__Lemma__ $(\forall A)(A \subsetneq P_n \implies A \not\approx P_n)$
+
+- Some definitions and results before the proof 
+
+    + $S(P_n) = \{ A: A \subsetneq P_n \}$
     
+    + $S(P_{n+1}) = \mathscr{P}(P_n) \cup \bigcup_{S_i \in S(P_n)} S_i \cup \{n+1\}$
+
+        + For example:
+    
+            + $S(P_1) = \{ \emptyset \}$
+            
+            + $\mathscr{P}(P_1) = \{ \emptyset, \{ 1 \} \}$
+      
+            + $S(P_2) = \{ \emptyset, \{ 1 \}, \{ 2 \} \} = \{ \emptyset, \{ 1 \} \} \cup \{\{ 2 \} \} = \mathscr{P}(P_1) \cup \bigcup_{S_i \in S(P_1)} S_i \cup \{2\}$
+      
+    + $S(P_n) \subseteq S(P_{n+1})$
+    
+- Proof by induction
+
+    + _Base step_ $(n = 1)$
+
+        + $P_1 = \{ 1 \} \land \mathscr{P}(P_1) - P_1 = \{ \emptyset \}$
+    
+            + $\emptyset \not\approx P_1$ because if $(\exists F)(F: \emptyset \longrightarrow P_1)$ then $\mathscr{R}(F) = \emptyset \neq P_1$. Therefore $F$ is not a function from $\emptyset$ onto $P_1$
+        
+    + _Induction hypothesis_ $(n = k)$:
+        + $\begin{split}
+            (\forall A)(A \subsetneq P_{k + 1} \implies A \not\approx P_{k + 1}) & \iff (\forall A)\neg(A \subsetneq P_{k+1} \land A \approx P_{k+1}) \\
+            & \iff (\forall A)\neg(A \subsetneq P_{k+1} \land P_{k+1} \approx A) \\
+            & \iff (\forall A)\neg(A \subsetneq P_{k+1} \land (\exists F)(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A))
+            \end{split}$
+
+    + _Induction step_ $(n = k + 1)$:
+
+        + Suppose instead that:
+    
+            + $\begin{split}
+               \neg(\forall A)(A \subsetneq P_{k + 1} \implies A \not\approx P_{k + 1}) & \iff (\exists A)(A \subsetneq P_{k+1} \land A \approx P_{k+1}) \\
+               & \iff (\exists A)(A \subsetneq P_{k+1} \land P_{k+1} \approx A) \\
+               & \iff (\exists A)(A \subsetneq P_{k+1} \land (\exists F)(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A))
+            \end{split}$
+            
+                + __Case 1__: $F(i) \neq k + 1$ $(\forall i)(i \in P_{k+1} \land i \leq k)$
+                
+                    + If $F(i) \neq k + 1$ and $F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A$ then the restriction of $F$ to $P_n$ is a one-one correspondence between $P_n$ and $A - \{ n + 1 \} = S_i \in S(P_n)$
+                    
+                        + The restriction of $F$ to $P_n$ is a function G such that $\mathscr{D} = P_n$, and $(\forall i)(i \in P_n \implies G(i) = F(i))$. Also because $F(i) \neq k + 1$ we have that $\mathscr{R}(G) = A - {n + 1} = S_i \in S(P_n)$. Therefore $G$ is a one-one correspondence between $P_n$ and $A - \{ n + 1 \}$   
+                        
+                        + This result contradicts the induction hypothesis so it is not the case that $F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A$ when $F(i) \neq k + 1$ $(\forall i)(i \in P_{k+1} \land i \leq k)
+                        
+                + __Case 2__: $F(i) = k + 1$ for some $i \leq k$ that belongs to $A$
+                
+                    + We can define the following function
+                    
+                        + $H(j) = \begin{cases}
+                                   F(i)     & \text{if } j \leq k \land j \neq i \\
+                                   F(k + 1) & \text{if } j = i
+                                   \end{cases}$
+                                   
+                        + We have that $\mathscr{D}(H) = P_n$, $\mathscr{R}(H) = A - \{ n + 1 \} = S_i \in S(P_n)$ and is a one-one correspondence between $P_n$ and $A - \{ n + 1 \} = S_i \in S(P_n)$ because $F$ is a one-one correspondence.
+                        
+                            + This result contradicts the induction hypothesis so it is not the case that $F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A$ when $F(i) \neq k + 1$ for some $i \leq k$ that belongs to $A$
+                        
+__Theorem__ If $B$ is finite then $B$ is not equinumerous with any of its proper subsets.
+
+- If $B = \emptyset$ then $B$ has no proper subsets
+
+- If $B = \emptyset$ and finite then:
+
+    + $\begin{split}
+        B \text{ is finite} \land (\exists C)(C \subsetneq B)& \iff (\exists n)(B \approx P_n) \land (\exists C)(C \subsetneq B) \\
+        & \iff (\exists n)(F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n) \land (\exists C)(C \subsetneq B) \\
+        & \implies \text{The restriction } F \text{ to } C \text{ is a subset of } P_n
+        & \implies C \not\approx P_n \\
+        & \implies C \not\approx B
+        \end{split}$
+
 # Bibliography
 

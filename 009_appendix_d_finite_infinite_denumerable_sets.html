@@ -1958,7 +1958,81 @@ text-align: justify}
 <ul>
 <li><p><span class="math inline">\(F_1(\{ 0 \}) = 0 \in \{ 0 \}, F_1(\{ 1 \}) = 1 \in \{ 1 \}, F_1(\{ 0, 1 \}) = 0 \in \{ 0, 1 \}\)</span></p></li>
 <li><p><span class="math inline">\(F_2(\{ 0 \}) = 0 \in \{ 0 \}, F_2(\{ 1 \}) = 1 \in \{ 1 \}, F_2(\{ 0, 1 \}) = 1 \in \{ 0, 1 \}\)</span></p></li>
+<li><p>In the example <span class="math inline">\(A\)</span> is a finite set where we will define later the meaning of <span class="math inline">\(A\)</span> being finite. What happen when <span class="math inline">\(A\)</span> is not finite? See for example <span class="citation">(“How the Axiom of Choice Gives Sizeless Sets” <a href="#ref-houston-edwards_how_2017" role="doc-biblioref">2017</a>)</span> of how the axiom of choice is used</p></li>
 </ul></li>
+</ul></li>
+</ul>
+<p><strong>Notation</strong> If <span class="math inline">\(n\)</span> is a natural number, let <span class="math display">\[P_n = \{k: k \in \mathbb{P} \land k \leq n \}\]</span> For example <span class="math inline">\(P_1 = \{ 1\}\)</span>, <span class="math inline">\(P_2 = \{ 1,2 \}\)</span> and <span class="math inline">\(P_3 = \{ 1,2,3 \}\)</span></p>
+<p><strong>Definition</strong> We say that <span class="math inline">\(A\)</span> is <strong>finite</strong> if and only if <span class="math inline">\(A = \emptyset\)</span> or <span class="math inline">\((\exists n)(A \approx P_n)\)</span></p>
+<p><strong>Definition</strong> We say that <span class="math inline">\(A\)</span> is <strong>infinite</strong> if and only if <span class="math inline">\(A\)</span> is not finite:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A \text{ is not finite} &amp; \iff \neg(A = \emptyset \lor (\exists n)(A \approx P_n) \\  &amp; \iff A \neq \emptyset \land \neg(\exists n)(A \approx P_n) \\  &amp; \iff A \neq \emptyset \land (\forall n)(\neg(\exists F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} P_n))  \end{split}\)</span></li>
+</ul>
+<p><strong>Lemma</strong> <span class="math inline">\((\forall A)(A \subsetneq P_n \implies A \not\approx P_n)\)</span></p>
+<ul>
+<li><p>Some definitions and results before the proof</p>
+<ul>
+<li><p><span class="math inline">\(S(P_n) = \{ A: A \subsetneq P_n \}\)</span></p></li>
+<li><p><span class="math inline">\(S(P_{n+1}) = \mathscr{P}(P_n) \cup \bigcup_{S_i \in S(P_n)} S_i \cup \{n+1\}\)</span></p>
+<ul>
+<li><p>For example:</p>
+<ul>
+<li><p><span class="math inline">\(S(P_1) = \{ \emptyset \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{P}(P_1) = \{ \emptyset, \{ 1 \} \}\)</span></p></li>
+<li><p><span class="math inline">\(S(P_2) = \{ \emptyset, \{ 1 \}, \{ 2 \} \} = \{ \emptyset, \{ 1 \} \} \cup \{\{ 2 \} \} = \mathscr{P}(P_1) \cup \bigcup_{S_i \in S(P_1)} S_i \cup \{2\}\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(S(P_n) \subseteq S(P_{n+1})\)</span></p></li>
+</ul></li>
+<li><p>Proof by induction</p>
+<ul>
+<li><p><em>Base step</em> <span class="math inline">\((n = 1)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(P_1 = \{ 1 \} \land \mathscr{P}(P_1) - P_1 = \{ \emptyset \}\)</span></p>
+<ul>
+<li><span class="math inline">\(\emptyset \not\approx P_1\)</span> because if <span class="math inline">\((\exists F)(F: \emptyset \longrightarrow P_1)\)</span> then <span class="math inline">\(\mathscr{R}(F) = \emptyset \neq P_1\)</span>. Therefore <span class="math inline">\(F\)</span> is not a function from <span class="math inline">\(\emptyset\)</span> onto <span class="math inline">\(P_1\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><em>Induction hypothesis</em> <span class="math inline">\((n = k)\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (\forall A)(A \subsetneq P_{k + 1} \implies A \not\approx P_{k + 1}) &amp; \iff (\forall A)\neg(A \subsetneq P_{k+1} \land A \approx P_{k+1}) \\  &amp; \iff (\forall A)\neg(A \subsetneq P_{k+1} \land P_{k+1} \approx A) \\  &amp; \iff (\forall A)\neg(A \subsetneq P_{k+1} \land (\exists F)(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A))  \end{split}\)</span></li>
+</ul></li>
+<li><p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>:</p>
+<ul>
+<li><p>Suppose instead that:</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \neg(\forall A)(A \subsetneq P_{k + 1} \implies A \not\approx P_{k + 1}) &amp; \iff (\exists A)(A \subsetneq P_{k+1} \land A \approx P_{k+1}) \\  &amp; \iff (\exists A)(A \subsetneq P_{k+1} \land P_{k+1} \approx A) \\  &amp; \iff (\exists A)(A \subsetneq P_{k+1} \land (\exists F)(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A))  \end{split}\)</span></p>
+<ul>
+<li><p><strong>Case 1</strong>: <span class="math inline">\(F(i) \neq k + 1\)</span> <span class="math inline">\((\forall i)(i \in P_{k+1} \land i \leq k)\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(F(i) \neq k + 1\)</span> and <span class="math inline">\(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A\)</span> then the restriction of <span class="math inline">\(F\)</span> to <span class="math inline">\(P_n\)</span> is a one-one correspondence between <span class="math inline">\(P_n\)</span> and <span class="math inline">\(A - \{ n + 1 \} = S_i \in S(P_n)\)</span></p>
+<ul>
+<li><p>The restriction of <span class="math inline">\(F\)</span> to <span class="math inline">\(P_n\)</span> is a function G such that <span class="math inline">\(\mathscr{D} = P_n\)</span>, and <span class="math inline">\((\forall i)(i \in P_n \implies G(i) = F(i))\)</span>. Also because <span class="math inline">\(F(i) \neq k + 1\)</span> we have that <span class="math inline">\(\mathscr{R}(G) = A - {n + 1} = S_i \in S(P_n)\)</span>. Therefore <span class="math inline">\(G\)</span> is a one-one correspondence between <span class="math inline">\(P_n\)</span> and <span class="math inline">\(A - \{ n + 1 \}\)</span></p></li>
+<li><p>This result contradicts the induction hypothesis so it is not the case that <span class="math inline">\(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A\)</span> when <span class="math inline">\(F(i) \neq k + 1\)</span> $(i)(i P_{k+1} i k)</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Case 2</strong>: <span class="math inline">\(F(i) = k + 1\)</span> for some <span class="math inline">\(i \leq k\)</span> that belongs to <span class="math inline">\(A\)</span></p>
+<ul>
+<li><p>We can define the following function</p>
+<ul>
+<li><p><span class="math inline">\(H(j) = \begin{cases}  F(i) &amp; \text{if } j \leq k \land j \neq i \\  F(k + 1) &amp; \text{if } j = i  \end{cases}\)</span></p></li>
+<li><p>We have that <span class="math inline">\(\mathscr{D}(H) = P_n\)</span>, <span class="math inline">\(\mathscr{R}(H) = A - \{ n + 1 \} = S_i \in S(P_n)\)</span> and is a one-one correspondence between <span class="math inline">\(P_n\)</span> and <span class="math inline">\(A - \{ n + 1 \} = S_i \in S(P_n)\)</span> because <span class="math inline">\(F\)</span> is a one-one correspondence.</p>
+<ul>
+<li>This result contradicts the induction hypothesis so it is not the case that <span class="math inline">\(F: P_{k+1} \xrightarrow[\text{onto}]{\text{1-1}} A\)</span> when <span class="math inline">\(F(i) \neq k + 1\)</span> for some <span class="math inline">\(i \leq k\)</span> that belongs to <span class="math inline">\(A\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> If <span class="math inline">\(B\)</span> is finite then <span class="math inline">\(B\)</span> is not equinumerous with any of its proper subsets.</p>
+<ul>
+<li><p>If <span class="math inline">\(B = \emptyset\)</span> then <span class="math inline">\(B\)</span> has no proper subsets</p></li>
+<li><p>If <span class="math inline">\(B = \emptyset\)</span> and finite then:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  B \text{ is finite} \land (\exists C)(C \subsetneq B)&amp; \iff (\exists n)(B \approx P_n) \land (\exists C)(C \subsetneq B) \\  &amp; \iff (\exists n)(F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n) \land (\exists C)(C \subsetneq B) \\  &amp; \implies \text{The restriction } F \text{ to } C \text{ is a subset of } P_n  &amp; \implies C \not\approx P_n \\  &amp; \implies C \not\approx B  \end{split}\)</span></li>
 </ul></li>
 </ul>
 </div>
@@ -1968,6 +2042,9 @@ text-align: justify}
 <div id="refs" class="references hanging-indent">
 <div id="ref-hinkis_proofs_2013">
 <p>Hinkis, Arie. 2013. <em>Proofs of the Cantor-Bernstein Theorem</em>. Basel: Springer Basel. <a href="https://doi.org/10.1007/978-3-0348-0224-6">https://doi.org/10.1007/978-3-0348-0224-6</a>.</p>
+</div>
+<div id="ref-houston-edwards_how_2017">
+<p>“How the Axiom of Choice Gives Sizeless Sets.” 2017. <em>PBS Infinite Series</em>. <a href="https://youtu.be/AhVR7gFMKNg">https://youtu.be/AhVR7gFMKNg</a>.</p>
 </div>
 <div id="ref-mendelson_number_2008">
 <p>Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.</p>
