@@ -37,9 +37,7 @@ knitr::opts_chunk$set(echo      = TRUE,
 
 This section is based on [@mendelson_number_2008, Appendix D, pp 293-313]
 
-## Equinumerous sets
-
-$A$ and $B$ are __equinumerous__ if and only if $(\exists)(F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} B)$. We write $A \approx B$ to mean that $A$ and $B$ are equinumerous
+- $A$ and $B$ are __equinumerous__ if and only if $(\exists)(F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} B)$. We write $A \approx B$ to mean that $A$ and $B$ are equinumerous
 
 __Theorem__ 
 
@@ -307,52 +305,6 @@ __Corollary__
         & \implies A < C
         \end{split}$
                    
-## Equinumerous sets exercises and solutions
-
-1. If $A \approx \emptyset$, prove that $A = \emptyset$
-
-    + $\begin{split}
-        A \approx \emptyset & \iff F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset \\
-        & \implies \mathscr{D}(F) = A \land \mathscr{D}(F) = \emptyset \land F \subseteq \mathscr{D}(F) \times \mathscr{R}(F) = \emptyset \\
-        & \implies A = \{y: (\exists x)((x,y) \in F) \} \land F = \emptyset \\
-        & \implies A = \{y: (\exists x)((x,y) \in \emptyset) \} \\
-        & \implies A = \emptyset
-        \end{split}$
-
-2. Prove $A \approx A \times \{ y \}$ (Hint: Let $\theta(x) = (x,y)$ for all $x$ in $A$)
-
-    + $\begin{split}
-        \theta(a) = \theta(b) & \implies (a,y) = (b, y) \\
-        & \implies a = b \land y = y \\
-        & \implies a = b
-        \end{split}$
-        
-    + $\mathscr{R}(\theta) = A \times \{ y \}$
-        
-        + $\mathscr{R}(\theta) = \{ (a,y): (\exists x)(\theta(x) = (a,y)) \}$
-    
-        + $A \times \{ y \} = \{ (a,y): a \in A \land y \in \{ y \} \}$
-        
-            + $\mathscr{R}(\theta) \subseteq A \times \{ y \}$
-
-            + $\begin{split}
-                (a,y) \in A \times \{ y \} & \implies \theta(a) = (a,y) \\
-                & \implies (a,y) \in \mathscr{R}(\theta) 
-                \end{split}$
-
-3. Prove that there is no universal set $U$ of all sets. (Hint: $\mathscr{P}(U) \leq U$ since $\mathscr{P}(U) \subseteq U$. Use $A \leq B \implies B \not < A$ and $A < \mathscr{P}(A)$)
-
-    + Assume that there is universal set $U$ of all sets 
-
-        + $\begin{split}
-            \mathscr{P}(U) \subseteq U & \implies \mathscr{P}(U) \leq U \\
-            & \implies U \not < \mathscr{P}(U)
-            \end{split}$
-            
-        + Also by the _Cantor's Theorem_ $U < \mathscr{P}(U)$
-    
-            + Therefore we have that $U \not < \mathscr{P}(U) \land U < \mathscr{P}(U)$ which is a contradiction. Thus, by _reductio ad absurdum_ there is no universal set $U$ of all sets
-            
 __Observation__: Another apparently simple fact about sets is that for any sets $A$ and $B$ we have that $A \leq B$ or $B \leq A$.
 
 - In terms of cardinal numbers this reads as: for any cardinal numbers $\mathfrak{m}$ and $\mathfrak{n}$ then $\mathfrak{m} \leq_{\mathscr{K}} \mathfrak{n}$ or $\mathfrak{n} \leq_{\mathscr{K}} \mathfrak{m}$    
@@ -455,10 +407,264 @@ __Theorem__ If $B$ is finite then $B$ is not equinumerous with any of its proper
     + $\begin{split}
         B \text{ is finite} \land (\exists C)(C \subsetneq B)& \iff (\exists n)(B \approx P_n) \land (\exists C)(C \subsetneq B) \\
         & \iff (\exists n)(F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n) \land (\exists C)(C \subsetneq B) \\
-        & \implies \text{The restriction } F \text{ to } C \text{ is a subset of } P_n
+        & \implies \text{The restriction } F \text{ to } C \text{ is a proper subset of } P_n \text{ and its range is equinumerous with } C \\
         & \implies C \not\approx P_n \\
         & \implies C \not\approx B
         \end{split}$
+
+__Corollary__
+
+- $n \neq k \implies P_n \not\approx P_k$
+
+    + $\begin{split}
+        n \neq k & \iff n > k \lor k > n \\
+        & \implies P_k \subseteq P_n \lor P_n \subseteq P_k \\
+        & \implies P_k \approx P_n
+        \end{split}$ 
+
+- If $B$ is finite, then either $B = \emptyset$ or there is a unique positive integer $n$ such that $B \approx P_n$
+
+    + $\begin{split}
+        B \text{ is finite} 
+        & \iff B = \emptyset \lor (\exists n)(B \approx P_n)
+        \end{split}$
+        
+        + $\begin{split}
+            (\exists n)(B \approx P_n) \land (\exists k)(B \approx P_k) \land (n \neq k \lor n = k)
+            & \implies (B \approx P_n \land B \approx P_k \land n \neq k) \lor (B \approx P_n \land B \approx P_k \land n = k) \\ 
+            & \implies (B \approx P_n \land B \approx P_k \land P_n \not\approx P_k) \lor (B \approx P_n \land B \approx P_k \land P_n \approx P_k) \\
+            & \implies B \approx P_n \land B \approx P_k \land P_n \approx P_k \\
+            & \implies n = k \\
+            & \implies (\exists n!)(B \approx P_n)
+            \end{split}$
+
+__Terminology and convention__
+
+- If $B \approx P_n$, we say that __$B$ has $n$ elements__, or that __$n$ is the number of elements in B__
+
+- We assign the following cardinal numbers:
+
+    + $\mathscr{K}(\emptyset) = 0$
+    
+    + $\mathscr{K}(P_n) = n$
+    
+        + Thus, if $B$ has $n$ elements, then $\mathscr{K}(B) = n$
+        
+__Theorem__
+
+- If $B$ is finite so is $B \cup {y}$
+
+    + $\begin{split}
+        B \text{ is finite} 
+        & \iff B = \emptyset \lor (\exists n)(B \approx P_n) \\ 
+        & \implies B \cup \emptyset = \{y \} \lor (\exists (n + 1))(B \cup \{y \} \approx P_{n + 1}) \\
+        & \implies (\exists 1)(B \approx P_1) \lor (\exists (n + 1))(B \cup \{ y \} \approx P_{n + 1}) \\
+        & \implies B \cup \{ y \} \text{ is finite} 
+        \end{split}$
+        
+- If $B$ is finite and $D \subseteq B$ then $D$ is finite
+
+    + If $B = \emptyset$ then $D = \emptyset$ so $D$ is finite
+    
+        + If $D \subset B$ and $D = \emptyset$ then $D$ is finite
+        
+        + Let $D \subset B$ and $D \neq \emptyset$
+    
+            + If $(\exists n)(B \approx P_n)$ then $F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n$
+    
+                + Let $G$ be the restriction of $F$ to $D$
+        
+                    + $\mathscr{D}(G) = D$
+            
+                    + $(\forall x)(x \in D \implies G(x) = F(x))$
+            
+                    + $\mathscr{R}(G) \subseteq P_n$
+                    
+                        + Also $\mathscr{R}(G) \neq \emptyset$ because $D \neq \emptyset$ and $B \neq
+                        \emptyset$
+                        
+                            + Now we need to prove that $(\forall E)(E \in \mathscr{P}(P_n) \implies E \text{ is finite})$
+                            
+                                + _Base step_ $(n = 1)$
+                                
+                                    + $\mathscr{P}(P_n) = \{ \emptyset, \{ 1 \} \}$ where $\emptyset$ and $\{ 1 \}$ are finite
+                                
+                                + _Induction hypothesis_ $(n = k)$:
+                                
+                                    + $(\forall E)(E \in \mathscr{P}(P_k) \implies E \text{ is finite})$
+                                    
+                                + _Induction step_ $(n = k + 1)$:
+                                
+                                    + $\mathscr{P}(P_{k + 1}) = \mathscr{P}(P_{k}) \cup \bigcup_{E_i \in \mathscr{P}(P_{k})} E_i \cup \{ k + 1 \}$
+                                    
+                                        + By the induction hypothesis if $E_i \in \mathscr{P}(P_{k})$ then $E_i$ is finite
+                                        + Also if $E_i$ is finite then $E_i \cup \{ k + 1 \}$ is finite
+                                            + Therefore $(\forall E)(E \in \mathscr{P}(P_{k+1}) \implies E \text{ is finite})$ is true
+                                            
+                    + With the abbove results $\mathscr{R}(G) \subseteq P_n$ implies that \mathscr{R}(G) is finite
+                    
+                        + $D \approx \mathscr{R}(G)$ and $(\exists m)(\mathscr{R}(G) \approx P_m)$
+                        
+                            + $(\exists m)(D \approx P_m)$ so $D$ is finite
+                            
+- If $B$ is finite and $D \leq B$ then $D$ is finite
+
+    + $\begin{split}
+        B \text{ is finite} \land D \leq B 
+        & \iff B = \emptyset \lor (\exists n)(B \approx P_n) \land F: D \xrightarrow[]{\text{1-1}} B \\
+        & \iff (B = \emptyset \land F: D \xrightarrow[]{\text{1-1}} B) \lor ((\exists n)(B \approx P_n) \land F: D \xrightarrow[]{\text{1-1}} B)) \\ 
+        & \implies B = D = \emptyset \lor ((\exists n)(B \approx P_n) \land D \approx \mathscr{R}(F) \land \mathscr{R}(F) \subseteq B) \\
+        & \implies D = \emptyset \lor (\exists m)(D \approx P_m) \\
+        & \implies D \text{ is finite} 
+        \end{split}$
+        
+__Theorem__ $\mathbb{P}$ is equinumerous with a proper subset subset of itself
+
+- $\mathbb{P} - \{ 1 \} \subsetneq \mathbb{P}$
+
+- $\varphi(n) = n + 1$
+
+    + $\mathscr{D}(\varphi) = \mathbb{P}$
+    
+    + $\mathscr{R}(\varphi) \subseteq \mathbb{P} - \{ 1 \}$
+    
+    + $\varphi$ is a function 
+
+        + $\begin{split} 
+            \varphi(n) = \varphi(n) & \implies m + 1 = n + 1 \\
+            & \implies m = n
+            \end{split}$
+            
+        + $\begin{split}
+            z \in \mathbb{P} & \implies \varphi(z-1) = z \land (z-1) \in \mathbb{P} \\ 
+            & \implies z \in \mathscr{R}(\varphi) 
+            \end{split}$
+            
+__Corollary__ $\mathbb{P}$ is infinite
+
+- $\begin{split}
+    (B \text{ is finite} \implies (\forall C)(C \subsetneq B \implies C \not\approx B)) & \iff
+    (\neg(\forall C)(C \subsetneq B \implies C \not\approx B) \implies B \text{ is not finite}) \\
+    & \iff ((\exists C)\neg(C \subsetneq B \implies C \not\approx B) \implies B \text{ is infinite}) \\
+    & \iff ((\exists C)(C \subsetneq B \land C \approx B) \implies B \text{ is infinite})
+    \end{split}$
+    
+    + $\mathbb{P} - \{ 1 \} \subsetneq \mathbb{P}$ and $\mathbb{P} - \{ 1 \} \approx \mathbb{P}$ so $\mathbb{P}$ is infinite
+    
+__Definition__ A set $B$ is said to be __denumerable__ if and only if $B \approx \mathbb{P}$
+
+- $B \approx \mathbb{P} \iff F: \mathbb{P} \xrightarrow[\text{onto}]{\text{1-1}} B$
+
+    + Let $G$ be the restriction of $F$ to $\mathbb{P} - \{ 1 \}$
+    
+    + $\mathscr{D}(G) = \mathbb{P} - \{ 1 \}$
+    
+    + $(\forall g)(x \in \mathbb{P} - \{ 1 \} \implies G(x) = F(x))$
+    
+    + $\mathscr{R}(G) \subsetneq B$ because if $b \in B \land F(1) = b$ then $b \notin \mathscr{R}(G)$  
+    
+        + $G: \mathbb{P} - \{ 1 \} \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{R}(G)$
+        
+            + $\mathbb{P} - \{ 1 \} \approx \mathscr{R}(G)$
+            
+- Therefore we have that $B \approx \mathbb{P}$, $\mathbb{P} \approx \mathbb{P} - \{ 1 \}$,
+$\mathbb{P} - \{ 1 \} \approx \mathscr{R}(G)$ and $\mathscr{R}(G) \subsetneq B$
+
+    + $B \approx \mathscr{R}(G)$ and $\mathscr{R}(G) \subsetneq B$
+    
+        + $B$ is infinite
+        
+            + Thus, any denumerable set is infinite
+        
+        
+# Finite, infinite and denumerable sets exercises and solutions
+
+1. If $A \approx \emptyset$, prove that $A = \emptyset$
+
+    + $\begin{split}
+        A \approx \emptyset & \iff F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset \\
+        & \implies \mathscr{D}(F) = A \land \mathscr{D}(F) = \emptyset \land F \subseteq \mathscr{D}(F) \times \mathscr{R}(F) = \emptyset \\
+        & \implies A = \{y: (\exists x)((x,y) \in F) \} \land F = \emptyset \\
+        & \implies A = \{y: (\exists x)((x,y) \in \emptyset) \} \\
+        & \implies A = \emptyset
+        \end{split}$
+
+2. Prove $A \approx A \times \{ y \}$ (Hint: Let $\theta(x) = (x,y)$ for all $x$ in $A$)
+
+    + $\begin{split}
+        \theta(a) = \theta(b) & \implies (a,y) = (b, y) \\
+        & \implies a = b \land y = y \\
+        & \implies a = b
+        \end{split}$
+        
+    + $\mathscr{R}(\theta) = A \times \{ y \}$
+        
+        + $\mathscr{R}(\theta) = \{ (a,y): (\exists x)(\theta(x) = (a,y)) \}$
+    
+        + $A \times \{ y \} = \{ (a,y): a \in A \land y \in \{ y \} \}$
+        
+            + $\mathscr{R}(\theta) \subseteq A \times \{ y \}$
+
+            + $\begin{split}
+                (a,y) \in A \times \{ y \} & \implies \theta(a) = (a,y) \\
+                & \implies (a,y) \in \mathscr{R}(\theta) 
+                \end{split}$
+
+3. Prove that there is no universal set $U$ of all sets. (Hint: $\mathscr{P}(U) \leq U$ since $\mathscr{P}(U) \subseteq U$. Use $A \leq B \implies B \not < A$ and $A < \mathscr{P}(A)$)
+
+    + Assume that there is universal set $U$ of all sets 
+
+        + $\begin{split}
+            \mathscr{P}(U) \subseteq U & \implies \mathscr{P}(U) \leq U \\
+            & \implies U \not < \mathscr{P}(U)
+            \end{split}$
+            
+        + Also by the _Cantor's Theorem_ $U < \mathscr{P}(U)$
+    
+            + Therefore we have that $U \not < \mathscr{P}(U) \land U < \mathscr{P}(U)$ which is a contradiction. Thus, by _reductio ad absurdum_ there is no universal set $U$ of all sets
+
+4. If $D$ is infinite and $D \subseteq B$, prove that $B$ is infinite
+
+    + $\begin{split}
+        (B \text{ is finite} \land D \subseteq B \implies D \text{ is finite})
+        & \iff (D \text{ is not finite}  \implies (B \text{ is not finite} \lor \neg(D \subseteq B))) \\
+        & \iff (D \text{ is infinite}  \implies (B \text{ is infinite} \lor \neg(D \subseteq B))) \\
+        & \implies (D \text{ is infinite}  \implies B \text{ is infinite}) \\
+        & \implies B \text{ is infinite}
+        \end{split}$
+        
+5. If $D$ is infinite and $D \leq B$, prove that $B$ is infinite
+
+    + $\begin{split}
+        (B \text{ is finite} \land D \leq B \implies D \text{ is finite})
+        & \iff (D \text{ is not finite}  \implies (B \text{ is not finite} \lor \neg(D \leq B))) \\
+        & \iff (D \text{ is infinite}  \implies (B \text{ is infinite} \lor \neg(D \leq B))) \\
+        & \implies (D \text{ is infinite}  \implies B \text{ is infinite}) \\
+        & \implies B \text{ is infinite}
+        \end{split}$
+        
+6. Assume $B$ is finite, $D \subsetneq B$, $\mathscr{K}(B) = n$ and $\mathscr{K}(D) = k$. Prove $k < n$
+
+- Initially we have that $k = n \lor k > n \lor k < n$
+
+    + $\begin{split}
+        k = n \land \mathscr{K}(D) = k \land \mathscr{K}(B) = n \land D \subsetneq B & \implies P_k = P_n \land D \approx P_k \land P_n \approx B \land D \not\approx B\\
+        & \implies D \approx B \land D \not\approx B \\
+        & \implies \text{There is a contradiction} 
+        \end{split}$
+        
+    + $\begin{split}
+        k > n \land \mathscr{K}(D) = k \land D \subsetneq B \land \mathscr{K}(B) = n & \implies P_n \subsetneq P_k  \land P_k \approx D \land D \leq B \land B \approx P_n \\
+        & \implies P_n < P_k \land P_k \leq D \land D \leq B \land B \leq P_n \\
+        & \implies P_n < D \land D \leq P_n \\
+        & \implies P_n < P_n
+        \end{split}$
+        
+        + Therefore it is not the case that $k > n$ because $P_n < P_n$ is not true 
+        
+    + Because $k = n$ and $k > n$ are not true then $k < n$ must be true
+    
+7. 
 
 # Bibliography
 

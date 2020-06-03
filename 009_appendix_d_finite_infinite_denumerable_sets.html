@@ -1707,11 +1707,8 @@ summary {
 
 <div id="TOC">
 <ul>
-<li><a href="#finite-infinite-and-denumerable-sets"><span class="toc-section-number">1</span> Finite, infinite and denumerable sets</a>
-<ul>
-<li><a href="#equinumerous-sets"><span class="toc-section-number">1.1</span> Equinumerous sets</a></li>
-<li><a href="#equinumerous-sets-exercises-and-solutions"><span class="toc-section-number">1.2</span> Equinumerous sets exercises and solutions</a></li>
-</ul></li>
+<li><a href="#finite-infinite-and-denumerable-sets"><span class="toc-section-number">1</span> Finite, infinite and denumerable sets</a></li>
+<li><a href="#finite-infinite-and-denumerable-sets-exercises-and-solutions"><span class="toc-section-number">2</span> Finite, infinite and denumerable sets exercises and solutions</a></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
 </div>
@@ -1725,9 +1722,9 @@ text-align: justify}
 <div id="finite-infinite-and-denumerable-sets" class="section level1" number="1">
 <h1 number="1"><span class="header-section-number">1</span> Finite, infinite and denumerable sets</h1>
 <p>This section is based on <span class="citation">(Mendelson <a href="#ref-mendelson_number_2008" role="doc-biblioref">2008</a>, Appendix D, pp 293-313)</span></p>
-<div id="equinumerous-sets" class="section level2" number="1.1">
-<h2 number="1.1"><span class="header-section-number">1.1</span> Equinumerous sets</h2>
-<p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>equinumerous</strong> if and only if <span class="math inline">\((\exists)(F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} B)\)</span>. We write <span class="math inline">\(A \approx B\)</span> to mean that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equinumerous</p>
+<ul>
+<li><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>equinumerous</strong> if and only if <span class="math inline">\((\exists)(F)(F: A \xrightarrow[\text{onto}]{\text{1-1}} B)\)</span>. We write <span class="math inline">\(A \approx B\)</span> to mean that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are equinumerous</li>
+</ul>
 <p><strong>Theorem</strong></p>
 <ul>
 <li><p><span class="math inline">\(A \approx A\)</span></p>
@@ -1913,39 +1910,6 @@ text-align: justify}
 <li><span class="math inline">\(\begin{split}  A &lt; B \land B &lt; C &amp; \implies A &lt; B \land B \leq C \\  &amp; \implies A &lt; C  \end{split}\)</span></li>
 </ul></li>
 </ul>
-</div>
-<div id="equinumerous-sets-exercises-and-solutions" class="section level2" number="1.2">
-<h2 number="1.2"><span class="header-section-number">1.2</span> Equinumerous sets exercises and solutions</h2>
-<ol style="list-style-type: decimal">
-<li><p>If <span class="math inline">\(A \approx \emptyset\)</span>, prove that <span class="math inline">\(A = \emptyset\)</span></p>
-<ul>
-<li><span class="math inline">\(\begin{split}  A \approx \emptyset &amp; \iff F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset \\  &amp; \implies \mathscr{D}(F) = A \land \mathscr{D}(F) = \emptyset \land F \subseteq \mathscr{D}(F) \times \mathscr{R}(F) = \emptyset \\  &amp; \implies A = \{y: (\exists x)((x,y) \in F) \} \land F = \emptyset \\  &amp; \implies A = \{y: (\exists x)((x,y) \in \emptyset) \} \\  &amp; \implies A = \emptyset  \end{split}\)</span></li>
-</ul></li>
-<li><p>Prove <span class="math inline">\(A \approx A \times \{ y \}\)</span> (Hint: Let <span class="math inline">\(\theta(x) = (x,y)\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(A\)</span>)</p>
-<ul>
-<li><p><span class="math inline">\(\begin{split}  \theta(a) = \theta(b) &amp; \implies (a,y) = (b, y) \\  &amp; \implies a = b \land y = y \\  &amp; \implies a = b  \end{split}\)</span></p></li>
-<li><p><span class="math inline">\(\mathscr{R}(\theta) = A \times \{ y \}\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\mathscr{R}(\theta) = \{ (a,y): (\exists x)(\theta(x) = (a,y)) \}\)</span></p></li>
-<li><p><span class="math inline">\(A \times \{ y \} = \{ (a,y): a \in A \land y \in \{ y \} \}\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\mathscr{R}(\theta) \subseteq A \times \{ y \}\)</span></p></li>
-<li><p><span class="math inline">\(\begin{split}  (a,y) \in A \times \{ y \} &amp; \implies \theta(a) = (a,y) \\  &amp; \implies (a,y) \in \mathscr{R}(\theta)  \end{split}\)</span></p></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><p>Prove that there is no universal set <span class="math inline">\(U\)</span> of all sets. (Hint: <span class="math inline">\(\mathscr{P}(U) \leq U\)</span> since <span class="math inline">\(\mathscr{P}(U) \subseteq U\)</span>. Use <span class="math inline">\(A \leq B \implies B \not &lt; A\)</span> and <span class="math inline">\(A &lt; \mathscr{P}(A)\)</span>)</p>
-<ul>
-<li><p>Assume that there is universal set <span class="math inline">\(U\)</span> of all sets</p>
-<ul>
-<li><p><span class="math inline">\(\begin{split}  \mathscr{P}(U) \subseteq U &amp; \implies \mathscr{P}(U) \leq U \\  &amp; \implies U \not &lt; \mathscr{P}(U)  \end{split}\)</span></p></li>
-<li><p>Also by the <em>Cantor’s Theorem</em> <span class="math inline">\(U &lt; \mathscr{P}(U)\)</span></p>
-<ul>
-<li>Therefore we have that <span class="math inline">\(U \not &lt; \mathscr{P}(U) \land U &lt; \mathscr{P}(U)\)</span> which is a contradiction. Thus, by <em>reductio ad absurdum</em> there is no universal set <span class="math inline">\(U\)</span> of all sets</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ol>
 <p><strong>Observation</strong>: Another apparently simple fact about sets is that for any sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> we have that <span class="math inline">\(A \leq B\)</span> or <span class="math inline">\(B \leq A\)</span>.</p>
 <ul>
 <li>In terms of cardinal numbers this reads as: for any cardinal numbers <span class="math inline">\(\mathfrak{m}\)</span> and <span class="math inline">\(\mathfrak{n}\)</span> then <span class="math inline">\(\mathfrak{m} \leq_{\mathscr{K}} \mathfrak{n}\)</span> or <span class="math inline">\(\mathfrak{n} \leq_{\mathscr{K}} \mathfrak{m}\)</span></li>
@@ -2032,10 +1996,202 @@ text-align: justify}
 <li><p>If <span class="math inline">\(B = \emptyset\)</span> then <span class="math inline">\(B\)</span> has no proper subsets</p></li>
 <li><p>If <span class="math inline">\(B = \emptyset\)</span> and finite then:</p>
 <ul>
-<li><span class="math inline">\(\begin{split}  B \text{ is finite} \land (\exists C)(C \subsetneq B)&amp; \iff (\exists n)(B \approx P_n) \land (\exists C)(C \subsetneq B) \\  &amp; \iff (\exists n)(F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n) \land (\exists C)(C \subsetneq B) \\  &amp; \implies \text{The restriction } F \text{ to } C \text{ is a subset of } P_n  &amp; \implies C \not\approx P_n \\  &amp; \implies C \not\approx B  \end{split}\)</span></li>
+<li><span class="math inline">\(\begin{split}  B \text{ is finite} \land (\exists C)(C \subsetneq B)&amp; \iff (\exists n)(B \approx P_n) \land (\exists C)(C \subsetneq B) \\  &amp; \iff (\exists n)(F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n) \land (\exists C)(C \subsetneq B) \\  &amp; \implies \text{The restriction } F \text{ to } C \text{ is a proper subset of } P_n \text{ and its range is equinumerous with } C \\  &amp; \implies C \not\approx P_n \\  &amp; \implies C \not\approx B  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Corollary</strong></p>
+<ul>
+<li><p><span class="math inline">\(n \neq k \implies P_n \not\approx P_k\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  n \neq k &amp; \iff n &gt; k \lor k &gt; n \\  &amp; \implies P_k \subseteq P_n \lor P_n \subseteq P_k \\  &amp; \implies P_k \approx P_n  \end{split}\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(B\)</span> is finite, then either <span class="math inline">\(B = \emptyset\)</span> or there is a unique positive integer <span class="math inline">\(n\)</span> such that <span class="math inline">\(B \approx P_n\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  B \text{ is finite}  &amp; \iff B = \emptyset \lor (\exists n)(B \approx P_n)  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (\exists n)(B \approx P_n) \land (\exists k)(B \approx P_k) \land (n \neq k \lor n = k)  &amp; \implies (B \approx P_n \land B \approx P_k \land n \neq k) \lor (B \approx P_n \land B \approx P_k \land n = k) \\  &amp; \implies (B \approx P_n \land B \approx P_k \land P_n \not\approx P_k) \lor (B \approx P_n \land B \approx P_k \land P_n \approx P_k) \\  &amp; \implies B \approx P_n \land B \approx P_k \land P_n \approx P_k \\  &amp; \implies n = k \\  &amp; \implies (\exists n!)(B \approx P_n)  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Terminology and convention</strong></p>
+<ul>
+<li><p>If <span class="math inline">\(B \approx P_n\)</span>, we say that <strong><span class="math inline">\(B\)</span> has <span class="math inline">\(n\)</span> elements</strong>, or that <strong><span class="math inline">\(n\)</span> is the number of elements in B</strong></p></li>
+<li><p>We assign the following cardinal numbers:</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{K}(\emptyset) = 0\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{K}(P_n) = n\)</span></p>
+<ul>
+<li>Thus, if <span class="math inline">\(B\)</span> has <span class="math inline">\(n\)</span> elements, then <span class="math inline">\(\mathscr{K}(B) = n\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong></p>
+<ul>
+<li><p>If <span class="math inline">\(B\)</span> is finite so is <span class="math inline">\(B \cup {y}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  B \text{ is finite}  &amp; \iff B = \emptyset \lor (\exists n)(B \approx P_n) \\  &amp; \implies B \cup \emptyset = \{y \} \lor (\exists (n + 1))(B \cup \{y \} \approx P_{n + 1}) \\  &amp; \implies (\exists 1)(B \approx P_1) \lor (\exists (n + 1))(B \cup \{ y \} \approx P_{n + 1}) \\  &amp; \implies B \cup \{ y \} \text{ is finite}  \end{split}\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(B\)</span> is finite and <span class="math inline">\(D \subseteq B\)</span> then <span class="math inline">\(D\)</span> is finite</p>
+<ul>
+<li><p>If <span class="math inline">\(B = \emptyset\)</span> then <span class="math inline">\(D = \emptyset\)</span> so <span class="math inline">\(D\)</span> is finite</p>
+<ul>
+<li><p>If <span class="math inline">\(D \subset B\)</span> and <span class="math inline">\(D = \emptyset\)</span> then <span class="math inline">\(D\)</span> is finite</p></li>
+<li><p>Let <span class="math inline">\(D \subset B\)</span> and <span class="math inline">\(D \neq \emptyset\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\((\exists n)(B \approx P_n)\)</span> then <span class="math inline">\(F: B \xrightarrow[\text{onto}]{\text{1-1}} P_n\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(G\)</span> be the restriction of <span class="math inline">\(F\)</span> to <span class="math inline">\(D\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{D}(G) = D\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(x \in D \implies G(x) = F(x))\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(G) \subseteq P_n\)</span></p>
+<ul>
+<li><p>Also <span class="math inline">\(\mathscr{R}(G) \neq \emptyset\)</span> because <span class="math inline">\(D \neq \emptyset\)</span> and <span class="math inline">\(B \neq  \emptyset\)</span></p>
+<ul>
+<li><p>Now we need to prove that <span class="math inline">\((\forall E)(E \in \mathscr{P}(P_n) \implies E \text{ is finite})\)</span></p>
+<ul>
+<li><p><em>Base step</em> <span class="math inline">\((n = 1)\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathscr{P}(P_n) = \{ \emptyset, \{ 1 \} \}\)</span> where <span class="math inline">\(\emptyset\)</span> and <span class="math inline">\(\{ 1 \}\)</span> are finite</li>
+</ul></li>
+<li><p><em>Induction hypothesis</em> <span class="math inline">\((n = k)\)</span>:</p>
+<ul>
+<li><span class="math inline">\((\forall E)(E \in \mathscr{P}(P_k) \implies E \text{ is finite})\)</span></li>
+</ul></li>
+<li><p><em>Induction step</em> <span class="math inline">\((n = k + 1)\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{P}(P_{k + 1}) = \mathscr{P}(P_{k}) \cup \bigcup_{E_i \in \mathscr{P}(P_{k})} E_i \cup \{ k + 1 \}\)</span></p>
+<ul>
+<li>By the induction hypothesis if <span class="math inline">\(E_i \in \mathscr{P}(P_{k})\)</span> then <span class="math inline">\(E_i\)</span> is finite</li>
+<li>Also if <span class="math inline">\(E_i\)</span> is finite then <span class="math inline">\(E_i \cup \{ k + 1 \}\)</span> is finite
+<ul>
+<li>Therefore <span class="math inline">\((\forall E)(E \in \mathscr{P}(P_{k+1}) \implies E \text{ is finite})\)</span> is true</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>With the abbove results <span class="math inline">\(\mathscr{R}(G) \subseteq P_n\)</span> implies that (G) is finite</p>
+<ul>
+<li><p><span class="math inline">\(D \approx \mathscr{R}(G)\)</span> and <span class="math inline">\((\exists m)(\mathscr{R}(G) \approx P_m)\)</span></p>
+<ul>
+<li><span class="math inline">\((\exists m)(D \approx P_m)\)</span> so <span class="math inline">\(D\)</span> is finite</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(B\)</span> is finite and <span class="math inline">\(D \leq B\)</span> then <span class="math inline">\(D\)</span> is finite</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  B \text{ is finite} \land D \leq B  &amp; \iff B = \emptyset \lor (\exists n)(B \approx P_n) \land F: D \xrightarrow[]{\text{1-1}} B \\  &amp; \iff (B = \emptyset \land F: D \xrightarrow[]{\text{1-1}} B) \lor ((\exists n)(B \approx P_n) \land F: D \xrightarrow[]{\text{1-1}} B)) \\  &amp; \implies B = D = \emptyset \lor ((\exists n)(B \approx P_n) \land D \approx \mathscr{R}(F) \land \mathscr{R}(F) \subseteq B) \\  &amp; \implies D = \emptyset \lor (\exists m)(D \approx P_m) \\  &amp; \implies D \text{ is finite}  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> <span class="math inline">\(\mathbb{P}\)</span> is equinumerous with a proper subset subset of itself</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{P} - \{ 1 \} \subsetneq \mathbb{P}\)</span></p></li>
+<li><p><span class="math inline">\(\varphi(n) = n + 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{D}(\varphi) = \mathbb{P}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(\varphi) \subseteq \mathbb{P} - \{ 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> is a function</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \varphi(n) = \varphi(n) &amp; \implies m + 1 = n + 1 \\  &amp; \implies m = n  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  z \in \mathbb{P} &amp; \implies \varphi(z-1) = z \land (z-1) \in \mathbb{P} \\  &amp; \implies z \in \mathscr{R}(\varphi)  \end{split}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Corollary</strong> <span class="math inline">\(\mathbb{P}\)</span> is infinite</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (B \text{ is finite} \implies (\forall C)(C \subsetneq B \implies C \not\approx B)) &amp; \iff  (\neg(\forall C)(C \subsetneq B \implies C \not\approx B) \implies B \text{ is not finite}) \\  &amp; \iff ((\exists C)\neg(C \subsetneq B \implies C \not\approx B) \implies B \text{ is infinite}) \\  &amp; \iff ((\exists C)(C \subsetneq B \land C \approx B) \implies B \text{ is infinite})  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathbb{P} - \{ 1 \} \subsetneq \mathbb{P}\)</span> and <span class="math inline">\(\mathbb{P} - \{ 1 \} \approx \mathbb{P}\)</span> so <span class="math inline">\(\mathbb{P}\)</span> is infinite</li>
+</ul></li>
+</ul>
+<p><strong>Definition</strong> A set <span class="math inline">\(B\)</span> is said to be <strong>denumerable</strong> if and only if <span class="math inline">\(B \approx \mathbb{P}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \approx \mathbb{P} \iff F: \mathbb{P} \xrightarrow[\text{onto}]{\text{1-1}} B\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(G\)</span> be the restriction of <span class="math inline">\(F\)</span> to <span class="math inline">\(\mathbb{P} - \{ 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{D}(G) = \mathbb{P} - \{ 1 \}\)</span></p></li>
+<li><p><span class="math inline">\((\forall g)(x \in \mathbb{P} - \{ 1 \} \implies G(x) = F(x))\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(G) \subsetneq B\)</span> because if <span class="math inline">\(b \in B \land F(1) = b\)</span> then <span class="math inline">\(b \notin \mathscr{R}(G)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(G: \mathbb{P} - \{ 1 \} \xrightarrow[\text{onto}]{\text{1-1}} \mathscr{R}(G)\)</span></p>
+<ul>
+<li><span class="math inline">\(\mathbb{P} - \{ 1 \} \approx \mathscr{R}(G)\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore we have that <span class="math inline">\(B \approx \mathbb{P}\)</span>, <span class="math inline">\(\mathbb{P} \approx \mathbb{P} - \{ 1 \}\)</span>, <span class="math inline">\(\mathbb{P} - \{ 1 \} \approx \mathscr{R}(G)\)</span> and <span class="math inline">\(\mathscr{R}(G) \subsetneq B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \approx \mathscr{R}(G)\)</span> and <span class="math inline">\(\mathscr{R}(G) \subsetneq B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B\)</span> is infinite</p>
+<ul>
+<li>Thus, any denumerable set is infinite</li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
+<div id="finite-infinite-and-denumerable-sets-exercises-and-solutions" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Finite, infinite and denumerable sets exercises and solutions</h1>
+<ol style="list-style-type: decimal">
+<li><p>If <span class="math inline">\(A \approx \emptyset\)</span>, prove that <span class="math inline">\(A = \emptyset\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  A \approx \emptyset &amp; \iff F: A \xrightarrow[\text{onto}]{\text{1-1}} \emptyset \\  &amp; \implies \mathscr{D}(F) = A \land \mathscr{D}(F) = \emptyset \land F \subseteq \mathscr{D}(F) \times \mathscr{R}(F) = \emptyset \\  &amp; \implies A = \{y: (\exists x)((x,y) \in F) \} \land F = \emptyset \\  &amp; \implies A = \{y: (\exists x)((x,y) \in \emptyset) \} \\  &amp; \implies A = \emptyset  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(A \approx A \times \{ y \}\)</span> (Hint: Let <span class="math inline">\(\theta(x) = (x,y)\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(A\)</span>)</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \theta(a) = \theta(b) &amp; \implies (a,y) = (b, y) \\  &amp; \implies a = b \land y = y \\  &amp; \implies a = b  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\mathscr{R}(\theta) = A \times \{ y \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{R}(\theta) = \{ (a,y): (\exists x)(\theta(x) = (a,y)) \}\)</span></p></li>
+<li><p><span class="math inline">\(A \times \{ y \} = \{ (a,y): a \in A \land y \in \{ y \} \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{R}(\theta) \subseteq A \times \{ y \}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (a,y) \in A \times \{ y \} &amp; \implies \theta(a) = (a,y) \\  &amp; \implies (a,y) \in \mathscr{R}(\theta)  \end{split}\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Prove that there is no universal set <span class="math inline">\(U\)</span> of all sets. (Hint: <span class="math inline">\(\mathscr{P}(U) \leq U\)</span> since <span class="math inline">\(\mathscr{P}(U) \subseteq U\)</span>. Use <span class="math inline">\(A \leq B \implies B \not &lt; A\)</span> and <span class="math inline">\(A &lt; \mathscr{P}(A)\)</span>)</p>
+<ul>
+<li><p>Assume that there is universal set <span class="math inline">\(U\)</span> of all sets</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \mathscr{P}(U) \subseteq U &amp; \implies \mathscr{P}(U) \leq U \\  &amp; \implies U \not &lt; \mathscr{P}(U)  \end{split}\)</span></p></li>
+<li><p>Also by the <em>Cantor’s Theorem</em> <span class="math inline">\(U &lt; \mathscr{P}(U)\)</span></p>
+<ul>
+<li>Therefore we have that <span class="math inline">\(U \not &lt; \mathscr{P}(U) \land U &lt; \mathscr{P}(U)\)</span> which is a contradiction. Thus, by <em>reductio ad absurdum</em> there is no universal set <span class="math inline">\(U\)</span> of all sets</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(D\)</span> is infinite and <span class="math inline">\(D \subseteq B\)</span>, prove that <span class="math inline">\(B\)</span> is infinite</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (B \text{ is finite} \land D \subseteq B \implies D \text{ is finite})  &amp; \iff (D \text{ is not finite} \implies (B \text{ is not finite} \lor \neg(D \subseteq B))) \\  &amp; \iff (D \text{ is infinite} \implies (B \text{ is infinite} \lor \neg(D \subseteq B))) \\  &amp; \implies (D \text{ is infinite} \implies B \text{ is infinite}) \\  &amp; \implies B \text{ is infinite}  \end{split}\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(D\)</span> is infinite and <span class="math inline">\(D \leq B\)</span>, prove that <span class="math inline">\(B\)</span> is infinite</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (B \text{ is finite} \land D \leq B \implies D \text{ is finite})  &amp; \iff (D \text{ is not finite} \implies (B \text{ is not finite} \lor \neg(D \leq B))) \\  &amp; \iff (D \text{ is infinite} \implies (B \text{ is infinite} \lor \neg(D \leq B))) \\  &amp; \implies (D \text{ is infinite} \implies B \text{ is infinite}) \\  &amp; \implies B \text{ is infinite}  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(B\)</span> is finite, <span class="math inline">\(D \subsetneq B\)</span>, <span class="math inline">\(\mathscr{K}(B) = n\)</span> and <span class="math inline">\(\mathscr{K}(D) = k\)</span>. Prove <span class="math inline">\(k &lt; n\)</span></p></li>
+</ol>
+<ul>
+<li><p>Initially we have that <span class="math inline">\(k = n \lor k &gt; n \lor k &lt; n\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  k = n \land \mathscr{K}(D) = k \land \mathscr{K}(B) = n \land D \subsetneq B &amp; \implies P_k = P_n \land D \approx P_k \land P_n \approx B \land D \not\approx B\\  &amp; \implies D \approx B \land D \not\approx B \\  &amp; \implies \text{There is a contradiction}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  k &gt; n \land \mathscr{K}(D) = k \land D \subsetneq B \land \mathscr{K}(B) = n &amp; \implies P_n \subsetneq P_k \land P_k \approx D \land D \leq B \land B \approx P_n \\  &amp; \implies P_n &lt; P_k \land P_k \leq D \land D \leq B \land B \leq P_n \\  &amp; \implies P_n &lt; D \land D \leq P_n \\  &amp; \implies P_n &lt; P_n  \end{split}\)</span></p>
+<ul>
+<li>Therefore it is not the case that <span class="math inline">\(k &gt; n\)</span> because <span class="math inline">\(P_n &lt; P_n\)</span> is not true</li>
+</ul></li>
+<li><p>Because <span class="math inline">\(k = n\)</span> and <span class="math inline">\(k &gt; n\)</span> are not true then <span class="math inline">\(k &lt; n\)</span> must be true</p></li>
+</ul></li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
+<li></li>
+</ol>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
 <h1 class="unnumbered" number>Bibliography</h1>
