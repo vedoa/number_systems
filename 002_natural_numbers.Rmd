@@ -1,0 +1,85 @@
+---
+title: "The natural numbers"
+date: 2020-06-02 23:02:09
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    highlight: tango
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 2
+bibliography: number_systems.bib
+link-citations: yes
+---
+
+<style>
+
+body {
+text-align: justify}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo      = TRUE, 
+                      warning   = FALSE, 
+                      message   = FALSE,
+                      fig.align = "center")
+```
+
+```{r libraries}
+
+
+```
+
+# The natural numbers
+
+This section is based on [@mendelson_number_2008, Chapter 2, pp 53-85]
+
+- We define the natural numbers as the positive integers, $\mathbb{P} = \{1, 2, 3, \ldots \}$
+
+- In this part we present an axiomatic development of the natural numbers
+
+## Peano systems
+
+By a __peano system__ we mean
+
+- A set $P$
+
+- A particular element $1 \in P$
+
+- A singularity operation $S$ on $P$ $(S: P \longrightarrow P) \land \mathscr{D}(S) = P$
+
+Such that the following axioms are satisfied:
+
+- $(P1) \; 1$ is not the _successor_ $S(x)$ of any object $x \in P$:
+
+    + $(\forall x)(x \in P \implies S(x) \neq 1)$
+    
+        + In that sense $1 \notin \mathscr{R}(S)$ so $\mathscr{R}(S) \subsetneq P$
+
+- $(P2)$ Different objects in $P$ have different successors:
+
+    + $(\forall x)(\forall y)((x \in P \land y \in P \land x \neq y) \implies S(x) \neq S(y))$
+    
+        + $S$ is one-one $(S: P \xrightarrow[]{\text{1-1}} P)$
+
+- $(P3)$ _Principle of Mathematical Induction_: Any subset of $P$ containing $1$ and closed under the successor operation must be identical with $P$
+
+    + $(\forall B)((B \subseteq P \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in P)) \implies B = P)$
+
+Such a peano system will be denoted by the ordered triple $(P, S, 1)$
+
+- $P$ is called the __underlying set__
+
+- $S$ the __successor operation__
+
+- $1$ the __distinguished element__
+
+    + The distinguished element $1$ need not to have anything to do with the ordinary integer 1
+
+### Example of peano systems
+
+# Bibliography
+
