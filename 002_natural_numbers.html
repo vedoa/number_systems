@@ -1710,6 +1710,7 @@ summary {
 <li><a href="#the-natural-numbers"><span class="toc-section-number">1</span> The natural numbers</a>
 <ul>
 <li><a href="#peano-systems"><span class="toc-section-number">1.1</span> Peano systems</a></li>
+<li><a href="#peano-systems-exercises-and-solutions"><span class="toc-section-number">1.2</span> Peano systems exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -1768,7 +1769,124 @@ text-align: justify}
 </ul>
 <div id="example-of-peano-systems" class="section level3" number="1.1.1">
 <h3 number="1.1.1"><span class="header-section-number">1.1.1</span> Example of peano systems</h3>
+<ul>
+<li><p>Let <span class="math inline">\(P = \mathbb{P}\)</span>, <span class="math inline">\(1\)</span> the ordinary integer <span class="math inline">\(1\)</span> and <span class="math inline">\(S\)</span> equal to <span class="math inline">\(S(x) = x + 1\)</span> for all <span class="math inline">\(x \in \mathbb{P}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x + 1 \neq 1\)</span></p></li>
+<li><p>If <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(x + 1 \neq y + 1\)</span> so <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+<li><p>Let <span class="math inline">\(B \subseteq \mathbb{P}\)</span>, <span class="math inline">\(1 \in B\)</span> and assume that if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x + 1 \in B\)</span></p>
+<ul>
+<li>If <span class="math inline">\(1 \in B\)</span> then <span class="math inline">\(1 + 1 = 2 \in B\)</span>, <span class="math inline">\(2 + 1 = 3 \in B\)</span> and so on, where any <span class="math inline">\(n \in \mathbb{P}\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(P = \mathbb{N}\)</span> where <span class="math inline">\(\mathbb{N} = \mathbb{P} \cup \{ 0 \}\)</span>, <span class="math inline">\(1\)</span> the ordinary integer <span class="math inline">\(0\)</span> and <span class="math inline">\(S\)</span> equal to <span class="math inline">\(S(x) = x + 1\)</span> for all <span class="math inline">\(x \in \mathbb{N}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x + 1 \neq 0\)</span></p></li>
+<li><p>If <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(x + 1 \neq y + 1\)</span> so <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+<li><p>Let <span class="math inline">\(B \subseteq \mathbb{N}\)</span>, <span class="math inline">\(0 \in B\)</span> and assume that if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x + 1 \in B\)</span></p>
+<ul>
+<li>If <span class="math inline">\(0 \in B\)</span> then <span class="math inline">\(0 + 1 = 1 \in B\)</span>, <span class="math inline">\(1 + 1 = 2 \in B\)</span> and so on, where any <span class="math inline">\(n \in \mathbb{N}\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(P = \{ z: z \geq 1000 \land z \in \mathbb{Z} \}\)</span>, <span class="math inline">\(1\)</span> the ordinary integer <span class="math inline">\(1000\)</span> and <span class="math inline">\(S\)</span> equal to <span class="math inline">\(S(x) = x + 1\)</span> for all <span class="math inline">\(x \in \{ z: z \geq 1000 \land z \in \mathbb{Z} \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x + 1 \neq 1000\)</span></p></li>
+<li><p>If <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(x + 1 \neq y + 1\)</span> so <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+<li><p>Let <span class="math inline">\(B \subseteq \{ z: z \geq 1000 \land z \in \mathbb{Z} \}\)</span>, <span class="math inline">\(1000 \in B\)</span> and assume that if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x + 1 \in B\)</span></p>
+<ul>
+<li>If <span class="math inline">\(1000 \in B\)</span> then <span class="math inline">\(1000 + 1 = 1001 \in B\)</span>, <span class="math inline">\(1001 + 1 = 1002 \in B\)</span> and so on, where any <span class="math inline">\(x \in \{ z: z \geq 1000 \land z \in \mathbb{Z} \}\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(P = \mathbb{Z}^-\)</span>, <span class="math inline">\(1\)</span> the ordinary integer <span class="math inline">\(-1\)</span> and <span class="math inline">\(S\)</span> equal to <span class="math inline">\(S(x) = x - 1\)</span> for all <span class="math inline">\(x \in \mathbb{Z}^-\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x - 1 \neq -1\)</span></p></li>
+<li><p>If <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(x - 1 \neq y - 1\)</span> so <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+<li><p>Let <span class="math inline">\(B \subseteq \mathbb{Z}^-\)</span>, <span class="math inline">\(-1 \in B\)</span> and assume that if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x - 1 \in B\)</span></p>
+<ul>
+<li>If <span class="math inline">\(-1 \in B\)</span> then <span class="math inline">\(-1 - 1 = -2 \in B\)</span>, <span class="math inline">\(-2 -1 = -3 \in B\)</span> and so on, where any <span class="math inline">\(z \in \mathbb{Z}^-\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(P = \{z: z = 2n \land n \in \mathbb{P} \}\)</span>, <span class="math inline">\(1\)</span> the ordinary integer <span class="math inline">\(2\)</span> and <span class="math inline">\(S\)</span> equal to <span class="math inline">\(S(x) = x + 2\)</span> for all <span class="math inline">\(x \in \{z: z = 2n \land n \in \mathbb{P} \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x + 2 \neq 2\)</span></p></li>
+<li><p>If <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(x + 2 \neq y + 2\)</span> so <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+<li><p>Let <span class="math inline">\(B \subseteq \{z: z = 2n \land n \in \mathbb{P} \}\)</span>, <span class="math inline">\(2 \in B\)</span> and assume that if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x + 2 \in B\)</span></p>
+<ul>
+<li>If <span class="math inline">\(2 \in B\)</span> then <span class="math inline">\(2 + 2 = 4 \in B\)</span>, <span class="math inline">\(4 + 2 = 6 \in B\)</span> and so on, where any <span class="math inline">\(x \in \{z: z = 2n \land n \in \mathbb{P} \}\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> Every element different from <span class="math inline">\(1\)</span> and belonging to <span class="math inline">\(P\)</span> is a successor <span class="math display">\[(\forall x)((x \in P \land x \neq 1) \implies (\exists y)(y \in P \land x = S(y)))\]</span></p>
+<p>Let <span class="math inline">\(B = \{x: x = 1 \lor (\exists y)(x = S(y)) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(1 \in B\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x = 1 \lor x = S(y)\)</span> where <span class="math inline">\(S(y) \neq 1 \land S(y) \in P\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(1 \in P \land S(y) \in P\)</span> then <span class="math inline">\(B \subseteq P\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  x \in B \land x \neq 1 &amp; \implies x = S(y) \\  &amp; \implies S(x) = S(S(y)) \\  &amp; \implies S(x) \in B  \end{split}\)</span></p>
+<ul>
+<li>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> No object is its own successor, that is, <span class="math inline">\((\forall x)(x \in P \land S(x) \neq x)\)</span></p>
+<p>Let <span class="math inline">\(B = \{x: x \in P \land S(x) \neq x \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 \in P \land S(x) \neq 1\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span> so <span class="math inline">\(B \subseteq P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \in B \land &amp; \implies S(x) \neq x \land S(x) \in P \land x \in P \\  &amp; \implies S(S(x)) \neq S(x) \land S(x) \in P \\  &amp; \implies S(x) \in B  \end{split}\)</span></p>
+<ul>
+<li>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></li>
+</ul></li>
+</ul>
 </div>
+</div>
+<div id="peano-systems-exercises-and-solutions" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Peano systems exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li>Prove that every object different from <span class="math inline">\(1\)</span> is the successor of a unique object, that is, <span class="math display">\[(\forall x)(x \in P \implies (x = 1 \lor (\exists !y)(y \in P \land x = S(y))))\]</span></li>
+</ol>
+<ul>
+<li><p>If <span class="math inline">\(1 \in P\)</span> then <span class="math inline">\(1 = 1\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in P \land x \neq 1\)</span> then <span class="math inline">\((\exists y)(y \in P \land x = S(y))))\)</span></p>
+<ul>
+<li><p>Assume that there is another <span class="math inline">\(z\)</span> such that <span class="math inline">\(z \in P \land x = S(z)\)</span></p>
+<ul>
+<li><p>Therefore <span class="math inline">\(S(y) = S(z) \implies y = z\)</span> because <span class="math inline">\(S\)</span> is a one-one function</p>
+<ul>
+<li>Thus if <span class="math inline">\(x \in P \land x \neq 1\)</span> then <span class="math inline">\((\exists !y)(y \in P \land x = S(y))))\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Prove <span class="math inline">\((\forall x)(x \in P \implies (x = 1 \lor x = S(1) \lor x = S(S(y))))\)</span></li>
+</ol>
+<ul>
+<li><p>If <span class="math inline">\(1 \in P\)</span> then <span class="math inline">\(1 = 1\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in P \land x \neq y\)</span> then <span class="math inline">\((\exists !z)(z \in P \land x = S(z))\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(z = 1\)</span> then <span class="math inline">\(x = S(1)\)</span></p></li>
+<li><p>If <span class="math inline">\(z \neq 1\)</span> then <span class="math inline">\((\exists !y)(y \in P \land z = S(y))\)</span>. Therefore <span class="math inline">\((\exists !y)(y \in P \land x = S(S(y)))\)</span></p></li>
+</ul></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Determine whether or not the following structures <span class="math inline">\((P, S, 1)\)</span> are peano systems</p>
+<ul>
+<li><p><span class="math inline">\(P\)</span> is the set of all integers greater than <span class="math inline">\(9\)</span>, <span class="math inline">\(1\)</span> stands for the integer <span class="math inline">\(10\)</span> and <span class="math inline">\(S(u) = u + 1\)</span> for any <span class="math inline">\(u \in P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(P = \{u: u \in \mathbb{Z} \land x &gt; 9 \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\((\forall u)(u \in P \implies u + 1 \neq 10)\)</span></p></li>
+<li><p><span class="math inline">\((\forall u)(\forall v)((u \in P \land v \in P \land u \neq v) \implies u + 1 \neq v + 1)\)</span></p></li>
+<li><p>Assume that <span class="math inline">\(B \subseteq P\)</span>, <span class="math inline">\(10 \in P\)</span> and <span class="math inline">\((\forall u)(u \in B \implies u + 1 \in B)\)</span></p>
+<ul>
+<li><span class="math inline">\(10 \in P\)</span>, <span class="math inline">\(10 + 1 = 11 \in P\)</span>, <span class="math inline">\(11 + 1 = 12 \in P\)</span> and so on where any <span class="math inline">\(u \in P\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
