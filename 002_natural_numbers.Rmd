@@ -199,8 +199,100 @@ Let $B = \{x: x \in P \land S(x) \neq x \}$
             
             + $(\forall u)(\forall v)((u \in P \land v \in P \land u \neq v) \implies u + 1 \neq v + 1)$
             
-            + Assume that $B \subseteq P$, $10 \in P$ and $(\forall u)(u \in B \implies u + 1 \in B)$
+            + Assume that $B \subseteq P$, $10 \in B$ and $(\forall u)(u \in B \implies u + 1 \in B)$
                 + $10 \in P$, $10 + 1 = 11 \in P$, $11 + 1 = 12 \in P$ and so on where any $u \in P$ can be reach
+                
+    + $P$ is the set of all integers, $1$ stands for the ordinary integer $1$ and $S(u) = u + 1$ for all $u$ in $P$
+    
+        + $P = \mathbb{Z}$
+        
+            + $0 \in \mathbb{Z} \land S(0) = 0 + 1 = 1$. Therefore $S(0) = 1$
+        
+    + $P$ is the set of all integers, $1$ stands for the ordinary integer $0$ and $$S(u) = \begin{cases}
+    1        & \text{if } u = 0 \\
+    -u       & \text{if } u > 0 \\
+    -(u - 1) & \text{if } u < 0
+    \end{cases}$$
+    
+        + $P = \mathbb{Z}$
+            
+            + $S(u) = 1 \lor S(u) < 0 \lor S(u) > 0$ so $S(x) \neq 0$
+            
+            + Let $u \in P \land v \in P \land u \neq v$
+            
+                + If $u = 0$ then $S(1) = 0 \land (v > 0  \lor v < 0)$
+                
+                    + If $v > 0$ then $S(v) = -v < 0$ so $S(v) \neq S(u)$
+                    
+                    + If $v < 0$ then $S(v) = -(v-1) > 1$ so $S(v) \neq S(u)$
+                    
+                + If $u > 0$ then $S(u) = -u < 0 \land (v = 0  \lor v < 0)$
+                
+                    + If $v = 0$ then $S(v) = 1$ so $S(v) \neq S(u)$
+                    
+                    + If $v < 0$ then $S(v) = -(v-1) > 1$ so $S(v) \neq S(u)$
+                    
+                + If $u < 0$ then $S(u) = -(u - 1) > 1 \land (v = 0  \lor v > 0)$
+                
+                    + If $v = 0$ then $S(v) = 1$ so $S(v) \neq S(u)$
+                    
+                    + If $v < 0$ then $S(v) = -(v-1) > 1$ so $S(v) \neq S(u)$
+                    
+            + Assume that $B \subseteq P$, $0 \in B$ and $(\forall u)(u \in B \implies S(u)  \in B)$ where $$S(u) = \begin{cases}
+    1        & \text{if } u = 0 \\
+    -u       & \text{if } u > 0 \\
+    -(u - 1) & \text{if } u < 0
+    \end{cases}$$
+    
+                + $0 \in B$, $S(0) = 1 > 0 \land 1 \in P$, $S(1) = -1 < 0 \land -1 \in P$,  $S(-1) = -(-1 - 1) = 2 > 0 \land 2 \in P$, $S(2) = -2 < 0 \land -2 \in P$ and so on where any $u \in P$ can be reach
+        
+    + $P$ is the set of all rational numbers of the form $\frac{1}{2^n}$ where $n$ is a nonnegative integer, $1$ stands for the integer $1$ and $S(u) = \frac{1}{2}u$ for all $u \in P$
+    
+        + $P = \{u: u = \frac{1}{2^n} \land n \in \mathbb{Z^+}\}$
+        
+            + $1 \in P$ because $0 \in \mathbb{Z^+}$ and $\frac{1}{2^0} = \frac{1}{1} = 1$
+            
+            + $S(u) = \frac{1}{2}u$ where $u = \frac{1}{2^n}$ and $n \in \mathbb{Z^+}$. Therefore $S(u) = \frac{1}{2} \frac{1}{2^n} = \frac{1}{2^{n + 1}} \neq 1$
+            
+            + Assume that $B \subseteq P$, $1 \in B$ and $(\forall u)(u \in B \implies \frac{1}{2}u \in B)$
+            
+                + $1 \in B$, $\frac{1}{2} * 1 = \frac{1}{2} = \frac{1}{2^1}$, $\frac{1}{2} \frac{1}{2} = \frac{1}{2^2}$ and so on where any $u \in P$ can be reach
+                
+    + $P = \{ 1,2,3,4 \}$, $1$ stands for the ordinary integer $1$ and $S(1) = 2, S(2) = 3, S(4) = 1$
+      
+        + $4 \in P \land S(4) = 1$ so it is not true that for all $x \in P$ then $S(x) \neq 1$
+          
+    + $P = \{ 1,2,3, \ldots \} \cup \{ \#1,\#2,\#3, \ldots \}$, where $\#1,\#2,\#3, \ldots$ are pairwise-distinct new objects different from the natural numbers. Let $1$ denote the integer $1$. Let $S(n) = n + 1$ for any natural number $n$ and let $S(\#n) = (n + 1)\#$ for any natural number $n$. Thus, $S(1) = 2, S(2) = 3, \ldots$ and $S(\#1) = \#2, S(\#2) = \#3, \ldots$
+ 
+        + If $n \in P$ then $n = m \in \{ 1,2,3, \ldots \}$ or $n = \#m \in \{ \#1,\#2,\#3, \ldots \}$ but not both because $\#1,\#2,\#3, \ldots$ are pairwise-distinct new objects different from the natural numbers
+        
+            + If $n = m$ then $S(m) = m + 1 \neq 1$
+            
+            + If $n = \#m$ then $S(\#m) = (m + 1)\# \neq 1$ because $1 \in \{ 1,2,3, \ldots \}$ and $\#1,\#2,\#3, \ldots$ are pairwise-distinct new objects different from the natural numbers
+            
+        + Let $x \in P \land y \in P \land x \neq y$
+        
+            + If $x \neq y$ then $y \in \{ 1,2,3, \ldots \}$ or $y \in \{ \#1,\#2,\#3, \ldots \}$
+            
+                + If $y \in \{ 1,2,3, \ldots \}$ then $x + 1 \neq y + 1$ so $S(x) \neq S(y)$
+            
+                + If $y \in \{ \#1,\#2,\#3, \ldots \}$ then $S(x) = x + 1 \land S(y) = (n + 1)\#$ for some $n \in \{ 1,2,3, \ldots \}$. So, $(x + 1) \neq (n + 1)\#$ because $(x + 1) \in \{ 1,2,3, \ldots \}$ and $\#1,\#2,\#3, \ldots$ are pairwise-distinct new objects different from the natural numbers. Therefore $S(x) \neq S(y)$
+                
+        + Assume that $B \subseteq P$, $1 \in B$ and $(\forall u)(u \in B \implies S(u) \in B)$
+            
+            + Let $B = \{ 1,2,3, \ldots \}$
+                
+                + $B \subseteq P$
+                    
+                + $1 \in B$
+                    
+                + If $x \in B$ then $S(x) = x + 1 \in B$
+                    
+                    + However $B \neq P = \{ 1,2,3, \ldots \} \cup \{ \#1,\#2,\#3, \ldots \}$
+
+## The iteration theorem
+
+
 
 # Bibliography
 

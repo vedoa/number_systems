@@ -1711,6 +1711,7 @@ summary {
 <ul>
 <li><a href="#peano-systems"><span class="toc-section-number">1.1</span> Peano systems</a></li>
 <li><a href="#peano-systems-exercises-and-solutions"><span class="toc-section-number">1.2</span> Peano systems exercises and solutions</a></li>
+<li><a href="#the-iteration-theorem"><span class="toc-section-number">1.3</span> The iteration theorem</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -1879,14 +1880,105 @@ text-align: justify}
 <ul>
 <li><p><span class="math inline">\((\forall u)(u \in P \implies u + 1 \neq 10)\)</span></p></li>
 <li><p><span class="math inline">\((\forall u)(\forall v)((u \in P \land v \in P \land u \neq v) \implies u + 1 \neq v + 1)\)</span></p></li>
-<li><p>Assume that <span class="math inline">\(B \subseteq P\)</span>, <span class="math inline">\(10 \in P\)</span> and <span class="math inline">\((\forall u)(u \in B \implies u + 1 \in B)\)</span></p>
+<li><p>Assume that <span class="math inline">\(B \subseteq P\)</span>, <span class="math inline">\(10 \in B\)</span> and <span class="math inline">\((\forall u)(u \in B \implies u + 1 \in B)\)</span></p>
 <ul>
 <li><span class="math inline">\(10 \in P\)</span>, <span class="math inline">\(10 + 1 = 11 \in P\)</span>, <span class="math inline">\(11 + 1 = 12 \in P\)</span> and so on where any <span class="math inline">\(u \in P\)</span> can be reach</li>
 </ul></li>
 </ul></li>
 </ul></li>
+<li><p><span class="math inline">\(P\)</span> is the set of all integers, <span class="math inline">\(1\)</span> stands for the ordinary integer <span class="math inline">\(1\)</span> and <span class="math inline">\(S(u) = u + 1\)</span> for all <span class="math inline">\(u\)</span> in <span class="math inline">\(P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(P = \mathbb{Z}\)</span></p>
+<ul>
+<li><span class="math inline">\(0 \in \mathbb{Z} \land S(0) = 0 + 1 = 1\)</span>. Therefore <span class="math inline">\(S(0) = 1\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(P\)</span> is the set of all integers, <span class="math inline">\(1\)</span> stands for the ordinary integer <span class="math inline">\(0\)</span> and <span class="math display">\[S(u) = \begin{cases}
+ 1        &amp; \text{if } u = 0 \\
+ -u       &amp; \text{if } u &gt; 0 \\
+ -(u - 1) &amp; \text{if } u &lt; 0
+ \end{cases}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(P = \mathbb{Z}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(u) = 1 \lor S(u) &lt; 0 \lor S(u) &gt; 0\)</span> so <span class="math inline">\(S(x) \neq 0\)</span></p></li>
+<li><p>Let <span class="math inline">\(u \in P \land v \in P \land u \neq v\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(u = 0\)</span> then <span class="math inline">\(S(1) = 0 \land (v &gt; 0 \lor v &lt; 0)\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(v &gt; 0\)</span> then <span class="math inline">\(S(v) = -v &lt; 0\)</span> so <span class="math inline">\(S(v) \neq S(u)\)</span></p></li>
+<li><p>If <span class="math inline">\(v &lt; 0\)</span> then <span class="math inline">\(S(v) = -(v-1) &gt; 1\)</span> so <span class="math inline">\(S(v) \neq S(u)\)</span></p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(u &gt; 0\)</span> then <span class="math inline">\(S(u) = -u &lt; 0 \land (v = 0 \lor v &lt; 0)\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(v = 0\)</span> then <span class="math inline">\(S(v) = 1\)</span> so <span class="math inline">\(S(v) \neq S(u)\)</span></p></li>
+<li><p>If <span class="math inline">\(v &lt; 0\)</span> then <span class="math inline">\(S(v) = -(v-1) &gt; 1\)</span> so <span class="math inline">\(S(v) \neq S(u)\)</span></p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(u &lt; 0\)</span> then <span class="math inline">\(S(u) = -(u - 1) &gt; 1 \land (v = 0 \lor v &gt; 0)\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(v = 0\)</span> then <span class="math inline">\(S(v) = 1\)</span> so <span class="math inline">\(S(v) \neq S(u)\)</span></p></li>
+<li><p>If <span class="math inline">\(v &lt; 0\)</span> then <span class="math inline">\(S(v) = -(v-1) &gt; 1\)</span> so <span class="math inline">\(S(v) \neq S(u)\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Assume that <span class="math inline">\(B \subseteq P\)</span>, <span class="math inline">\(0 \in B\)</span> and <span class="math inline">\((\forall u)(u \in B \implies S(u) \in B)\)</span> where <span class="math display">\[S(u) = \begin{cases}
+ 1        &amp; \text{if } u = 0 \\
+ -u       &amp; \text{if } u &gt; 0 \\
+ -(u - 1) &amp; \text{if } u &lt; 0
+ \end{cases}\]</span></p>
+<ul>
+<li><span class="math inline">\(0 \in B\)</span>, <span class="math inline">\(S(0) = 1 &gt; 0 \land 1 \in P\)</span>, <span class="math inline">\(S(1) = -1 &lt; 0 \land -1 \in P\)</span>, <span class="math inline">\(S(-1) = -(-1 - 1) = 2 &gt; 0 \land 2 \in P\)</span>, <span class="math inline">\(S(2) = -2 &lt; 0 \land -2 \in P\)</span> and so on where any <span class="math inline">\(u \in P\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(P\)</span> is the set of all rational numbers of the form <span class="math inline">\(\frac{1}{2^n}\)</span> where <span class="math inline">\(n\)</span> is a nonnegative integer, <span class="math inline">\(1\)</span> stands for the integer <span class="math inline">\(1\)</span> and <span class="math inline">\(S(u) = \frac{1}{2}u\)</span> for all <span class="math inline">\(u \in P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(P = \{u: u = \frac{1}{2^n} \land n \in \mathbb{Z^+}\}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(1 \in P\)</span> because <span class="math inline">\(0 \in \mathbb{Z^+}\)</span> and <span class="math inline">\(\frac{1}{2^0} = \frac{1}{1} = 1\)</span></p></li>
+<li><p><span class="math inline">\(S(u) = \frac{1}{2}u\)</span> where <span class="math inline">\(u = \frac{1}{2^n}\)</span> and <span class="math inline">\(n \in \mathbb{Z^+}\)</span>. Therefore <span class="math inline">\(S(u) = \frac{1}{2} \frac{1}{2^n} = \frac{1}{2^{n + 1}} \neq 1\)</span></p></li>
+<li><p>Assume that <span class="math inline">\(B \subseteq P\)</span>, <span class="math inline">\(1 \in B\)</span> and <span class="math inline">\((\forall u)(u \in B \implies \frac{1}{2}u \in B)\)</span></p>
+<ul>
+<li><span class="math inline">\(1 \in B\)</span>, <span class="math inline">\(\frac{1}{2} * 1 = \frac{1}{2} = \frac{1}{2^1}\)</span>, <span class="math inline">\(\frac{1}{2} \frac{1}{2} = \frac{1}{2^2}\)</span> and so on where any <span class="math inline">\(u \in P\)</span> can be reach</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(P = \{ 1,2,3,4 \}\)</span>, <span class="math inline">\(1\)</span> stands for the ordinary integer <span class="math inline">\(1\)</span> and <span class="math inline">\(S(1) = 2, S(2) = 3, S(4) = 1\)</span></p>
+<ul>
+<li><span class="math inline">\(4 \in P \land S(4) = 1\)</span> so it is not true that for all <span class="math inline">\(x \in P\)</span> then <span class="math inline">\(S(x) \neq 1\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(P = \{ 1,2,3, \ldots \} \cup \{ \#1,\#2,\#3, \ldots \}\)</span>, where <span class="math inline">\(\#1,\#2,\#3, \ldots\)</span> are pairwise-distinct new objects different from the natural numbers. Let <span class="math inline">\(1\)</span> denote the integer <span class="math inline">\(1\)</span>. Let <span class="math inline">\(S(n) = n + 1\)</span> for any natural number <span class="math inline">\(n\)</span> and let <span class="math inline">\(S(\#n) = (n + 1)\#\)</span> for any natural number <span class="math inline">\(n\)</span>. Thus, <span class="math inline">\(S(1) = 2, S(2) = 3, \ldots\)</span> and <span class="math inline">\(S(\#1) = \#2, S(\#2) = \#3, \ldots\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(n \in P\)</span> then <span class="math inline">\(n = m \in \{ 1,2,3, \ldots \}\)</span> or <span class="math inline">\(n = \#m \in \{ \#1,\#2,\#3, \ldots \}\)</span> but not both because <span class="math inline">\(\#1,\#2,\#3, \ldots\)</span> are pairwise-distinct new objects different from the natural numbers</p>
+<ul>
+<li><p>If <span class="math inline">\(n = m\)</span> then <span class="math inline">\(S(m) = m + 1 \neq 1\)</span></p></li>
+<li><p>If <span class="math inline">\(n = \#m\)</span> then <span class="math inline">\(S(\#m) = (m + 1)\# \neq 1\)</span> because <span class="math inline">\(1 \in \{ 1,2,3, \ldots \}\)</span> and <span class="math inline">\(\#1,\#2,\#3, \ldots\)</span> are pairwise-distinct new objects different from the natural numbers</p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(x \in P \land y \in P \land x \neq y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x \neq y\)</span> then <span class="math inline">\(y \in \{ 1,2,3, \ldots \}\)</span> or <span class="math inline">\(y \in \{ \#1,\#2,\#3, \ldots \}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(y \in \{ 1,2,3, \ldots \}\)</span> then <span class="math inline">\(x + 1 \neq y + 1\)</span> so <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+<li><p>If <span class="math inline">\(y \in \{ \#1,\#2,\#3, \ldots \}\)</span> then <span class="math inline">\(S(x) = x + 1 \land S(y) = (n + 1)\#\)</span> for some <span class="math inline">\(n \in \{ 1,2,3, \ldots \}\)</span>. So, <span class="math inline">\((x + 1) \neq (n + 1)\#\)</span> because <span class="math inline">\((x + 1) \in \{ 1,2,3, \ldots \}\)</span> and <span class="math inline">\(\#1,\#2,\#3, \ldots\)</span> are pairwise-distinct new objects different from the natural numbers. Therefore <span class="math inline">\(S(x) \neq S(y)\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Assume that <span class="math inline">\(B \subseteq P\)</span>, <span class="math inline">\(1 \in B\)</span> and <span class="math inline">\((\forall u)(u \in B \implies S(u) \in B)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{ 1,2,3, \ldots \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(S(x) = x + 1 \in B\)</span></p>
+<ul>
+<li>However <span class="math inline">\(B \neq P = \{ 1,2,3, \ldots \} \cup \{ \#1,\#2,\#3, \ldots \}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ol>
+</div>
+<div id="the-iteration-theorem" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> The iteration theorem</h2>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
