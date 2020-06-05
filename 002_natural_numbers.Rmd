@@ -292,7 +292,107 @@ Let $B = \{x: x \in P \land S(x) \neq x \}$
 
 ## The iteration theorem
 
+Arithmetical notions such as $+$ and $\times$ are not mention in the definition of a peano system
 
+- These notions will be _defined by induction_
+
+- The idea of definition by induction, is different from a proof by the principle of mathematical induction: Axiom $(P3)$
+
+- To define a function $f$ by inductionwe apply the following process:
+
+    + We specify $f(1)$
+    
+    + Then indicate a rule for obtaining $f(S(x))$ from a previous value $f(x)$
+    
+        + This determines a unique function $f$ defined on $P$
+        
+__Theorem__ _(Iteration Theorem)_ Consider any peano system $(P, S, 1)$. Let $W$ be any arbitary set, let $c$ be a fixed element of $W$ and let $g$ be a singulary operation on $W$, $g:W \longrightarrow W$. Then there is a unique function $F:P \longrightarrow W$ such that
+
+- $F(1) = c$
+
+- $F(S(x)) = g(F(x))$ for all $x \in P$
+
+__Examples of the iteration theorem__
+
+1. Let $W = \mathbb{R}$, $c = \sqrt{2}$ and $g(x) = x + \sqrt{2}$ for all $x \in \mathbb{R}$
+
+    + $F(1) = \sqrt{2}$
+    
+    + $F(S(1)) = g(F(1)) = F(1) + \sqrt{2} = \sqrt{2} + \sqrt{2} = 2\sqrt{2}$
+    
+    + $F(S(2)) = g(F(2)) = 2\sqrt{2} + \sqrt{2} = 3\sqrt{2}$
+    
+    + $\cdots$
+    
+    + $F(S(n-1)) = g(F(n-1)) = (n - 1)\sqrt{2} + \sqrt{2} = n\sqrt{2}$
+    
+2. Let $W = \mathbb{Q}$, $c = \frac{1}{2}$ and $g(x) = \frac{x}{2}$ for all $x \in \mathbb{Q}$
+
+    + $F(1) = \frac{1}{2}$
+    
+    + $F(S(1)) = g(F(1)) = \frac{F(1)}{2} = \frac{1}{2^2}$
+    
+    + $F(S(2)) = g(F(2)) = \frac{F(2)}{2} = \frac{1}{2^3}$
+    
+    + $\cdots$
+    
+    + $F(S(n-1)) = g(F(n-1)) = \frac{F(n-1)}{2} = \frac{1}{2^n}$
+    
+__Proof of the iteration theorem__
+
+- First we will prove the __existence__ of a suitable function $F$ and the its __uniqueness__
+
+    + __Existence__
+    
+        + Take any $n$ in $P$. A function $f: A \longrightarrow W$ is said to be __n-admissible__ if and only if:
+        
+            + $A \subseteq P$
+            
+            + $1 \in A$
+            
+            + $n \in A$
+            
+            + $(\forall u)(S(u) \in A \implies u \in A)$
+            
+            + $f(1) = c$
+            
+            + $(\forall u)(S(u) \in A \implies f(S(u)) = g(f(u)))$
+            
+                + For example let $(\mathbb{P}, 1, S(u))$ where $S(u) = u + 1$, $W = \mathbb{R}$, $c = 1$, $g(x) = x + 1$, $A = \{ 1,2 \}$ then $f(x) = x$ is $2$-admissible because:
+                
+                    + $\{ 1,2 \} \subseteq \mathbb{P}$
+                    
+                    + $1 \in \{ 1,2 \}$
+                    
+                    + $2 \in \{ 1,2 \}$
+                    
+                    + $S(1) = 2 \in A \land 1 \in A$
+                    
+                    + $f(1) = 1$
+                    
+                    + $S(1) = 2 \in A \land f(S(1)) = 2 \land g(f(1)) = f(1) + 1 = 2$
+                    
+        + If $f$ is $S(n)$-admissible then $f$ is $n$-admissible
+        
+            + $f: A \longrightarrow W$, $g: W \longrightarrow W$, $S(n) \in P$
+            
+            + $A \subseteq P$
+            
+            + $1 \in A$
+            
+            + $S(n) \in A$
+            
+            + $(\forall u)(S(u) \in A \implies u \in A)$ then $S(n) \in A \implies n \in A$
+            
+            + $f(1) = c$
+            
+            + $(\forall u)(S(u) \in A \implies f(S(u)) = g(f(u)))$
+            
+                + Therefore $f$ is $n$-admissible 
+                                    
+                    + For example let $(\mathbb{P}, 1, S(u))$ where $S(u) = u + 1$, $W = \mathbb{R}$, $c = 1$, $g(x) = x + 1$, $A = \{ 1,2 \}$ then $f(x) = x$ is $2$-admissible. Therefore $f(x) = x$ is also $1$-admissible
+                    
+          + For any $n \in P$, there exists at least one $n$-admissible function
 
 # Bibliography
 
