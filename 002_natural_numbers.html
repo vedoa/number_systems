@@ -1712,6 +1712,7 @@ summary {
 <li><a href="#peano-systems"><span class="toc-section-number">1.1</span> Peano systems</a></li>
 <li><a href="#peano-systems-exercises-and-solutions"><span class="toc-section-number">1.2</span> Peano systems exercises and solutions</a></li>
 <li><a href="#the-iteration-theorem"><span class="toc-section-number">1.3</span> The iteration theorem</a></li>
+<li><a href="#aplication-of-the-iteration-theorem-addition"><span class="toc-section-number">1.4</span> Aplication of the iteration theorem: addition</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -2057,11 +2058,98 @@ text-align: justify}
 <li>For example let <span class="math inline">\((\mathbb{P}, 1, S(u))\)</span> where <span class="math inline">\(S(u) = u + 1\)</span>, <span class="math inline">\(W = \mathbb{R}\)</span>, <span class="math inline">\(c = 1\)</span>, <span class="math inline">\(g(x) = x + 1\)</span>, <span class="math inline">\(A = \{ 1,2 \}\)</span> then <span class="math inline">\(f(x) = x\)</span> is <span class="math inline">\(2\)</span>-admissible. Therefore <span class="math inline">\(f(x) = x\)</span> is also <span class="math inline">\(1\)</span>-admissible</li>
 </ul></li>
 </ul></li>
-<li><p>For any <span class="math inline">\(n \in P\)</span>, there exists at least one <span class="math inline">\(n\)</span>-admissible function</p></li>
+<li><p>For any <span class="math inline">\(n \in P\)</span>, there exists at least one <span class="math inline">\(n\)</span>-admissible function</p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{n: n \in P \land (\exists f)(f \text{ is } n \text{-admissible}) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(n \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(f: \{1 \} \longrightarrow W\)</span> where <span class="math inline">\(f(1) = c\)</span> with <span class="math inline">\(c \in W\)</span> is <span class="math inline">\(1\)</span>-admissible:</p>
+<ul>
+<li><p><span class="math inline">\(\{ 1 \} \subseteq P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in P\)</span></p></li>
+<li><p><span class="math inline">\(S(u) \neq 1\)</span> so <span class="math inline">\(S(1) \notin \{ 1 \}\)</span></p></li>
+<li><p><span class="math inline">\(f(1) = c\)</span></p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(n \in B\)</span> then there exists an <span class="math inline">\(f\)</span> that is <span class="math inline">\(n\)</span>-admissible. Lets define the following function:</p>
+<ul>
+<li><p><span class="math inline">\(f: A^* \longrightarrow W\)</span> where <span class="math inline">\(A^* = A \cup \{ S(n) \}\)</span></p></li>
+<li><p><span class="math inline">\(f^*(u) = \begin{cases}  f(u) &amp; \text{ if } u \in A \\  g(f(n)) &amp; \text{ if } u = S(n)  \end{cases}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(n \in A \land A \subseteq P\)</span> so <span class="math inline">\(n \in P\)</span>. Therefore <span class="math inline">\(S(n) \in P\)</span> and <span class="math inline">\(A^* \subseteq P\)</span></p></li>
+<li><p><span class="math inline">\(S(n) \in A^*\)</span></p></li>
+<li><p><span class="math inline">\(1 \in A \land A \subseteq A^*\)</span> so <span class="math inline">\(1 \in A^*\)</span></p></li>
+<li><p>If <span class="math inline">\(u \in A\)</span> then <span class="math inline">\((\forall u)(S(u) \in A \implies u \in A)\)</span>. Also <span class="math inline">\(S(n) \in A^* \land n \in A^* \land A \subseteq A^*\)</span>. Therefore <span class="math inline">\((\forall u)(S(u) \in A^* \implies u in A^*)\)</span></p></li>
+<li><p><span class="math inline">\(f^*(1) = f(1) = c\)</span></p></li>
+<li><p>If <span class="math inline">\(u \in A\)</span> then <span class="math inline">\((\forall u)(S(u) \in A \implies f(S(u)) = g(f(u)))\)</span>. Also <span class="math inline">\(f^*(S(n)) = g(f(n))\)</span> so <span class="math inline">\((\forall u)(S(u) \in A^* \implies f^*(S(u)) = g(f^*(u)))\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(f^*\)</span> is <span class="math inline">\(S(n)\)</span>-admissible and <span class="math inline">\(S(n) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>By the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(f\)</span> is <span class="math inline">\(n\)</span>-admissible and <span class="math inline">\(h\)</span> is <span class="math inline">\(n\)</span>-admissible then <span class="math inline">\(f(n) = h(n)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{n: n \in P \land (\forall f)(\forall g)((f \text{ is } n \text{-admissible} \land g \text{ is } n \text{-admissible}) \implies f(n) = g(n))\}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(n \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because if <span class="math inline">\(f\)</span> and <span class="math inline">\(h\)</span> are <span class="math inline">\(n\)</span>-admissible then <span class="math inline">\(f(1) = c = h(1)\)</span></p></li>
+<li><p>Assume <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(f(n) = h(n)\)</span>.</p>
+<ul>
+<li><p>Because <span class="math inline">\(S(n) \in P\)</span> we can use <span class="math inline">\(f^*\)</span> as the <span class="math inline">\(S(n)\)</span>-admissible function defined above. Therefore <span class="math inline">\(f^*(S(n)) = g(f^*(n))) = g(f(n)) = g(h(n))\)</span></p></li>
+<li><p>Because <span class="math inline">\(S(n) \in P\)</span> we can use <span class="math inline">\(h^*\)</span> as the <span class="math inline">\(S(n)\)</span>-admissible function defined above. Therefore <span class="math inline">\(h^*(S(n)) = g(h^*(n))) = g(h(n))\)</span></p>
+<ul>
+<li>Thus we have that <span class="math inline">\(f^*(S(n)) = h^*(S(n))\)</span> and <span class="math inline">\(S(n) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>By the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>Let any <span class="math inline">\(n \in P\)</span> then <span class="math inline">\(S(n) \in P\)</span>. Also there exists a <span class="math inline">\(S(n)\)</span>-admissible function <span class="math inline">\(f^*\)</span>. Because <span class="math inline">\(f^*\)</span> is an <span class="math inline">\(S(n)\)</span>-admissible function then <span class="math inline">\(f^*\)</span> is also a <span class="math inline">\(n\)</span>-admissible function.</p>
+<ul>
+<li><p>Lets define <span class="math inline">\(F(n) = f^*(n)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F(1) = f^*(1) = c\)</span></p></li>
+<li><p><span class="math inline">\(F(S(n)) = f^*(S(n)) = g(f^*(n)) = g(F(n))\)</span></p></li>
+<li><p>Because <span class="math inline">\(f^*(n) \in \mathscr{f^*}\)</span> and <span class="math inline">\(mathscr{f^*} \subseteq W\)</span> we have <span class="math inline">\(F(n) \in W\)</span></p>
+<ul>
+<li>Therefore for any peano system <span class="math inline">\((P, S, 1)\)</span>, an arbitrary set <span class="math inline">\(W\)</span>m an element <span class="math inline">\(c \in W\)</span> and some <span class="math inline">\(g: W \longrightarrow W\)</span> exists a function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(n)) = g(F(n))\)</span> for all <span class="math inline">\(x \in P\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Uniqueness</strong></p>
+<ul>
+<li><p>Assume <span class="math inline">\(F\)</span> and <span class="math inline">\(H\)</span> are functions satisfying the two conditions of the theorem. For <span class="math inline">\(n \in P\)</span> we have that <span class="math inline">\(F(n) = f(n)\)</span> and <span class="math inline">\(H(n) = h(n)\)</span> where <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are <span class="math inline">\(n\)</span>-admissible functions. Therefore we have that <span class="math inline">\(f(n) = h(n)\)</span> and this means that <span class="math inline">\(F(n) = H(n)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{n: n \in P \land F(n) = H(n) \}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(n \in P\)</span> so <span class="math inline">\(B \subseteq P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(F(1) = c = H(1)\)</span></p></li>
+<li><p>Assume <span class="math inline">\(n \in B\)</span> then <span class="math inline">\(F(S(n)) = g(F(n)) = g(H(n)) = H(S(n))\)</span>. Therefore <span class="math inline">\(S(n) \in B\)</span></p></li>
+</ul></li>
+<li><p>By the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>Thus, <span class="math inline">\(F(x) = H(x)\)</span> for all <span class="math inline">\(x \in P\)</span></p></li>
+<li><p>Also <span class="math inline">\(\mathscr{D}(F) = P = \mathscr{D}(H)\)</span></p>
+<ul>
+<li>We can conclude that <span class="math inline">\(F = H\)</span></li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul>
+</div>
+<div id="aplication-of-the-iteration-theorem-addition" class="section level2" number="1.4">
+<h2 number="1.4"><span class="header-section-number">1.4</span> Aplication of the iteration theorem: addition</h2>
+<p><strong>Theorem</strong> <em>(Addition)</em> Consider any peano system <span class="math inline">\((P, S, 1)\)</span>. Then there is a unique binary operation <span class="math inline">\(+\)</span> on <span class="math inline">\(P\)</span>, <span class="math inline">\(+ : P \times P \longrightarrow P\)</span> such that</p>
+<ul>
+<li><span class="math inline">\((\alpha) \; x + 1 = S(x)\)</span> for all <span class="math inline">\(x \in P\)</span></li>
+<li><span class="math inline">\(x + S(y) = S(x + y)\)</span> for all <span class="math inline">\(x \in P\)</span> and <span class="math inline">\(y \in P\)</span></li>
+</ul>
+<p>We adopt the standard convention of writing <span class="math inline">\(x + y = z\)</span> instead of <span class="math inline">\(+((x,y)) = z\)</span></p>
+<p><strong>Proof</strong></p>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>

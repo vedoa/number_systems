@@ -393,6 +393,104 @@ __Proof of the iteration theorem__
                     + For example let $(\mathbb{P}, 1, S(u))$ where $S(u) = u + 1$, $W = \mathbb{R}$, $c = 1$, $g(x) = x + 1$, $A = \{ 1,2 \}$ then $f(x) = x$ is $2$-admissible. Therefore $f(x) = x$ is also $1$-admissible
                     
           + For any $n \in P$, there exists at least one $n$-admissible function
+          
+              + Let $B = \{n: n \in P \land (\exists f)(f \text{ is } n \text{-admissible}) \}$
+              
+                  + $B \subseteq P$ because if $n \in B$ then $n \in P$
+              
+                  + $1 \in B$ because $f: \{1 \} \longrightarrow W$ where $f(1) = c$ with $c \in W$ is $1$-admissible:
+          
+                      + $\{ 1 \} \subseteq P$
+              
+                      + $1 \in P$
+              
+                      + $S(u) \neq 1$ so $S(1) \notin \{ 1 \}$
+              
+                      + $f(1) = c$
+                      
+                  + Assume $n \in B$ then there exists an $f$ that is $n$-admissible. Lets define the following function:
+                  
+                      + $f: A^* \longrightarrow W$ where $A^* = A \cup \{ S(n) \}$ 
+                  
+                      + $f^*(u) = \begin{cases}
+                                   f(u)    & \text{ if } u \in A \\
+                                   g(f(n)) & \text{ if } u = S(n) 
+                                   \end{cases}$
+                                   
+                          + $n \in A \land A \subseteq P$ so $n \in P$. Therefore $S(n) \in P$ and $A^* \subseteq P$
+                          + $S(n) \in A^*$
+                      
+                          + $1 \in A \land A \subseteq A^*$ so $1 \in A^*$
+                      
+                          + If $u \in A$ then $(\forall u)(S(u) \in A \implies u \in A)$. Also $S(n) \in A^* \land n \in A^* \land A \subseteq A^*$. Therefore $(\forall u)(S(u) \in A^* \implies u in A^*)$
+                          + $f^*(1) = f(1) = c$
+                      
+                          + If $u \in A$ then $(\forall u)(S(u) \in A \implies f(S(u)) = g(f(u)))$. Also $f^*(S(n)) = g(f(n))$ so $(\forall u)(S(u) \in A^* \implies f^*(S(u)) = g(f^*(u)))$
+                      
+                              + Therefore $f^*$ is $S(n)$-admissible and $S(n) \in B$
+                              
+              + By the principle of mathematical induction $B = P$
+
+          + If $f$ is $n$-admissible and $h$ is $n$-admissible then $f(n) = h(n)$ 
+          
+              + Let $B = \{n: n \in P \land (\forall f)(\forall g)((f \text{ is } n \text{-admissible} \land g \text{ is } n \text{-admissible}) \implies f(n) = g(n))\}$
+              
+                  + $B \subseteq P$ because if $n \in B$ then $n \in P$
+              
+                  + $1 \in B$ because if $f$ and $h$ are $n$-admissible then $f(1) = c = h(1)$
+                  + Assume $n \in B$ then $f(n) = h(n)$. 
+                  
+                      + Because $S(n) \in P$ we can use $f^*$ as the $S(n)$-admissible function defined above. Therefore $f^*(S(n)) = g(f^*(n))) = g(f(n)) = g(h(n))$
+                      
+                      + Because $S(n) \in P$ we can use $h^*$ as the $S(n)$-admissible function defined above. Therefore $h^*(S(n)) = g(h^*(n))) = g(h(n))$
+                      
+                          + Thus we have that $f^*(S(n)) = h^*(S(n))$ and $S(n) \in B$
+
+              + By the principle of mathematical induction $B = P$
+              
+          + Let any $n \in P$ then $S(n) \in P$. Also there exists a $S(n)$-admissible function $f^*$. Because $f^*$ is an $S(n)$-admissible function then $f^*$ is also a $n$-admissible function.
+          
+              + Lets define $F(n) = f^*(n)$ 
+              
+                  + $F(1) = f^*(1) = c$
+                  
+                  + $F(S(n)) = f^*(S(n)) = g(f^*(n)) = g(F(n))$ 
+                  
+                  + Because $f^*(n) \in \mathscr{f^*}$ and $mathscr{f^*} \subseteq W$ we have $F(n) \in W$
+                  
+                    + Therefore for any peano system $(P, S, 1)$, an arbitrary set $W$m an element $c \in W$ and some $g: W \longrightarrow W$ exists a function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(n)) = g(F(n))$ for all $x \in P$
+
+    + __Uniqueness__
+    
+        + Assume $F$ and $H$ are functions satisfying the two conditions of the theorem. For $n \in P$ we have that $F(n) = f(n)$ and $H(n) = h(n)$ where $f$ and $g$ are $n$-admissible functions. Therefore we have that $f(n) = h(n)$ and this means that $F(n) = H(n)$
+        
+            + Let $B = \{n: n \in P \land F(n) = H(n) \}$
+            
+                + If $n \in B$ then $n \in P$ so $B \subseteq P$
+                
+                + $1 \in B$ because $F(1) = c = H(1)$
+                
+                + Assume $n \in B$ then $F(S(n)) = g(F(n)) = g(H(n)) = H(S(n))$. Therefore $S(n) \in B$
+                
+            + By the principle of mathematical induction $B = P$
+            
+        + Thus, $F(x) = H(x)$ for all $x \in P$
+        
+        + Also $\mathscr{D}(F) = P = \mathscr{D}(H)$
+        
+            + We can conclude that $F = H$
+            
+## Aplication of the iteration theorem: addition
+
+__Theorem__ _(Addition)_ Consider any peano system $(P, S, 1)$. Then there is a unique binary operation $+$ on $P$, $+ : P \times P \longrightarrow P$ such that
+
+- $(\alpha) \; x + 1 = S(x)$ for all $x \in P$
+- $x + S(y) = S(x + y)$ for all $x \in P$ and $y \in P$
+
+We adopt the standard convention of writing $x + y = z$ instead of $+((x,y)) = z$
+
+__Proof__
+
 
 # Bibliography
 
