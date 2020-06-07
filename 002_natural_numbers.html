@@ -1712,7 +1712,9 @@ summary {
 <li><a href="#peano-systems"><span class="toc-section-number">1.1</span> Peano systems</a></li>
 <li><a href="#peano-systems-exercises-and-solutions"><span class="toc-section-number">1.2</span> Peano systems exercises and solutions</a></li>
 <li><a href="#the-iteration-theorem"><span class="toc-section-number">1.3</span> The iteration theorem</a></li>
-<li><a href="#aplication-of-the-iteration-theorem-addition"><span class="toc-section-number">1.4</span> Aplication of the iteration theorem: addition</a></li>
+<li><a href="#aplication-of-the-iteration-theorem-addition"><span class="toc-section-number">1.4</span> Aplication of the iteration theorem (addition)</a></li>
+<li><a href="#aplication-of-the-iteration-theorem-addition-exercises-and-solutions"><span class="toc-section-number">1.5</span> Aplication of the iteration theorem: addition exercises and solutions</a></li>
+<li><a href="#the-order-relation"><span class="toc-section-number">1.6</span> The order relation</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -2142,14 +2144,211 @@ text-align: justify}
 </ul>
 </div>
 <div id="aplication-of-the-iteration-theorem-addition" class="section level2" number="1.4">
-<h2 number="1.4"><span class="header-section-number">1.4</span> Aplication of the iteration theorem: addition</h2>
+<h2 number="1.4"><span class="header-section-number">1.4</span> Aplication of the iteration theorem (addition)</h2>
 <p><strong>Theorem</strong> <em>(Addition)</em> Consider any peano system <span class="math inline">\((P, S, 1)\)</span>. Then there is a unique binary operation <span class="math inline">\(+\)</span> on <span class="math inline">\(P\)</span>, <span class="math inline">\(+ : P \times P \longrightarrow P\)</span> such that</p>
 <ul>
 <li><span class="math inline">\((\alpha) \; x + 1 = S(x)\)</span> for all <span class="math inline">\(x \in P\)</span></li>
-<li><span class="math inline">\(x + S(y) = S(x + y)\)</span> for all <span class="math inline">\(x \in P\)</span> and <span class="math inline">\(y \in P\)</span></li>
+<li><span class="math inline">\((\beta) \; x + S(y) = S(x + y)\)</span> for all <span class="math inline">\(x \in P\)</span> and <span class="math inline">\(y \in P\)</span></li>
 </ul>
 <p>We adopt the standard convention of writing <span class="math inline">\(x + y = z\)</span> instead of <span class="math inline">\(+((x,y)) = z\)</span></p>
 <p><strong>Proof</strong></p>
+<p>Let <span class="math inline">\(P = W\)</span>, <span class="math inline">\(S(x) = c \in W\)</span> and <span class="math inline">\(S = g\)</span> then using the iteration theorem there is a unique function <span class="math inline">\(F: P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><span class="math inline">\(F((x,1)) = S(x)\)</span></li>
+<li><span class="math inline">\(F((x,S(y))) = S(F((x,y)))\)</span></li>
+</ul>
+<p>Let <span class="math inline">\(F = +\)</span> and <span class="math inline">\(+((z,w)) \equiv z + w\)</span> then we can rewrite the above expressions as:</p>
+<ul>
+<li><span class="math inline">\(x + 1 = S(x)\)</span></li>
+<li><span class="math inline">\(x + S(y) = S(x + y)\)</span></li>
+</ul>
+<p><strong>Terminology</strong> <span class="math inline">\(+\)</span> is called the <strong>addition</strong> operation on <span class="math inline">\(P\)</span>. <span class="math inline">\(x + y\)</span> is called the <strong>sum</strong> of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
+<ul>
+<li><p>Also because <span class="math inline">\(x + S(y) = S(x + y)\)</span>, <span class="math inline">\(S(y) = y + 1\)</span> and <span class="math inline">\(S(x + y) = (x + y) + 1\)</span> then <span class="math inline">\(x + (y + 1) = (x + y) + 1\)</span></p></li>
+<li><p>Furthermore if <span class="math inline">\(P = \mathbb{P}\)</span>, <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(S(x) = 2\)</span> then the definition of <span class="math inline">\(+\)</span> implies <span class="math inline">\(2 = 1 + 1 = S(1)\)</span>, <span class="math inline">\(1 + 2 = 1 + S(1) = S(1 + 1) = S(2) \equiv 3\)</span>, <span class="math inline">\(1 + 3 = 1 + S(2) = S(1 + 2) = S(3) \equiv 4\)</span> and so on.</p></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Associativity of Addition)</em> <span class="math inline">\(x + (y + z) = (x + y) + z\)</span> for all <span class="math inline">\(x,y\)</span> and <span class="math inline">\(z\)</span> in <span class="math inline">\(P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land x + (y + z) = (x + y) + z \text{ where } x \in P \land y \in P\}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x + (y + 1) &amp; = x + S(y) \\  &amp; = S(x + y) \\  &amp; = (x + y) + 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(z \in B\)</span> therefore <span class="math inline">\(x + (y + z) = (x + y) + z\)</span> where <span class="math inline">\(x \in P \land y \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x + (y + S(z)) &amp; = x + S(y + z) \\  &amp; = S(x + (y + z)) \\  &amp; = S((x + y) + z) \\  &amp; = (x + y) + S(z)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Thus by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p>From the associative law it follows that it does not matter how parentheses are inserted in a sum of three or more terms , and that, as a consequence, parentheses may be omitted.</p>
+<p><strong>Lemma</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(x + 1 = 1 + x\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(P\)</span> (Hence <span class="math inline">\(1 + x = S(x)\)</span>)</p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land x + 1 = 1 + x \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 + 1 = 1 + 1\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x + 1 = 1 + x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  S(x) + 1 &amp; = (x + 1) + 1 \\  &amp; = (1 + x) + 1 \\  &amp; = 1 + (x + 1) \\  &amp; = 1 + S(x)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Thus by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(S(y) + x = S(y + x)\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(P\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  S(y) + x &amp; = (y + 1) + x \\  &amp; = y + (1 + x) \\  &amp; = y + (x + 1) \\  &amp; = (y + x) + 1 \\  &amp; = S(y + x)  \end{split}\)</span></li>
+</ul></li>
+</ol>
+<p><strong>Theorem</strong> <em>(Commutativity of Addition)</em> <span class="math inline">\(x + y = y + x\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land x + y = y + x \text{ where } y \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 + y = y + 1\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in P\)</span> therefore <span class="math inline">\(x + y = y + x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  S(x) + y &amp; = (x + 1) + y \\  &amp; = (1 + x) + y \\  &amp; = 1 + (x + y) \\  &amp; = 1 + (y + x) \\  &amp; = (1 + y) + x \\  &amp; = (y + 1) + x \\  &amp; = y + (1 + x) \\  &amp; = y + S(x) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Thus by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Cancellation Law for Addition)</em> <span class="math inline">\(x + z = y + z \implies x = y\)</span> for all <span class="math inline">\(x, y\)</span> and <span class="math inline">\(z\)</span> in <span class="math inline">\(P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land (x + z = y + z \implies x = y) \text{ where } x \in P \land y \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x + 1 = y + 1 &amp; \iff S(x) = S(y)  &amp; \iff x = y  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(x + z = y + z \implies x = y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x + S(z) = y + S(z) &amp; \iff S(x + z) = S(y + z) \\  &amp; \iff x + z = y + z \\  &amp; \iff x = y  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Thus by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <span class="math inline">\(y \neq x + y\)</span> for all <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{y: y \in P \land y \neq x + y \text{ where } x \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  S(x) \neq 1 &amp; \iff \neg(S(x) = 1) \\  &amp; \iff \neg(1 = S(x)) \\  &amp; \iff \neg(1 = x + 1) \\  &amp; \iff 1 \neq x + 1 \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(y \neq x + y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  y \neq x + y &amp; \implies S(y) \neq S(x + y) \\  &amp; \iff S(y) \neq x + S(y)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(y) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Thus by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+</div>
+<div id="aplication-of-the-iteration-theorem-addition-exercises-and-solutions" class="section level2" number="1.5">
+<h2 number="1.5"><span class="header-section-number">1.5</span> Aplication of the iteration theorem: addition exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Compute <span class="math inline">\(4 + 2\)</span> and <span class="math inline">\(2 + 4\)</span>. (We do not know yet that these two values must be the same.)</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  4 + 2 &amp; = 4 + S(1) \\  &amp; = S(4 + 1) \\  &amp; = S(5) \\  &amp; = 6  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  2 + 4 &amp; = 2 + S(3) \\  &amp; = S(2 + 3) \\  &amp; = S(5) \\  &amp; = 6  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((x + y) + (u + v) = (x + u) + (y + v)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x + y) + (u + v) &amp; \iff ((x + y) + u) + v \\  &amp; \iff (x + (y + u)) + v \\  &amp; \iff (x + (u + y)) + v \\  &amp; \iff ((x + u) + y) + v \\  &amp; \iff (x + u) + (y + v)  \end{split}\)</span></li>
+</ul></li>
+</ol>
+</div>
+<div id="the-order-relation" class="section level2" number="1.6">
+<h2 number="1.6"><span class="header-section-number">1.6</span> The order relation</h2>
+<p><strong>Definition</strong> <span class="math inline">\(x &lt; y\)</span> if and only if <span class="math inline">\((\exists z)(z \in P \land x + z = y)\)</span></p>
+<ul>
+<li><span class="math inline">\(x &lt; y\)</span> is also equivalent to <span class="math inline">\(y &gt; x\)</span></li>
+</ul>
+<p><strong>Definition</strong> <span class="math inline">\(x &gt; y\)</span> if and only if <span class="math inline">\((\exists w)(w \in P \land x = y + w)\)</span></p>
+<p><strong>Definition</strong> <span class="math inline">\(x \not &lt; y\)</span> if and only if <span class="math inline">\(\neg(x &lt; y)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  \neg(x &lt; y) &amp; \iff \neg(\exists z)(x + z = y) \\  &amp; \iff (\forall z)\neg(z \in P \land x + z = y) \\  &amp; \implies (\forall z)(x + z \neq y)  \end{split}\)</span></p>
+<ul>
+<li><span class="math inline">\(x \not &lt; y\)</span> is also equivalent to <span class="math inline">\(y \not &gt; x\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(x \not &lt; x\)</span> for all <span class="math inline">\(x\)</span> in <span class="math inline">\(P\)</span> (irreflexivity of <span class="math inline">\(&lt;\)</span>)</li>
+</ol>
+<ul>
+<li>Assume that <span class="math inline">\(x &lt; x\)</span>. Therefore <span class="math inline">\((\exists z)(z \in P \land x + z = z)\)</span>. However previously we proved that <span class="math inline">\(x + z \neq x\)</span></li>
+</ul>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\((x &lt; y \land y &lt; z) \implies x &lt; z\)</span> for all <span class="math inline">\(x, y\)</span> and <span class="math inline">\(z\)</span> in <span class="math inline">\(P\)</span> (transitivity of <span class="math inline">\(&lt;\)</span>)</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; y \land y &lt; z &amp; \iff (\exists u)(u \in P \land x + u = y) \land (\exists v)(v \in P \land y + v = z) \\  &amp; \implies (\exists u)(\exists v)(u \in P \land v \in P \land x + u = y \land y + v = z) \\  &amp; \implies (\exists u)(\exists v)(u \in P \land v \in P \land (x + u) + v = z) \\  &amp; \implies (\exists u)(\exists v)(u \in P \land v \in P \land x + (u + v) = z) \\  &amp; \implies (\exists w)(w \in P \land x + w = z) \\  &amp; \implies x &lt; z  \end{split}\)</span></li>
+</ul>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>For any <span class="math inline">\(x,y\)</span> in <span class="math inline">\(P\)</span>, exactly one of the following conditions hold: <span class="math inline">\(x &lt; y\)</span>, <span class="math inline">\(x = y\)</span>, <span class="math inline">\(y &lt; x\)</span> (trichotomy)</li>
+</ol>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land (x = y \lor x &lt; y \lor x &gt; y) \text{ where } y \in P \}\)</span></p>
+<ul>
+<li><p><strong>At least one</strong></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p>If x = 1 then <span class="math inline">\(y = 1 \lor (\exists z)(y = S(z))\)</span>. Therefore <span class="math inline">\(y = 1 \lor y = z + 1\)</span> so <span class="math inline">\(x = 1 \lor x &lt; y\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span> therefore <span class="math inline">\(x = y \lor x &lt; y \lor x &gt; y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x = y\)</span> then <span class="math inline">\(S(x) = S(y)\)</span> and <span class="math inline">\(S(x) = y + 1\)</span>. Therefore <span class="math inline">\(S(x) &gt; y\)</span></p></li>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> then <span class="math inline">\((\exists z)(z \in P \land y + z = x)\)</span>. Therefore <span class="math inline">\(S(x) = S(y + z) = S(z + y) = S(z) + y\)</span> so <span class="math inline">\(S(x) &gt; y\)</span></p></li>
+<li><p>If <span class="math inline">\(x &lt; y\)</span> then <span class="math inline">\((\exists z)(z \in P \land x + z = y)\)</span>. Also <span class="math inline">\(z = 1 \lor (\exists w)(w \in P \land z = S(w))\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(z = 1\)</span> then <span class="math inline">\(S(x) = y\)</span></p></li>
+<li><p>If <span class="math inline">\(z = S(w)\)</span> then <span class="math inline">\(y = x + S(w) = (x + 1) + w = S(x) + w\)</span>. Thus <span class="math inline">\(S(x) &lt; y\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Thus by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p><strong>Exactly one</strong></p>
+<ul>
+<li><p>If <span class="math inline">\(x = y\)</span></p>
+<ul>
+<li>Is not possible also that <span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x &gt; y\)</span> because <span class="math inline">\(y &lt; y\)</span> or <span class="math inline">\(y &gt; y\)</span> is not true</li>
+</ul></li>
+<li><p>If <span class="math inline">\(x &lt; y\)</span> then <span class="math inline">\(x + z = y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x = y\)</span> also then <span class="math inline">\(y + z = y\)</span> but <span class="math inline">\(y + z \neq y\)</span></p></li>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> also then <span class="math inline">\(y + w = x\)</span> and <span class="math inline">\((y + w) + z = y + (w + z) = y\)</span> but <span class="math inline">\(y + (w + z) \neq y\)</span></p></li>
+</ul></li>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> then <span class="math inline">\(y + z = x\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x = y\)</span> also then <span class="math inline">\(x + z = x\)</span> but <span class="math inline">\(x + z \neq x\)</span></p></li>
+<li><p>If <span class="math inline">\(x &lt; y\)</span> also then <span class="math inline">\(x + w = x\)</span> and <span class="math inline">\((x + w) + z = x + (w + z) = x\)</span> but <span class="math inline">\(x + (w + z) \neq x\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong></p>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
