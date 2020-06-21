@@ -753,7 +753,190 @@ c. For any $x,y$ in $P$, exactly one of the following conditions hold: $x < y$, 
 
 __Theorem__
 
+- $x < S(x)$
 
+    + $\begin{split}
+        S(x) = x + 1 & \implies (\exists z)(z \in P \land x + z = S(x)) \\
+        & \implies x < S(x)
+       \end{split}$
+       
+- $\neg(\exists y)(x < y < S(x))$ 
+
+    + $\begin{split}
+        (\exists y)(x < y < S(x)) & \implies (\exists z_1)(z_1 \in P \land x + z_1 = y) \land (\exists z_2)(z_2 \in P \land y + z_2 = S(x)) \\
+        & \implies (\exists z_1)(\exists z_2)((z_1 + z_2) \in P \land x + (z_1 + z_2) = S(x) \\
+        & \implies (\exists z_1)(\exists z_2)(x + (z_1 + z_2) = S(x) \land z_1 = 1 \lor (\exists w)(w \in P \land z_1 = S(w)) \\
+        & \implies (x + 1) + z_2 = S(x) \lor x + (S(w) + z_2) = S(x) \\
+        & \implies S(x) + z_2 = S(x) \lor S(x) + (w + z_2) = S(x) \\
+        & \implies \text{ There is a contradiction}
+       \end{split}$
+       
+        + Therefore it is false that $(\exists y)(x < y < S(x)$ and it is true that $\neg(\exists y)(x < y < S(x))$
+        
+__Definitions__
+
+- $x \leq y$ for $x < y \lor x = y$
+- $x \not \leq y$ for $\neg(x \leq y)$
+- $x > y$ for $y < x$
+- $x \geq y$ for $y \leq x$
+
+## The order relation exercises and solutions
+
+1. Prove that $x < y \iff (x \leq y \land x \neq y)$
+
+    + $\begin{split}
+        x \leq y \land x \neq y & \iff (x < y \lor x = y) \land x \neq y \\
+        & \iff (x < y \land x \neq y) \lor (x = y \land x \neq y) \\
+        & \iff x < y \land x \neq y \\
+        & \iff (\exists z)(z \in P \land x  + z = y) \land x \neq y \\
+        & \iff (\exists z)(z \in P \land x  + z = y) \land x \neq x  + z \\
+        & \iff (\exists z)(z \in P \land x  + z = y) \\
+        & \iff x < y
+       \end{split}$
+       
+__Theorem__
+
+- $x \leq x$
+
+    + $\begin{split}
+       x = x & \implies x = x \lor x < x \\
+       & \implies x \leq x
+       \end{split}$
+       
+- $(x < y \land y \leq z) \implies x < z$
+
+    + $\begin{split}
+       x < y \land y \leq z & \iff x < y \land (y < z \lor y = z) \\
+       & \implies (x < y \land y < z) \lor (x < y \land y = z) \\
+       & \implies x < y \land y < z \\
+       & \implies x < z
+       \end{split}$
+       
+- $(x \leq y \land y < z) \implies x < z$
+
+    + $\begin{split}
+       x \leq y \land y < z & \iff (x < y \lor x = y) \land y < z \\
+       & \implies (x < y \land y < z) \lor (x = y \land y < z) \\
+       & \implies x < y \land y < z \\
+       & \implies x < z
+       \end{split}$
+       
+-  $(x \leq y \land y < z) \implies x < z$
+
+    + $\begin{split}
+       x \leq y \land y \leq z & \iff (x < y \lor x = y) \land (y < z \lor y = z) \\
+       & \iff ((x < y \lor x = y) \land y < z) \lor ((x < y \lor x = y) \land y = z) \\
+       & \iff (x \leq y \land y < z) \lor (x < y \land y = z) \lor (x = y \land y = z) \\
+       & \implies x < z \lor x < z \lor x = z \\
+       & \iff x < z \lor x = z \\
+       & \iff x \leq z
+       \end{split}$
+       
+- $x \leq y \lor y \leq x$
+
+    + For $x \in P \land y \in P$ exactly one of the following holds:
+    
+      + $x < y$
+      
+        + $\begin{split}
+           x < y & \implies x < y \lor x = y \\
+           & \implies x \leq y
+           \end{split}$
+      
+      + $x = y$
+      
+        + $\begin{split}
+           x = y & \implies x = y \lor x < y \\
+           & \implies x \leq y
+           \end{split}$
+        
+      + $x > y$
+      
+        + $\begin{split}
+           x > y & \implies x > y \lor x = y \\
+           & \implies x \geq y           
+           \end{split}$
+           
+          + Therefore $x \leq y \lor x \geq y$
+          
+- $(x \leq y \land x \geq y) \implies x = y$
+
+    + $\begin{split}
+        x \leq y \land x \geq y & \iff (x < y \lor x = y) \land (x > y \lor x = y) \\
+        & \iff ((x < y \lor x = y) \land x > y) \lor ((x < y \lor x = y) \land x = y) \\
+        & \iff (x \leq y \land x > y) \lor (x < y \land  x = y) \lor (x = y \land x = y) \\ 
+        & \iff x = y \land x = y \\
+        & \iff x = y
+        \end{split}$
+        
+__Theorem__
+
+- $x \neq 1 \implies 1 < x$
+
+    + $\begin{split}
+       x \neq 1 & \implies (\exists y)(y \in P \land x = S(y)) \\
+       & \implies (\exists y)(y \in P \land x = y + 1)
+       & \implies 1 < x
+       \end{split}$
+       
+- $x < x + y$
+
+    + $\begin{split}
+       y \in P & \implies y = 1 \lor (\exists w)(w \in P \land y = S(w)) \\
+       & \implies x + 1 = x + y \lor x + S(w) = x + y \\
+       & \implies x < x + y
+       \end{split}$
+       
+- $x < y \iff x + z < x + y$
+
+    + $\begin{split}
+       x < y & \iff (\exists w)(w \in P \land x + w = y) \\
+       & \iff  (\exists w)(w \in P \land (x + w) + z = y + z) \\
+       & \iff  (\exists w)(w \in P \land (x + z) + w = y + z) \\
+       & \iff x + z < y + z  
+       \end{split}$
+       
+        + Checkout _Substitutivity_ of inequality in __Appendix A__ and _Cancellation Law for Addition_ in this chapter to examine why $x + w = y \iff (x + w) + z = y + z$ 
+
+- $x \leq y \iff x + z \leq x + y$
+
+    + In the case of $x < y \lor x + z < y + z$ then $x < y \iff x + z < x + y$
+    
+    + In the case of $x = y \lor x + z = y + z$ use the _Substitutivity_ of inequality in __Appendix A__ and _Cancellation Law for Addition_ in this chapter to prove that $x = y \iff x + z = y + z$
+    
+        + Therefore $x \leq y \iff x + z \leq x + y$
+        
+- $(x < y \land u < v) \implies x + u < y + v$
+
+    + $\begin{split}
+       x < y \land u < v & \iff (\exists w_1)(\exists w_2)(w_1 \in P \land w_2 \in P \land x + w_1 = y \land u + w_2 = v) \\
+       & \implies (\exists w_1)(\exists w_2)(w_1 \in P \land w_2 \in P \land (x + w_1) + (u + w_2) = y + v) \\
+       & \implies (\exists (w_1 + w_2))((w_1 + w_2) \in P \land (x + u) + (w_1 + w_2) = y + v) \\
+       & \implies x + u < y + v
+       \end{split}$
+       
+- $(x < y \land u \leq v) \implies x + u < y + v$
+
+    + $\begin{split}
+       (x < y \land u \leq v) & \iff x < y \land (u < v \lor u = v) \\
+       & \implies (x < y \land u < v) \lor (x < y \land u = v) \\
+       & \implies (x + u < y + v) \lor (x + u < y + z ) \\
+       & \implies x + u < y + v
+       \end{split}$
+       
+- $(x \leq y \land u < v) \implies x + u < y + v$
+
+    + $\begin{split}
+       (x \leq y \land u < v) & \iff (u < v \land x \leq y)  \\
+       & \implies u + x < v + y \\
+       & \iff x + u < y + v
+       \end{split}$
+       
+- $(x \leq y \land u \leq v) \implies x + u \leq y + v$
+
+    + If $(x \leq y \land u < v)$ then $x + u < y + v$ so  $x + u \leq y + v$ is true
+    
+    + If $(x \leq y \land u = v)$ then $x + u \leq y + v$ is true
 
 # Bibliography
 

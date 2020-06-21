@@ -238,7 +238,7 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia, pre.foldable');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
@@ -278,6 +278,22 @@ window.initializeCodeFolding = function(show) {
   });
 
 }
+</script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
 </script>
 <style type="text/css">.pagedtable {
 overflow: auto;
@@ -1715,6 +1731,7 @@ summary {
 <li><a href="#aplication-of-the-iteration-theorem-addition"><span class="toc-section-number">1.4</span> Aplication of the iteration theorem (addition)</a></li>
 <li><a href="#aplication-of-the-iteration-theorem-addition-exercises-and-solutions"><span class="toc-section-number">1.5</span> Aplication of the iteration theorem: addition exercises and solutions</a></li>
 <li><a href="#the-order-relation"><span class="toc-section-number">1.6</span> The order relation</a></li>
+<li><a href="#the-order-relation-exercises-and-solutions"><span class="toc-section-number">1.7</span> The order relation exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -2349,6 +2366,122 @@ text-align: justify}
 </ul></li>
 </ul>
 <p><strong>Theorem</strong></p>
+<ul>
+<li><p><span class="math inline">\(x &lt; S(x)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  S(x) = x + 1 &amp; \implies (\exists z)(z \in P \land x + z = S(x)) \\  &amp; \implies x &lt; S(x)  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\neg(\exists y)(x &lt; y &lt; S(x))\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (\exists y)(x &lt; y &lt; S(x)) &amp; \implies (\exists z_1)(z_1 \in P \land x + z_1 = y) \land (\exists z_2)(z_2 \in P \land y + z_2 = S(x)) \\  &amp; \implies (\exists z_1)(\exists z_2)((z_1 + z_2) \in P \land x + (z_1 + z_2) = S(x) \\  &amp; \implies (\exists z_1)(\exists z_2)(x + (z_1 + z_2) = S(x) \land z_1 = 1 \lor (\exists w)(w \in P \land z_1 = S(w)) \\  &amp; \implies (x + 1) + z_2 = S(x) \lor x + (S(w) + z_2) = S(x) \\  &amp; \implies S(x) + z_2 = S(x) \lor S(x) + (w + z_2) = S(x) \\  &amp; \implies \text{ There is a contradiction}  \end{split}\)</span></p>
+<ul>
+<li>Therefore it is false that <span class="math inline">\((\exists y)(x &lt; y &lt; S(x)\)</span> and it is true that <span class="math inline">\(\neg(\exists y)(x &lt; y &lt; S(x))\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Definitions</strong></p>
+<ul>
+<li><span class="math inline">\(x \leq y\)</span> for <span class="math inline">\(x &lt; y \lor x = y\)</span></li>
+<li><span class="math inline">\(x \not \leq y\)</span> for <span class="math inline">\(\neg(x \leq y)\)</span></li>
+<li><span class="math inline">\(x &gt; y\)</span> for <span class="math inline">\(y &lt; x\)</span></li>
+<li><span class="math inline">\(x \geq y\)</span> for <span class="math inline">\(y \leq x\)</span></li>
+</ul>
+</div>
+<div id="the-order-relation-exercises-and-solutions" class="section level2" number="1.7">
+<h2 number="1.7"><span class="header-section-number">1.7</span> The order relation exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Prove that <span class="math inline">\(x &lt; y \iff (x \leq y \land x \neq y)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y \land x \neq y &amp; \iff (x &lt; y \lor x = y) \land x \neq y \\  &amp; \iff (x &lt; y \land x \neq y) \lor (x = y \land x \neq y) \\  &amp; \iff x &lt; y \land x \neq y \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \land x \neq y \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \land x \neq x + z \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \\  &amp; \iff x &lt; y  \end{split}\)</span></li>
+</ul></li>
+</ol>
+<p><strong>Theorem</strong></p>
+<ul>
+<li><p><span class="math inline">\(x \leq x\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x = x &amp; \implies x = x \lor x &lt; x \\  &amp; \implies x \leq x  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x &lt; y \land y \leq z) \implies x &lt; z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; y \land y \leq z &amp; \iff x &lt; y \land (y &lt; z \lor y = z) \\  &amp; \implies (x &lt; y \land y &lt; z) \lor (x &lt; y \land y = z) \\  &amp; \implies x &lt; y \land y &lt; z \\  &amp; \implies x &lt; z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq y \land y &lt; z) \implies x &lt; z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y \land y &lt; z &amp; \iff (x &lt; y \lor x = y) \land y &lt; z \\  &amp; \implies (x &lt; y \land y &lt; z) \lor (x = y \land y &lt; z) \\  &amp; \implies x &lt; y \land y &lt; z \\  &amp; \implies x &lt; z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq y \land y &lt; z) \implies x &lt; z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y \land y \leq z &amp; \iff (x &lt; y \lor x = y) \land (y &lt; z \lor y = z) \\  &amp; \iff ((x &lt; y \lor x = y) \land y &lt; z) \lor ((x &lt; y \lor x = y) \land y = z) \\  &amp; \iff (x \leq y \land y &lt; z) \lor (x &lt; y \land y = z) \lor (x = y \land y = z) \\  &amp; \implies x &lt; z \lor x &lt; z \lor x = z \\  &amp; \iff x &lt; z \lor x = z \\  &amp; \iff x \leq z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x \leq y \lor y \leq x\)</span></p>
+<ul>
+<li><p>For <span class="math inline">\(x \in P \land y \in P\)</span> exactly one of the following holds:</p>
+<ul>
+<li><p><span class="math inline">\(x &lt; y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; y &amp; \implies x &lt; y \lor x = y \\  &amp; \implies x \leq y  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x = y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x = y &amp; \implies x = y \lor x &lt; y \\  &amp; \implies x \leq y  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x &gt; y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x &gt; y &amp; \implies x &gt; y \lor x = y \\  &amp; \implies x \geq y  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x \leq y \lor x \geq y\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq y \land x \geq y) \implies x = y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y \land x \geq y &amp; \iff (x &lt; y \lor x = y) \land (x &gt; y \lor x = y) \\  &amp; \iff ((x &lt; y \lor x = y) \land x &gt; y) \lor ((x &lt; y \lor x = y) \land x = y) \\  &amp; \iff (x \leq y \land x &gt; y) \lor (x &lt; y \land x = y) \lor (x = y \land x = y) \\  &amp; \iff x = y \land x = y \\  &amp; \iff x = y  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong></p>
+<ul>
+<li><p><span class="math inline">\(x \neq 1 \implies 1 &lt; x\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \neq 1 &amp; \implies (\exists y)(y \in P \land x = S(y)) \\  &amp; \implies (\exists y)(y \in P \land x = y + 1)  &amp; \implies 1 &lt; x  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x &lt; x + y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  y \in P &amp; \implies y = 1 \lor (\exists w)(w \in P \land y = S(w)) \\  &amp; \implies x + 1 = x + y \lor x + S(w) = x + y \\  &amp; \implies x &lt; x + y  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x &lt; y \iff x + z &lt; x + y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x &lt; y &amp; \iff (\exists w)(w \in P \land x + w = y) \\  &amp; \iff (\exists w)(w \in P \land (x + w) + z = y + z) \\  &amp; \iff (\exists w)(w \in P \land (x + z) + w = y + z) \\  &amp; \iff x + z &lt; y + z  \end{split}\)</span></p>
+<ul>
+<li>Checkout <em>Substitutivity</em> of inequality in <strong>Appendix A</strong> and <em>Cancellation Law for Addition</em> in this chapter to examine why <span class="math inline">\(x + w = y \iff (x + w) + z = y + z\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(x \leq y \iff x + z \leq x + y\)</span></p>
+<ul>
+<li><p>In the case of <span class="math inline">\(x &lt; y \lor x + z &lt; y + z\)</span> then <span class="math inline">\(x &lt; y \iff x + z &lt; x + y\)</span></p></li>
+<li><p>In the case of <span class="math inline">\(x = y \lor x + z = y + z\)</span> use the <em>Substitutivity</em> of inequality in <strong>Appendix A</strong> and <em>Cancellation Law for Addition</em> in this chapter to prove that <span class="math inline">\(x = y \iff x + z = y + z\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x \leq y \iff x + z \leq x + y\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((x &lt; y \land u &lt; v) \implies x + u &lt; y + v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; y \land u &lt; v &amp; \iff (\exists w_1)(\exists w_2)(w_1 \in P \land w_2 \in P \land x + w_1 = y \land u + w_2 = v) \\  &amp; \implies (\exists w_1)(\exists w_2)(w_1 \in P \land w_2 \in P \land (x + w_1) + (u + w_2) = y + v) \\  &amp; \implies (\exists (w_1 + w_2))((w_1 + w_2) \in P \land (x + u) + (w_1 + w_2) = y + v) \\  &amp; \implies x + u &lt; y + v  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x &lt; y \land u \leq v) \implies x + u &lt; y + v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x &lt; y \land u \leq v) &amp; \iff x &lt; y \land (u &lt; v \lor u = v) \\  &amp; \implies (x &lt; y \land u &lt; v) \lor (x &lt; y \land u = v) \\  &amp; \implies (x + u &lt; y + v) \lor (x + u &lt; y + z ) \\  &amp; \implies x + u &lt; y + v  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq y \land u &lt; v) \implies x + u &lt; y + v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x \leq y \land u &lt; v) &amp; \iff (u &lt; v \land x \leq y) \\  &amp; \implies u + x &lt; v + y \\  &amp; \iff x + u &lt; y + v  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq y \land u \leq v) \implies x + u \leq y + v\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\((x \leq y \land u &lt; v)\)</span> then <span class="math inline">\(x + u &lt; y + v\)</span> so <span class="math inline">\(x + u \leq y + v\)</span> is true</p></li>
+<li><p>If <span class="math inline">\((x \leq y \land u = v)\)</span> then <span class="math inline">\(x + u \leq y + v\)</span> is true</p></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
