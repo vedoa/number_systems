@@ -2386,15 +2386,6 @@ text-align: justify}
 <li><span class="math inline">\(x &gt; y\)</span> for <span class="math inline">\(y &lt; x\)</span></li>
 <li><span class="math inline">\(x \geq y\)</span> for <span class="math inline">\(y \leq x\)</span></li>
 </ul>
-</div>
-<div id="the-order-relation-exercises-and-solutions" class="section level2" number="1.7">
-<h2 number="1.7"><span class="header-section-number">1.7</span> The order relation exercises and solutions</h2>
-<ol style="list-style-type: decimal">
-<li><p>Prove that <span class="math inline">\(x &lt; y \iff (x \leq y \land x \neq y)\)</span></p>
-<ul>
-<li><span class="math inline">\(\begin{split}  x \leq y \land x \neq y &amp; \iff (x &lt; y \lor x = y) \land x \neq y \\  &amp; \iff (x &lt; y \land x \neq y) \lor (x = y \land x \neq y) \\  &amp; \iff x &lt; y \land x \neq y \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \land x \neq y \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \land x \neq x + z \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \\  &amp; \iff x &lt; y  \end{split}\)</span></li>
-</ul></li>
-</ol>
 <p><strong>Theorem</strong></p>
 <ul>
 <li><p><span class="math inline">\(x \leq x\)</span></p>
@@ -2479,9 +2470,38 @@ text-align: justify}
 <li><p><span class="math inline">\((x \leq y \land u \leq v) \implies x + u \leq y + v\)</span></p>
 <ul>
 <li><p>If <span class="math inline">\((x \leq y \land u &lt; v)\)</span> then <span class="math inline">\(x + u &lt; y + v\)</span> so <span class="math inline">\(x + u \leq y + v\)</span> is true</p></li>
-<li><p>If <span class="math inline">\((x \leq y \land u = v)\)</span> then <span class="math inline">\(x + u \leq y + v\)</span> is true</p></li>
+<li><p>If <span class="math inline">\((x \leq y \land u = v)\)</span> then <span class="math inline">\(x + u \leq y + u\)</span> is true and <span class="math inline">\(x + u \leq y + v\)</span> is also true</p>
+<ul>
+<li>Therefore in any case <span class="math inline">\((x \leq y \land u \leq v) \implies x + u \leq y + v\)</span> is true</li>
+</ul></li>
 </ul></li>
 </ul>
+</div>
+<div id="the-order-relation-exercises-and-solutions" class="section level2" number="1.7">
+<h2 number="1.7"><span class="header-section-number">1.7</span> The order relation exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Prove that <span class="math inline">\(x &lt; y \iff (x \leq y \land x \neq y)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y \land x \neq y &amp; \iff (x &lt; y \lor x = y) \land x \neq y \\  &amp; \iff (x &lt; y \land x \neq y) \lor (x = y \land x \neq y) \\  &amp; \iff x &lt; y \land x \neq y \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \land x \neq y \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \land x \neq x + z \\  &amp; \iff (\exists z)(z \in P \land x + z = y) \\  &amp; \iff x &lt; y  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(1 \leq x\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \in P &amp; \implies x = 1 \lor (\exists y)(y \in P \land x = S(y)) \\  &amp; \implies x = 1 \lor (\exists y)(y \in P \land x = y + 1) \\  &amp; \implies x = 1 \lor 1 &lt; x \\  &amp; \implies 1 \leq x  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(x \leq 1 \iff x = 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in P &amp; \implies x = 1 \lor (\exists y)(y \in P \land x = S(y)) \\  &amp; \implies x = 1 \lor (\exists y)(y \in P \land x = y + 1)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \neq y + 1\)</span>. So it is not the case that <span class="math inline">\(x = 1 \land x &lt; 1\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  x \leq 1 &amp; \iff x &lt; 1 \lor x = 1 \\  &amp; \iff x = 1  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(x &lt; S(y) \iff x \leq y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; S(y) &amp; \iff (\exists w)(w \in P \land x + w = S(y)) \\  &amp; \iff (\exists w)(1 \leq w \land x + w = S(y)) \\  &amp; \iff (\exists w)((1 = w \lor 1 &lt; w) \land x + w = S(y)) \\  &amp; \iff (\exists w)((1 = w \land x + w = S(y)) \lor (1 &lt; w \land x + w = S(y))) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor (1 &lt; w \land x + w = y + 1)) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + w = y + 1)) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + (z + 1) = y + 1)) \\  &amp; \iff x 1 = y + 1 \lor (\exists z)((x + z) + 1 = y + 1) \\  &amp; \iff x = y \lor (\exists z)((x + z) = y) \\  &amp; \iff x = y \lor x &lt; y \\  &amp; \iff x \leq y  \end{split}\)</span></li>
+</ul></li>
+<li></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>

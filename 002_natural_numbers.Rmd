@@ -779,20 +779,6 @@ __Definitions__
 - $x \not \leq y$ for $\neg(x \leq y)$
 - $x > y$ for $y < x$
 - $x \geq y$ for $y \leq x$
-
-## The order relation exercises and solutions
-
-1. Prove that $x < y \iff (x \leq y \land x \neq y)$
-
-    + $\begin{split}
-        x \leq y \land x \neq y & \iff (x < y \lor x = y) \land x \neq y \\
-        & \iff (x < y \land x \neq y) \lor (x = y \land x \neq y) \\
-        & \iff x < y \land x \neq y \\
-        & \iff (\exists z)(z \in P \land x  + z = y) \land x \neq y \\
-        & \iff (\exists z)(z \in P \land x  + z = y) \land x \neq x  + z \\
-        & \iff (\exists z)(z \in P \land x  + z = y) \\
-        & \iff x < y
-       \end{split}$
        
 __Theorem__
 
@@ -936,7 +922,64 @@ __Theorem__
 
     + If $(x \leq y \land u < v)$ then $x + u < y + v$ so  $x + u \leq y + v$ is true
     
-    + If $(x \leq y \land u = v)$ then $x + u \leq y + v$ is true
+    + If $(x \leq y \land u = v)$ then $x + u \leq y + u$ is true and $x + u \leq y + v$ is also true
+    
+        + Therefore in any case $(x \leq y \land u \leq v) \implies x + u \leq y + v$ is true
+        
+## The order relation exercises and solutions
+
+1. Prove that $x < y \iff (x \leq y \land x \neq y)$
+
+    + $\begin{split}
+        x \leq y \land x \neq y & \iff (x < y \lor x = y) \land x \neq y \\
+        & \iff (x < y \land x \neq y) \lor (x = y \land x \neq y) \\
+        & \iff x < y \land x \neq y \\
+        & \iff (\exists z)(z \in P \land x  + z = y) \land x \neq y \\
+        & \iff (\exists z)(z \in P \land x  + z = y) \land x \neq x  + z \\
+        & \iff (\exists z)(z \in P \land x  + z = y) \\
+        & \iff x < y
+        \end{split}$
+       
+2. Prove that $1 \leq x$
+
+    + $\begin{split}
+        x \in P & \implies x = 1 \lor (\exists y)(y \in P \land x = S(y)) \\
+        & \implies x = 1 \lor (\exists y)(y \in P \land x = y + 1) \\
+        & \implies x = 1 \lor 1 < x \\
+        & \implies 1 \leq x
+        \end{split}$
+        
+3. Prove that $x \leq 1 \iff x = 1$
+
+    + $\begin{split}
+        x \in P & \implies x = 1 \lor (\exists y)(y \in P \land x = S(y)) \\
+        & \implies x = 1 \lor (\exists y)(y \in P \land x = y + 1)
+        \end{split}$
+        
+        + Therefore $1 \neq y + 1$. So it is not the case that $x = 1 \land x < 1$
+
+    + $\begin{split}
+        x \leq 1 & \iff x < 1 \lor x = 1 \\
+        & \iff x = 1
+        \end{split}$
+        
+4. Prove that $x < S(y) \iff x \leq y$
+
+    + $\begin{split}
+        x < S(y) & \iff (\exists w)(w \in P \land x + w = S(y)) \\
+        & \iff (\exists w)(1 \leq w \land x + w = S(y)) \\ 
+        & \iff (\exists w)((1 = w  \lor 1 < w) \land x + w = S(y)) \\ 
+        & \iff (\exists w)((1 = w \land x + w = S(y)) \lor (1 < w \land x + w = S(y))) \\
+        & \iff (\exists w)((1 = w \land x + w = y + 1) \lor (1 < w \land x + w = y + 1)) \\
+        & \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + w = y + 1)) \\
+        & \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + (z + 1) = y + 1)) \\
+        & \iff x 1 = y + 1 \lor (\exists z)((x + z) + 1 = y + 1) \\
+        & \iff x = y  \lor (\exists z)((x + z) = y) \\
+        & \iff x = y \lor x < y \\
+        & \iff x \leq y
+        \end{split}$
+       
+5. 
 
 # Bibliography
 
