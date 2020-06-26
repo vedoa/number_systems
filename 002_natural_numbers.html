@@ -1732,6 +1732,8 @@ summary {
 <li><a href="#aplication-of-the-iteration-theorem-addition-exercises-and-solutions"><span class="toc-section-number">1.5</span> Aplication of the iteration theorem: addition exercises and solutions</a></li>
 <li><a href="#the-order-relation"><span class="toc-section-number">1.6</span> The order relation</a></li>
 <li><a href="#the-order-relation-exercises-and-solutions"><span class="toc-section-number">1.7</span> The order relation exercises and solutions</a></li>
+<li><a href="#multiplication"><span class="toc-section-number">1.8</span> Multiplication</a></li>
+<li><a href="#multiplication-exercises-and-solutions"><span class="toc-section-number">1.9</span> Multiplication exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -2476,6 +2478,34 @@ text-align: justify}
 </ul></li>
 </ul></li>
 </ul>
+<p><strong>Definition</strong> Let <span class="math inline">\(A \subseteq P\)</span>. By a <strong>least element</strong> of <span class="math inline">\(A\)</span> we mean an object <span class="math inline">\(z \in A\)</span> such that <span class="math inline">\(z\)</span> is less than or equal to every element of <span class="math inline">\(A\)</span>. Thus <span class="math inline">\(z\)</span> is a least element of <span class="math inline">\(A\)</span> if and only if</p>
+<ul>
+<li><span class="math inline">\(z \in A\)</span></li>
+<li><span class="math inline">\((\forall u)(u \in A \implies z \leq u)\)</span></li>
+</ul>
+<p>If <span class="math inline">\(A = \{a \}\)</span> then <span class="math inline">\(a \leq a\)</span> so a is a least element. Also if <span class="math inline">\(1 \in A\)</span> then <span class="math inline">\(1\)</span> is the least element because <span class="math inline">\((\forall x)(x \in P \land 1 \leq x)\)</span>. The following theorem provides a very useful fact about the order relation.</p>
+<p><strong>Theorem</strong> <em>(Least Number Principle)</em> Any nonempty subset of <span class="math inline">\(P\)</span> has a least element</p>
+<p><strong><em>Proof</em></strong></p>
+<ul>
+<li><p>Let <span class="math inline">\(\emptyset \neq A \subseteq P\)</span>. Assume <span class="math inline">\(A\)</span> has no least element, and let us show that this leads to a contradiction.</p>
+<ul>
+<li><p>Let <span class="math inline">\(B\)</span> be the set of all elements <span class="math inline">\(x \in P\)</span> such that <span class="math inline">\(x\)</span> and all smaller elements are not in <span class="math inline">\(A\)</span>: <span class="math inline">\(B = \{x: x \in P \land (\forall u)(u \leq x \implies u \notin A) \}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \notin A\)</span> because <span class="math inline">\(x \leq x\)</span></p></li>
+<li><p>Let us show now by mathematical induction that <span class="math inline">\(B = P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p>If <span class="math inline">\(1 \notin B\)</span> then <span class="math inline">\((\forall u)(u \leq 1 \land u \in A)\)</span>. Also if <span class="math inline">\(u \leq 1\)</span>, because <span class="math inline">\(u \neq 1 \implies 1 &lt; u\)</span> is true, then <span class="math inline">\(1 \geq u \implies 1 = u\)</span> is true. Therefore <span class="math inline">\(1 \in A\)</span> and <span class="math inline">\(A\)</span> has a least element contradicting the supposition that <span class="math inline">\(A\)</span> has no elements. Thus, <span class="math inline">\(1 \in B\)</span> if <span class="math inline">\(A\)</span> has no least element</p></li>
+<li><p>Assume that <span class="math inline">\(x \in B\)</span> then <span class="math inline">\((\forall u)(u \leq x \implies u \notin A)\)</span>. Therefore <span class="math inline">\(x \notin A\)</span>. Because <span class="math inline">\(x &lt; S(x)\)</span> and <span class="math inline">\(\neg(\exists y)(x &lt; y &lt; S(x))\)</span> then <span class="math inline">\(S(x) \notin A\)</span>. If <span class="math inline">\(S(x) \in A\)</span> then <span class="math inline">\(S(x)\)</span> will be a least element of <span class="math inline">\(A\)</span> but we have assumed that <span class="math inline">\(A\)</span> has no least elements</p>
+<ul>
+<li>Furthermore because <span class="math inline">\(u \leq x &lt; S(x)\)</span> then <span class="math inline">\((\forall u)(u \leq S(x) \implies u \notin A)\)</span> will be true if <span class="math inline">\(A\)</span> has no least element so <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>By the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+<li><p>Also because <span class="math inline">\(B \cap A = \emptyset\)</span> then <span class="math inline">\(A = \emptyset\)</span>. However we have assumed that <span class="math inline">\(A \neq \emptyset\)</span> so there is a contradiction</p></li>
+</ul></li>
+</ul>
 </div>
 <div id="the-order-relation-exercises-and-solutions" class="section level2" number="1.7">
 <h2 number="1.7"><span class="header-section-number">1.7</span> The order relation exercises and solutions</h2>
@@ -2498,9 +2528,189 @@ text-align: justify}
 </ul></li>
 <li><p>Prove that <span class="math inline">\(x &lt; S(y) \iff x \leq y\)</span></p>
 <ul>
-<li><span class="math inline">\(\begin{split}  x &lt; S(y) &amp; \iff (\exists w)(w \in P \land x + w = S(y)) \\  &amp; \iff (\exists w)(1 \leq w \land x + w = S(y)) \\  &amp; \iff (\exists w)((1 = w \lor 1 &lt; w) \land x + w = S(y)) \\  &amp; \iff (\exists w)((1 = w \land x + w = S(y)) \lor (1 &lt; w \land x + w = S(y))) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor (1 &lt; w \land x + w = y + 1)) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + w = y + 1)) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + (z + 1) = y + 1)) \\  &amp; \iff x 1 = y + 1 \lor (\exists z)((x + z) + 1 = y + 1) \\  &amp; \iff x = y \lor (\exists z)((x + z) = y) \\  &amp; \iff x = y \lor x &lt; y \\  &amp; \iff x \leq y  \end{split}\)</span></li>
+<li><span class="math inline">\(\begin{split}  x &lt; S(y) &amp; \iff (\exists w)(w \in P \land x + w = S(y)) \\  &amp; \iff (\exists w)(1 \leq w \land x + w = S(y)) \\  &amp; \iff (\exists w)((1 = w \lor 1 &lt; w) \land x + w = S(y)) \\  &amp; \iff (\exists w)((1 = w \land x + w = S(y)) \lor (1 &lt; w \land x + w = S(y))) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor (1 &lt; w \land x + w = y + 1)) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + w = y + 1)) \\  &amp; \iff (\exists w)((1 = w \land x + w = y + 1) \lor ((\exists z)(w = z + 1) \land x + (z + 1) = y + 1)) \\  &amp; \iff x + 1 = y + 1 \lor (\exists z)((x + z) + 1 = y + 1) \\  &amp; \iff x = y \lor (\exists z)((x + z) = y) \\  &amp; \iff x = y \lor x &lt; y \\  &amp; \iff x \leq y  \end{split}\)</span></li>
 </ul></li>
-<li></li>
+<li><p>Prove that <span class="math inline">\(x &lt; y \iff S(x) \leq y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; y &amp; \iff (\exists z)(z \in P \land x + z = y) \\  &amp; \iff (\exists z)((z = 1 \lor (\exists w)(z = S(w))) \land x + z = y) \\  &amp; \iff (\exists z)((z = 1 \land x + z = y) \lor ((\exists w)(z = S(w)) \land x + z = y)) \\  &amp; \iff (\exists z)((z = 1 \land x + z = y) \lor ((\exists w)(z = S(w)) \land (x + 1) + w = y)) \\  &amp; \iff (\exists z)((z = 1 \land x + z = y) \lor ((\exists w)(z = S(w)) \land S(x) + w = y)) \\  &amp; \iff S(x) = y \lor S(x) &lt; y \\  &amp; \iff S(x) \leq y  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(x + u &lt; y + v \implies x &lt; y \lor u &lt; v\)</span></p>
+<ul>
+<li><p><span class="math inline">\(x + u &lt; y + v \implies x &lt; y \lor u &lt; v\)</span> is equivalent to <span class="math inline">\(x \geq y \land u \geq v \implies x + u \geq y + v\)</span></p></li>
+<li><p>Aso we already prove that <span class="math inline">\(x \geq y \land u \geq v \implies x + u \geq y + v\)</span> is true.</p></li>
+<li><p>Therefore <span class="math inline">\(x + u &lt; y + v \implies x &lt; y \lor u &lt; v\)</span> is true</p></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(1 &lt; 2 &lt; 3 &lt; 4\)</span>, etc</p>
+<ul>
+<li><p>Because <span class="math inline">\((\forall x)(x \in P \implies x &lt; S(x))\)</span></p>
+<ul>
+<li><p><span class="math inline">\(1 &lt; S(1) \equiv 2\)</span></p></li>
+<li><p><span class="math inline">\(2 &lt; S(2) \equiv 3\)</span></p></li>
+<li><p><span class="math inline">\(3 &lt; S(3) \equiv 4\)</span></p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p><span class="math inline">\(n &lt; S(n) = n + 1\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(g: P \longrightarrow P\)</span> and <span class="math inline">\((\forall x)(\forall y)(x &lt; y \implies g(x) &lt; g(y))\)</span> prove that <span class="math inline">\((\forall u)(g(u) \geq u)\)</span></p></li>
+</ol>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{u: (\forall u)(g(u) \geq u) \text{ where } g: P \longrightarrow P \land (\forall x)(\forall y)(x &lt; y \implies g(x) &lt; g(y)) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(u \in \mathscr{D}(g) = P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  g(1) \in &amp; \implies g(1) = 1 \lor (\exists z)(z \in P \land g(1) = S(z)) \\  &amp; \implies g(1) = 1 \lor (\exists z)(z \in P \land g(1) = z + 1) \\  &amp; \implies g(1) = 1 \lor g(1) &gt; 1 \\  &amp; \implies g(1) \geq 1  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(u \in B\)</span> then <span class="math inline">\(g(u) \geq u\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  u &lt; S(u) &amp; \implies u &lt; u + 1 \\  &amp; \implies u \leq g(u) \land g(u) &lt; g(u + 1) \\  &amp; \implies u &lt; g(u + 1) \\  &amp; \implies (\exists z)(z \in P \land u + z = g(u + 1)) \\  &amp; \implies (\exists z)((z = 1 \lor (\exists w)(z = S(w))) \land u + z = g(u + 1)) \\  &amp; \implies u + 1 = g(u + 1) \lor u + (1 + w) = g(u + 1) \\  &amp; \implies u + 1 = g(u + 1) \lor (u + 1) + w = g(u + 1) \\  &amp; \implies u + 1 = g(u + 1) \lor (u + 1) &lt; g(u + 1) \\  &amp; \implies u + 1 \leq g(u + 1) \\  &amp; \implies g(u + 1) \geq u + 1 \\  &amp; \implies g(u + 1) \geq S(u) \\  \end{split}\)</span></p>
+<ul>
+<li>Thus <span class="math inline">\(S(u) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>By the principle of mathematical induction <span class="math inline">\(B = P\)</span> so <span class="math inline">\((\forall u)(g(u) \geq u)\)</span> when <span class="math inline">\(u \in P\)</span></p></li>
+</ul>
+<ol start="9" style="list-style-type: decimal">
+<li><p>Prove the <em>Principle of Complete Induction</em>: <span class="math display">\[(\forall B)((B \subseteq P \land (\forall x)((\forall y)(y &lt; x \implies y \in B) \implies x \in B)) \implies P = B)\]</span> (<em>Hint</em>: Assume <span class="math inline">\(P \neq B\)</span>. Then, <span class="math inline">\(P - B \neq \emptyset\)</span>. Apply the Least Number Principle. Notice that, when <span class="math inline">\(x = 1\)</span>, <span class="math inline">\((\forall y)(y &lt; x \implies y \in B)\)</span> is trivially true, since <span class="math inline">\(y &lt; 1\)</span> is always false)</p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land (\forall x)((\forall y)(y &lt; x \implies y \in B) \implies x \in B) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(y &lt; 1\)</span> is false so <span class="math inline">\(y &lt; 1 \implies y \in B\)</span> is true. Furthermore we are assuming that <span class="math inline">\((\forall y)(y &lt; 1 \implies y \in B) \implies 1 \in B\)</span> is true, thus, <span class="math inline">\(1 \in B\)</span> is true.</p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span> then because <span class="math inline">\(x &lt; S(x)\)</span> we have that <span class="math inline">\(x &lt; S(x) \implies x \in B\)</span> is true. Because <span class="math inline">\((\forall y)(x &lt; S(x) \implies x \in B) \implies S(x) \in B\)</span> is true, thus, <span class="math inline">\(S(x) \in B\)</span> is true.</p></li>
+</ul></li>
+<li><p>By the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>By a <strong>greatest</strong> element of a set <span class="math inline">\(B \subseteq P\)</span> we mean an object <span class="math inline">\(z\)</span> such that <span class="math inline">\(z \in B \land (\forall u)(u \in B \implies u \leq z)\)</span>. Prove:</p>
+<ul>
+<li><p>A set has at most one greatest element</p>
+<ul>
+<li><p>Assume that a set has a greatest element <span class="math inline">\(z\)</span>. If this set has another gretest element <span class="math inline">\(w\)</span> then <span class="math inline">\(z \leq w \land w \leq z\)</span>. Thus, <span class="math inline">\(z = w\)</span></p>
+<ul>
+<li>In that sense if a set has a greatest element then it is unique</li>
+</ul></li>
+<li><p><strong>Observation</strong>: we can use a similar argument to prove that a set has at most one least element</p></li>
+</ul></li>
+<li><p>A set need not have a greatest element</p>
+<ul>
+<li>Let <span class="math inline">\(z \in P\)</span> then <span class="math inline">\(S(z) \in P \land z &lt; S(z)\)</span>. Therefore there is no <span class="math inline">\(z \in P\)</span> such that <span class="math inline">\((\forall u)(u \in P \implies u \leq z)\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(\emptyset \neq A \subseteq P\)</span> and <span class="math inline">\(A\)</span> is bounded above, that is <span class="math inline">\((\exists w)((\forall u)(u \in A \implies u \leq w))\)</span> then <span class="math inline">\(A\)</span> has a greatest element. (<em>Hint</em>: Let <span class="math inline">\(B = \{w: (\forall u)(u \in A \implies u \leq w) \}\)</span>). By hypothesis, <span class="math inline">\(B \neq \emptyset\)</span>. Apply the Least Number Principle)</p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{w: (\forall u)(u \in A \implies u \leq w) \}\)</span>. Because <span class="math inline">\(A\)</span> is bounded above there exists at least one <span class="math inline">\(w \in B\)</span>. Therefore <span class="math inline">\(B \neq \emptyset\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P \land B \neq \emptyset\)</span> so by the least number principle <span class="math inline">\(B\)</span> has a least element <span class="math inline">\(z\)</span>. Also this <span class="math inline">\(z\)</span> is unique.</p>
+<ul>
+<li><p>Therefore <span class="math inline">\((\exists u)(u \in A \land u = z)\)</span> because is the least element of <span class="math inline">\(B\)</span>. Also because <span class="math inline">\(x \in B\)</span> we have that <span class="math inline">\((\forall u)(u \in A \implies u \leq z)\)</span></p></li>
+<li><p>We conclude that <span class="math inline">\(z \in A \land (\forall u)(u \in A \implies u \leq z)\)</span>. Thus, <span class="math inline">\(z\)</span> is a greatest element of <span class="math inline">\(A\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+<div id="multiplication" class="section level2" number="1.8">
+<h2 number="1.8"><span class="header-section-number">1.8</span> Multiplication</h2>
+<p><strong>Theorem </strong> Consider any Peano system <span class="math inline">\((P, S, 1)\)</span>. There is a unique operation <span class="math inline">\(\times\)</span> on <span class="math inline">\(P\)</span> such that</p>
+<ul>
+<li><span class="math inline">\((\gamma) \; x \times 1 = x\)</span> for all <span class="math inline">\(x \in P\)</span></li>
+<li><span class="math inline">\((\beta) \; x \times S(y) = (x \times y) + x\)</span> for all <span class="math inline">\(x \in P \land y \in P\)</span></li>
+</ul>
+<p><strong>Proof</strong></p>
+<p>Let <span class="math inline">\(P = W\)</span>, <span class="math inline">\(x = c \in P\)</span> and <span class="math inline">\(x + u = g(u)\)</span> then using the iteration theorem there is a unique function <span class="math inline">\(F:P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><span class="math inline">\(F((x,1)) = x\)</span></li>
+<li><span class="math inline">\(F((x, S(y))) = x + F((x,y))\)</span></li>
+</ul>
+<p>Let <span class="math inline">\(F = \times\)</span> and <span class="math inline">\(+((x,y)) \equiv x \times y\)</span> we can rewrite the above expressions as:</p>
+<ul>
+<li><span class="math inline">\(x \times 1 = x\)</span></li>
+<li><span class="math inline">\(x \times S(y) = x + (x \times y)\)</span></li>
+</ul>
+<p><strong>Terminology</strong> <span class="math inline">\(\times\)</span> is called the <strong>multiplication</strong> operation on <span class="math inline">\(P\)</span>. <span class="math inline">\(x \times y\)</span> is called the <strong>product</strong> of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
+<ul>
+<li><p>Also because <span class="math inline">\(S(y) = y + 1\)</span> and the commutativity of addition we have that <span class="math inline">\(x \times (y + 1) = x \times S(y) = x + (x \times y) = (x \times y) + x\)</span></p></li>
+<li><p>Furthermore if <span class="math inline">\(P = \mathbb{P}\)</span>, <span class="math inline">\(x = 1\)</span> and <span class="math inline">\(S(x) = 2\)</span> then the definition of <span class="math inline">\(\times\)</span> implies:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  S(1) \times S(1) &amp; = 2 \times S(1) \\  &amp; = 2 + (2 \times 1) \\  &amp; = 2 + 2 \\  &amp; = 4  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Distributive Laws)</em></p>
+<ul>
+<li><p><span class="math inline">\(x \times (y + z) = (x \times y) + (x \times z)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land x \times (y + z) = (x \times y) + (x \times z) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \times (y + 1) &amp; = (x \times y) + x \\  &amp; = (x \times y) + (x \times 1)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Let assume <span class="math inline">\(z \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \times (y + S(z)) &amp; = x \times S(y + z) \\  &amp; = x + x \times (y + z) \\  &amp; = x + ((x \times y) + (x \times z)) \\  &amp; = (x + (x \times z)) + (x \times y) \\  &amp; = (x \times S(z)) + (x \times y) \\  &amp; = (x \times y) + (x \times S(z))  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\((y + z) \times x = (y \times x) + (z \times x)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land (y + z) \times x = (y \times x) + (z \times x) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (y + z) \times 1 &amp; = y + z \\  &amp; = (y \times 1) + (z \times 1) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Let assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (y + z) \times S(x) &amp; = (y + z) + ((y + z) \times x) \\  &amp; = (y + z) + ((y \times x) + (z \times x)) \\  &amp; = (y + (y \times x)) + (z + (z \times x)) \\  &amp; = (y \times S(x)) + (z \times S(x))  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\(S(x) \in B\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div id="multiplication-exercises-and-solutions" class="section level2" number="1.9">
+<h2 number="1.9"><span class="header-section-number">1.9</span> Multiplication exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>Compute <span class="math inline">\(3 \times 2\)</span> (Observe that at this point we have not established the commutativity of multiplication: <span class="math inline">\(x \times y = y \times x\)</span>)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  3 \times 2 &amp; = 3 \times S(1) \\  &amp; = 3 + (3 \times 1) \\  &amp; = 3 + 3 \\  &amp; = 6  \end{split}\)</span></li>
+</ul></li>
+<li><p>Compute <span class="math inline">\(3 \times 3\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  3 \times 3 &amp; = 3 \times S(2) \\  &amp; = 3 + (3 \times 2) \\  &amp; = 3 + 6 \\  &amp; = 9  \end{split}\)</span></li>
+</ul></li>
+<li><p>Compute <span class="math inline">\(1 \times 3\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1 \times 3 &amp; = 3 \times S(2) \\  &amp; = 3 + (3 \times 2) \\  &amp; = 3 + 6 \\  &amp; = 9  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(2 \times x = x + x\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land 2 \times x = x + x \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  2 \times 1 &amp; \implies 2 \\  &amp; \implies S(1) \\  &amp; \implies 1 + 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Let assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  2 \times S(x) &amp; \implies 2 \times (x + 1) \\  &amp; \implies (2 \times x) + (2 \times 1) \\  &amp; \implies (x + x) + 2 \\  &amp; \implies (x + x) + S(1) \\  &amp; \implies (x + x) + (1 + 1) \\  &amp; \implies (x + 1) + (x + 1) \\  &amp; \implies S(x) + S(x) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(3 \times x = (x + x) + x\)</span></p></li>
 </ol>
 </div>
 </div>
