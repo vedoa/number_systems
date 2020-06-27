@@ -1729,7 +1729,7 @@ summary {
 <li><a href="#peano-systems-exercises-and-solutions"><span class="toc-section-number">1.2</span> Peano systems exercises and solutions</a></li>
 <li><a href="#the-iteration-theorem"><span class="toc-section-number">1.3</span> The iteration theorem</a></li>
 <li><a href="#aplication-of-the-iteration-theorem-addition"><span class="toc-section-number">1.4</span> Aplication of the iteration theorem (addition)</a></li>
-<li><a href="#aplication-of-the-iteration-theorem-addition-exercises-and-solutions"><span class="toc-section-number">1.5</span> Aplication of the iteration theorem: addition exercises and solutions</a></li>
+<li><a href="#aplication-of-the-iteration-theorem-addition-exercises-and-solutions"><span class="toc-section-number">1.5</span> Aplication of the iteration theorem (addition) exercises and solutions</a></li>
 <li><a href="#the-order-relation"><span class="toc-section-number">1.6</span> The order relation</a></li>
 <li><a href="#the-order-relation-exercises-and-solutions"><span class="toc-section-number">1.7</span> The order relation exercises and solutions</a></li>
 <li><a href="#multiplication"><span class="toc-section-number">1.8</span> Multiplication</a></li>
@@ -2283,7 +2283,7 @@ text-align: justify}
 </ul>
 </div>
 <div id="aplication-of-the-iteration-theorem-addition-exercises-and-solutions" class="section level2" number="1.5">
-<h2 number="1.5"><span class="header-section-number">1.5</span> Aplication of the iteration theorem: addition exercises and solutions</h2>
+<h2 number="1.5"><span class="header-section-number">1.5</span> Aplication of the iteration theorem (addition) exercises and solutions</h2>
 <ol style="list-style-type: decimal">
 <li><p>Compute <span class="math inline">\(4 + 2\)</span> and <span class="math inline">\(2 + 4\)</span>. (We do not know yet that these two values must be the same.)</p>
 <ul>
@@ -2675,6 +2675,79 @@ text-align: justify}
 <li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
 </ul></li>
 </ul>
+<p><strong>Lemma</strong> <span class="math inline">\(1 \times x = x \times 1\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land 1 \times x = x \times 1 \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  1 \times 1 &amp; \iff 1 \\  &amp; \iff 1 \times 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Let assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  1 \times S(x) &amp; \iff 1 \times (x + 1) \\  &amp; \iff 1 \times x + 1 \times 1 \\  &amp; \iff x \times 1 + 1 \times 1 \\  &amp; \iff (x + 1) \times 1 \\  &amp; \iff S(x) \times 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Commutativity of Multiplication)</em> <span class="math inline">\(x \times y = y \times x\)</span> for all <span class="math inline">\(x \in P \land y \in P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land x \times y = y \times x \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 \times y = y \times 1\)</span></p></li>
+<li><p>Let assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  S(x) \times y &amp; \iff (x + 1) \times y \\  &amp; \iff (x \times y) + (1 \times y) \\  &amp; \iff (y \times x) + (y \times 1) \\  &amp; \iff y \times (x + 1) \\  &amp; \iff y \times S(x)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Associativity of Multiplication)</em> <span class="math inline">\(x \times (y \times z) = (x \times y) \times z\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land x \times (y \times z) = (x \times y) \times z \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \times (y \times 1) &amp; \iff x \times y \\  &amp; \iff (x \times y) \times 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Let assume <span class="math inline">\(z \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \times (y \times S(z)) &amp; \iff x \times (y \times (z + 1)) \\  &amp; \iff x \times ((y \times z) + (y \times 1)) \\  &amp; \iff (x \times (y \times z)) + (x \times (y \times 1)) \\  &amp; \iff ((x \times y) \times z) + ((x \times y) \times 1) \\  &amp; \iff (x \times y) \times (z + 1) \\  &amp; \iff (x \times y) \times S(z) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <span class="math inline">\(x &lt; y \iff x \times z &lt; y \times z\)</span> for all <span class="math inline">\(x \in P\)</span>, <span class="math inline">\(y \in P\)</span> and <span class="math inline">\(z \in P\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x &lt; y\)</span> therefore <span class="math inline">\((\exists w)(w \in P \land x + w = y)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  y \times z &amp; = (x + w) \times z \\  &amp; = (x \times z) + (w \times z) \\  &amp; \iff x \times z &lt; y \times z  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x \times z &lt; y \times z\)</span></p>
+<ul>
+<li><p>We have that exactly one of the following condition holds <span class="math inline">\(x &gt; y\)</span>, <span class="math inline">\(x = y\)</span> or <span class="math inline">\(x &lt; y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> then by the first part of the proof <span class="math inline">\(x \times z &gt; y \times z\)</span> but <span class="math inline">\(x \times z &lt; y \times z\)</span></p></li>
+<li><p>If <span class="math inline">\(x = y\)</span> then <span class="math inline">\(x \times z = y \times z\)</span> but <span class="math inline">\(x \times z &lt; y \times z\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x &lt; y\)</span> if <span class="math inline">\(x \times z &lt; y \times z\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Corollary</strong> <em>(Cancellation Law for Multiplication)</em> <span class="math inline">\(x \times z = y \times y \implies x = y\)</span> for all <span class="math inline">\(x \in P\)</span>, <span class="math inline">\(y \in P\)</span> and <span class="math inline">\(z \in P\)</span></p>
 </div>
 <div id="multiplication-exercises-and-solutions" class="section level2" number="1.9">
 <h2 number="1.9"><span class="header-section-number">1.9</span> Multiplication exercises and solutions</h2>
@@ -2710,7 +2783,29 @@ text-align: justify}
 </ul></li>
 <li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
 </ul></li>
-<li><p>Prove that <span class="math inline">\(3 \times x = (x + x) + x\)</span></p></li>
+<li><p>Prove that <span class="math inline">\(3 \times x = (x + x) + x\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land 3 \times x = (x + x) + x \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  3 \times 1 &amp; \implies 3 \\  &amp; \implies S(2) \\  &amp; \implies 2 + 1 \\  &amp; \implies S(1) + 1 \\  &amp; \implies (1 + 1) + 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 \in B\)</span></li>
+</ul></li>
+<li><p>Let assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  3 \times S(x) &amp; \implies 3 \times (x + 1) \\  &amp; \implies (3 \times x) + (3 \times 1) \\  &amp; \implies ((x + x) + x) + ((1 + 1) + 1)\\  &amp; \implies ((x + 1) + (x + 1)) + (x + 1) \\  &amp; \implies (S(x) + S(x)) + S(x)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\((x \times y) \times (u \times v) = (x \times u) \times (y \times v)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x \times y) \times (u \times v) &amp; = ((x \times y) \times u) \times v \\  &amp; = (x \times (y \times u)) \times v \\  &amp; = (x \times (u \times y)) \times v \\  &amp; = ((x \times u) \times y) \times v \\  &amp; = (x \times u) \times (y \times v) \\  \end{split}\)</span></li>
+</ul></li>
 </ol>
 </div>
 </div>

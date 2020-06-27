@@ -645,7 +645,7 @@ __Theorem__ $y \neq x + y$ for all $x$ and $y$ in $P$
             
 - Thus by the principle of mathematical induction $B = P$
 
-## Aplication of the iteration theorem: addition exercises and solutions
+## Aplication of the iteration theorem (addition) exercises and solutions
 
 1. Compute $4 + 2$ and $2 + 4$. (We do not know yet that these two values must be the same.)
 
@@ -1203,7 +1203,107 @@ __Theorem__ _(Distributive Laws)_
             + Therefore $S(x) \in B$
     
     + Therefore by the principle of mathematical induction $B = P$
+
+__Lemma__ $1 \times x = x \times 1$ for all $x \in P$
+
+- Let $B = \{x: x \in P \land 1 \times x = x \times 1 \}$
     
+    + $B \subseteq P$ because if $x \in B$ then $x \in P$
+        
+    + $\begin{split}
+        1 \times 1 & \iff 1 \\
+        & \iff 1 \times 1
+        \end{split}$
+ 
+        + Therefore $1 \in B$
+    
+    + Let assume $x \in B$
+    
+        + $\begin{split}
+            1 \times S(x) & \iff 1 \times (x + 1) \\
+            & \iff 1 \times x + 1 \times 1 \\
+            & \iff x \times 1 + 1 \times 1 \\
+            & \iff (x + 1) \times 1 \\
+            & \iff S(x) \times 1
+            \end{split}$
+ 
+            + Therefore $S(x) \in B$
+
+- Therefore by the principle of mathematical induction $B = P$
+
+__Theorem__ _(Commutativity of Multiplication)_ $x \times y = y \times x$ for all $x \in P \land y \in P$
+
+- Let $B = \{x: x \in P \land x \times y = y \times x \}$
+    
+    + $B \subseteq P$ because if $x \in B$ then $x \in P$
+        
+    + $1 \in B$ because $1 \times y = y \times 1$
+    
+    + Let assume $x \in B$
+    
+        + $\begin{split}
+            S(x) \times y & \iff (x + 1) \times y \\
+            & \iff (x \times y) + (1 \times y) \\
+            & \iff (y \times x) + (y \times 1) \\
+            & \iff y \times (x + 1) \\
+            & \iff y \times S(x)
+            \end{split}$
+ 
+            + Therefore $S(x) \in B$
+
+- Therefore by the principle of mathematical induction $B = P$
+
+__Theorem__ _(Associativity of Multiplication)_ $x \times (y \times z) = (x \times y) \times z$
+
+- Let $B = \{z: z \in P \land x \times (y \times z) = (x \times y) \times z \}$
+    
+    + $B \subseteq P$ because if $x \in B$ then $x \in P$
+        
+    + $\begin{split}
+        x \times (y \times 1) & \iff x \times y \\
+        & \iff (x \times y) \times 1
+        \end{split}$
+ 
+        + Therefore $1 \in B$
+    
+    + Let assume $z \in B$
+    
+        + $\begin{split}
+            x \times (y \times S(z)) & \iff x \times (y \times (z + 1)) \\
+            & \iff x \times ((y \times z) + (y \times 1)) \\
+            & \iff (x \times (y \times z)) + (x \times (y \times 1)) \\
+            & \iff ((x \times y) \times z) + ((x \times y) \times 1) \\
+            & \iff (x \times y) \times (z + 1) \\
+            & \iff (x \times y) \times S(z) \\
+            \end{split}$
+ 
+            + Therefore $S(z) \in B$
+
+- Therefore by the principle of mathematical induction $B = P$
+
+__Theorem__ $x < y \iff x \times z < y \times z$ for all $x \in P$, $y \in P$ and $z \in P$
+
+- Assume $x < y$ therefore $(\exists w)(w \in P \land x + w = y)$
+
+    + $\begin{split}
+        y \times z & = (x + w) \times z \\ 
+        & = (x \times z) + (w \times z) \\
+        & \iff x \times z < y \times z
+        \end{split}$
+
+- Assume $x \times z < y \times z$
+
+    + We have that exactly one of the following condition holds $x > y$, $x = y$ or $x < y$
+    
+        + If $x > y$ then by the first part of the proof $x \times z > y \times z$ but $x \times z < y \times z$
+        
+        + If $x = y$ then $x \times z = y \times z$ but $x \times z < y \times z$ 
+        
+            + Therefore $x < y$ if $x \times z < y \times z$
+
+__Corollary__ _(Cancellation Law for Multiplication)_ $x \times z = y \times y \implies x = y$ for all $x \in P$, $y \in P$ and $z \in P$
+
+
 ## Multiplication exercises and solutions
 
 1. Compute $3 \times 2$ (Observe that at this point we have not established the commutativity of multiplication: $x \times y = y \times x$)
@@ -1265,7 +1365,43 @@ __Theorem__ _(Distributive Laws)_
 
 5. Prove that  $3 \times x = (x + x) + x$
 
+    + Let $B = \{x: x \in P \land 3 \times x = (x + x) + x \}$
+    
+        + $B \subseteq P$ because if $x \in B$ then $x \in P$
+        
+        + $\begin{split}
+            3 \times 1 & \implies 3 \\
+            & \implies S(2) \\
+            & \implies 2 + 1 \\
+            & \implies S(1) + 1 \\
+            & \implies (1 + 1) + 1
+            \end{split}$
+            
+            + Therefore $1 \in B$
+            
+        + Let assume $x \in B$
+        
+            + $\begin{split}
+                3 \times S(x) & \implies 3 \times (x + 1) \\
+                & \implies (3 \times x) + (3 \times 1) \\
+                & \implies ((x + x) + x) + ((1 + 1) + 1)\\
+                & \implies ((x + 1) + (x + 1)) + (x + 1) \\
+                & \implies (S(x) + S(x)) + S(x)
+                \end{split}$
+                
+                + Therefore $S(x) \in B$
 
+    + Therefore by the principle of mathematical induction $B = P$
+
+6. Prove that $(x \times y) \times (u \times v) = (x \times u) \times (y \times v)$
+
+    + $\begin{split}
+        (x \times y) \times (u \times v) & = ((x \times y) \times u) \times v \\
+        & = (x \times (y \times u)) \times v \\
+        & = (x \times (u \times y)) \times v \\
+        & = ((x \times u) \times y) \times v \\
+        & = (x \times u) \times (y \times v) \\
+    \end{split}$
 
 # Bibliography
 
