@@ -1552,6 +1552,6 @@ g. $(x \leq u \land y \leq v) \implies x \times y \leq u \times v$
 - $x^2 \text{ is even } \iff x \text{ is even }$
 
     + Assume $x$ is even
-     
+
 # Bibliography
 
