@@ -1548,6 +1548,10 @@ g. $(x \leq u \land y \leq v) \implies x \times y \leq u \times v$
                     
                     + If $z = S(v)$ then $1 = (S(v) + v) + 1$ so $1 > 1$ which is a contradiction
                         + Therefore $x$ can't be even and odd
+                        
+- $x^2 \text{ is even } \iff x \text{ is even }$
+
+    + Assume $x$ is even
      
 # Bibliography
 
