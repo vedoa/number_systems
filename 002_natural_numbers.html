@@ -2747,7 +2747,51 @@ text-align: justify}
 </ul></li>
 </ul></li>
 </ul>
-<p><strong>Corollary</strong> <em>(Cancellation Law for Multiplication)</em> <span class="math inline">\(x \times z = y \times y \implies x = y\)</span> for all <span class="math inline">\(x \in P\)</span>, <span class="math inline">\(y \in P\)</span> and <span class="math inline">\(z \in P\)</span></p>
+<p><strong>Corollary</strong> <em>(Cancellation Law for Multiplication)</em> <span class="math inline">\(x \times z = y \times z \implies x = y\)</span> for all <span class="math inline">\(x \in P\)</span>, <span class="math inline">\(y \in P\)</span> and <span class="math inline">\(z \in P\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x \times z = y \times z\)</span></p>
+<ul>
+<li><p>We have that exactly one of the following condition holds <span class="math inline">\(x &gt; y\)</span>, <span class="math inline">\(x &lt; y\)</span> or <span class="math inline">\(x = y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> then <span class="math inline">\(x \times z &gt; y \times z\)</span> but <span class="math inline">\(x \times z = y \times z\)</span></p></li>
+<li><p>If <span class="math inline">\(x &lt; y\)</span> then <span class="math inline">\(x \times z &lt; y \times z\)</span> but <span class="math inline">\(x \times z = y \times z\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x = y\)</span> if <span class="math inline">\(x \times z = y \times z\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Corollary</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math inline">\(x \leq y \iff x \times z \leq y \times z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y &amp; \iff x &lt; y \lor x = y \\  &amp; \iff x \times z &lt; y \times x \lor x \times z = y \times z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(z \leq y \times z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1 \leq y &amp; \iff 1 \times z \leq y \times z \\  &amp; \iff z \leq y \times z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(1 &lt; y \iff z &lt; y \times z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1 &lt; y &amp; \iff 1 \times z &lt; y \times z \\  &amp; \iff z &lt; y \times z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x &lt; u \land y &lt; v) \implies x \times y &lt; u \times v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; u \land y &lt; v &amp; \iff x \times y &lt; u \times y \land y \times u &lt; v \times u \\  &amp; \iff x \times y &lt; u \times y \land u \times y &lt; u \times v \\  &amp; \implies x \times y &lt; u \times v  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x &lt; u \land y \leq v) \implies x \times y &lt; u \times v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; u \land y \leq v &amp; \iff x \times y &lt; u \times y \land y \times u \leq v \times u \\  &amp; \iff x \times y &lt; u \times y \land u \times y \leq u \times v \\  &amp; \implies x \times y &lt; u \times v  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq u \land y &lt; v) \implies x \times y &lt; u \times v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq u \land y &lt; v &amp; \iff x \times y \leq u \times y \land y \times u &lt; v \times u \\  &amp; \iff x \times y \leq u \times y \land u \times y &lt; u \times v \\  &amp; \implies x \times y &lt; u \times v  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((x \leq u \land y \leq v) \implies x \times y \leq u \times v\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq u \land y \leq v &amp; \iff x \times y \leq u \times y \land y \times u \leq v \times u \\  &amp; \iff x \times y \leq u \times y \land u \times y \leq u \times v \\  &amp; \implies x \times y \leq u \times v  \end{split}\)</span></li>
+</ul></li>
+</ol>
 </div>
 <div id="multiplication-exercises-and-solutions" class="section level2" number="1.9">
 <h2 number="1.9"><span class="header-section-number">1.9</span> Multiplication exercises and solutions</h2>
@@ -2806,7 +2850,71 @@ text-align: justify}
 <ul>
 <li><span class="math inline">\(\begin{split}  (x \times y) \times (u \times v) &amp; = ((x \times y) \times u) \times v \\  &amp; = (x \times (y \times u)) \times v \\  &amp; = (x \times (u \times y)) \times v \\  &amp; = ((x \times u) \times y) \times v \\  &amp; = (x \times u) \times (y \times v) \\  \end{split}\)</span></li>
 </ul></li>
+<li><p>We use the standard notation <span class="math inline">\(x^2\)</span> for <span class="math inline">\(x \times x\)</span> and <span class="math inline">\(x^3\)</span> for <span class="math inline">\(x^2 \times x\)</span></p></li>
 </ol>
+<ul>
+<li><p>Prove <span class="math inline">\(1^2 = 1\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1^2 &amp; \iff 1 \times 1 \\  &amp; \iff 1  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((x + y)^2 = x^2 + (2 \times x \times y) + y^2\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x + y)^2 &amp; \iff (x + y) \times (x + y) \\  &amp; \iff ((x + y) \times x) + ((x + y) \times y) \\  &amp; \iff ((x \times x) + (y \times x)) + ((x \times y) + (y \times y)) \\  &amp; \iff (x^2 + (x \times y)) + ((x \times y) + y^2) \\  &amp; \iff (x^2 + y^2) + ((x \times y) + (x \times y)) \\  &amp; \iff (x^2 + y^2) + (1 \times (x \times y) + 1 \times (x \times y)) \\  &amp; \iff (x^2 + y^2) + ((1 + 1) \times (x \times y)) \\  &amp; \iff (x^2 + y^2) + (2 \times (x \times y)) \\  &amp; \iff (x^2 + 2 \times (x \times y)) + y^2  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
+<li>Define <span class="math inline">\(x\)</span> is even for <span class="math inline">\((\exists u)(u \in P \land x = 2 \times u)\)</span> and <span class="math inline">\(x\)</span> is odd for <span class="math inline">\(x = 1 \ lor (\exists u)(u \in P \land x = (2 \times u) + 1)\)</span></li>
+</ol>
+<ul>
+<li><p>Prove that every element of <span class="math inline">\(P\)</span> is either even or odd</p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land (\exists u)(u \in P \land (x = 1 \lor x = (2 \times u) + 1) \lor x = 2 \times u) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span></p></li>
+<li><p>Let assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(x) = x + 1\)</span> then we can have the following possibilities</p>
+<ul>
+<li><p><span class="math inline">\(S(x) = 1 + 1 = 2 = 2 \times 1\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  S(x) &amp; = ((2 \times u) + 1) + 1 \\  &amp; = (2 \times u) + (1 + 1) \\  &amp; = (2 \times u) + 2 \\  &amp; = (2 \times u) + (2 \times 1) \\  &amp; = 2 \times (u + 1) \\  &amp; = 2 \times S(u)  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(S(x) = (2 \times u) + 1\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p>Prove that no element of <span class="math inline">\(P\)</span> is both even and odd</p>
+<ul>
+<li><p><span class="math inline">\(1\)</span> is odd. Assume <span class="math inline">\(1\)</span> is also even then <span class="math inline">\(1 = 2 \times u\)</span> where <span class="math inline">\(u \in P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  1 = 2 \times u \land u \in P &amp; \implies 1 = 2 \times u \land (u = 1 \lor (\exists z)(u = S(z))) \\  \implies 1 = 2 \times 1 \lor 1 = 2 \times S(u) \\  \implies 1 = 2 \lor 1 = 2 \times (x + 1) \\  \implies 1 = S(1) \lor 1 = (2 \times x) + (2 \times 1) \\  \implies 1 = 1 + 1 \lor 1 = (2 \times x) + 2 \\  \implies 1 &gt; 1 \lor 1 &gt; 2 \\  \implies \text{There is a contradiction}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1\)</span> is not even</li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(x \neq 1\)</span> and assume <span class="math inline">\(x = 2 \times w \land x = (2 \times u) + 1\)</span>. Therefore <span class="math inline">\(2 \times w = (2 \times u) + 1\)</span></p>
+<ul>
+<li><p>This means that <span class="math inline">\(2 \times w &gt; 2 \times u\)</span> so <span class="math inline">\(w &gt; u\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\((\exists z)(z \in P \land w = u + z)\)</span> and <span class="math inline">\(2w = 2 \times u + 2z\)</span>. Thus,
+<ul>
+<li><p><span class="math inline">\(2 \times u + 1 = 2 \times u + 2 \times z\)</span> which implies <span class="math inline">\(1 = 2 \times z = z + z\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(z = 1\)</span> then <span class="math inline">\(1 = 1 + 1\)</span> so <span class="math inline">\(1 &gt; 1\)</span> which is a contradiction</p></li>
+<li><p>If <span class="math inline">\(z = S(v)\)</span> then <span class="math inline">\(1 = (S(v) + v) + 1\)</span> so <span class="math inline">\(1 &gt; 1\)</span> which is a contradiction</p>
+<ul>
+<li>Therefore <span class="math inline">\(x\)</span> can’t be even and odd</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>

@@ -1301,8 +1301,72 @@ __Theorem__ $x < y \iff x \times z < y \times z$ for all $x \in P$, $y \in P$ an
         
             + Therefore $x < y$ if $x \times z < y \times z$
 
-__Corollary__ _(Cancellation Law for Multiplication)_ $x \times z = y \times y \implies x = y$ for all $x \in P$, $y \in P$ and $z \in P$
+__Corollary__ _(Cancellation Law for Multiplication)_ $x \times z = y \times z \implies x = y$ for all $x \in P$, $y \in P$ and $z \in P$
 
+- Assume $x \times z = y \times z$
+
+    + We have that exactly one of the following condition holds $x > y$, $x < y$ or $x = y$
+    
+        + If $x > y$ then $x \times z > y \times z$ but $x \times z = y \times z$
+        
+        + If $x < y$ then $x \times z < y \times z$ but $x \times z = y \times z$ 
+        
+            + Therefore $x = y$ if $x \times z = y \times z$
+            
+__Corollary__
+
+a. $x \leq y \iff x \times z \leq y \times z$
+
+    + $\begin{split}
+        x \leq y & \iff x < y \lor x = y \\
+        & \iff x \times z < y \times x \lor x \times z = y \times z
+        \end{split}$
+
+b. $z \leq y \times z$
+
+    + $\begin{split}
+        1 \leq y & \iff 1 \times z \leq y \times z \\
+        & \iff z \leq y \times z
+        \end{split}$
+        
+c. $1 < y \iff z < y \times z$
+
+    + $\begin{split}
+        1 < y & \iff 1 \times z < y \times z \\
+        & \iff z < y \times z
+        \end{split}$
+        
+d. $(x < u \land y < v) \implies x \times y < u \times v$
+
+    + $\begin{split}
+        x < u \land y < v & \iff x \times y < u \times y \land y \times u < v \times u \\
+        & \iff x \times y < u \times y \land u \times y < u \times v \\
+        & \implies x \times y < u \times v
+        \end{split}$
+        
+e. $(x < u \land y \leq v) \implies x \times y < u \times v$
+
+    + $\begin{split}
+        x < u \land y \leq v & \iff x \times y < u \times y \land y \times u \leq v \times u \\
+        & \iff x \times y < u \times y \land u \times y \leq u \times v \\
+        & \implies x \times y < u \times v
+        \end{split}$
+        
+f. $(x \leq u \land y < v) \implies x \times y < u \times v$
+
+    + $\begin{split}
+        x \leq u \land y < v & \iff x \times y \leq u \times y \land y \times u < v \times u \\
+        & \iff x \times y \leq u \times y \land u \times y < u \times v \\
+        & \implies x \times y < u \times v
+        \end{split}$
+        
+g. $(x \leq u \land y \leq v) \implies x \times y \leq u \times v$
+
+    + $\begin{split}
+        x \leq u \land y \leq v & \iff x \times y \leq u \times y \land y \times u \leq v \times u \\
+        & \iff x \times y \leq u \times y \land u \times y \leq u \times v \\
+        & \implies x \times y \leq u \times v
+        \end{split}$
 
 ## Multiplication exercises and solutions
 
@@ -1402,6 +1466,88 @@ __Corollary__ _(Cancellation Law for Multiplication)_ $x \times z = y \times y \
         & = ((x \times u) \times y) \times v \\
         & = (x \times u) \times (y \times v) \\
     \end{split}$
+    
+7. We use the standard notation $x^2$ for $x \times x$ and $x^3$ for $x^2 \times x$
 
+- Prove $1^2 = 1$
+
+    + $\begin{split}
+        1^2 & \iff 1 \times 1 \\
+        & \iff 1
+        \end{split}$
+
+- Prove $(x + y)^2 = x^2 + (2 \times x \times y) + y^2$
+
+    + $\begin{split}
+        (x + y)^2 & \iff (x + y) \times (x + y) \\
+        & \iff ((x + y) \times x) + ((x + y) \times y) \\
+        & \iff ((x \times x) + (y \times x)) + ((x \times y) + (y \times y)) \\
+        & \iff (x^2 + (x \times y)) + ((x \times y) + y^2) \\
+        & \iff (x^2 + y^2) + ((x \times y) + (x \times y)) \\
+        & \iff (x^2 + y^2) + (1 \times (x \times y) + 1 \times (x \times y)) \\
+        & \iff (x^2 + y^2) + ((1 + 1) \times (x \times y)) \\
+        & \iff (x^2 + y^2) + (2 \times (x \times y)) \\
+        & \iff (x^2 + 2 \times (x \times y)) + y^2
+        \end{split}$
+        
+8. Define $x$ is even for $(\exists u)(u \in P \land x = 2 \times u)$ and $x$ is odd for $x = 1 \ lor (\exists u)(u \in P \land x = (2 \times u) + 1)$
+
+- Prove that every element of $P$ is either even or odd
+
+    + Let $B = \{x: x \in P \land (\exists u)(u \in P \land (x = 1 \lor x = (2 \times u) + 1) \lor x = 2 \times u) \}$
+    
+        + $B \subseteq P$ because if $x \in B$ then $x \in P$
+        
+        + $1 \in B$
+    
+        + Let assume $x \in B$
+    
+            + $S(x) = x + 1$ then we can have the following possibilities 
+        
+                + $S(x) = 1 + 1 = 2 = 2 \times 1$
+            
+                + $\begin{split}
+                    S(x)  & = ((2 \times u) + 1) + 1 \\
+                    & = (2 \times u) + (1 + 1) \\
+                    & = (2 \times u) + 2 \\
+                    & = (2 \times u) + (2 \times 1) \\
+                    & = 2 \times (u + 1) \\
+                    & = 2 \times S(u)
+                    \end{split}$
+                
+                + $S(x) = (2 \times u) + 1$
+            
+                    + Therefore $S(x) \in B$
+
+    + Therefore by the principle of mathematical induction $B = P$
+
+- Prove that no element of $P$ is both even and odd
+        
+    + $1$ is odd. Assume $1$ is also even then $1 = 2 \times u$ where $u \in P$
+        
+        + $\begin{split}
+            1 = 2 \times u \land u \in P & \implies 1 = 2 \times u \land (u = 1 \lor (\exists z)(u = S(z))) \\
+            \implies 1 = 2 \times 1 \lor 1 = 2 \times S(u) \\
+            \implies 1 = 2 \lor 1 = 2 \times (x + 1) \\
+            \implies 1 = S(1) \lor 1 = (2 \times x) + (2 \times 1) \\
+            \implies 1 = 1 + 1 \lor 1 = (2 \times x) + 2 \\
+            \implies 1 > 1 \lor 1 > 2 \\
+            \implies \text{There is a contradiction}
+            \end{split}$
+                
+            + Therefore $1$ is not even
+            
+    + Let $x \neq 1$ and assume $x = 2 \times w \land x = (2 \times u) + 1$. Therefore $2 \times w = (2 \times u) + 1$
+    
+        + This means that $2 \times w > 2 \times u$ so $w > u$
+        
+            + Therefore $(\exists z)(z \in P \land w = u + z)$ and $2w = 2 \times u + 2z$. Thus,
+                + $2 \times u + 1 = 2 \times u + 2 \times z$ which implies $1 = 2 \times z = z + z$
+                
+                    + If $z = 1$ then $1 = 1 + 1$ so $1 > 1$ which is a contradiction
+                    
+                    + If $z = S(v)$ then $1 = (S(v) + v) + 1$ so $1 > 1$ which is a contradiction
+                        + Therefore $x$ can't be even and odd
+     
 # Bibliography
 
