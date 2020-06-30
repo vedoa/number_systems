@@ -1734,6 +1734,8 @@ summary {
 <li><a href="#the-order-relation-exercises-and-solutions"><span class="toc-section-number">1.7</span> The order relation exercises and solutions</a></li>
 <li><a href="#multiplication"><span class="toc-section-number">1.8</span> Multiplication</a></li>
 <li><a href="#multiplication-exercises-and-solutions"><span class="toc-section-number">1.9</span> Multiplication exercises and solutions</a></li>
+<li><a href="#exponentiation"><span class="toc-section-number">1.10</span> Exponentiation</a></li>
+<li><a href="#exponentiation-exercises-and-solutions"><span class="toc-section-number">1.11</span> Exponentiation exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -2621,9 +2623,9 @@ text-align: justify}
 <p>Let <span class="math inline">\(P = W\)</span>, <span class="math inline">\(x = c \in P\)</span> and <span class="math inline">\(x + u = g(u)\)</span> then using the iteration theorem there is a unique function <span class="math inline">\(F:P \longrightarrow P\)</span> such that:</p>
 <ul>
 <li><span class="math inline">\(F((x,1)) = x\)</span></li>
-<li><span class="math inline">\(F((x, S(y))) = x + F((x,y))\)</span></li>
+<li><span class="math inline">\(F((x, S(y))) = x + g(F((x,y)))\)</span></li>
 </ul>
-<p>Let <span class="math inline">\(F = \times\)</span> and <span class="math inline">\(+((x,y)) \equiv x \times y\)</span> we can rewrite the above expressions as:</p>
+<p>Let <span class="math inline">\(F = \times\)</span> and <span class="math inline">\(+((x,y)) \equiv x \times y\)</span> then we can rewrite the above expressions as:</p>
 <ul>
 <li><span class="math inline">\(x \times 1 = x\)</span></li>
 <li><span class="math inline">\(x \times S(y) = x + (x \times y)\)</span></li>
@@ -2916,9 +2918,126 @@ text-align: justify}
 </ul></li>
 <li><p><span class="math inline">\(x^2 \text{ is even } \iff x \text{ is even }\)</span></p>
 <ul>
-<li>Assume <span class="math inline">\(x\)</span> is even</li>
+<li><p>Assume <span class="math inline">\(x\)</span> is even</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x = 2 \times u \implies x^2 = (2 \times u) \times (2 \times u) \\  \implies x^2 = (2 \times u) \times (2 \times u) \\  \implies x^2 = (2 \times 2) \times (u \times u) \\  \implies x^2 = (2 \times 2) \times u^2 \\  \implies x^2 = 2 \times (2 \times u^2) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x^2\)</span> is even</li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(x^2 \text{ is even} \implies x \text{ is even}\)</span> is equivalent to <span class="math inline">\(\neg(x^2 \text{ is even } \land x \text{ is odd})\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x^2 \text{ is even } \land x \text{ is odd}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x^2 \text{ is even } \land x = (2 \times u) + 1 &amp; \implies x^2 \text{ is even } \land x^2 = (2 \times u) \times (2 \times u) + 2 \times (2 \times u) \times 1 + 1 \times 1 \\  &amp; \implies x^2 \text{ is even } \land x^2 = 2 \times (u \times (2 \times u)) + 2 \times (2 \times u) + 1 \\  &amp; \implies x^2 \text{ is even } \land x^2 = 2 \times (u \times (2 \times u) + 2 \times u) + 1 \\  &amp; \implies x^2 \text{ is even } \land x^2 \text{ is odd} \\  &amp; \implies \text{There is a contradiction}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x^2 \text{ is even} \implies x \text{ is even}\)</span> is true</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(x^2 \text{ is odd } \iff x \text{ is odd }\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x\)</span> is odd</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x = 2 \times u + 1 &amp; \implies x^2 = (2 \times u) \times (2 \times u) \\  &amp; \implies x^2 = 2 \times (u \times (2 \times u) + 2 \times u) + 1 \\  &amp; \implies x^2 \text{ is odd}  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x^2 \text{ is odd} \implies x \text{ is odd}\)</span> is equivalent to <span class="math inline">\(\neg(x^2 \text{ is odd } \land x \text{ is even})\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x^2 \text{ is odd } \land x \text{ is even}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x^2 \text{ is odd } \land x = 2 \times u &amp; \implies x^2 \text{ is odd } \land x^2 = (2 \times u) \times (2 \times u) \\  &amp; \implies x^2 \text{ is odd } \land x^2 = 2 \times (u \times (2 \times u)) \\  &amp; \implies x^2 \text{ is odd } \land x^2 \text{ is even} \\  &amp; \implies \text{There is a contradiction}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x^2 \text{ is odd} \implies x \text{ is odd}\)</span> is true</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>The sum and product of even elements is even</p>
+<ul>
+<li><p>Let <span class="math inline">\(x = 2 \times u \land y = 2 \times v\)</span> such that <span class="math inline">\(u \in P\)</span> and <span class="math inline">\(v \in P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(x + y = (2 \times u) + (2 \times v) = 2 \times (u + v)\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x + y\)</span> is even</li>
+</ul></li>
+<li><p><span class="math inline">\(x \times y = (2 \times u) \times (2 \times v) = 2 \times (u \times (2 \times v))\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x \times y\)</span> is even</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>The product of odd elements is odd</p>
+<ul>
+<li><p>Let <span class="math inline">\(x = (2 \times u) + 1 \land y = (2 \times v) + 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \times y &amp; = ((2 \times u) + 1)((2 \times v) + 1) \\  &amp; = (((2 \times u) + 1) \times (2 \times v)) + ((2 \times u) + 1) \times 1 \\  &amp; = ((2 \times u) \times (2 \times v)) + ((2 \times u) + 1) \\  &amp; = (2 \times (u \times (2 \times v)) + (2 \times u)) + 1 \\  &amp; = 2 \times (u \times (2 \times v) + u) + 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x \times y\)</span> is odd</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>The sum of odd elements is odd</p>
+<ul>
+<li><p>Let <span class="math inline">\(x = (2 \times u) + 1 \land y = (2 \times v) + 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x + y &amp; = ((2 \times u) + 1) + ((2 \times v) + 1) \\  &amp; = ((2 \times u) + (2 \times v)) + (1 + 1) \\  &amp; = ((2 \times u) + (2 \times v)) + 2 \\  &amp; = 2 \times (u + v) + 2 \\  &amp; = 2 \times ((u + v) + 1)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x + y\)</span> is even</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(x\)</span> is odd and <span class="math inline">\(y\)</span> is even, then <span class="math inline">\(x + y\)</span> is odd and <span class="math inline">\(x \times y\)</span> is even</p>
+<ul>
+<li><p>Let <span class="math inline">\(x = (2 \times u) + 1 \land y = 2 \times v\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x + y &amp; = ((2 \times u) + 1) + 2 \times v \\  &amp; = ((2 \times u) + (2 \times v)) + 1 \\  &amp; = 2 \times (u + v) + 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x + y\)</span> is odd</li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  x \times y &amp; = ((2 \times u) + 1) \times (2 \times v) \\  &amp; = (((2 \times u) + 1) \times 2) \times v \\  &amp; = (2 \times ((2 \times u) + 1)) \times v \\  &amp; = 2 \times (((2 \times u) + 1) \times v) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x \times y\)</span> is even</li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
+</div>
+<div id="exponentiation" class="section level2" number="1.10">
+<h2 number="1.10"><span class="header-section-number">1.10</span> Exponentiation</h2>
+<p><strong>Theorem</strong> There is a unique binary operation <span class="math inline">\(\tau(x, y)\)</span> on <span class="math inline">\(P\)</span> such that:</p>
+<ul>
+<li><span class="math inline">\((\varrho) \; \tau(x, 1) = x\)</span> for all <span class="math inline">\(x \in P\)</span></li>
+<li><span class="math inline">\((\sigma) \; \tau(x, S(y)) = x \times \tau(x, y)\)</span> for all <span class="math inline">\(x \in P\)</span> and <span class="math inline">\(y \in P\)</span></li>
+</ul>
+<p><strong>Proof</strong></p>
+<p>Let <span class="math inline">\(P = W\)</span>, <span class="math inline">\(x = c \in P\)</span> and <span class="math inline">\(x \times u = g(u)\)</span> then using the iteration theorem there is a unique function <span class="math inline">\(F: P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><span class="math inline">\(F((x,1)) = x\)</span></li>
+<li><span class="math inline">\(F((x,S(y))) = x \times F((x,y))\)</span></li>
+</ul>
+<p>Let F = <span class="math inline">\(\tau\)</span> then we can rewrite the above expressions as:</p>
+<ul>
+<li><span class="math inline">\(\tau((x,1)) = x\)</span></li>
+<li><span class="math inline">\(\tau((x,S(y))) = x \times \tau((x,y))\)</span></li>
+</ul>
+<p>Furthermore if <span class="math inline">\(\tau((x,y)) \equiv x^y\)</span> then we can rewrite the above expressions as:</p>
+<ul>
+<li><span class="math inline">\(x^1 = x\)</span></li>
+<li><span class="math inline">\(x^{1 + y} = x \times x^y\)</span></li>
+</ul>
+<p><strong>Terminology</strong> <span class="math inline">\(\tau\)</span> is called the <strong>exponentiation</strong> operation on <span class="math inline">\(P\)</span>. In <span class="math inline">\(\tau((x,y)) \equiv x^y\)</span>, <span class="math inline">\(x\)</span> is the <strong>base</strong> and <span class="math inline">\(y\)</span> the <strong>exponent</strong></p>
+<p><strong>Remark</strong></p>
+<ul>
+<li><span class="math inline">\(x^2 = x^{S(1)} = x^{1 + 1} = x \times x^1 = x \times x\)</span></li>
+<li><span class="math inline">\(x^3 = x^{S(2)} = x^{1 + 2} = x \times x^2 = x \times (x \times x)\)</span></li>
+</ul>
+</div>
+<div id="exponentiation-exercises-and-solutions" class="section level2" number="1.11">
+<h2 number="1.11"><span class="header-section-number">1.11</span> Exponentiation exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li>Compute the values <span class="math inline">\(2^2, 2^3, 3^2\)</span></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>

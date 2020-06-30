@@ -1128,9 +1128,9 @@ __Proof__
 Let $P = W$, $x = c \in P$ and $x + u = g(u)$ then using the iteration theorem there is a unique function $F:P \longrightarrow P$ such that:
 
 - $F((x,1)) = x$
-- $F((x, S(y))) = x + F((x,y))$
+- $F((x, S(y))) = x + g(F((x,y)))$
 
-Let $F = \times$ and $+((x,y)) \equiv x \times y$ we can rewrite the above expressions as:
+Let $F = \times$ and $+((x,y)) \equiv x \times y$ then we can rewrite the above expressions as:
 
 - $x \times 1 = x$
 - $x \times S(y) = x + (x \times y)$
@@ -1552,6 +1552,149 @@ g. $(x \leq u \land y \leq v) \implies x \times y \leq u \times v$
 - $x^2 \text{ is even } \iff x \text{ is even }$
 
     + Assume $x$ is even
+    
+        + $\begin{split}
+            x = 2 \times u \implies x^2 = (2 \times u) \times (2 \times u) \\
+            \implies x^2 = (2 \times u) \times (2 \times u) \\
+            \implies x^2 = (2 \times 2) \times (u \times u) \\
+            \implies x^2 = (2 \times 2) \times u^2 \\
+            \implies x^2 = 2 \times (2 \times u^2) \\
+            \end{split}$
+            
+            + Therefore $x^2$ is even
+            
+    + $x^2 \text{ is even} \implies x \text{ is even}$ is equivalent to $\neg(x^2 \text{ is even } \land x \text{ is odd})$
+    
+        + Assume $x^2 \text{ is even } \land x \text{ is odd}$
+
+            + $\begin{split}
+                x^2 \text{ is even } \land x = (2 \times u) + 1 & \implies x^2 \text{ is even } \land x^2 = (2 \times u) \times (2 \times u) + 2 \times (2 \times u) \times 1 + 1 \times 1 \\
+                & \implies x^2 \text{ is even } \land x^2 = 2 \times (u \times (2 \times u)) + 2 \times (2 \times u) + 1 \\
+                & \implies x^2 \text{ is even } \land x^2 = 2 \times (u \times (2 \times u) + 2 \times u) + 1 \\
+                & \implies x^2 \text{ is even } \land x^2 \text{ is odd} \\
+                & \implies \text{There is a contradiction}
+                \end{split}$
+            
+                + Therefore $x^2 \text{ is even} \implies x \text{ is even}$ is true
+
+- $x^2 \text{ is odd } \iff x \text{ is odd }$
+
+    + Assume $x$ is odd
+    
+        + $\begin{split}
+            x = 2 \times u + 1 & \implies x^2 = (2 \times u) \times (2 \times u) \\
+            & \implies x^2 = 2 \times (u \times (2 \times u) + 2 \times u) + 1 \\
+            & \implies x^2 \text{ is odd}
+            \end{split}$
+
+    + $x^2 \text{ is odd} \implies x \text{ is odd}$ is equivalent to $\neg(x^2 \text{ is odd } \land x \text{ is even})$
+    
+        + Assume $x^2 \text{ is odd } \land x \text{ is even}$
+
+            + $\begin{split}
+                x^2 \text{ is odd } \land x = 2 \times u & \implies x^2 \text{ is odd } \land x^2 = (2 \times u) \times (2 \times u) \\
+                & \implies x^2 \text{ is odd } \land x^2 = 2 \times (u \times (2 \times u)) \\
+                & \implies x^2 \text{ is odd } \land x^2 \text{ is even} \\
+                & \implies \text{There is a contradiction}
+                \end{split}$
+            
+                + Therefore $x^2 \text{ is odd} \implies x \text{ is odd}$ is true
+
+- The sum and product of even elements is even
+
+    + Let $x = 2 \times u \land y = 2 \times v$ such that $u \in P$ and $v \in P$
+    
+        + $x + y = (2 \times u) + (2 \times v) = 2 \times (u + v)$
+        
+            + Therefore $x + y$ is even
+    
+        + $x \times y = (2 \times u) \times (2 \times v) = 2 \times (u \times (2 \times v))$
+        
+            + Therefore $x \times y$ is even
+            
+- The product of odd elements is odd
+
+    + Let $x = (2 \times u) + 1 \land y = (2 \times v) + 1$
+    
+        + $\begin{split}
+            x \times y & = ((2 \times u) + 1)((2 \times v) + 1) \\
+            & = (((2 \times u) + 1) \times (2 \times v)) + ((2 \times u) + 1) \times 1 \\
+            & = ((2 \times u) \times (2 \times v)) + ((2 \times u) + 1) \\
+            & = (2 \times (u \times (2 \times v)) + (2 \times u)) + 1 \\
+            & = 2 \times (u \times (2 \times v) + u) + 1
+            \end{split}$
+        
+            + Therefore $x \times y$ is odd
+            
+- The sum of odd elements is odd
+
+    + Let $x = (2 \times u) + 1 \land y = (2 \times v) + 1$
+    
+        + $\begin{split}
+            x + y & = ((2 \times u) + 1) + ((2 \times v) + 1) \\
+            & = ((2 \times u) + (2 \times v)) + (1 + 1) \\
+            & = ((2 \times u) + (2 \times v)) + 2 \\
+            & = 2 \times (u + v) + 2 \\
+            & = 2 \times ((u + v) + 1)
+            \end{split}$
+            
+            + Therefore $x + y$ is even
+          
+- If $x$ is odd and $y$ is even, then $x + y$ is odd and $x \times y$ is even
+
+    + Let $x = (2 \times u) + 1 \land y = 2 \times v$
+    
+        + $\begin{split}
+            x + y & = ((2 \times u) + 1) + 2 \times v \\
+            & = ((2 \times u) + (2 \times v)) + 1 \\
+            & = 2 \times (u + v) + 1
+            \end{split}$
+            
+            + Therefore $x + y$ is odd
+            
+        + $\begin{split}
+            x \times y & = ((2 \times u) + 1) \times (2 \times v) \\
+            & = (((2 \times u) + 1) \times 2) \times v \\
+            & = (2 \times ((2 \times u) + 1)) \times v \\
+            & = 2 \times (((2 \times u) + 1) \times v) \\
+            \end{split}$
+            
+            + Therefore $x \times y$ is even
+            
+## Exponentiation
+
+__Theorem__  There is a unique binary operation $\tau(x, y)$ on $P$ such that:
+
+- $(\varrho) \; \tau(x, 1) = x$ for all $x \in P$
+- $(\sigma)  \; \tau(x, S(y)) = x \times \tau(x, y)$  for all $x \in P$ and $y \in P$
+
+__Proof__
+
+Let $P = W$, $x = c \in P$ and $x \times u = g(u)$ then using the iteration theorem there is a unique function $F: P \longrightarrow P$ such that:
+
+- $F((x,1)) = x$
+- $F((x,S(y))) = x \times F((x,y))$
+
+Let F = $\tau$ then we can rewrite the above expressions as:
+
+- $\tau((x,1)) = x$
+- $\tau((x,S(y))) = x \times \tau((x,y))$
+
+Furthermore if $\tau((x,y)) \equiv x^y$ then we can rewrite the above expressions as:
+
+- $x^1 = x$
+- $x^{1 + y} = x \times x^y$
+
+__Terminology__ $\tau$ is called the __exponentiation__ operation on $P$. In $\tau((x,y)) \equiv x^y$, $x$  is the __base__ and $y$ the __exponent__
+
+__Remark__ 
+
+- $x^2 = x^{S(1)} = x^{1 + 1} = x \times x^1 = x \times x$
+- $x^3 = x^{S(2)} = x^{1 + 2} = x \times x^2 = x \times (x \times x)$
+
+## Exponentiation exercises and solutions
+
+1. Compute the values $2^2, 2^3, 3^2$
 
 # Bibliography
 
