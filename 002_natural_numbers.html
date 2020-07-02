@@ -1736,6 +1736,7 @@ summary {
 <li><a href="#multiplication-exercises-and-solutions"><span class="toc-section-number">1.9</span> Multiplication exercises and solutions</a></li>
 <li><a href="#exponentiation"><span class="toc-section-number">1.10</span> Exponentiation</a></li>
 <li><a href="#exponentiation-exercises-and-solutions"><span class="toc-section-number">1.11</span> Exponentiation exercises and solutions</a></li>
+<li><a href="#isomorphism-categoricity"><span class="toc-section-number">1.12</span> Isomorphism, categoricity</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -3032,11 +3033,245 @@ text-align: justify}
 <li><span class="math inline">\(x^2 = x^{S(1)} = x^{1 + 1} = x \times x^1 = x \times x\)</span></li>
 <li><span class="math inline">\(x^3 = x^{S(2)} = x^{1 + 2} = x \times x^2 = x \times (x \times x)\)</span></li>
 </ul>
+<p><strong>Lemma</strong> <span class="math inline">\(1^x = 1\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land 1^x = 1 \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1^1 = 1\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  1^{S(x)} &amp; = 1^{1 + x} \\  &amp; = 1 \times 1^x \\  &amp; = 1 \times 1 \\  &amp; = 1  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Basic Properties of Exponentiation)</em></p>
+<ul>
+<li><p><span class="math inline">\(x^{y + z} = x^y \times x^z\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{y: y \in P \land x^{y + z} = x^y \times x^z \text{ where } x \in P \land z \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(y \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(x^{1 + z} = x \times x^z = x^1 \times x^z\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x^{S(y) + z} &amp; = x^{(1 + y) + z} \\  &amp; = x^{1 + (y + z)} \\  &amp; = x \times x^{y + z} \\  &amp; = x^1 \times (x^y \times x^z) \\  &amp; = (x^1 \times x^y) \times x^z \\  &amp; = x^{1 + y} \times x^z \\  &amp; = x^{S(y)} \times x^z  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(y) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\((x^y)^z = x^{y \times z}\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land (x^y)^z = x^{y \times z} \text{ where } x \in P \land y \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\((x^y)^1 = x^y = x^{1 \times y}\)</span></p></li>
+<li><p>Assume <span class="math inline">\(z \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (x^y)^{S(z)} &amp; = (x^y)^{1 + z} \\  &amp; = x^y \times (x^y)^z \\  &amp; = x^y \times x^{y \times z} \\  &amp; = x^{y + y \times z} \\  &amp; = x^{y \times (1 + z)} \\  &amp; = x^{y \times S(z)}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\((x \times y)^z = x^z \times y^z\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land (x \times y)^z = x^z \times y^z \text{ where } x \in P \land y \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\((x \times y)^1 = x \times y = x^1 \times y^1\)</span></p></li>
+<li><p>Assume <span class="math inline">\(z \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (x \times y)^{S(z)} &amp; = (x \times y)^{1 + z} \\  &amp; = (x \times y) \times (x \times y)^z \\  &amp; = (x \times y) \times (x^z \times y^z) \\  &amp; = (x \times x^z) \times (y \times y^z) \\  &amp; = x^{1 + z} \times y^{1 + z} \\  &amp; = x^{S(z)} \times y^{S(z)}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></p></li>
+</ul></li>
+</ul>
+<p><strong>Theorem</strong> <em>(Exponentiation and the Order Relation)</em> For any <span class="math inline">\(x \in P\)</span>, <span class="math inline">\(y \in P\)</span> and <span class="math inline">\(z \in P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(x &lt; y \iff x^z &lt; y^z\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x &lt; y\)</span></p>
+<ul>
+<li>Let <span class="math inline">\(B = \{z: z \in P \land x^z &lt; y^z \text{ where } x \in P \land y \in P \}\)</span>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(x^1 = x &lt; y = y^1\)</span></p></li>
+<li><p>Assume <span class="math inline">\(z \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x^z &lt; y^z \land x &lt; y &amp; \implies x \times x^z &lt; y \times y^z \\  &amp; \implies x^{1 + z} &lt; y^{1 + z} \\  &amp; \implies x^{S(z)} &lt; y^{S(z)}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(z) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x^z &lt; y^z\)</span></p>
+<ul>
+<li><p><span class="math inline">\(x^z &lt; y^z \implies x &lt; y\)</span> is equivalent to <span class="math inline">\(\neg(x^z &lt; y^z \land x \geq y)\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(x^z &lt; y^z \land x \leq y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x = y\)</span> then <span class="math inline">\(x^z = y^z\)</span> but <span class="math inline">\(x^z &lt; y^z\)</span></p></li>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> then by the firts part of the proof <span class="math inline">\(x^z &gt; y^z\)</span> but <span class="math inline">\(x^z &lt; y^z\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x^z &lt; y^z \land x \leq y\)</span> is false and <span class="math inline">\(\neg(x^z &lt; y^z \land x \leq y)\)</span> is true. Thus, <span class="math inline">\(x^z &lt; y^z \implies x &lt; y\)</span> is true so <span class="math inline">\(x &lt; y\)</span> is true</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((1 &lt; z \land x &lt; y) \iff z^x &lt; z^y\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(1 &lt; z \land x &lt; y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1 &lt; z \land x &lt; y &amp; \iff 1 &lt; z \land (\exists u)(u \in P \land x + u = y) \\  &amp; \iff 1^u &lt; z^u \land (\exists u)(u \in P \land x + u = y) \\  &amp; \iff 1 &lt; z^u \land (\exists u)(u \in P \land x + u = y) \\  &amp; \iff z^x \times 1 &lt; z^x \times z^u \land (\exists u)(u \in P \land x + u = y) \\  &amp; \iff z^x &lt; z^{x + u} \land (\exists u)(u \in P \land x + u = y) \\  &amp; \iff z^x &lt; z^y \land (\exists u)(u \in P \land x + u = y) \\  &amp; \implies z^x &lt; z^y  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(z^x &lt; z^y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(z^x &lt; z^y\)</span> then <span class="math inline">\(z \neq 1\)</span>. Therefore <span class="math inline">\(z \neq 1 \implies 1 &lt; z\)</span></p></li>
+<li><p>Assume <span class="math inline">\(z^x &lt; z^y \land x \geq y\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x = y\)</span> then <span class="math inline">\(z^x = z^y\)</span> but <span class="math inline">\(z^x &lt; z^y\)</span></p></li>
+<li><p>If <span class="math inline">\(x &gt; y\)</span> and becuase <span class="math inline">\(z &gt; 1\)</span> by the first part of the proof <span class="math inline">\(z^x &gt; z^y\)</span> but <span class="math inline">\(z^x &lt; z^y\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(1 &lt; z \land x &lt; y\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(1 &lt; x \iff z &lt; x^z\)</span></p>
+<ul>
+<li><p>Assume <span class="math inline">\(1 &lt; x\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land z &lt; x^z \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(1 &lt; x = x^1\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  z &lt; x^z \land 1 &lt; x &amp; \iff z + 1 &lt; x^z + 1 \land 1 \times x^z &lt; x \times x^z \\  &amp; \iff S(z) &lt; x^z + 1 \land x^z &lt; x^{1 + z} \\  &amp; \iff S(z) &lt; x^z + 1 \land x^z + 1 \leq x^{S(z)} \\  &amp; \implies S(z) &lt; x^{S(z)}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(z &lt; x^z\)</span></p>
+<ul>
+<li><p><span class="math inline">\(z &lt; x^z \implies 1 &lt; x\)</span> is equivalent to <span class="math inline">\(\neg(z &lt; x^z \land 1 \geq x)\)</span></p>
+<ul>
+<li><p>Assume that <span class="math inline">\(z &lt; x^z \land 1 \geq x\)</span></p>
+<ul>
+<li><p>Because <span class="math inline">\(1 &gt; x\)</span> is false then <span class="math inline">\(x = 1\)</span>. Therefore if <span class="math inline">\(z &lt; x^z\)</span> then <span class="math inline">\(z &lt; 1^z = 1\)</span> but this is false</p>
+<ul>
+<li>Thus <span class="math inline">\(z &lt; x^z \land 1 \geq x\)</span> is false and <span class="math inline">\(z &lt; x^z \implies 1 &lt; x\)</span> is true. Because <span class="math inline">\(z &lt; x^z\)</span> is true then <span class="math inline">\(1 &lt; x\)</span> is true</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((1 &lt; z \land 1 &lt; y) \iff z &lt; z^y\)</span></p>
+<ul>
+<li>We already prove that <span class="math inline">\((1 &lt; z \land x &lt; y) \iff z^x &lt; z^y\)</span>. Using this result if <span class="math inline">\(x = 1\)</span> then <span class="math inline">\((1 &lt; z \land 1 &lt; y) \iff z = z^1 &lt; z^y\)</span></li>
+</ul></li>
+</ul>
 </div>
 <div id="exponentiation-exercises-and-solutions" class="section level2" number="1.11">
 <h2 number="1.11"><span class="header-section-number">1.11</span> Exponentiation exercises and solutions</h2>
 <ol style="list-style-type: decimal">
-<li>Compute the values <span class="math inline">\(2^2, 2^3, 3^2\)</span></li>
+<li><p>Compute the values <span class="math inline">\(2^2, 2^3, 3^2\)</span></p>
+<ul>
+<li><span class="math inline">\(2^2 = 2^{S(1)} = 2^{1+1} = 2 + 2^1 = 2 + 2\)</span></li>
+<li><span class="math inline">\(2^3 = 2^{S(2)} = 2^{1+2} = 2 + 2^2\)</span></li>
+<li><span class="math inline">\(3^2 = 3^{S(1)} = 3^{1+1} = 3 + 3^1 = 3 + 3\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(1 &lt; x \iff 1 &lt; x^z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1 &lt; x &amp; \iff 1^z &lt; x^z \\  &amp; \iff 1 \times x^z  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(x \leq x^z\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{z: z \in P \land x \leq x^z \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(z \in B\)</span> then <span class="math inline">\(z \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\(x \leq x^1 = x\)</span></p></li>
+<li><p>Assume <span class="math inline">\(z \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  1 \leq x \land x \leq x^z &amp; \implies 1 \times x \leq x \times x^z \\  &amp; \iff x \leq x^{1 + z} \\  &amp; \iff x \leq x^{S(z)}  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></p></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(x \leq y \iff x^z \leq y^z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y &amp; \iff x = y \lor x &lt; y \\  &amp; \iff x^z = y^z \lor x^z &lt; y^z \\  &amp; \iff x^z \leq y^z  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\(x \leq y \implies z^x \leq z^y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x \leq y \land 1 \leq z &amp; \iff (x = y \land 1 \leq z) \lor (x &lt; y \land 1 \leq z) \\  &amp; \iff (x = y \land 1 \leq z) \lor (x &lt; y \land 1 \leq z) \\  &amp; \iff z^x = z^y \lor (x &lt; y \land 1 = z) \lor (x &lt; y \land 1 &lt; z) \\  &amp; \implies z^x = z^y \lor z^x = z^y \lor z^x &lt; z^y \\  &amp; \iff z^x = z^y \lor z^x &lt; z^y \\  &amp; \iff z^x \leq z^y  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((1 &lt; z \land z^x \leq z^y) \implies x \leq y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  1 &lt; z \land z^x \leq z^y &amp; \iff 1 &lt; z \land (z^x = z^y \lor z^x &lt; z^y) \\  &amp; \iff (1 &lt; z \land z^x = z^y) \lor (1 &lt; z \land z^x &lt; z^y) \\  &amp; \implies x = y \lor x &lt; y \\  &amp; \iff x \leq y  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove that <span class="math inline">\((1 + z)^y \geq 1 + (y \times z)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{y: y \in P \land (1 + z)^y \geq 1 + (y \times z) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(y \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because <span class="math inline">\((1 + z)^1 = 1 + z \leq 1 + (1 \times z) = 1 + z\)</span></p></li>
+<li><p>Assume <span class="math inline">\(y \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (1 + z)^{S(y)} &amp; = (1 + z)^{1 + y} \\  &amp; = (1 + z)^1 \times (1 + z)^y \\  &amp; = (1 + z) \times (1 + z)^y \\  &amp; \geq (1 + z) \times (1 + (y \times z)) \\  &amp; = (1 + z) \times 1 + (1 + z) \times (y \times z) \\  &amp; = (1 + z) + (1 \times (y \times z) + z \times (y \times z)) \\  &amp; = ((1 + z) + (y \times z)) + z \times (y \times z) \\  &amp; = (1 + (z + (y \times z))) + z \times (y \times z) \\  &amp; = (1 + (1 + y) \times z) + z \times (y \times z) \\  &amp; = (1 + S(y) \times z) + z \times (y \times z) \\  &amp; &gt; 1 + S(y) \times z  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(y) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span></p></li>
+</ul></li>
+</ol>
+</div>
+<div id="isomorphism-categoricity" class="section level2" number="1.12">
+<h2 number="1.12"><span class="header-section-number">1.12</span> Isomorphism, categoricity</h2>
+<ul>
+<li><p>Do the axioms for peano systems completely characterize the natural numbers?</p>
+<ul>
+<li><p>Any peano system is essentially the same as the natural numbers</p></li>
+<li><p>We need a precise definition for the notion that two peano systems are essentially the same</p>
+<ul>
+<li>This leads to the important idea of isomorphic peano systems</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Definition</strong> Consider any two peano systems <span class="math inline">\(\mathscr{P} = (P, S, 1)\)</span> and <span class="math inline">\(\mathscr{P}^* = (P^*, S^*, 1^*)\)</span>. We say that <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span> are <strong>isomorphic</strong> if and only if there is a one-one correspondence <span class="math inline">\(H\)</span> between <span class="math inline">\(P\)</span> and <span class="math inline">\(P^*\)</span>, <span class="math inline">\(H: P \xrightarrow[\text{onto}]{1-1} P^*\)</span>, such that:</p>
+<ul>
+<li><span class="math inline">\(H(1) = 1^*\)</span></li>
+<li><span class="math inline">\(H(S(x)) = S^*(H(x))\)</span> for all <span class="math inline">\(x \in P\)</span></li>
+</ul>
+<p>Such a function <span class="math inline">\(H\)</span> is called an <strong>isomorphism</strong> between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span></p>
+<p><strong>Examples</strong></p>
+<ol style="list-style-type: decimal">
+<li></li>
 </ol>
 </div>
 </div>
