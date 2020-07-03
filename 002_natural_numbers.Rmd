@@ -22,14 +22,13 @@ text-align: justify}
 </style>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo      = TRUE, 
+knitr::opts_chunk$set(echo      = FALSE, 
                       warning   = FALSE, 
                       message   = FALSE,
                       fig.align = "center")
 ```
 
 ```{r libraries}
-
 
 ```
 
@@ -1992,7 +1991,66 @@ Such a function $H$ is called an __isomorphism__ between $\mathscr{P}$ and $\mat
 
 __Examples__
 
-1. 
-  
+1. Let $\mathscr{P} = (P, S, 1)$ where $P = \mathbb{P}$, $1$ the ordinary integer $1$ and $S(x) = x + 1$ for all $x \in P$. Let $\mathscr{P}^* = (P^*, S^*, 1^*)$ where $P^*$ is the set of even natural numbers, $1^*$ the ordinary integer $2$ and $S^*(x) = x + 2$ for all $x \in P^*$
+
+    + Let $H: P \longrightarrow P^*$ such that
+    
+        + $H(x) = 2 \times x$ for all $x \in P$
+        
+            + $H(1) = 2 = 1^*$
+            
+            + $\begin{split}
+                H(S(x)) & = 2 \times S(x) \\
+                & = 2 \times (x + 1) \\
+                & = 2 \times x + 2 \times 1 \\
+                & = 2 \times x + 2 \\
+                & = H(x) + 2 \\
+                & = S^*(H(x))
+                \end{split}$
+                
+                + $\mathscr{R}(H) = \{y: (\exists x)(x \in P \land 2 \times x = y) \}$ and $P^* = \{y: (\exists x)(x \in P \land 2 \times x = y) \}$ so $\mathscr{R}(H) = P^*$
+                + $H(x) = H(y) \iff 2x = 2y \iff x = y$
+
+2. Let $\mathscr{P} = (P, S, 1)$ where $P = \mathbb{P}$, $1$ the ordinary integer $1$ and $S(x) = x + 1$ for all $x \in P$. Let $\mathscr{P}^\# = (P^\#, S^\#, 1^\#)$ where $P^\#$ is the set of negative integers, $1^\# = -1$ and $S^\#(x) = x - 1$ for all $x \in P^\#$
+
+    + Let $G: P \longrightarrow P^\#$ such that
+    
+        + $G(x) = -x$ for all $x \in P$
+        
+            + $G(1) = -1 = 1^\#$
+            
+            + $\begin{split}
+                G(S(x)) & = -S(x) \\
+                & = -(1 + x) \\
+                & = -x - 1 \\
+                & = G(x) - 1 \\
+                & = S^\#(G(x))
+                \end{split}$
+
+                + $\mathscr{R}(G) = \{y: (\exists x)(x \in P \land -x = y) \}$ and $P^\# = \{y: (\exists x)(x \in P \land -x = y) \}$ so $\mathscr{R}(G) = P^\#$
+                
+                + $G(x) = G(y) \iff -x = -y \iff x = y$
+                
+An isomorphism $H$ between two peano systems $\mathscr{P}$ and $\mathscr{P}^*$ shows that the two structures are esentially the same.
+
+- $1$ of $\mathscr{P} = (P, 1, S)$ corresponds to $1^*$ of $\mathscr{P}^* = (P^*, 1^*, S^*)$
+- The successor operations correspond under the function $H$ as it is pointed out in the following diagram:
+
+```{tikz, tikz-ex, fig.ext = 'png', out.width = '40%'}
+
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[node distance=4cm, auto,>=latex', thick]
+\node (1) {$x \in P$};
+\node (2) [right of=1] {$H(x) \in P^*$};
+\node (3) [below of=1] {$S(x) \in P$};
+\node (4) [below of=2] {$H(S(x)) = S^*(H(x))$};
+\draw[->] (1) to node {$H$} (2);
+\draw[->] (1) to node [swap] {$S$} (3);
+\draw[->] (3) to node [swap] {$H$} (4);
+\draw[->] (2) to node {$S^*$} (4);
+\end{tikzpicture}
+```
+
+                
 # Bibliography
 
