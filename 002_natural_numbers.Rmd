@@ -2051,6 +2051,186 @@ An isomorphism $H$ between two peano systems $\mathscr{P}$ and $\mathscr{P}^*$ s
 \end{tikzpicture}
 ```
 
+__Theorem__ Any two peano systems are isomorphic
+
+__*Proof*__ Let $\mathscr{P} = (P, S, 1)$ and $\mathscr{P}^* = (P^*, S^*, 1^*)$ be two peano systems.
+
+- Using the iteration theorem let $W = P^*$, $c = 1^*$, $g = S^*$ then there is a unique function, $F: P \longrightarrow P^*$ such that:
+
+    + $F(1) = 1^*$
+    
+    + $F(S(x)) = S^*(F(x))$ for all $x \in P$
+    
+- Now we need to proof that $F$ is onto and one-one function
+
+    + __Onto function__
+
+        + Let $\mathscr{R}(F) = \{y: y \in P^* \land (\exists x)(x \in P \land F(x) = y) \}$
+        
+            + $\mathscr{R}(F) \subseteq P^*$
+            
+            + $1^* \in \mathscr{R}(F)$ because $1 \in P \land F(1) = 1^*$
+            
+            + Assume $y \in P^*$ then exists $x \in P$ such that $F(x) = y$
+            
+                + $\begin{split}
+                    S^*(y) & = S^*(F(x)) \\
+                    & = F(S(x))
+                    \end{split}$
                 
+                    + Because $S(x) \in P \land F(S(x)) = S^*(y)$ then $S^*(y) \in \mathscr{R}(F)$
+                    
+        + Therefore by the principle of mathematical induction $\mathscr{R}(F)=P^*$ so $F$ is an onto function
+        
+    + __One-one function__
+    
+        + Let $B = \{x: x \in P \land (\forall y)((y \in P \land x \neq y) \implies F(y) \neq F(x)) \}$
+        
+            + $B \subseteq P$ because if $x \in B$ then $x \in P$
+            
+            + Let $y \neq 1$ then $y = S(z)$.
+            
+                + $\begin{split}
+                    F(y) & = F(S(y)) \\ 
+                    & = S^*(F(y)) \\
+                    & \neq 1^* \\
+                    & = F(1)
+                    \end{split}$
+                    
+                    + Therefore $y \neq 1 \implies F(y) \neq F(1)$
+                    
+            + Assume $x \in B$
+            
+                + If $y = 1$ then $F(y) = 1^* \land y \neq S(x)$. 
+                
+                    + Furthermore $F(S(x)) = S^*(F(x)) \neq 1^* = F(1)$. Therefore $F(y) \neq F(S(x))$ so $S(x) \in B$
+                    
+                + If $y \neq 1 \land y \neq S(x)$ then $(\exists z)(z \in P \land y = S(z))$ and $S(z) \neq S(x)$.
+                
+                    + If $S$ is a function then $z \neq x$
+                    
+                        + $\begin{split}
+                            z \neq x \implies F(z) \neq F(x) \\
+                            \implies S^*(F(z)) \neq S^*(F(x))
+                            \implies F(S(z)) \neq F(S(x)) \\
+                            \implies F(y) \neq F(S(x))
+                            \end{split}$
+                            
+                            + Therefore $S(x) \in B$ 
+        
+        + Therefore by the principle of mathematical induction $B = P$ so $F$ is one-one function
+        
+__Remark 1__ $F$ is unique so there is only one isomorphism between any two peano systems
+
+__Remark 2__ The isophormism $F$ between $\mathscr{P} = (P, S, 1)$ and $\mathscr{P}^* = (P^*, S^*, 1^*)$ preserves all defined operations and relations. For example, if $+, \times, <$ are the addition, multiplication and order in $\mathscr{P} = (P, S, 1)$ while $+^*, \times^*, <^*$ are the corresponding notions in $\mathscr{P}^* = (P^*, S^*, 1^*)$, then for any $x$ and $y$ in $P$:
+
+- $F(x + y) = F(x) +^* F(1)$
+
+    + Let $B = \{y: y \in P \land F(x + y) = F(x) +^* F(y) \text{ where } x \in P \}$
+    
+        + $B \subseteq P$ because if $y \in B$ then $y \in P$
+        
+        + $1 \in B$ because:
+        
+            + $\begin{split}
+                F(x + 1) & = F(S(x)) \\
+                & = S^*(F(x)) \\
+                & = F(x) +^* 1^* \\
+                & = F(x) +^* F(1)
+                \end{split}$
+                
+        + Assume $x \in B$
+        
+            + $\begin{split}
+                F(x + S(y)) & = F(S(x + y)) \\
+                & = S^*(F(x + y)) \\
+                & = S^*(F(x) +^* F(y)) \\
+                & = F(x) +^* S^*(F(y)) \\
+                & = F(x) +^* F(S(y))
+                \end{split}$
+            
+                + Therefore $S(y) \in B$
+                
+    + Therefore by the principle of mathematical induction $B = P$
+
+- $F(x \times y) = F(x) \times^* F(y)$
+
+    + Let $B = \{y: y \in P \land F(x \times y) = F(x) \times^* F(y) \text{ where } x \in P \}$
+    
+        + $B \subseteq P$ because if $y \in B$ then $y \in P$
+        
+        + $1 \in B$ because:
+        
+            + $\begin{split}
+                F(x \times S(y)) & = F(x) \\
+                & = F(x) \times^* 1^* \\
+                & = F(x) \times^* F(1)
+                \end{split}$
+                
+        + Assume $x \in B$
+        
+            + $\begin{split}
+                F(x \times S(y)) & = F(x + x \times y) \\
+                & = F(x) +^* F(x \times y) \\
+                & = F(x) +^* F(x) \times^* F(y) \\
+                & = F(x) \times 1^* +^* F(x) \times^* F(y) \\
+                & = F(x) \times^* (1^* +^* F(y)) \\
+                & = F(x) \times^* S^*(F(y)) \\
+                & = F(x) \times^* F(S(y))
+                \end{split}$
+            
+                + Therefore $S(y) \in B$
+                
+    + Therefore by the principle of mathematical induction $B = P$
+    
+- $x < y \iff F(x) <^* F(y)$
+
+    + $\begin{split}
+        x < y & \iff (\exists z)(z \in P \land x + z = y) \\
+        & \iff (\exists z)(z \in P \land F(x + z) = F(y)) \\
+        & \iff (\exists F(z))(F(z) \in P^* \land F(x) +^* F(z) = F(y)) \\
+        & \iff F(x) <^* F(y)
+        \end{split}$
+        
+A set of axioms is said to be __categorical__ if and only if any two models for those axioms are isomorphic. Thus axioms $P1$, $P2$ and $P3$ for peano systems are categorical
+
+- The notion of peano system really has been onlt partially axiomatized by means of axioms $P1$, $P2$ and $P3$. The logical notions and the concept of set have been left informal
+
+    + If we add logical and set-theorical axioms to axioms $P1$, $P2$ and $P3$ in such a way that all proofs are based upon explicitly stated axioms and rules of inference, then the enlarged axiom system is no longer categorical. Check out [@mendelson_introduction_2015, Section 2.11 & Chapter 3] for more details
+
+## A basic existence assumption
+
+- Intuitive understanding of the natural numbers
+
+    + Symbolic expressions
+    
+        + $1$ is $|$, $2$ is $||$, $3$ is $|||$, and so on
+        
+            + Different people and different civilizations may use different symbols for the basic unit. For example, a circel or a square instead of a stroke
+            
+            + Yet, we could not give priority to one symbolism over any others
+            
+            + We also have to admit that, regardless of the difference in symbols, we are all talking about the same things
+            
+- Set-theoric objects
+    
+    + $1 = \{ \emptyset \}$, $2 = \{ \emptyset, 1 \} = \{ \emptyset, \{ \emptyset \} \}$, $3 = \{ \emptyset , \{ \emptyset \}, \{ \emptyset \, \{ \emptyset \} \} \}$ and so on
+    
+    + $1 = \{ \emptyset \}$, $2 = \{ 1 \}$, $3 = \{ 2 \}$ and so on
+        
+    + Even in set theory, there is no single way to handle the natural numbers
+    
+Different people, different languages and different set theories may have different systems of natural numbers. However they all satisfy the axioms for peano systems and therefore are isomorphic. 
+
+- For peano systems, as for all the mathematical systems we shall encounter later, it is the structure which is important, not the content. Since the natural numbers are necessary in the further development of mathematics we shall make one simple assumption:
+
+    + __Basic axiom__ There exists a peano sytem
+    
+        + In Appendix E there is a proof of the __Basic axiom__ within a system of axiomatic set theory. However, this is not a clear-cut justification for the __Basic axiom__ as the discussion above has indicated
+        
+## Supplementary exercises
+
+1. 
+
 # Bibliography
 

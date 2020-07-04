@@ -1737,6 +1737,8 @@ summary {
 <li><a href="#exponentiation"><span class="toc-section-number">1.10</span> Exponentiation</a></li>
 <li><a href="#exponentiation-exercises-and-solutions"><span class="toc-section-number">1.11</span> Exponentiation exercises and solutions</a></li>
 <li><a href="#isomorphism-categoricity"><span class="toc-section-number">1.12</span> Isomorphism, categoricity</a></li>
+<li><a href="#a-basic-existence-assumption"><span class="toc-section-number">1.13</span> A basic existence assumption</a></li>
+<li><a href="#supplementary-exercises"><span class="toc-section-number">1.14</span> Supplementary exercises</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -3308,6 +3310,158 @@ text-align: justify}
 <li>The successor operations correspond under the function <span class="math inline">\(H\)</span> as it is pointed out in the following diagram:</li>
 </ul>
 <p><img src="data:image/png;base64,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" width="40%" style="display: block; margin: auto;" /></p>
+<p><strong>Theorem</strong> Any two peano systems are isomorphic</p>
+<p><strong><em>Proof</em></strong> Let <span class="math inline">\(\mathscr{P} = (P, S, 1)\)</span> and <span class="math inline">\(\mathscr{P}^* = (P^*, S^*, 1^*)\)</span> be two peano systems.</p>
+<ul>
+<li><p>Using the iteration theorem let <span class="math inline">\(W = P^*\)</span>, <span class="math inline">\(c = 1^*\)</span>, <span class="math inline">\(g = S^*\)</span> then there is a unique function, <span class="math inline">\(F: P \longrightarrow P^*\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(F(1) = 1^*\)</span></p></li>
+<li><p><span class="math inline">\(F(S(x)) = S^*(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p></li>
+</ul></li>
+<li><p>Now we need to proof that <span class="math inline">\(F\)</span> is onto and one-one function</p>
+<ul>
+<li><p><strong>Onto function</strong></p>
+<ul>
+<li><p>Let <span class="math inline">\(\mathscr{R}(F) = \{y: y \in P^* \land (\exists x)(x \in P \land F(x) = y) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{R}(F) \subseteq P^*\)</span></p></li>
+<li><p><span class="math inline">\(1^* \in \mathscr{R}(F)\)</span> because <span class="math inline">\(1 \in P \land F(1) = 1^*\)</span></p></li>
+<li><p>Assume <span class="math inline">\(y \in P^*\)</span> then exists <span class="math inline">\(x \in P\)</span> such that <span class="math inline">\(F(x) = y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  S^*(y) &amp; = S^*(F(x)) \\  &amp; = F(S(x))  \end{split}\)</span></p>
+<ul>
+<li>Because <span class="math inline">\(S(x) \in P \land F(S(x)) = S^*(y)\)</span> then <span class="math inline">\(S^*(y) \in \mathscr{R}(F)\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(\mathscr{R}(F)=P^*\)</span> so <span class="math inline">\(F\)</span> is an onto function</p></li>
+</ul></li>
+<li><p><strong>One-one function</strong></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land (\forall y)((y \in P \land x \neq y) \implies F(y) \neq F(x)) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p>Let <span class="math inline">\(y \neq 1\)</span> then <span class="math inline">\(y = S(z)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F(y) &amp; = F(S(y)) \\  &amp; = S^*(F(y)) \\  &amp; \neq 1^* \\  &amp; = F(1)  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(y \neq 1 \implies F(y) \neq F(1)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(y = 1\)</span> then <span class="math inline">\(F(y) = 1^* \land y \neq S(x)\)</span>.</p>
+<ul>
+<li>Furthermore <span class="math inline">\(F(S(x)) = S^*(F(x)) \neq 1^* = F(1)\)</span>. Therefore <span class="math inline">\(F(y) \neq F(S(x))\)</span> so <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(y \neq 1 \land y \neq S(x)\)</span> then <span class="math inline">\((\exists z)(z \in P \land y = S(z))\)</span> and <span class="math inline">\(S(z) \neq S(x)\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(S\)</span> is a function then <span class="math inline">\(z \neq x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  z \neq x \implies F(z) \neq F(x) \\  \implies S^*(F(z)) \neq S^*(F(x))  \implies F(S(z)) \neq F(S(x)) \\  \implies F(y) \neq F(S(x))  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span> so <span class="math inline">\(F\)</span> is one-one function</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Remark 1</strong> <span class="math inline">\(F\)</span> is unique so there is only one isomorphism between any two peano systems</p>
+<p><strong>Remark 2</strong> The isophormism <span class="math inline">\(F\)</span> between <span class="math inline">\(\mathscr{P} = (P, S, 1)\)</span> and <span class="math inline">\(\mathscr{P}^* = (P^*, S^*, 1^*)\)</span> preserves all defined operations and relations. For example, if <span class="math inline">\(+, \times, &lt;\)</span> are the addition, multiplication and order in <span class="math inline">\(\mathscr{P} = (P, S, 1)\)</span> while <span class="math inline">\(+^*, \times^*, &lt;^*\)</span> are the corresponding notions in <span class="math inline">\(\mathscr{P}^* = (P^*, S^*, 1^*)\)</span>, then for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(P\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(F(x + y) = F(x) +^* F(1)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{y: y \in P \land F(x + y) = F(x) +^* F(y) \text{ where } x \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(y \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  F(x + 1) &amp; = F(S(x)) \\  &amp; = S^*(F(x)) \\  &amp; = F(x) +^* 1^* \\  &amp; = F(x) +^* F(1)  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F(x + S(y)) &amp; = F(S(x + y)) \\  &amp; = S^*(F(x + y)) \\  &amp; = S^*(F(x) +^* F(y)) \\  &amp; = F(x) +^* S^*(F(y)) \\  &amp; = F(x) +^* F(S(y))  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(y) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(F(x \times y) = F(x) \times^* F(y)\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{y: y \in P \land F(x \times y) = F(x) \times^* F(y) \text{ where } x \in P \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(y \in B\)</span> then <span class="math inline">\(y \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span> because:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  F(x \times S(y)) &amp; = F(x) \\  &amp; = F(x) \times^* 1^* \\  &amp; = F(x) \times^* F(1)  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F(x \times S(y)) &amp; = F(x + x \times y) \\  &amp; = F(x) +^* F(x \times y) \\  &amp; = F(x) +^* F(x) \times^* F(y) \\  &amp; = F(x) \times 1^* +^* F(x) \times^* F(y) \\  &amp; = F(x) \times^* (1^* +^* F(y)) \\  &amp; = F(x) \times^* S^*(F(y)) \\  &amp; = F(x) \times^* F(S(y))  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(y) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B = P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(x &lt; y \iff F(x) &lt;^* F(y)\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x &lt; y &amp; \iff (\exists z)(z \in P \land x + z = y) \\  &amp; \iff (\exists z)(z \in P \land F(x + z) = F(y)) \\  &amp; \iff (\exists F(z))(F(z) \in P^* \land F(x) +^* F(z) = F(y)) \\  &amp; \iff F(x) &lt;^* F(y)  \end{split}\)</span></li>
+</ul></li>
+</ul>
+<p>A set of axioms is said to be <strong>categorical</strong> if and only if any two models for those axioms are isomorphic. Thus axioms <span class="math inline">\(P1\)</span>, <span class="math inline">\(P2\)</span> and <span class="math inline">\(P3\)</span> for peano systems are categorical</p>
+<ul>
+<li><p>The notion of peano system really has been onlt partially axiomatized by means of axioms <span class="math inline">\(P1\)</span>, <span class="math inline">\(P2\)</span> and <span class="math inline">\(P3\)</span>. The logical notions and the concept of set have been left informal</p>
+<ul>
+<li>If we add logical and set-theorical axioms to axioms <span class="math inline">\(P1\)</span>, <span class="math inline">\(P2\)</span> and <span class="math inline">\(P3\)</span> in such a way that all proofs are based upon explicitly stated axioms and rules of inference, then the enlarged axiom system is no longer categorical. Check out <span class="citation">(Mendelson <a href="#ref-mendelson_introduction_2015" role="doc-biblioref">2015</a>, Section 2.11 &amp; Chapter 3)</span> for more details</li>
+</ul></li>
+</ul>
+</div>
+<div id="a-basic-existence-assumption" class="section level2" number="1.13">
+<h2 number="1.13"><span class="header-section-number">1.13</span> A basic existence assumption</h2>
+<ul>
+<li><p>Intuitive understanding of the natural numbers</p>
+<ul>
+<li><p>Symbolic expressions</p>
+<ul>
+<li><p><span class="math inline">\(1\)</span> is <span class="math inline">\(|\)</span>, <span class="math inline">\(2\)</span> is <span class="math inline">\(||\)</span>, <span class="math inline">\(3\)</span> is <span class="math inline">\(|||\)</span>, and so on</p>
+<ul>
+<li><p>Different people and different civilizations may use different symbols for the basic unit. For example, a circel or a square instead of a stroke</p></li>
+<li><p>Yet, we could not give priority to one symbolism over any others</p></li>
+<li><p>We also have to admit that, regardless of the difference in symbols, we are all talking about the same things</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Set-theoric objects</p>
+<ul>
+<li><p><span class="math inline">\(1 = \{ \emptyset \}\)</span>, <span class="math inline">\(2 = \{ \emptyset, 1 \} = \{ \emptyset, \{ \emptyset \} \}\)</span>, <span class="math inline">\(3 = \{ \emptyset , \{ \emptyset \}, \{ \emptyset \, \{ \emptyset \} \} \}\)</span> and so on</p></li>
+<li><p><span class="math inline">\(1 = \{ \emptyset \}\)</span>, <span class="math inline">\(2 = \{ 1 \}\)</span>, <span class="math inline">\(3 = \{ 2 \}\)</span> and so on</p></li>
+<li><p>Even in set theory, there is no single way to handle the natural numbers</p></li>
+</ul></li>
+</ul>
+<p>Different people, different languages and different set theories may have different systems of natural numbers. However they all satisfy the axioms for peano systems and therefore are isomorphic.</p>
+<ul>
+<li><p>For peano systems, as for all the mathematical systems we shall encounter later, it is the structure which is important, not the content. Since the natural numbers are necessary in the further development of mathematics we shall make one simple assumption:</p>
+<ul>
+<li><p><strong>Basic axiom</strong> There exists a peano sytem</p>
+<ul>
+<li>In Appendix E there is a proof of the <strong>Basic axiom</strong> within a system of axiomatic set theory. However, this is not a clear-cut justification for the <strong>Basic axiom</strong> as the discussion above has indicated</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="supplementary-exercises" class="section level2" number="1.14">
+<h2 number="1.14"><span class="header-section-number">1.14</span> Supplementary exercises</h2>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
@@ -3315,6 +3469,9 @@ text-align: justify}
 <div id="refs" class="references hanging-indent">
 <div id="ref-mendelson_number_2008">
 <p>Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.</p>
+</div>
+<div id="ref-mendelson_introduction_2015">
+<p>———. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.</p>
 </div>
 </div>
 </div>
