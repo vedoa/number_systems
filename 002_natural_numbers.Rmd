@@ -2230,7 +2230,68 @@ Different people, different languages and different set theories may have differ
         
 ## Supplementary exercises
 
-1. 
+1. By a Dedekind system we mean any structure $(P, S)$ where $P$ is a set, $S$ is a singulary operation on $P$ and the following axioms are satisfied:
+
+- $(1')$ The range of $S$ is a proper susbset of $P$: $\mathscr{R}(S) \neq P$
+- $(2')$ $S$ is one-one: $(\forall x)(\forall y)((x \in P \land y \in P \land x \neq y) \implies S(x) \neq S(y))$
+- $(3')$ Principle of mathematical induction: $$(\forall z)(\forall B)((B \subseteq P \land z \in P - \mathscr{R}(S) \land z \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies B = P)$$
+
+    + Prove that $(\exists !u)(u \in P - \mathscr{R}(S))$ (Hint: Let $z \in P - \mathscr{R}(S)$ and apply the principle of mathematical induction (Axiom $(3')$) to the set $B = \mathscr{R}(S) \cup \{ z \}$)
+    
+        + $B \subseteq P$ because $\mathscr{R}(S) \subseteq P \ land \{ z \} \subseteq P$
+        + If $x \in \mathscr{R}(S)$ then $x \notin P - \mathscr{R}(S)$ therefore there is only one element that belongs to $P - \mathscr{R}(S)$ which is $z$
+        
+            + $z \in P - \mathscr{R}(S)$
+            
+            + $z \in B = \mathscr{R}(S) \cup \{ z \}$
+            
+        + Assume $x \in B$ then $x \in \mathscr{R}(S) \lor x \in \{ z\}$
+        
+            + If $x \in \mathscr{R}(S)$ then exists $u$ such that $S(u) = x$. Because $\mathscr{R}(S) \subseteq P$ then $x \in P$. Thus, $S(S(u)) = S(x)$ so $S(x) \in \mathscr{R}(S)$ which implies $S(x) \in B = \mathscr{R}(S) \cup \{ z \}$
+            
+            + If $x \in \{ z\}$ then $x = z$. Also because $x \in P \land \mathscr{D}(S) = P$ then $S(z) \in \mathscr{R}(S)$. Thus $S(z) \in B = \mathscr{R}(S) \cup \{ z \}$
+            
+                + By Axiom $(3')$ we have that $B = P$ so $P - \mathscr{R}(S) = \{ z \}$ which implies there is exactly one element in $P - \mathscr{R}(S)$ 
+
+    + Let the unique $u \in P - \mathscr{R}(S)$ be denoted $1$. Prove that $(P, S, 1)$ is a peano system
+    
+        + $1 \in P - \mathscr{R}(S)$ therefore $1 \notin \mathscr{R}(S)$. Thus, $(\forall x)(x \in P = B \implies S(x) \neq 1 = z)$
+        
+        + $(P,S)$ is a Dedekind system so by Axiom $(2')$ we have that $S$ is a one-one function. Therefore $(\forall x)(\forall y)(x \neq y \implies S(x) \neq S(y))$
+        
+        + $(P,S)$ is a Dedekind system, $z = 1$ and $z$ is unique so by Axiom $(2')$ we have that $(\forall B)((B \subseteq P \land 1 \in P - \mathscr{R}(S) \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies B = P)$ which implies that: $$(\forall B)((B \subseteq P \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies B = P)$$
+        
+            + Therefore $(P, S, 1)$ is a peano system
+            
+2. A second proof of the iteration theorem. Consider a set $W$, an element $c$ in $W$ and a singulary operation $g$ on $W$. Let $(P, S, 1)$ be a peano sytem. We must show that there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$. 
+
+- Let $\mathscr{C} = \{H: H \subseteq P \times W \land (1,c) \in H \land (\forall x)(\forall w)((x,w) \in H \implies (S(x), g(w)) \in H) \}$. 
+
+    + Observe that $P \times W \in \mathscr{C}$. 
+    
+        + $P \times W \subseteq P \times W$
+        
+        + $(1, c) \in P \times W$
+        
+        + $(\forall x)(\forall w)((x,w) \in P \times W \implies (S(x), g(w)) \in P \times W)$ because $(x,w) \in P \times W$ is the set of all orderec pairs $(x, w)$ such that $x \in P \land w \in W$. We have that $S(x) \in P \land g(w) \in W$ then $(S(x), g(w)) \in P \times W$
+    
+    + Let $F = \bigcap_{H \in \mathscr{C}} H$. Observe that $F \neq \emptyset$ because
+    $(\forall H)(H \in \mathscr{C} \implies (1,c) \in H)$ therefore $(1,c) \in F$
+
+        + Prove that:
+    
+            + $F \in \mathscr{C}$
+            
+                + $F = \{(x,w): (\forall H)(H \in \mathscr{C} \implies (x,w) \in H)\}$. Therefore:
+                
+                    + If $(x,w) \in F$ then $(x,w) \in P \times W$. Thus, $F \subseteq P \times W$ 
+                    + $(1,c) \in F$
+                    
+                    + If $(x,w) \in F$ then $(\forall H)(H \in \mathscr{C} \implies (x,w) \in H)$. Therefore $(\forall H)((H \in \mathscr{C} \implies (x,w) \in H) \implies (S(x), g(w)) \in H)$ which means that $(S(x),g(w)) \in F$
+                    
+            + $F: P \longrightarrow W$ (Hint: Let $B = \{x: (\exists !w)(w \in W \land (x,w) \in F)\}$. By mathematical induction, prove $B = P$)
+            
+                +  
 
 # Bibliography
 

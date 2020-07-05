@@ -3460,8 +3460,74 @@ text-align: justify}
 <div id="supplementary-exercises" class="section level2" number="1.14">
 <h2 number="1.14"><span class="header-section-number">1.14</span> Supplementary exercises</h2>
 <ol style="list-style-type: decimal">
-<li></li>
+<li>By a Dedekind system we mean any structure <span class="math inline">\((P, S)\)</span> where <span class="math inline">\(P\)</span> is a set, <span class="math inline">\(S\)</span> is a singulary operation on <span class="math inline">\(P\)</span> and the following axioms are satisfied:</li>
 </ol>
+<ul>
+<li><p><span class="math inline">\((1&#39;)\)</span> The range of <span class="math inline">\(S\)</span> is a proper susbset of <span class="math inline">\(P\)</span>: <span class="math inline">\(\mathscr{R}(S) \neq P\)</span></p></li>
+<li><p><span class="math inline">\((2&#39;)\)</span> <span class="math inline">\(S\)</span> is one-one: <span class="math inline">\((\forall x)(\forall y)((x \in P \land y \in P \land x \neq y) \implies S(x) \neq S(y))\)</span></p></li>
+<li><p><span class="math inline">\((3&#39;)\)</span> Principle of mathematical induction: <span class="math display">\[(\forall z)(\forall B)((B \subseteq P \land z \in P - \mathscr{R}(S) \land z \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies B = P)\]</span></p>
+<ul>
+<li><p>Prove that <span class="math inline">\((\exists !u)(u \in P - \mathscr{R}(S))\)</span> (Hint: Let <span class="math inline">\(z \in P - \mathscr{R}(S)\)</span> and apply the principle of mathematical induction (Axiom <span class="math inline">\((3&#39;)\)</span>) to the set <span class="math inline">\(B = \mathscr{R}(S) \cup \{ z \}\)</span>)</p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because <span class="math inline">\(\mathscr{R}(S) \subseteq P \ land \{ z \} \subseteq P\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in \mathscr{R}(S)\)</span> then <span class="math inline">\(x \notin P - \mathscr{R}(S)\)</span> therefore there is only one element that belongs to <span class="math inline">\(P - \mathscr{R}(S)\)</span> which is <span class="math inline">\(z\)</span></p>
+<ul>
+<li><p><span class="math inline">\(z \in P - \mathscr{R}(S)\)</span></p></li>
+<li><p><span class="math inline">\(z \in B = \mathscr{R}(S) \cup \{ z \}\)</span></p></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in \mathscr{R}(S) \lor x \in \{ z\}\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\(x \in \mathscr{R}(S)\)</span> then exists <span class="math inline">\(u\)</span> such that <span class="math inline">\(S(u) = x\)</span>. Because <span class="math inline">\(\mathscr{R}(S) \subseteq P\)</span> then <span class="math inline">\(x \in P\)</span>. Thus, <span class="math inline">\(S(S(u)) = S(x)\)</span> so <span class="math inline">\(S(x) \in \mathscr{R}(S)\)</span> which implies <span class="math inline">\(S(x) \in B = \mathscr{R}(S) \cup \{ z \}\)</span></p></li>
+<li><p>If <span class="math inline">\(x \in \{ z\}\)</span> then <span class="math inline">\(x = z\)</span>. Also because <span class="math inline">\(x \in P \land \mathscr{D}(S) = P\)</span> then <span class="math inline">\(S(z) \in \mathscr{R}(S)\)</span>. Thus <span class="math inline">\(S(z) \in B = \mathscr{R}(S) \cup \{ z \}\)</span></p>
+<ul>
+<li>By Axiom <span class="math inline">\((3&#39;)\)</span> we have that <span class="math inline">\(B = P\)</span> so <span class="math inline">\(P - \mathscr{R}(S) = \{ z \}\)</span> which implies there is exactly one element in <span class="math inline">\(P - \mathscr{R}(S)\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Let the unique <span class="math inline">\(u \in P - \mathscr{R}(S)\)</span> be denoted <span class="math inline">\(1\)</span>. Prove that <span class="math inline">\((P, S, 1)\)</span> is a peano system</p>
+<ul>
+<li><p><span class="math inline">\(1 \in P - \mathscr{R}(S)\)</span> therefore <span class="math inline">\(1 \notin \mathscr{R}(S)\)</span>. Thus, <span class="math inline">\((\forall x)(x \in P = B \implies S(x) \neq 1 = z)\)</span></p></li>
+<li><p><span class="math inline">\((P,S)\)</span> is a Dedekind system so by Axiom <span class="math inline">\((2&#39;)\)</span> we have that <span class="math inline">\(S\)</span> is a one-one function. Therefore <span class="math inline">\((\forall x)(\forall y)(x \neq y \implies S(x) \neq S(y))\)</span></p></li>
+<li><p><span class="math inline">\((P,S)\)</span> is a Dedekind system, <span class="math inline">\(z = 1\)</span> and <span class="math inline">\(z\)</span> is unique so by Axiom <span class="math inline">\((2&#39;)\)</span> we have that <span class="math inline">\((\forall B)((B \subseteq P \land 1 \in P - \mathscr{R}(S) \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies B = P)\)</span> which implies that: <span class="math display">\[(\forall B)((B \subseteq P \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies B = P)\]</span></p>
+<ul>
+<li>Therefore <span class="math inline">\((P, S, 1)\)</span> is a peano system</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>A second proof of the iteration theorem. Consider a set <span class="math inline">\(W\)</span>, an element <span class="math inline">\(c\)</span> in <span class="math inline">\(W\)</span> and a singulary operation <span class="math inline">\(g\)</span> on <span class="math inline">\(W\)</span>. Let <span class="math inline">\((P, S, 1)\)</span> be a peano sytem. We must show that there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span>.</li>
+</ol>
+<ul>
+<li><p>Let <span class="math inline">\(\mathscr{C} = \{H: H \subseteq P \times W \land (1,c) \in H \land (\forall x)(\forall w)((x,w) \in H \implies (S(x), g(w)) \in H) \}\)</span>.</p>
+<ul>
+<li><p>Observe that <span class="math inline">\(P \times W \in \mathscr{C}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(P \times W \subseteq P \times W\)</span></p></li>
+<li><p><span class="math inline">\((1, c) \in P \times W\)</span></p></li>
+<li><p><span class="math inline">\((\forall x)(\forall w)((x,w) \in P \times W \implies (S(x), g(w)) \in P \times W)\)</span> because <span class="math inline">\((x,w) \in P \times W\)</span> is the set of all orderec pairs <span class="math inline">\((x, w)\)</span> such that <span class="math inline">\(x \in P \land w \in W\)</span>. We have that <span class="math inline">\(S(x) \in P \land g(w) \in W\)</span> then <span class="math inline">\((S(x), g(w)) \in P \times W\)</span></p></li>
+</ul></li>
+<li><p>Let <span class="math inline">\(F = \bigcap_{H \in \mathscr{C}} H\)</span>. Observe that <span class="math inline">\(F \neq \emptyset\)</span> because <span class="math inline">\((\forall H)(H \in \mathscr{C} \implies (1,c) \in H)\)</span> therefore <span class="math inline">\((1,c) \in F\)</span></p>
+<ul>
+<li><p>Prove that:</p>
+<ul>
+<li><p><span class="math inline">\(F \in \mathscr{C}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F = \{(x,w): (\forall H)(H \in \mathscr{C} \implies (x,w) \in H)\}\)</span>. Therefore:</p>
+<ul>
+<li><p>If <span class="math inline">\((x,w) \in F\)</span> then <span class="math inline">\((x,w) \in P \times W\)</span>. Thus, <span class="math inline">\(F \subseteq P \times W\)</span></p></li>
+<li><p><span class="math inline">\((1,c) \in F\)</span></p></li>
+<li><p>If <span class="math inline">\((x,w) \in F\)</span> then <span class="math inline">\((\forall H)(H \in \mathscr{C} \implies (x,w) \in H)\)</span>. Therefore <span class="math inline">\((\forall H)((H \in \mathscr{C} \implies (x,w) \in H) \implies (S(x), g(w)) \in H)\)</span> which means that <span class="math inline">\((S(x),g(w)) \in F\)</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(F: P \longrightarrow W\)</span> (Hint: Let <span class="math inline">\(B = \{x: (\exists !w)(w \in W \land (x,w) \in F)\}\)</span>. By mathematical induction, prove <span class="math inline">\(B = P\)</span>)</p>
+<ul>
+<li></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
