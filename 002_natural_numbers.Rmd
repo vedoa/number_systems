@@ -2291,7 +2291,64 @@ Different people, different languages and different set theories may have differ
                     
             + $F: P \longrightarrow W$ (Hint: Let $B = \{x: (\exists !w)(w \in W \land (x,w) \in F)\}$. By mathematical induction, prove $B = P$)
             
-                +  
+                + Let $B = \{x: x \in P \land (\exists !w)(w \in W \land (x,w) \in F)\}$
+                    + $B \subseteq P$ because if $x \in B$ then $x \in P$ 
+            
+                    +  Let $(1,c) \in H \land (1,w) \in H \land w \neq c$ where $H \in \mathscr{C}$. Let $H - \{(1,w): w \neq c\}$ then $H - \{(1,w): w \neq c\} \in \mathscr{C}$ so $(1,w) \notin F$ because $F = \{(x,w): (\forall H)(H \in \mathscr{C} \implies (x,w) \in H)\}$. Therefore $1 \in B$
+                
+                    + Assume $x \in B$
+                    
+                        + $\begin{split}
+                            x \in B & \implies (\exists !w)(w \in W \land (x,w) \in F) \\
+                            & \implies (\exists !w)((w \in W \land (x,w) \in F) \implies (S(w), g(w)) \in F)) \\
+                            & \implies (\exists !w)((S(w), g(w)) \in F) \\
+                            & \implies (\exists !w)((S(w), g(w)) \in F) \\
+                            & \implies S(x) \in B
+                            \end{split}$
+                            
+                            + Therefore by the principle of mathematical induction $B=P$. Also because $\mathscr{D}(F) = P$ then $\mathscr{D}(F) = B$ which implies that $F$ is a function 
+
+            + $F(1) = c$
+            
+                + $(1, c) \in F$ and $F$ is a function so $F(1) = c$
+                
+            + $F(S(x)) = g(F(x))$ for all $x \in P$
+            
+                + $\begin{split}
+                   F \in \mathscr{C} & \implies (\forall x)(\forall w)((x,w) \in F \implies (S(x), g(w)) \in F) \\
+                   & \implies (\forall x)(\forall w)(F(x)=w \implies F(S(x)) = g(w))) \\ 
+                   & \implies (\forall x)(\forall w)(F(x)=w \implies F(S(x)) = g(F(x))))
+                   & \implies (\forall x)(F(S(x)) = g(F(x))))
+                   \end{split}$
+                
+                    + __Observation__ If there is a function $G: P \longrightarrow W$ such that $G(1) = c$ and $G(S(x)) = g(G(x))$ for all $x \in P$ then $\mathscr{D}(F) = P = \mathscr{D}(G)$ and $F(1) = c = G(1)$. Furthermore:
+                    
+                        + Let $B = \{x: x \in P \land F(x) = G(x) \}$
+                        
+                            + $B \subseteq P$ because if $x \in B$ then $x \in P$
+                            
+                            + $1 \in B$
+                            
+                            + Assume $x \in B$
+                            
+                                + $\begin{split}
+                                    F(S(x)) & = g(F(x)) \\
+                                    & = g(G(x)) \\
+                                    & = G(S(x)) 
+                                    \end{split}$
+                                    
+                                    + Therefore $S(x) \in B$
+                                    
+                        + Therefore by the principle of mathematical induction $B=P$ which implies that $F(x) = G(x)$ for all $x \in P$.
+                        
+                    + Because $\mathscr{D}(F) = \mathscr{D}(G)$ and $F(x) = G(x)$ for all $x \in P$ we have that $F = G$ so $F$ is unique  
+                    
+3. Why is the following not a correct proof that any two peano systems $\mathscr{P} = (P, S, 1)$ and $\mathscr{P}^* = (P^*, S^*, 1^*)$ are isomorphic?
+
+- $P$ consist of $1, S(1), S(S(1)), S(S(1)), S(S(S(1))), \ldots$
+- $P^*$ consist of $1^*, S^*(1^*), S^*(S^*(1^*)), S^*(S^*(S^*(1^*))), \ldots$
+
+- Simply let $1$ corresponds to $1^*$, $S(1)$ to $S^*(1^*)$, $S(S(1))$ to $S^*(S^*(1^*))$, $S(S(S(1)))$ to $S^*(S^*(S^*(1^*)))$ and so on such that each object in the list $P$ being associated with the corresponding object in the list for $P^*$
 
 # Bibliography
 

@@ -3522,11 +3522,57 @@ text-align: justify}
 </ul></li>
 <li><p><span class="math inline">\(F: P \longrightarrow W\)</span> (Hint: Let <span class="math inline">\(B = \{x: (\exists !w)(w \in W \land (x,w) \in F)\}\)</span>. By mathematical induction, prove <span class="math inline">\(B = P\)</span>)</p>
 <ul>
-<li></li>
+<li>Let <span class="math inline">\(B = \{x: x \in P \land (\exists !w)(w \in W \land (x,w) \in F)\}\)</span>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p>Let <span class="math inline">\((1,c) \in H \land (1,w) \in H \land w \neq c\)</span> where <span class="math inline">\(H \in \mathscr{C}\)</span>. Let <span class="math inline">\(H - \{(1,w): w \neq c\}\)</span> then <span class="math inline">\(H - \{(1,w): w \neq c\} \in \mathscr{C}\)</span> so <span class="math inline">\((1,w) \notin F\)</span> because <span class="math inline">\(F = \{(x,w): (\forall H)(H \in \mathscr{C} \implies (x,w) \in H)\}\)</span>. Therefore <span class="math inline">\(1 \in B\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \in B &amp; \implies (\exists !w)(w \in W \land (x,w) \in F) \\  &amp; \implies (\exists !w)((w \in W \land (x,w) \in F) \implies (S(w), g(w)) \in F)) \\  &amp; \implies (\exists !w)((S(w), g(w)) \in F) \\  &amp; \implies (\exists !w)((S(w), g(w)) \in F) \\  &amp; \implies S(x) \in B  \end{split}\)</span></p>
+<ul>
+<li>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span>. Also because <span class="math inline">\(\mathscr{D}(F) = P\)</span> then <span class="math inline">\(\mathscr{D}(F) = B\)</span> which implies that <span class="math inline">\(F\)</span> is a function</li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
+<li><p><span class="math inline">\(F(1) = c\)</span></p>
+<ul>
+<li><span class="math inline">\((1, c) \in F\)</span> and <span class="math inline">\(F\)</span> is a function so <span class="math inline">\(F(1) = c\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F \in \mathscr{C} &amp; \implies (\forall x)(\forall w)((x,w) \in F \implies (S(x), g(w)) \in F) \\  &amp; \implies (\forall x)(\forall w)(F(x)=w \implies F(S(x)) = g(w))) \\  &amp; \implies (\forall x)(\forall w)(F(x)=w \implies F(S(x)) = g(F(x))))  &amp; \implies (\forall x)(F(S(x)) = g(F(x))))  \end{split}\)</span></p>
+<ul>
+<li><p><strong>Observation</strong> If there is a function <span class="math inline">\(G: P \longrightarrow W\)</span> such that <span class="math inline">\(G(1) = c\)</span> and <span class="math inline">\(G(S(x)) = g(G(x))\)</span> for all <span class="math inline">\(x \in P\)</span> then <span class="math inline">\(\mathscr{D}(F) = P = \mathscr{D}(G)\)</span> and <span class="math inline">\(F(1) = c = G(1)\)</span>. Furthermore:</p>
+<ul>
+<li><p>Let <span class="math inline">\(B = \{x: x \in P \land F(x) = G(x) \}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because if <span class="math inline">\(x \in B\)</span> then <span class="math inline">\(x \in P\)</span></p></li>
+<li><p><span class="math inline">\(1 \in B\)</span></p></li>
+<li><p>Assume <span class="math inline">\(x \in B\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F(S(x)) &amp; = g(F(x)) \\  &amp; = g(G(x)) \\  &amp; = G(S(x))  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(S(x) \in B\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Therefore by the principle of mathematical induction <span class="math inline">\(B=P\)</span> which implies that <span class="math inline">\(F(x) = G(x)\)</span> for all <span class="math inline">\(x \in P\)</span>.</p></li>
+</ul></li>
+<li><p>Because <span class="math inline">\(\mathscr{D}(F) = \mathscr{D}(G)\)</span> and <span class="math inline">\(F(x) = G(x)\)</span> for all <span class="math inline">\(x \in P\)</span> we have that <span class="math inline">\(F = G\)</span> so <span class="math inline">\(F\)</span> is unique</p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Why is the following not a correct proof that any two peano systems <span class="math inline">\(\mathscr{P} = (P, S, 1)\)</span> and <span class="math inline">\(\mathscr{P}^* = (P^*, S^*, 1^*)\)</span> are isomorphic?</li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(P\)</span> consist of <span class="math inline">\(1, S(1), S(S(1)), S(S(1)), S(S(S(1))), \ldots\)</span></p></li>
+<li><p><span class="math inline">\(P^*\)</span> consist of <span class="math inline">\(1^*, S^*(1^*), S^*(S^*(1^*)), S^*(S^*(S^*(1^*))), \ldots\)</span></p></li>
+<li><p>Simply let <span class="math inline">\(1\)</span> corresponds to <span class="math inline">\(1^*\)</span>, <span class="math inline">\(S(1)\)</span> to <span class="math inline">\(S^*(1^*)\)</span>, <span class="math inline">\(S(S(1))\)</span> to <span class="math inline">\(S^*(S^*(1^*))\)</span>, <span class="math inline">\(S(S(S(1)))\)</span> to <span class="math inline">\(S^*(S^*(S^*(1^*)))\)</span> and so on such that each object in the list <span class="math inline">\(P\)</span> being associated with the corresponding object in the list for <span class="math inline">\(P^*\)</span></p></li>
 </ul>
 </div>
 </div>
