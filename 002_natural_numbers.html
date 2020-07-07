@@ -3469,7 +3469,7 @@ text-align: justify}
 <ul>
 <li><p>Prove that <span class="math inline">\((\exists !u)(u \in P - \mathscr{R}(S))\)</span> (Hint: Let <span class="math inline">\(z \in P - \mathscr{R}(S)\)</span> and apply the principle of mathematical induction (Axiom <span class="math inline">\((3&#39;)\)</span>) to the set <span class="math inline">\(B = \mathscr{R}(S) \cup \{ z \}\)</span>)</p>
 <ul>
-<li><p><span class="math inline">\(B \subseteq P\)</span> because <span class="math inline">\(\mathscr{R}(S) \subseteq P \ land \{ z \} \subseteq P\)</span></p></li>
+<li><p><span class="math inline">\(B \subseteq P\)</span> because <span class="math inline">\(\mathscr{R}(S) \subseteq P \land \{ z \} \subseteq P\)</span></p></li>
 <li><p>If <span class="math inline">\(x \in \mathscr{R}(S)\)</span> then <span class="math inline">\(x \notin P - \mathscr{R}(S)\)</span> therefore there is only one element that belongs to <span class="math inline">\(P - \mathscr{R}(S)\)</span> which is <span class="math inline">\(z\)</span></p>
 <ul>
 <li><p><span class="math inline">\(z \in P - \mathscr{R}(S)\)</span></p></li>
@@ -3572,8 +3572,89 @@ text-align: justify}
 <ul>
 <li><p><span class="math inline">\(P\)</span> consist of <span class="math inline">\(1, S(1), S(S(1)), S(S(1)), S(S(S(1))), \ldots\)</span></p></li>
 <li><p><span class="math inline">\(P^*\)</span> consist of <span class="math inline">\(1^*, S^*(1^*), S^*(S^*(1^*)), S^*(S^*(S^*(1^*))), \ldots\)</span></p></li>
-<li><p>Simply let <span class="math inline">\(1\)</span> corresponds to <span class="math inline">\(1^*\)</span>, <span class="math inline">\(S(1)\)</span> to <span class="math inline">\(S^*(1^*)\)</span>, <span class="math inline">\(S(S(1))\)</span> to <span class="math inline">\(S^*(S^*(1^*))\)</span>, <span class="math inline">\(S(S(S(1)))\)</span> to <span class="math inline">\(S^*(S^*(S^*(1^*)))\)</span> and so on such that each object in the list <span class="math inline">\(P\)</span> being associated with the corresponding object in the list for <span class="math inline">\(P^*\)</span></p></li>
+<li><p>Simply let <span class="math inline">\(1\)</span> corresponds to <span class="math inline">\(1^*\)</span>, <span class="math inline">\(S(1)\)</span> to <span class="math inline">\(S^*(1^*)\)</span>, <span class="math inline">\(S(S(1))\)</span> to <span class="math inline">\(S^*(S^*(1^*))\)</span>, <span class="math inline">\(S(S(S(1)))\)</span> to <span class="math inline">\(S^*(S^*(S^*(1^*)))\)</span> and so on such that each object in the list <span class="math inline">\(P\)</span> being associated with the corresponding object in the list for <span class="math inline">\(P^*\)</span></p>
+<ul>
+<li><p>I think this sketch is not totally incorrect. The problem is that it doesn’t include all the details but the general idea seems right</p>
+<ul>
+<li><p>It uses the implicitly the principle of mathematical induction to build both lists</p></li>
+<li><p>It builds an implicit onto and one-one function:</p>
+<ul>
+<li><p><span class="math inline">\(F(1) = 1^*\)</span>, <span class="math inline">\(F(S(1)) = S^*(1^*)\)</span>, <span class="math inline">\(F(S(S(1))) = S^*(S^*(1^*))\)</span>, <span class="math inline">\(F(S(S(S(1)))) = S^*(S^*(S^*(1^*))), \ldots\)</span></p>
+<ul>
+<li><p><span class="math inline">\(F(1) = 1^*\)</span>, <span class="math inline">\(F(S(1)) = S^*(F(1))\)</span>, <span class="math inline">\(F(S(S(1))) = S^*(F(S(1)))\)</span>, <span class="math inline">\(F(S(S(S(1)))) = S^*(F(S(S(1)))), \ldots\)</span></p>
+<ul>
+<li>Thus, it is using implicitly the defintion of isomorphism between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Prove that the relation “isomorphic with” is reflexive, symmetric and transitive, that is, for any peano systems <span class="math inline">\(\mathscr{P} = (P, S, 1)\)</span>, <span class="math inline">\(\mathscr{P}^* = (P^*, S^*, 1^*)\)</span> and <span class="math inline">\(\mathscr{P}^\# = (P^\#, S^\#, 1^\#)\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{P}\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}\)</span> (Reflexivity)</p>
+<ul>
+<li><p>Let <span class="math inline">\(I_P: P \xrightarrow[\text{onto}]{\text{1-1}} P\)</span> be the identity function in <span class="math inline">\(P\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\(I_P(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(I_P(S(x)) = S(I_P(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(I_P\)</span> is a isomorphism between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(\mathscr{P}\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}^*\)</span> then <span class="math inline">\(\mathscr{P}^*\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}\)</span> (Symmetry)</p>
+<ul>
+<li><p>If <span class="math inline">\(\mathscr{P}\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}^*\)</span> then there exists, <span class="math inline">\(H: P \xrightarrow[\text{onto}]{\text{1-1}} P^*\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(H(1) = 1^*\)</span></p></li>
+<li><p><span class="math inline">\(H(S(x)) = S^*(H(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Therefore <span class="math inline">\(H(x) = x^*\)</span> where <span class="math inline">\(x^* \in P^*\)</span> so <span class="math inline">\(x = H^{-1}(H(x)) = H^-1(x^*)\)</span></p>
+<ul>
+<li><p>Therefore <span class="math inline">\(H^{-1}: P^* \xrightarrow[\text{onto}]{\text{1-1}} P\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(H^{-1}(1^*) = H^{-1}(H(1)) = 1\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  H{-1}(S^*(x^*)) &amp; = H^{-1}(S^*(H(x))) \\  &amp; = H^{-1}(H(S(x))) \\  &amp; = S(x) \\  &amp; = S(H^-1(x^*))  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(H^{-1}\)</span> is a isomorphism between <span class="math inline">\(\mathscr{P}^*\)</span> and <span class="math inline">\(\mathscr{P}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>If <span class="math inline">\(\mathscr{P}\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}^*\)</span> and <span class="math inline">\(\mathscr{P}^*\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}^\#\)</span> then <span class="math inline">\(\mathscr{P}\)</span> is isomorphic with <span class="math inline">\(\mathscr{P}^\#\)</span> (Transitivity)</p>
+<ul>
+<li><p>There exists, <span class="math inline">\(H: P \xrightarrow[\text{onto}]{\text{1-1}} P^*\)</span> and <span class="math inline">\(G: P^* \xrightarrow[\text{onto}]{\text{1-1}} P^\#\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(H(1) = 1^* \land G(1^*) = 1^\#\)</span></p></li>
+<li><p><span class="math inline">\(H(S(x)) = S^*(H(x))\)</span> for all <span class="math inline">\(x \in P\)</span> and <span class="math inline">\(G(S^*(x^*)) = S^\#(G(x^*))\)</span> for all <span class="math inline">\(x^* \in P^*\)</span></p>
+<ul>
+<li>Let <span class="math inline">\(G \circ H: P \xrightarrow[\text{onto}]{\text{1-1}} P^\#\)</span> such that:
+<ul>
+<li><p><span class="math inline">\((G \circ H)(1) = G(H(1)) = G(1^*) = 1^\#\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (G \circ H)(S(x)) &amp; = G(H(S(x)) \\  &amp; = G(S^*(H(x))) \\  &amp; = S^\#(G(H(x))) \\  &amp; = S^\#((G \circ H)(x)) \\  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(G \circ H\)</span> is a isomorphism between <span class="math inline">\(\mathscr{P}\)</span> and <span class="math inline">\(\mathscr{P}^\#\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Consider a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span> and <span class="math inline">\(S: P \longrightarrow P\)</span>. Show that <span class="math inline">\((P, S, 1)\)</span> is a peano system if and only if satisfies the iteration theorem, that is, for any set <span class="math inline">\(W\)</span>, any object <span class="math inline">\(c \in W\)</span> and any singulary operation <span class="math inline">\(g\)</span> on <span class="math inline">\(W\)</span>, there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span> and <span class="math inline">\(S: P \longrightarrow P\)</span> is a peano system</p>
+<ul>
+<li>Using <em>Chapter 2 &gt; Supplementary exercises &gt; Exercise 2</em> if <span class="math inline">\((P, S, 1)\)</span> is a peano system then it satisfies the iteration theorem</li>
+</ul></li>
+<li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span>, <span class="math inline">\(S: P \longrightarrow P\)</span> and there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span> where <span class="math inline">\(W\)</span> is any set, <span class="math inline">\(c \in W\)</span> and <span class="math inline">\(g\)</span> is any singulary operation on <span class="math inline">\(W\)</span></p></li>
+</ul></li>
+</ol>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>

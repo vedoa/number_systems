@@ -2238,7 +2238,7 @@ Different people, different languages and different set theories may have differ
 
     + Prove that $(\exists !u)(u \in P - \mathscr{R}(S))$ (Hint: Let $z \in P - \mathscr{R}(S)$ and apply the principle of mathematical induction (Axiom $(3')$) to the set $B = \mathscr{R}(S) \cup \{ z \}$)
     
-        + $B \subseteq P$ because $\mathscr{R}(S) \subseteq P \ land \{ z \} \subseteq P$
+        + $B \subseteq P$ because $\mathscr{R}(S) \subseteq P \land \{ z \} \subseteq P$
         + If $x \in \mathscr{R}(S)$ then $x \notin P - \mathscr{R}(S)$ therefore there is only one element that belongs to $P - \mathscr{R}(S)$ which is $z$
         
             + $z \in P - \mathscr{R}(S)$
@@ -2350,5 +2350,79 @@ Different people, different languages and different set theories may have differ
 
 - Simply let $1$ corresponds to $1^*$, $S(1)$ to $S^*(1^*)$, $S(S(1))$ to $S^*(S^*(1^*))$, $S(S(S(1)))$ to $S^*(S^*(S^*(1^*)))$ and so on such that each object in the list $P$ being associated with the corresponding object in the list for $P^*$
 
-# Bibliography
+    + I think this sketch is not totally incorrect. The problem is that it doesn't include all the details but the general idea seems right
+    
+        + It uses the implicitly the principle of mathematical induction to build both lists
+    
+        + It builds an implicit onto and one-one function:
+        
+            + $F(1) = 1^*$, $F(S(1)) = S^*(1^*)$, $F(S(S(1))) = S^*(S^*(1^*))$, $F(S(S(S(1)))) = S^*(S^*(S^*(1^*))), \ldots$
+            
+                + $F(1) = 1^*$, $F(S(1)) = S^*(F(1))$, $F(S(S(1))) = S^*(F(S(1)))$, $F(S(S(S(1)))) = S^*(F(S(S(1)))), \ldots$
+                
+                    + Thus, it is using implicitly the defintion of isomorphism between $\mathscr{P}$ and $\mathscr{P}^*$
 
+4. Prove that the relation "isomorphic with" is reflexive, symmetric and transitive, that is, for any peano systems $\mathscr{P} = (P, S, 1)$, $\mathscr{P}^* = (P^*, S^*, 1^*)$ and $\mathscr{P}^\# = (P^\#, S^\#, 1^\#)$:
+
+    + $\mathscr{P}$ is isomorphic with $\mathscr{P}$ (Reflexivity)
+    
+        + Let $I_P: P \xrightarrow[\text{onto}]{\text{1-1}} P$ be the identity function in $P$ such that
+        
+            + $I_P(1) = 1$
+            
+            + $I_P(S(x)) = S(I_P(x))$ for all $x \in P$
+            
+                + Therefore $I_P$ is a isomorphism between $\mathscr{P}$ and $\mathscr{P}$
+                
+    + If $\mathscr{P}$ is isomorphic with $\mathscr{P}^*$ then $\mathscr{P}^*$ is isomorphic with $\mathscr{P}$ (Symmetry)
+      
+        + If $\mathscr{P}$ is isomorphic with $\mathscr{P}^*$ then there exists, $H: P \xrightarrow[\text{onto}]{\text{1-1}} P^*$ such that:
+          
+            + $H(1) = 1^*$
+              
+            + $H(S(x)) = S^*(H(x))$ for all $x \in P$
+              
+                + Therefore $H(x) = x^*$ where $x^* \in P^*$ so $x = H^{-1}(H(x)) = H^-1(x^*)$  
+              
+                    + Therefore $H^{-1}: P^* \xrightarrow[\text{onto}]{\text{1-1}} P$ such that:
+                  
+                        + $H^{-1}(1^*) = H^{-1}(H(1)) = 1$
+                          
+                        + $\begin{split}
+                            H{-1}(S^*(x^*)) & = H^{-1}(S^*(H(x))) \\
+                            & = H^{-1}(H(S(x))) \\
+                            & = S(x) \\
+                            & = S(H^-1(x^*))
+                            \end{split}$
+                             
+                            + Therefore $H^{-1}$ is a isomorphism between $\mathscr{P}^*$ and $\mathscr{P}$    
+
+    + If $\mathscr{P}$ is isomorphic with $\mathscr{P}^*$ and $\mathscr{P}^*$ is isomorphic with $\mathscr{P}^\#$ then $\mathscr{P}$ is isomorphic with $\mathscr{P}^\#$ (Transitivity)
+    
+        + There exists, $H: P \xrightarrow[\text{onto}]{\text{1-1}} P^*$ and $G: P^* \xrightarrow[\text{onto}]{\text{1-1}} P^\#$ such that:
+        
+            + $H(1) = 1^* \land G(1^*) = 1^\#$
+              
+            + $H(S(x)) = S^*(H(x))$ for all $x \in P$ and $G(S^*(x^*)) = S^\#(G(x^*))$ for all $x^* \in P^*$
+            
+                + Let $G \circ H: P \xrightarrow[\text{onto}]{\text{1-1}} P^\#$ such that:
+                    + $(G \circ H)(1) = G(H(1)) = G(1^*) = 1^\#$
+                    
+                        + $\begin{split}
+                            (G \circ H)(S(x)) & = G(H(S(x)) \\
+                            & = G(S^*(H(x))) \\
+                            & = S^\#(G(H(x))) \\
+                            & = S^\#((G \circ H)(x)) \\
+                            \end{split}$
+                            
+                            + Therefore $G \circ H$ is a isomorphism between $\mathscr{P}$ and $\mathscr{P}^\#$
+                            
+5. Consider a structure $(P, S, 1)$ where $1 \in P$ and $S: P \longrightarrow P$. Show that $(P, S, 1)$ is a peano system if and only if satisfies the iteration theorem, that is, for any set $W$, any object $c \in W$ and any singulary operation $g$ on $W$, there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$
+
+    + Assume a structure $(P, S, 1)$ where $1 \in P$ and $S: P \longrightarrow P$ is a peano system
+    
+        + Using _Chapter 2 > Supplementary exercises > Exercise 2_ if $(P, S, 1)$ is a peano system then it satisfies the iteration theorem
+        
+    + Assume a structure $(P, S, 1)$ where $1 \in P$, $S: P \longrightarrow P$ and there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$ where $W$ is any set, $c \in W$ and $g$ is any singulary operation on $W$
+            
+# Bibliography
