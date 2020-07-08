@@ -2423,6 +2423,106 @@ Different people, different languages and different set theories may have differ
     
         + Using _Chapter 2 > Supplementary exercises > Exercise 2_ if $(P, S, 1)$ is a peano system then it satisfies the iteration theorem
         
-    + Assume a structure $(P, S, 1)$ where $1 \in P$, $S: P \longrightarrow P$ and there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$ where $W$ is any set, $c \in W$ and $g$ is any singulary operation on $W$
+    + Assume a structure $(P, S, 1)$ where $1 \in P$, $S: P \longrightarrow P$ and there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$ where $W$ is any set, $c \in W$ and $g$ is any singulary operation on $W$ [Checkout [@saunders_algebra_1967, Chapter 2, Section 11, p. 67-70] and [@lawvere_elementary_2005]]
+    
+        + Assume there is some $p \in P$ such that $S(p) = 1$. Let $W = \{ y,z \}$ where $y \neq z$ and $g(y) = g(z) = z$. Also let $F: P \longrightarrow \{ y,z \}$ such that:
+            + $F(1) = y$
             
+            + $F(S(x)) = g(F(x))$ for all $x \in P$
+            
+                + Also $F(1) = F(S(p)) = g(F(p)) = z$. Therefore $y = F(1) = z$ but $y \neq z$ which is a contradiction.
+                
+                    + Thus, $(\exists p)(p \in P \land S(p) = 1)$ is false so $(\forall p)\neg(p \in P \land S(p) = 1)$ is true which is equivalent to $(\forall p)(p \in P \implies S(p) \neq 1)$
+                    
+            + 
+        
+6. Show that each of axioms $P1$, $P2$ and $P3$ is independent of the other axioms. (For example, to show the independence of axiom $P1$, give an example of a structure $(P, S, 1)$ which satisfies axioms $P2$ and $P3$ but does not satisfy axiom $P1$)
+
+    + Let a structure $(P, S, 1)$ such that:
+    
+        + $P = \{1, 2\}$
+        
+        + $S(1) = 2, S(2) = 1$
+        
+            + $S(1) = 2$
+            
+            + $1 \neq 2 \land S(2) = 1 \neq 2 = S(1)$
+            
+            + The subsets of $P$ are $\mathscr{P} = \{ \emptyset, \{ 1 \}, \{ 2 \}, \{ 1,2 \} \}$ where:
+            
+                + $1 \notin \emptyset$ and $1 \notin \{ 2 \}$
+                
+                + $1 \in \{ 1,2 \}$, $1 \in \{ 1,2 \} \land S(1) = 2 \in \{ 1,2 \}$ and $2 \in \{ 1,2 \} \land S(2) = 1 \in \{ 1,2 \}$. Furthermore $\{ 1,2 \} = P$
+                
+                    + Thus, $(P, S, 1)$ satisfies axioms $P2$ and $P3$ but not $P1$
+                    
+    + Let a structure $(P, S, 1)$ such that:
+    
+        + $P = \{1, 2, 3\}$
+        
+        + $S(1) = 2, S(2) = 3, S(3) = 2$
+        
+            + $S(1) \neq 1, S(2) \neq 1, S(3) \neq 1$
+            
+            + $1 \neq 3 \land S(1) = 2 = S(3)$
+            
+            + The subsets of $P$ are $\mathscr{P} = \{ \emptyset, \{ 1 \}, \{ 2 \}, \{ 3 \}, \{ 1,2 \}, \{ 2,3 \}, \{ 1,3 \}, \{ 1, 2, 3 \}  \}$ where:
+            
+                + $1 \notin \emptyset$, $1 \notin \{ 2 \}$, $1 \notin \{ 3 \}$, $1 \notin \{ 2,3 \}$, $1 \in \{ 1 \} \land S(1) = 2 \notin \{ 1 \}$, $1 \in \{ 1,2 \} \land S(2) = 3 \notin \{ 1,2 \}$, $1 \in \{ 1,3 \} \land S(1) = 2 \notin \{ 1,3 \}$ and $1 \in \{ 1,2,3 \} \land S(1) = 2 \in \{ 1,2,3 \}$, $2 \in \{ 1,2,3 \} \land S(2) = 3 \in \{ 1,2,3 \}$, $3 \in \{ 1,2,3 \} \land S(3) = 2 \in \{ 1,2,3 \}$. Furthermore, $\{ 1,2,3 \} = P$
+                
+                    + Thus, $(P,S,1)$ satisfies axioms $P1$ and $P3$ but not $P2$
+
+    + Let a structure $(P, S, 1)$ such that:
+    
+        + $P = \{1, 2, 3, \ldots \}$
+        
+        + Let $S: P \longrightarrow P$ such that:
+        
+            + $S(1) = 3$
+            
+            + $S(2) = 2$
+            
+            + $S(x) = x + 1$ for all $x \geq 3 \land x \in P$
+            
+        + $P - \{ 2 \} \subseteq P$, $1 \in P - \{ 2 \}$ and $(\forall x)(x \in P - \{ 2 \} \implies S(x) \in P - \{ 2 \})$. However $P - \{ 2 \} \neq P$
+        
+            + Thus, $(P,S,1)$ satisfies axioms $P1$ and $P2$ but not $P3$
+
+7. Let $(P, S, 1)$ be a peano system, $Y$ be any set, $d \in Y$ and $h: P \times Y \longrightarrow Y$.
+
+    + Prove that there is a unique function $\Phi: P \longrightarrow  Y$ such that $\Phi(1) = d$ and $\Phi(S(n)) = h(n, \Phi(n))$ for all $n \in P$
+    
+        + Let $W = P \times Y$, $c = (1, d) \in W$ and $g: P \times Y \longrightarrow P \times Y$ such that $g((n, y)) = (S(n), h(n,y))$ therefore by the iteration theorem there is a unique $F: P \longrightarrow P \times Y$ such that:
+        
+            + $F(1) = (1,d)$
+            
+            + $F(S(n)) = g(F(n))$ for all $n \in P$
+            
+                + Let $\Phi: P \longrightarrow Y$ such that $\Phi(1) = d$ and $\Phi(n) = y$. Therefore $F(n) = (n, y) = (n, \Phi(n))$
+                
+                + Furthermore we have that:
+                
+                    + $\begin{split}
+                        (S(n), \Phi(S(n))) & = F(S(n)) \\
+                        & = g(F(n)) \\
+                        & = g((n, \Phi(n))) \\
+                        & = (S(n), h(n,\Phi(n)))
+                        \end{split}$
+                        
+                        + Therefore we have that $\Phi(S(n)) = h(n,\Phi(n))$
+                        
+                            + Thus, because $\Phi(n)$ is the second component of $F(n)$ we have that $\Phi: P \longrightarrow Y$ is a unique function such that:
+                            
+                                + $\Phi(1) = d$
+                                
+                                + $\Phi(S(n)) = h(n,\Phi(n))$ for all $n \in P$
+
+    + Show that there is a __factorial__ function $n!$ from $P$ into $P$ such that $1! = 1$ and $(n + 1)! = (n + 1) \times (n!)$ for all $n \in P$
+    
+        + There exist a unique function $\Phi: P \longrightarrow P$ such that:
+        
+            + $\Phi(1) = 1$
+            
+            + $\Phi(S(n)) = h(n, \Phi(n))$ for all $n \in P$ where $h: P \times P \longrightarrow P$
+
 # Bibliography

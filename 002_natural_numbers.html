@@ -3652,7 +3652,107 @@ text-align: justify}
 <ul>
 <li>Using <em>Chapter 2 &gt; Supplementary exercises &gt; Exercise 2</em> if <span class="math inline">\((P, S, 1)\)</span> is a peano system then it satisfies the iteration theorem</li>
 </ul></li>
-<li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span>, <span class="math inline">\(S: P \longrightarrow P\)</span> and there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span> where <span class="math inline">\(W\)</span> is any set, <span class="math inline">\(c \in W\)</span> and <span class="math inline">\(g\)</span> is any singulary operation on <span class="math inline">\(W\)</span></p></li>
+<li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span>, <span class="math inline">\(S: P \longrightarrow P\)</span> and there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span> where <span class="math inline">\(W\)</span> is any set, <span class="math inline">\(c \in W\)</span> and <span class="math inline">\(g\)</span> is any singulary operation on <span class="math inline">\(W\)</span> [Checkout <span class="citation">(Saunders and Birkhoff <a href="#ref-saunders_algebra_1967" role="doc-biblioref">1967</a>, Chapter 2, Section 11, p. 67-70)</span> and <span class="citation">(Lawvere <a href="#ref-lawvere_elementary_2005" role="doc-biblioref">2005</a>)</span>]</p>
+<ul>
+<li>Assume there is some <span class="math inline">\(p \in P\)</span> such that <span class="math inline">\(S(p) = 1\)</span>. Let <span class="math inline">\(W = \{ y,z \}\)</span> where <span class="math inline">\(y \neq z\)</span> and <span class="math inline">\(g(y) = g(z) = z\)</span>. Also let <span class="math inline">\(F: P \longrightarrow \{ y,z \}\)</span> such that:
+<ul>
+<li><p><span class="math inline">\(F(1) = y\)</span></p></li>
+<li><p><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Also <span class="math inline">\(F(1) = F(S(p)) = g(F(p)) = z\)</span>. Therefore <span class="math inline">\(y = F(1) = z\)</span> but <span class="math inline">\(y \neq z\)</span> which is a contradiction.</p>
+<ul>
+<li>Thus, <span class="math inline">\((\exists p)(p \in P \land S(p) = 1)\)</span> is false so <span class="math inline">\((\forall p)\neg(p \in P \land S(p) = 1)\)</span> is true which is equivalent to <span class="math inline">\((\forall p)(p \in P \implies S(p) \neq 1)\)</span></li>
+</ul></li>
+</ul></li>
+<li></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Show that each of axioms <span class="math inline">\(P1\)</span>, <span class="math inline">\(P2\)</span> and <span class="math inline">\(P3\)</span> is independent of the other axioms. (For example, to show the independence of axiom <span class="math inline">\(P1\)</span>, give an example of a structure <span class="math inline">\((P, S, 1)\)</span> which satisfies axioms <span class="math inline">\(P2\)</span> and <span class="math inline">\(P3\)</span> but does not satisfy axiom <span class="math inline">\(P1\)</span>)</p>
+<ul>
+<li><p>Let a structure <span class="math inline">\((P, S, 1)\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(P = \{1, 2\}\)</span></p></li>
+<li><p><span class="math inline">\(S(1) = 2, S(2) = 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(1) = 2\)</span></p></li>
+<li><p><span class="math inline">\(1 \neq 2 \land S(2) = 1 \neq 2 = S(1)\)</span></p></li>
+<li><p>The subsets of <span class="math inline">\(P\)</span> are <span class="math inline">\(\mathscr{P} = \{ \emptyset, \{ 1 \}, \{ 2 \}, \{ 1,2 \} \}\)</span> where:</p>
+<ul>
+<li><p><span class="math inline">\(1 \notin \emptyset\)</span> and <span class="math inline">\(1 \notin \{ 2 \}\)</span></p></li>
+<li><p><span class="math inline">\(1 \in \{ 1,2 \}\)</span>, <span class="math inline">\(1 \in \{ 1,2 \} \land S(1) = 2 \in \{ 1,2 \}\)</span> and <span class="math inline">\(2 \in \{ 1,2 \} \land S(2) = 1 \in \{ 1,2 \}\)</span>. Furthermore <span class="math inline">\(\{ 1,2 \} = P\)</span></p>
+<ul>
+<li>Thus, <span class="math inline">\((P, S, 1)\)</span> satisfies axioms <span class="math inline">\(P2\)</span> and <span class="math inline">\(P3\)</span> but not <span class="math inline">\(P1\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Let a structure <span class="math inline">\((P, S, 1)\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(P = \{1, 2, 3\}\)</span></p></li>
+<li><p><span class="math inline">\(S(1) = 2, S(2) = 3, S(3) = 2\)</span></p>
+<ul>
+<li><p><span class="math inline">\(S(1) \neq 1, S(2) \neq 1, S(3) \neq 1\)</span></p></li>
+<li><p><span class="math inline">\(1 \neq 3 \land S(1) = 2 = S(3)\)</span></p></li>
+<li><p>The subsets of <span class="math inline">\(P\)</span> are <span class="math inline">\(\mathscr{P} = \{ \emptyset, \{ 1 \}, \{ 2 \}, \{ 3 \}, \{ 1,2 \}, \{ 2,3 \}, \{ 1,3 \}, \{ 1, 2, 3 \} \}\)</span> where:</p>
+<ul>
+<li><p><span class="math inline">\(1 \notin \emptyset\)</span>, <span class="math inline">\(1 \notin \{ 2 \}\)</span>, <span class="math inline">\(1 \notin \{ 3 \}\)</span>, <span class="math inline">\(1 \notin \{ 2,3 \}\)</span>, <span class="math inline">\(1 \in \{ 1 \} \land S(1) = 2 \notin \{ 1 \}\)</span>, <span class="math inline">\(1 \in \{ 1,2 \} \land S(2) = 3 \notin \{ 1,2 \}\)</span>, <span class="math inline">\(1 \in \{ 1,3 \} \land S(1) = 2 \notin \{ 1,3 \}\)</span> and <span class="math inline">\(1 \in \{ 1,2,3 \} \land S(1) = 2 \in \{ 1,2,3 \}\)</span>, <span class="math inline">\(2 \in \{ 1,2,3 \} \land S(2) = 3 \in \{ 1,2,3 \}\)</span>, <span class="math inline">\(3 \in \{ 1,2,3 \} \land S(3) = 2 \in \{ 1,2,3 \}\)</span>. Furthermore, <span class="math inline">\(\{ 1,2,3 \} = P\)</span></p>
+<ul>
+<li>Thus, <span class="math inline">\((P,S,1)\)</span> satisfies axioms <span class="math inline">\(P1\)</span> and <span class="math inline">\(P3\)</span> but not <span class="math inline">\(P2\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Let a structure <span class="math inline">\((P, S, 1)\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(P = \{1, 2, 3, \ldots \}\)</span></p></li>
+<li><p>Let <span class="math inline">\(S: P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(S(1) = 3\)</span></p></li>
+<li><p><span class="math inline">\(S(2) = 2\)</span></p></li>
+<li><p><span class="math inline">\(S(x) = x + 1\)</span> for all <span class="math inline">\(x \geq 3 \land x \in P\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(P - \{ 2 \} \subseteq P\)</span>, <span class="math inline">\(1 \in P - \{ 2 \}\)</span> and <span class="math inline">\((\forall x)(x \in P - \{ 2 \} \implies S(x) \in P - \{ 2 \})\)</span>. However <span class="math inline">\(P - \{ 2 \} \neq P\)</span></p>
+<ul>
+<li>Thus, <span class="math inline">\((P,S,1)\)</span> satisfies axioms <span class="math inline">\(P1\)</span> and <span class="math inline">\(P2\)</span> but not <span class="math inline">\(P3\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Let <span class="math inline">\((P, S, 1)\)</span> be a peano system, <span class="math inline">\(Y\)</span> be any set, <span class="math inline">\(d \in Y\)</span> and <span class="math inline">\(h: P \times Y \longrightarrow Y\)</span>.</p>
+<ul>
+<li><p>Prove that there is a unique function <span class="math inline">\(\Phi: P \longrightarrow Y\)</span> such that <span class="math inline">\(\Phi(1) = d\)</span> and <span class="math inline">\(\Phi(S(n)) = h(n, \Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(W = P \times Y\)</span>, <span class="math inline">\(c = (1, d) \in W\)</span> and <span class="math inline">\(g: P \times Y \longrightarrow P \times Y\)</span> such that <span class="math inline">\(g((n, y)) = (S(n), h(n,y))\)</span> therefore by the iteration theorem there is a unique <span class="math inline">\(F: P \longrightarrow P \times Y\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(F(1) = (1,d)\)</span></p></li>
+<li><p><span class="math inline">\(F(S(n)) = g(F(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(\Phi: P \longrightarrow Y\)</span> such that <span class="math inline">\(\Phi(1) = d\)</span> and <span class="math inline">\(\Phi(n) = y\)</span>. Therefore <span class="math inline">\(F(n) = (n, y) = (n, \Phi(n))\)</span></p></li>
+<li><p>Furthermore we have that:</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (S(n), \Phi(S(n))) &amp; = F(S(n)) \\  &amp; = g(F(n)) \\  &amp; = g((n, \Phi(n))) \\  &amp; = (S(n), h(n,\Phi(n)))  \end{split}\)</span></p>
+<ul>
+<li><p>Therefore we have that <span class="math inline">\(\Phi(S(n)) = h(n,\Phi(n))\)</span></p>
+<ul>
+<li><p>Thus, because <span class="math inline">\(\Phi(n)\)</span> is the second component of <span class="math inline">\(F(n)\)</span> we have that <span class="math inline">\(\Phi: P \longrightarrow Y\)</span> is a unique function such that:</p>
+<ul>
+<li><p><span class="math inline">\(\Phi(1) = d\)</span></p></li>
+<li><p><span class="math inline">\(\Phi(S(n)) = h(n,\Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>Show that there is a <strong>factorial</strong> function <span class="math inline">\(n!\)</span> from <span class="math inline">\(P\)</span> into <span class="math inline">\(P\)</span> such that <span class="math inline">\(1! = 1\)</span> and <span class="math inline">\((n + 1)! = (n + 1) \times (n!)\)</span> for all <span class="math inline">\(n \in P\)</span></p>
+<ul>
+<li><p>There exist a unique function <span class="math inline">\(\Phi: P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(\Phi(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(\Phi(S(n)) = h(n, \Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span> where <span class="math inline">\(h: P \times P \longrightarrow P\)</span></p></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ol>
 </div>
@@ -3660,11 +3760,17 @@ text-align: justify}
 <div id="bibliography" class="section level1 unnumbered" number>
 <h1 class="unnumbered" number>Bibliography</h1>
 <div id="refs" class="references hanging-indent">
+<div id="ref-lawvere_elementary_2005">
+<p>Lawvere, Francis William. 2005. “An Elementary Theory of the Category of Sets (Long Version) with Commentary.” <em>Reprints in Theory and Applications of Categories</em>, no. 11: 1–35. <a href="http://www.tac.mta.ca/tac/reprints/articles/11/tr11.pdf">http://www.tac.mta.ca/tac/reprints/articles/11/tr11.pdf</a>.</p>
+</div>
 <div id="ref-mendelson_number_2008">
 <p>Mendelson, Elliott. 2008. <em>Number Systems and the Foundations of Analysis</em>. Mineola, N.Y: Dover Publications.</p>
 </div>
 <div id="ref-mendelson_introduction_2015">
 <p>———. 2015. <em>Introduction to Mathematical Logic</em>. Sixth edition. Textbooks in Mathematics. Boca Raton: CRC Press/Taylor &amp; Francis Group.</p>
+</div>
+<div id="ref-saunders_algebra_1967">
+<p>Saunders, MacLane, and Garrett Birkhoff. 1967. <em>Algebra</em>. 1st ed. New York, Macmillan. <a href="https://archive.org/details/algebra00macl/mode/2up">https://archive.org/details/algebra00macl/mode/2up</a>.</p>
 </div>
 </div>
 </div>
