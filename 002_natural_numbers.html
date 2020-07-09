@@ -3654,17 +3654,60 @@ text-align: justify}
 </ul></li>
 <li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span>, <span class="math inline">\(S: P \longrightarrow P\)</span> and there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span> where <span class="math inline">\(W\)</span> is any set, <span class="math inline">\(c \in W\)</span> and <span class="math inline">\(g\)</span> is any singulary operation on <span class="math inline">\(W\)</span> [Checkout <span class="citation">(Saunders and Birkhoff <a href="#ref-saunders_algebra_1967" role="doc-biblioref">1967</a>, Chapter 2, Section 11, p. 67-70)</span> and <span class="citation">(Lawvere <a href="#ref-lawvere_elementary_2005" role="doc-biblioref">2005</a>)</span>]</p>
 <ul>
-<li>Assume there is some <span class="math inline">\(p \in P\)</span> such that <span class="math inline">\(S(p) = 1\)</span>. Let <span class="math inline">\(W = \{ y,z \}\)</span> where <span class="math inline">\(y \neq z\)</span> and <span class="math inline">\(g(y) = g(z) = z\)</span>. Also let <span class="math inline">\(F: P \longrightarrow \{ y,z \}\)</span> such that:
+<li><p>We need to prove that <span class="math inline">\((\forall x)(x \in P \implies S(x) \neq 1)\)</span></p>
+<ul>
+<li><p>Assume there is some <span class="math inline">\(p \in P\)</span> such that <span class="math inline">\(S(p) = 1\)</span>. Let <span class="math inline">\(W = \{ y,z \}\)</span> where <span class="math inline">\(y \neq z\)</span>, <span class="math inline">\(c = y \in W\)</span> and <span class="math inline">\(g(y) = g(z) = z\)</span>. Also let <span class="math inline">\(F: P \longrightarrow \{ y,z \}\)</span> such that:</p>
 <ul>
 <li><p><span class="math inline">\(F(1) = y\)</span></p></li>
 <li><p><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
 <ul>
 <li><p>Also <span class="math inline">\(F(1) = F(S(p)) = g(F(p)) = z\)</span>. Therefore <span class="math inline">\(y = F(1) = z\)</span> but <span class="math inline">\(y \neq z\)</span> which is a contradiction.</p>
 <ul>
-<li>Thus, <span class="math inline">\((\exists p)(p \in P \land S(p) = 1)\)</span> is false so <span class="math inline">\((\forall p)\neg(p \in P \land S(p) = 1)\)</span> is true which is equivalent to <span class="math inline">\((\forall p)(p \in P \implies S(p) \neq 1)\)</span></li>
+<li>Thus, <span class="math inline">\((\exists p)(p \in P \land S(p) = 1)\)</span> is false so <span class="math inline">\((\forall p)\neg(p \in P \land S(p) = 1)\)</span> is true which is equivalent to $(p)(p P S(p)</li>
 </ul></li>
 </ul></li>
-<li></li>
+</ul></li>
+</ul></li>
+<li><p>We need to prove that <span class="math inline">\((\forall x)(\forall y)((x \in P \land y \in P \land x \neq y) \implies S(x) \neq S(y))\)</span>. Thus, we must prove that <span class="math inline">\(S\)</span> is one-one, <span class="math inline">\(S: P \xrightarrow[]{\text{1-1}} P\)</span></p>
+<ul>
+<li><p>First prove that if <span class="math inline">\(f: P \longrightarrow P\)</span> such that <span class="math inline">\(f(1) = 1\)</span> and <span class="math inline">\(f(S(n)) = S(f(n))\)</span> for all <span class="math inline">\(n \in P\)</span> then <span class="math inline">\(f = I_p\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(W = P\)</span>, <span class="math inline">\(c = 1 \in W\)</span> and <span class="math inline">\(g = S\)</span> then by the iteration theorem there is a unique function <span class="math inline">\(f: P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(f(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(f(S(n)) = S(f(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+</ul></li>
+<li><p>We have also that</p>
+<ul>
+<li><p><span class="math inline">\(I_p(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(I_p(S(n)) = S(n) = S(I_p(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+</ul></li>
+<li><p>Because <span class="math inline">\(f\)</span> is unique we have that <span class="math inline">\(f = I_p\)</span></p></li>
+</ul></li>
+<li><p>Second, let <span class="math inline">\(W = P \times P\)</span>, <span class="math inline">\(c = (1,1) \in W\)</span> and <span class="math inline">\(g((q, p)) = (p, S(p))\)</span>. Therefore there is a unique function <span class="math inline">\(F: P \longrightarrow P \times P\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(F(1) = (1, 1)\)</span></p></li>
+<li><p><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Because <span class="math inline">\(F: P \longrightarrow P \times P\)</span> then <span class="math inline">\(F(x) = (t(x), f(x))\)</span> for all <span class="math inline">\(x \in P\)</span> such that <span class="math inline">\(t: P \longrightarrow P\)</span> and <span class="math inline">\(f: P \longrightarrow P\)</span>. Therefore:</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  F(S(x)) &amp; = (t(S(x)), f(S(x))) \\  &amp; = g(F(x)) \\  &amp; = g(t(x), f(x)) \\  &amp; = (f(x), S(f(x)))  \end{split}\)</span></p>
+<ul>
+<li><p>Thus, <span class="math inline">\(t(S(x)) = f(x)\)</span> for all <span class="math inline">\(x \in P\)</span> and $f(S(x)) = <span class="math inline">\(S(f(x))\)</span> for all <span class="math inline">\(x \in P\)</span>. Also</p>
+<ul>
+<li><p>Because <span class="math inline">\(f(1) = 1\)</span> and $f(S(x)) = <span class="math inline">\(S(f(x))\)</span> then <span class="math inline">\(f I_p\)</span></p></li>
+<li><p><span class="math inline">\(t(1) = 1\)</span> and <span class="math inline">\(t(S(x)) = f(x) = x\)</span></p>
+<ul>
+<li>Now with this result we can prove that <span class="math inline">\(S\)</span> is one-one:
+<ul>
+<li><span class="math inline">\(\begin{split}  S(x) = S(y) &amp; \implies t(S(x)) = T(S(y)) \\  &amp; \implies x = y  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -3722,22 +3765,41 @@ text-align: justify}
 <ul>
 <li><p>Prove that there is a unique function <span class="math inline">\(\Phi: P \longrightarrow Y\)</span> such that <span class="math inline">\(\Phi(1) = d\)</span> and <span class="math inline">\(\Phi(S(n)) = h(n, \Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p>
 <ul>
-<li><p>Let <span class="math inline">\(W = P \times Y\)</span>, <span class="math inline">\(c = (1, d) \in W\)</span> and <span class="math inline">\(g: P \times Y \longrightarrow P \times Y\)</span> such that <span class="math inline">\(g((n, y)) = (S(n), h(n,y))\)</span> therefore by the iteration theorem there is a unique <span class="math inline">\(F: P \longrightarrow P \times Y\)</span> such that:</p>
+<li><p>First prove that if <span class="math inline">\(f: P \longrightarrow P\)</span> such that <span class="math inline">\(f(1) = 1\)</span> and <span class="math inline">\(f(S(n)) = S(f(n))\)</span> for all <span class="math inline">\(n \in P\)</span> then <span class="math inline">\(f = I_p\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(W = P\)</span>, <span class="math inline">\(c = 1 \in W\)</span> and <span class="math inline">\(g = S\)</span> then by the iteration theorem there is a unique function <span class="math inline">\(f: P \longrightarrow P\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(f(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(f(S(n)) = S(f(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+</ul></li>
+<li><p>We have also that</p>
+<ul>
+<li><p><span class="math inline">\(I_p(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(I_p(S(n)) = S(n) = S(I_p(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+</ul></li>
+<li><p>Because <span class="math inline">\(f\)</span> is unique we have that <span class="math inline">\(f = I_p\)</span></p></li>
+</ul></li>
+<li><p>Second, let <span class="math inline">\(W = P \times Y\)</span>, <span class="math inline">\(c = (1, d) \in W\)</span> and <span class="math inline">\(g: P \times Y \longrightarrow P \times Y\)</span> such that <span class="math inline">\(g((n, y)) = (S(n), h(n,y))\)</span> therefore by the iteration theorem there is a unique <span class="math inline">\(F: P \longrightarrow P \times Y\)</span> such that:</p>
 <ul>
 <li><p><span class="math inline">\(F(1) = (1,d)\)</span></p></li>
 <li><p><span class="math inline">\(F(S(n)) = g(F(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p>
 <ul>
-<li><p>Let <span class="math inline">\(\Phi: P \longrightarrow Y\)</span> such that <span class="math inline">\(\Phi(1) = d\)</span> and <span class="math inline">\(\Phi(n) = y\)</span>. Therefore <span class="math inline">\(F(n) = (n, y) = (n, \Phi(n))\)</span></p></li>
-<li><p>Furthermore we have that:</p>
+<li><p>Because <span class="math inline">\(F: P \longrightarrow P \times Y\)</span> then <span class="math inline">\(F(n) = (f(n), \Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span> such that <span class="math inline">\(f: P \longrightarrow P\)</span> and <span class="math inline">\(\Phi: P \longrightarrow Y\)</span>. Therefore:</p>
 <ul>
-<li><p><span class="math inline">\(\begin{split}  (S(n), \Phi(S(n))) &amp; = F(S(n)) \\  &amp; = g(F(n)) \\  &amp; = g((n, \Phi(n))) \\  &amp; = (S(n), h(n,\Phi(n)))  \end{split}\)</span></p>
+<li><p><span class="math inline">\(\begin{split}  F(S(n)) &amp; = (f(S(n)), \Phi(S(n))) \\  &amp; = g(F(n)) \\  &amp; = g(f(n), \Phi(n)) \\  &amp; = (S(f(n)), h(n,\Phi(n)))  \end{split}\)</span></p>
 <ul>
-<li><p>Therefore we have that <span class="math inline">\(\Phi(S(n)) = h(n,\Phi(n))\)</span></p>
+<li><p>Thus, <span class="math inline">\(f(S(n)) = S(f(n))\)</span> for all <span class="math inline">\(n \in P\)</span> and <span class="math inline">\(\Phi(S(n)) = h(n,\Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span>. Also</p>
 <ul>
-<li><p>Thus, because <span class="math inline">\(\Phi(n)\)</span> is the second component of <span class="math inline">\(F(n)\)</span> we have that <span class="math inline">\(\Phi: P \longrightarrow Y\)</span> is a unique function such that:</p>
+<li><p>Because <span class="math inline">\(f(1) = 1\)</span> and <span class="math inline">\(f(S(n)) = S(f(n))\)</span> for all <span class="math inline">\(n \in P\)</span> then <span class="math inline">\(f = I_p\)</span></p></li>
+<li><p><span class="math inline">\(\Phi(1) = d\)</span> and <span class="math inline">\(\Phi(n + 1) = h(n,\Phi(n))\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\Phi(1) = d\)</span></p></li>
-<li><p><span class="math inline">\(\Phi(S(n)) = h(n,\Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+<li><p>Furthermore, if there is another <span class="math inline">\(\Phi^*: P \longrightarrow Y\)</span> such that <span class="math inline">\(\Phi^*(1) = d\)</span> and <span class="math inline">\(\Phi^*(n + 1) = h(n,\Phi^*(n))\)</span> then <span class="math inline">\(F(n) = (n, \Phi^*(n))\)</span>. Also because <span class="math inline">\(F(n) = (n, \Phi(n))\)</span> we have that:</p>
+<ul>
+<li><p><span class="math inline">\((n, \Phi^*(n)) = (n, \Phi(n)) \implies \Phi^*(n) = \Phi(n)\)</span> for all <span class="math inline">\(n \in P\)</span></p>
+<ul>
+<li>Also because <span class="math inline">\(\mathscr{D}(\Phi^*) = P = \mathscr{D}(\Phi)\)</span> then <span class="math inline">\(\Phi^* = \Phi\)</span> so <span class="math inline">\(\Phi\)</span> is unique</li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -3750,7 +3812,14 @@ text-align: justify}
 <li><p>There exist a unique function <span class="math inline">\(\Phi: P \longrightarrow P\)</span> such that:</p>
 <ul>
 <li><p><span class="math inline">\(\Phi(1) = 1\)</span></p></li>
-<li><p><span class="math inline">\(\Phi(S(n)) = h(n, \Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span> where <span class="math inline">\(h: P \times P \longrightarrow P\)</span></p></li>
+<li><p><span class="math inline">\(\Phi(S(n)) = h(n, \Phi(n))\)</span> for all <span class="math inline">\(n \in P\)</span> where <span class="math inline">\(h: P \times P \longrightarrow P\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(\Phi = !\)</span> and <span class="math inline">\(!(x) \equiv x!\)</span>. Also let <span class="math inline">\(h(u, \Phi(u)) \equiv h(u, u!) = S(u) \times (u!)\)</span> then we can rewrite the above expressions as:</p>
+<ul>
+<li><p><span class="math inline">\(1! = 1\)</span></p></li>
+<li><p><span class="math inline">\((n + 1)! = (n + 1) \times (n!)\)</span> for all <span class="math inline">\(n \in P\)</span></p></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul></li>

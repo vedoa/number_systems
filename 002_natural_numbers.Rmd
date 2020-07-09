@@ -2425,16 +2425,61 @@ Different people, different languages and different set theories may have differ
         
     + Assume a structure $(P, S, 1)$ where $1 \in P$, $S: P \longrightarrow P$ and there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$ where $W$ is any set, $c \in W$ and $g$ is any singulary operation on $W$ [Checkout [@saunders_algebra_1967, Chapter 2, Section 11, p. 67-70] and [@lawvere_elementary_2005]]
     
-        + Assume there is some $p \in P$ such that $S(p) = 1$. Let $W = \{ y,z \}$ where $y \neq z$ and $g(y) = g(z) = z$. Also let $F: P \longrightarrow \{ y,z \}$ such that:
-            + $F(1) = y$
+        + We need to prove that $(\forall x)(x \in P \implies S(x) \neq 1)$
+    
+            + Assume there is some $p \in P$ such that $S(p) = 1$. Let $W = \{ y,z \}$ where $y \neq z$, $c = y \in W$ and $g(y) = g(z) = z$. Also let $F: P \longrightarrow \{ y,z \}$ such that:
             
-            + $F(S(x)) = g(F(x))$ for all $x \in P$
-            
-                + Also $F(1) = F(S(p)) = g(F(p)) = z$. Therefore $y = F(1) = z$ but $y \neq z$ which is a contradiction.
+                + $F(1) = y$
                 
-                    + Thus, $(\exists p)(p \in P \land S(p) = 1)$ is false so $(\forall p)\neg(p \in P \land S(p) = 1)$ is true which is equivalent to $(\forall p)(p \in P \implies S(p) \neq 1)$
+                + $F(S(x)) = g(F(x))$ for all $x \in P$
+                
+                    + Also $F(1) = F(S(p)) = g(F(p)) = z$. Therefore $y = F(1) = z$ but $y \neq z$ which is a contradiction.
                     
-            + 
+                        + Thus, $(\exists p)(p \in P \land S(p) = 1)$ is false so $(\forall p)\neg(p \in P \land S(p) = 1)$ is true which is equivalent to $(\forall p)(p \in P \implies S(p)
+                    
+        + We need to prove that $(\forall x)(\forall y)((x \in P \land y \in P \land x \neq y) \implies S(x) \neq S(y))$. Thus, we must prove that $S$ is one-one, $S: P \xrightarrow[]{\text{1-1}} P$
+        
+            + First prove that if $f: P \longrightarrow P$ such that $f(1) = 1$ and $f(S(n)) = S(f(n))$ for all $n \in P$ then $f = I_p$
+            
+                + Let $W = P$, $c = 1 \in W$ and $g = S$ then by the iteration theorem there is a unique function $f: P \longrightarrow P$ such that:
+                
+                    + $f(1) = 1$
+                    
+                    + $f(S(n)) = S(f(n))$ for all $n \in P$
+                    
+                + We have also that
+                
+                    + $I_p(1) = 1$
+                    
+                    + $I_p(S(n)) = S(n) = S(I_p(n))$ for all $n \in P$
+                    
+                + Because $f$ is unique we have that $f = I_p$
+
+            + Second, let $W = P \times P$, $c = (1,1) \in W$ and $g((q, p)) = (p, S(p))$. Therefore there is a unique function $F: P \longrightarrow P \times P$ such that:
+            
+                + $F(1) = (1, 1)$
+                
+                + $F(S(x)) = g(F(x))$ for all $x \in P$
+                
+                    + Because $F: P \longrightarrow P \times P$ then $F(x) = (t(x), f(x))$ for all $x \in P$ such that $t: P \longrightarrow P$ and $f: P \longrightarrow P$. Therefore:
+                    
+                        + $\begin{split}
+                            F(S(x)) & = (t(S(x)), f(S(x))) \\ 
+                            & = g(F(x)) \\
+                            & = g(t(x), f(x)) \\
+                            & = (f(x), S(f(x)))
+                            \end{split}$
+                            
+                            + Thus, $t(S(x)) = f(x)$ for all $x \in P$ and $f(S(x)) = $S(f(x))$ for all $x \in P$. Also
+                            
+                                + Because $f(1) = 1$ and $f(S(x)) = $S(f(x))$ then $f I_p$
+                                + $t(1) = 1$ and $t(S(x)) = f(x) = x$
+                                
+                                    + Now with this result we can prove that $S$ is one-one:
+                                        + $\begin{split}
+                                            S(x) = S(y) & \implies t(S(x)) = T(S(y)) \\
+                                            & \implies x = y
+                                            \end{split}$
         
 6. Show that each of axioms $P1$, $P2$ and $P3$ is independent of the other axioms. (For example, to show the independence of axiom $P1$, give an example of a structure $(P, S, 1)$ which satisfies axioms $P2$ and $P3$ but does not satisfy axiom $P1$)
 
@@ -2492,31 +2537,49 @@ Different people, different languages and different set theories may have differ
 
     + Prove that there is a unique function $\Phi: P \longrightarrow  Y$ such that $\Phi(1) = d$ and $\Phi(S(n)) = h(n, \Phi(n))$ for all $n \in P$
     
-        + Let $W = P \times Y$, $c = (1, d) \in W$ and $g: P \times Y \longrightarrow P \times Y$ such that $g((n, y)) = (S(n), h(n,y))$ therefore by the iteration theorem there is a unique $F: P \longrightarrow P \times Y$ such that:
+        + First prove that if $f: P \longrightarrow P$ such that $f(1) = 1$ and $f(S(n)) = S(f(n))$ for all $n \in P$ then $f = I_p$
+        
+            + Let $W = P$, $c = 1 \in W$ and $g = S$ then by the iteration theorem there is a unique function $f: P \longrightarrow P$ such that:
+            
+                + $f(1) = 1$
+                
+                + $f(S(n)) = S(f(n))$ for all $n \in P$
+                
+            + We have also that
+            
+                + $I_p(1) = 1$
+                
+                + $I_p(S(n)) = S(n) = S(I_p(n))$ for all $n \in P$
+                
+            + Because $f$ is unique we have that $f = I_p$
+    
+        + Second, let $W = P \times Y$, $c = (1, d) \in W$ and $g: P \times Y \longrightarrow P \times Y$ such that $g((n, y)) = (S(n), h(n,y))$ therefore by the iteration theorem there is a unique $F: P \longrightarrow P \times Y$ such that:
         
             + $F(1) = (1,d)$
             
             + $F(S(n)) = g(F(n))$ for all $n \in P$
             
-                + Let $\Phi: P \longrightarrow Y$ such that $\Phi(1) = d$ and $\Phi(n) = y$. Therefore $F(n) = (n, y) = (n, \Phi(n))$
-                
-                + Furthermore we have that:
+                + Because $F: P \longrightarrow P \times Y$ then $F(n) = (f(n), \Phi(n))$ for all $n \in P$ such that $f: P \longrightarrow P$ and $\Phi: P \longrightarrow Y$. Therefore:
                 
                     + $\begin{split}
-                        (S(n), \Phi(S(n))) & = F(S(n)) \\
+                        F(S(n)) & = (f(S(n)), \Phi(S(n))) \\ 
                         & = g(F(n)) \\
-                        & = g((n, \Phi(n))) \\
-                        & = (S(n), h(n,\Phi(n)))
+                        & = g(f(n), \Phi(n)) \\
+                        & = (S(f(n)), h(n,\Phi(n)))
                         \end{split}$
                         
-                        + Therefore we have that $\Phi(S(n)) = h(n,\Phi(n))$
+                        + Thus, $f(S(n)) = S(f(n))$ for all $n \in P$ and $\Phi(S(n)) = h(n,\Phi(n))$ for all $n \in P$. Also 
                         
-                            + Thus, because $\Phi(n)$ is the second component of $F(n)$ we have that $\Phi: P \longrightarrow Y$ is a unique function such that:
+                            + Because $f(1) = 1$ and $f(S(n)) = S(f(n))$ for all $n \in P$ then $f = I_p$
                             
-                                + $\Phi(1) = d$
+                            + $\Phi(1) = d$ and $\Phi(n + 1) = h(n,\Phi(n))$
+                            
+                                + Furthermore, if there is another $\Phi^*: P \longrightarrow Y$ such that $\Phi^*(1) = d$ and $\Phi^*(n + 1) = h(n,\Phi^*(n))$ then $F(n) = (n, \Phi^*(n))$. Also because $F(n) = (n, \Phi(n))$ we have that:
                                 
-                                + $\Phi(S(n)) = h(n,\Phi(n))$ for all $n \in P$
-
+                                    + $(n, \Phi^*(n)) = (n, \Phi(n)) \implies \Phi^*(n) = \Phi(n)$ for all $n \in P$
+                                    
+                                        + Also because $\mathscr{D}(\Phi^*) = P = \mathscr{D}(\Phi)$ then $\Phi^* = \Phi$ so $\Phi$ is unique 
+                
     + Show that there is a __factorial__ function $n!$ from $P$ into $P$ such that $1! = 1$ and $(n + 1)! = (n + 1) \times (n!)$ for all $n \in P$
     
         + There exist a unique function $\Phi: P \longrightarrow P$ such that:
@@ -2524,5 +2587,11 @@ Different people, different languages and different set theories may have differ
             + $\Phi(1) = 1$
             
             + $\Phi(S(n)) = h(n, \Phi(n))$ for all $n \in P$ where $h: P \times P \longrightarrow P$
+            
+                + Let $\Phi = !$ and $!(x) \equiv x!$. Also let $h(u, \Phi(u)) \equiv h(u, u!) = S(u) \times (u!)$ then we can rewrite the above expressions as:
+                
+                    + $1! = 1$
+                    
+                    + $(n + 1)! = (n + 1) \times (n!)$ for all $n \in P$
 
 # Bibliography
