@@ -3652,7 +3652,7 @@ text-align: justify}
 <ul>
 <li>Using <em>Chapter 2 &gt; Supplementary exercises &gt; Exercise 2</em> if <span class="math inline">\((P, S, 1)\)</span> is a peano system then it satisfies the iteration theorem</li>
 </ul></li>
-<li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span>, <span class="math inline">\(S: P \longrightarrow P\)</span> and there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span> where <span class="math inline">\(W\)</span> is any set, <span class="math inline">\(c \in W\)</span> and <span class="math inline">\(g\)</span> is any singulary operation on <span class="math inline">\(W\)</span> [Checkout <span class="citation">(Saunders and Birkhoff <a href="#ref-saunders_algebra_1967" role="doc-biblioref">1967</a>, Chapter 2, Section 11, p. 67-70)</span> and <span class="citation">(Lawvere <a href="#ref-lawvere_elementary_2005" role="doc-biblioref">2005</a>)</span>]</p>
+<li><p>Assume a structure <span class="math inline">\((P, S, 1)\)</span> where <span class="math inline">\(1 \in P\)</span>, <span class="math inline">\(S: P \longrightarrow P\)</span> and there is a unique function <span class="math inline">\(F: P \longrightarrow W\)</span> such that <span class="math inline">\(F(1) = c\)</span> and <span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span> where <span class="math inline">\(W\)</span> is any set, <span class="math inline">\(c \in W\)</span> and <span class="math inline">\(g\)</span> is any singulary operation on <span class="math inline">\(W\)</span> [Checkout <span class="citation">(Saunders and Birkhoff <a href="#ref-saunders_algebra_1967" role="doc-biblioref">1967</a>, Chapter 2, Section 11, p. 67-70)</span>, <span class="citation">(Lawvere <a href="#ref-lawvere_elementary_2005" role="doc-biblioref">2005</a>)</span> or <span class="citation">(Bedoya Mejía <a href="#ref-bedoya_mejia_peano_2003" role="doc-biblioref">2003</a>)</span>]</p>
 <ul>
 <li><p>We need to prove that <span class="math inline">\((\forall x)(x \in P \implies S(x) \neq 1)\)</span></p>
 <ul>
@@ -3700,7 +3700,55 @@ text-align: justify}
 <ul>
 <li>Now with this result we can prove that <span class="math inline">\(S\)</span> is one-one:
 <ul>
-<li><span class="math inline">\(\begin{split}  S(x) = S(y) &amp; \implies t(S(x)) = T(S(y)) \\  &amp; \implies x = y  \end{split}\)</span></li>
+<li><span class="math inline">\(\begin{split}  S(x) = S(y) &amp; \implies t(S(x)) = t(S(y)) \\  &amp; \implies x = y  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>We need to prove that <span class="math inline">\((\forall B)((B \subseteq P \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies P = B)\)</span></p>
+<ul>
+<li><p>Because <span class="math inline">\(B \subseteq P\)</span> and <span class="math inline">\(S: P \longrightarrow P\)</span> we can define the restriction of the operation <span class="math inline">\(S\)</span> to <span class="math inline">\(B\)</span> denoted by <span class="math inline">\(g\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{D}(g) = B\)</span></p></li>
+<li><p><span class="math inline">\(g(u) = S(u)\)</span> for all <span class="math inline">\(u \in B\)</span></p>
+<ul>
+<li><p>Let <span class="math inline">\(W = B \times P\)</span>, <span class="math inline">\(c = 1 \in W\)</span> and <span class="math inline">\(g\)</span> the restriction of the operation <span class="math inline">\(S\)</span> to <span class="math inline">\(B\)</span>. Therefore there is a unique function $F: P BS such that:</p>
+<ul>
+<li><p><span class="math inline">\(F(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p></li>
+</ul></li>
+<li><p>Because <span class="math inline">\(B \subseteq P\)</span> let a function <span class="math inline">\(h: B \longrightarrow P\)</span> such that <span class="math inline">\(h(u) = u\)</span> for all <span class="math inline">\(u \in B\)</span> then:</p>
+<ul>
+<li><p><span class="math inline">\(h(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(h(g(u)) = h(S(u)) = S(u) = S(h(u))\)</span> for all <span class="math inline">\(u \in B\)</span></p>
+<ul>
+<li><p>First, we have that <span class="math inline">\(h(g(u)) = S(h(u))\)</span> for all <span class="math inline">\(u \in B\)</span></p></li>
+<li><p>Second, we have that <span class="math inline">\(h \circ F: P \longrightarrow P\)</span>:</p>
+<ul>
+<li><p><span class="math inline">\(h(F(1)) = F(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\(h(F(S(x))) = h(g(F(x))) = S(h(F(x)))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>Thus, we have that:</p>
+<ul>
+<li><p><span class="math inline">\((h circ F)(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\((h circ F)(S(x)) = S((h circ F)(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<ul>
+<li><p>So <span class="math inline">\(h \circ F = I_P\)</span></p>
+<ul>
+<li>We can use this result to prove that <span class="math inline">\(h\)</span> is an onto function:
+<ul>
+<li><p><span class="math inline">\(\mathscr{R}(h) = \{y: \exists(z)(z \in B \land y = h(x))\)</span></p></li>
+<li><p>Thus, we need to show that <span class="math inline">\(\mathscr{R}(h) = N\)</span>. Let <span class="math inline">\(w \in P\)</span> then <span class="math inline">\(w \in \mathscr{R}(h)\)</span> because exists <span class="math inline">\(F(w) \in B\)</span> such that <span class="math inline">\(w = h(F(w))\)</span> so <span class="math inline">\(h\)</span> is an onto function.</p>
+<ul>
+<li>Because <span class="math inline">\(h: B \longrightarrow P\)</span> such that <span class="math inline">\(h(u) = u\)</span> for all <span class="math inline">\(u \in B\)</span> and <span class="math inline">\(h\)</span> is an onto function then <span class="math inline">\(B = P\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -3829,6 +3877,9 @@ text-align: justify}
 <div id="bibliography" class="section level1 unnumbered" number>
 <h1 class="unnumbered" number>Bibliography</h1>
 <div id="refs" class="references hanging-indent">
+<div id="ref-bedoya_mejia_peano_2003">
+<p>Bedoya Mejía, Lina María. 2003. “Peano, Lawvere, Peirce: Tres Axiomatizaciones de Los Números Naturales.”</p>
+</div>
 <div id="ref-lawvere_elementary_2005">
 <p>Lawvere, Francis William. 2005. “An Elementary Theory of the Category of Sets (Long Version) with Commentary.” <em>Reprints in Theory and Applications of Categories</em>, no. 11: 1–35. <a href="http://www.tac.mta.ca/tac/reprints/articles/11/tr11.pdf">http://www.tac.mta.ca/tac/reprints/articles/11/tr11.pdf</a>.</p>
 </div>

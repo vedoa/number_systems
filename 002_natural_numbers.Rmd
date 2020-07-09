@@ -2423,7 +2423,7 @@ Different people, different languages and different set theories may have differ
     
         + Using _Chapter 2 > Supplementary exercises > Exercise 2_ if $(P, S, 1)$ is a peano system then it satisfies the iteration theorem
         
-    + Assume a structure $(P, S, 1)$ where $1 \in P$, $S: P \longrightarrow P$ and there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$ where $W$ is any set, $c \in W$ and $g$ is any singulary operation on $W$ [Checkout [@saunders_algebra_1967, Chapter 2, Section 11, p. 67-70] and [@lawvere_elementary_2005]]
+    + Assume a structure $(P, S, 1)$ where $1 \in P$, $S: P \longrightarrow P$ and there is a unique function $F: P \longrightarrow W$ such that $F(1) = c$ and $F(S(x)) = g(F(x))$ for all $x \in P$ where $W$ is any set, $c \in W$ and $g$ is any singulary operation on $W$ [Checkout [@saunders_algebra_1967, Chapter 2, Section 11, p. 67-70], [@lawvere_elementary_2005] or [@bedoya_mejia_peano_2003]]
     
         + We need to prove that $(\forall x)(x \in P \implies S(x) \neq 1)$
     
@@ -2477,10 +2477,50 @@ Different people, different languages and different set theories may have differ
                                 
                                     + Now with this result we can prove that $S$ is one-one:
                                         + $\begin{split}
-                                            S(x) = S(y) & \implies t(S(x)) = T(S(y)) \\
+                                            S(x) = S(y) & \implies t(S(x)) = t(S(y)) \\
                                             & \implies x = y
                                             \end{split}$
+
+        + We need to prove that $(\forall B)((B \subseteq P \land 1 \in B \land (\forall x)(x \in B \implies S(x) \in B)) \implies P = B)$
         
+            + Because $B \subseteq P$ and $S: P \longrightarrow P$ we can define the restriction of the operation $S$ to $B$ denoted by $g$ such that:
+            
+                + $\mathscr{D}(g) = B$
+                
+                + $g(u) = S(u)$ for all $u \in B$
+                
+                    + Let $W = B \times P$, $c = 1 \in W$ and $g$ the restriction of the operation $S$ to $B$. Therefore there is a unique function $F: P \longrightarrow BS such that:
+
+                        + $F(1) = 1$
+                        
+                        + $F(S(x)) = g(F(x))$ for all $x \in P$
+                        
+                    + Because $B \subseteq P$ let a function $h: B \longrightarrow P$ such that $h(u) = u$ for all $u \in B$ then:
+                    
+                        + $h(1) = 1$
+                        
+                        + $h(g(u)) = h(S(u)) = S(u) = S(h(u))$ for all $u \in B$
+                        
+                            + First, we have that $h(g(u)) =  S(h(u))$ for all $u \in B$
+                            + Second, we have that $h \circ F: P \longrightarrow P$:
+                                
+                                + $h(F(1)) = F(1) = 1$
+                                
+                                + $h(F(S(x))) = h(g(F(x))) = S(h(F(x)))$ for all $x \in P$
+                                    + Thus, we have that:
+                                    
+                                        + $(h circ F)(1) = 1$
+                                        
+                                        + $(h circ F)(S(x)) = S((h circ F)(x))$ for all $x \in P$
+                                            + So $h \circ F = I_P$
+                                            
+                                                + We can use this result to prove that $h$ is an onto function:
+                                                    + $\mathscr{R}(h) = \{y: \exists(z)(z \in B \land y = h(x))$
+                                                    
+                                                    + Thus, we need to show that $\mathscr{R}(h) = N$. Let $w \in P$ then $w \in \mathscr{R}(h)$ because exists $F(w) \in B$ such that $w = h(F(w))$ so $h$ is an onto function.
+                                                    
+                                                        + Because $h: B \longrightarrow P$ such that $h(u) = u$ for all $u \in B$ and $h$ is an onto function then $B = P$
+                                                        
 6. Show that each of axioms $P1$, $P2$ and $P3$ is independent of the other axioms. (For example, to show the independence of axiom $P1$, give an example of a structure $(P, S, 1)$ which satisfies axioms $P2$ and $P3$ but does not satisfy axiom $P1$)
 
     + Let a structure $(P, S, 1)$ such that:
