@@ -1,0 +1,110 @@
+---
+title: "The integers"
+date: 2020-07-09 18:51:36
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    highlight: tango
+    number_sections: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 2
+bibliography: number_systems.bib
+link-citations: yes
+---
+
+<style>
+
+body {
+text-align: justify}
+
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo      = FALSE, 
+                      warning   = FALSE, 
+                      message   = FALSE,
+                      fig.align = "center")
+```
+
+```{r libraries}
+
+```
+
+# The integers
+
+This section is based on [@mendelson_number_2008, Chapter 3, pp 86-155]
+
+- In this part we present a way to construct the integers from the natural numbers, that is from a peano system.
+
+- We may assume the existence of a peano system $(P, S, 1)$ where the elements of $P$ will be called __natural numbers__
+
+- From an intuitive knowledge of the integers we can represent $r$ as the difference $n - k$ of some natural numbers $n$ and $k$. For example:
+
+    + $\begin{split}
+        3 &  = 4 - 1 \\
+        0 &  = 1 - 1 \\
+        -7 & = 1 - 8
+        \end{split}$
+        
+- Of course, the same integer can be represented as the difference of many different pairs:
+
+    + $\begin{split}
+        3 &  = 4 - 1 & = 5 - 2 & = 6 - 3 \\
+        0 &  = 1 - 1 & = 1 - 1 & = 3 - 3 \\
+        -7 & = 1 - 8 & = 2 - 9 & = 3 - 10
+        \end{split}$
+        
+        + It then appears plausible to define the integer $r$ to be the set of all pairs of natural numbers $(n, k)$ such that $r = n - k$
+        
+            + For example, $-7$ will be the set of all ordered pairs $(n, k)$ of natural numbers such that $-7 = n - k$. However, we cannot proceed directly as indicated because:
+            
+                + We have not defined $-7$ so the meaning $-7 = n - k$ is still not clear
+                
+                + We have not defined the substraction operation
+                
+                    + Therefore we shall avoid these difficulties with the following definition
+
+__Definition__ For any natural numbers $n, k, j$ and $i$ let $$(n, j) \sim (k, i)$$ mean that $$n + i = k + j$$ This defines a relation $\sim$ 
+
+- Examples
+
+    + $(1, 3) \sim (5, 7)$ because $1 + 7 = 5 + 3$
+    
+    + $(2, 2) \sim (3, 3)$ because $2 + 3 = 3 + 2$
+    
+    + For any natural numbers $n$ and $j$: $(n, j) \sim (1, 1) \iff n = j$
+    
+        + $\begin{split}
+            (n, j) \sim (1, 1) & \iff n + 1 = 1 + j \\
+            & \iff n + 1 = j + 1 \\
+            & \iff n = j \\
+            \end{split}$
+            
+    + For any natural numbers $n$ and $j$: $(n, j) \sim (2, 1) \iff n = j + 1$
+    
+        + $\begin{split}
+            (n, j) \sim (2, 1) & \iff n + 1 = 2 + j \\
+            & \iff n + 1 = j + 2 \\
+            & \iff n + 1 = (j + 1) + 1 \\
+            & \iff n = j + 1 
+            \end{split}$
+
+__Theorem__ $\sim$ is an equivalence relation in the set $P \times P$ of ordered pairs of natural numbers, that is, for all natural numbers $h, i, j, k, m$ and $n$:
+
+- $(h, i) \sim (h, i)$
+
+    + $h + i = h + i \iff (h, i) \sim (h, i)$
+    
+- $(h, i) \sim (j, k) \implies (j, k) \sim (h, i)$
+
+    + \begin{split}
+       (h, i) \sim (j, k) & \iff h + k = j + i \\
+       & \iff j + i = h + k \\
+       & \iff (j, k) \sim (h, i)
+       \end{split}
+       
+- 
+
+# Bibliography
