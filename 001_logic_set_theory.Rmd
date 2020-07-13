@@ -3731,19 +3731,19 @@ __Corollary__ If $G: A \xrightarrow[\text{onto}]{\text{1-1}} B$ and $F: B \xrigh
 
     a. If $F\circ G$ is one-one, prove that $G$ is one-one
     
-- $\begin{split}
-   G(x) = G(y)  & \implies F(G(x)) = F(G(y)) \\ 
-   & \implies (F\circ G)(x) = (F\circ G)(y) \\
-   & \implies x = y
-   \end{split}$    
+        +  $\begin{split}
+           G(x) = G(y)  & \implies F(G(x)) = F(G(y)) \\ 
+           & \implies (F\circ G)(x) = (F\circ G)(y) \\
+           & \implies x = y
+           \end{split}$    
     
     b. If $F \circ G: A \xrightarrow[\text{onto}]{\text{}} C$ prove that $F: B \xrightarrow[\text{onto}]{\text{}} C$
     
-- $C = \mathscr{R}(F \circ G) \land \mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \implies C\subseteq \mathscr{R}(F)$
-
-- $\mathscr{R}(F) \subseteq C$
-
-    + Therefore $\mathscr{R}(F) = C$
+        + $C = \mathscr{R}(F \circ G) \land \mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \implies C \subseteq \mathscr{R}(F)$
+        
+        + $\mathscr{R}(F) \subseteq C$
+        
+            + Therefore $\mathscr{R}(F) = C$
     
 ## Operations
 

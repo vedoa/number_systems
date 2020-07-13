@@ -40,7 +40,9 @@ This section is based on [@mendelson_number_2008, Chapter 3, pp 86-155]
 
 - We may assume the existence of a peano system $(P, S, 1)$ where the elements of $P$ will be called __natural numbers__
 
-- From an intuitive knowledge of the integers we can represent $r$ as the difference $n - k$ of some natural numbers $n$ and $k$. For example:
+## Definition of the integers
+
+- From an intuitive knowledge of the integers we can represent an integer $r$ as the difference $n - k$ of some natural numbers $n$ and $k$. For example:
 
     + $\begin{split}
         3 &  = 4 - 1 \\
@@ -91,13 +93,15 @@ __Definition__ For any natural numbers $n, k, j$ and $i$ let $$(n, j) \sim (k, i
             & \iff n = j + 1 
             \end{split}$
 
+From our intuitive knowledge of the integers we see that $(n, j) \sim (k, i)$ corresponds to the equation $n - j = k - i$. In the definition instead of $n - j = k - i$, we have used the equivalent equation $n + i = k + j$, whic involves only natural numbers and the addition operation, $+$, on natural numbers. In this way we are trying to make precise and to justify the intuitive knowledge about the integers using the conception of natural numbers as a peano system. 
+
 __Theorem__ $\sim$ is an equivalence relation in the set $P \times P$ of ordered pairs of natural numbers, that is, for all natural numbers $h, i, j, k, m$ and $n$:
 
-- $(h, i) \sim (h, i)$
+- $(h, i) \sim (h, i)$ (Reflexivity)
 
     + $h + i = h + i \iff (h, i) \sim (h, i)$
     
-- $(h, i) \sim (j, k) \implies (j, k) \sim (h, i)$
+- $(h, i) \sim (j, k) \implies (j, k) \sim (h, i)$ (Symmetry)
 
     + \begin{split}
        (h, i) \sim (j, k) & \iff h + k = j + i \\
@@ -105,6 +109,92 @@ __Theorem__ $\sim$ is an equivalence relation in the set $P \times P$ of ordered
        & \iff (j, k) \sim (h, i)
        \end{split}
        
-- 
+- $((h, i) \sim (j, k) \land (j, k) \sim (m, n)) \implies (h, i) \sim (m, n)$ (Transitivity)
+
+    + $\begin{split}
+        (h, i) \sim (j, k) \land (j, k) \sim (m, n) & \implies h + k = j + i \land j + n = m + k \\
+        & \implies (h + k) + (j + n) = (j + i) + (j + n) \\
+        & \implies (h + k) + (j + n) = (j + i) + (m + k) \\
+        & \implies (h + n) + (k + j) = (m + i) + (k + j) \\
+        & \implies h + n = m + i \\
+        & \implies (h, i) \sim (m, n)
+        \end{split}$
+        
+Therefore $\sim$ is an equivalence relation in $P \times P$ which implies that $\sim$ divides $P \times P$ into a collection of nonempty and mutually exclusive subsets. If $(n, j) \in P \times P$ then the equivalence class of $(n, j)$ relative to the relation $\sim$ is: $$[(n, j)] = \{(k,j): (k,j) \in P \times P \land (n, j) \sim (k,i) \}$$ 
+
+__Examples__
+
+- $\begin{split}
+    [(2, 3)] & = \{(k,i): (k,i) \in P \times P \land (2, 3) \sim (k,i) \} \\
+    & = \{(k,i): (k,i) \in P \times P \land 2 + i = k + 3 \} \\
+    & = \{(1,2), (2,3), (3,4), (4,5), \ldots \}
+    \end{split}$
+    
+- $\begin{split}
+    [(4, 4)] & = \{(k,i): (k,i) \in P \times P \land (4, 4) \sim (k,i) \} \\
+    & = \{(k,i): (k,i) \in P \times P \land 4 + i = k + 4 \} \\
+    & = \{(1,1), (2,2), (3,3), (4,4), \ldots \}
+    \end{split}$
+    
+We let $Z$ denote the set of all equivalence classes with respect to $\sim$. The elements of $Z$ will be called __integers__. We shall use lowercase greek letters $\alpha, \beta, \gamma, \ldots$ as variable for integers. 
+    
+__Definitions__ $0_Z = [(1,1)]$ and $1_Z = [(2,1)]$
+
+- $\begin{split}
+    (n, j) \in 0_Z & \iff (n, j) \in [(1,1)] \\
+    & \iff (1, 1) \sim (n,j) \\
+    & \iff 1 + j = n + 1 \\
+    & \iff j + 1 = n + 1 \\
+    & \iff j = n \\
+    & \iff n = j 
+    \end{split}$
+    
+    + Thus, $0_Z = \{ (1,1), (2,2), (3,3), \ldots \}$
+    
+- $\begin{split}
+    (n, j) \in 1_Z & \iff (n, j) \in [(2,1)] \\
+    & \iff (2, 1) \sim (n,j) \\
+    & \iff 2 + j = n + 1 \\
+    & \iff (j + 1) + 1 = n + 1 \\
+    & \iff j + 1 = n \\
+    & \iff n = j + 1 \\
+    & \iff n = S(j)
+    \end{split}$
+    
+    + Thus, $1_Z = \{ (2,1), (3,2), (4,3), \ldots \}$
+    
+- Also because $(1,1) \in 0_Z$ and $1 \neq S(j)$ then $(1,1) \in 1_Z$. Therefore $0_Z \neq 1_Z$
+
+## Addition and multiplication of integers
+
+Returning to our intuitive picture of the integers we have that:
+
+- $3 = 4 - 1$
+- $-7 = 1 - 8$
+
+Therefore we can obtain the following:
+
+- $3 + (-7) = (4 + 1) - (1 + 8) = 5 - 9 = -4$
+
+More generally we have the following argument which suggest a definition of addition of integers:
+
+- $r = n - j$
+- $s = k - i$
+- $r + s = (n + k) - (j + i)$
+
+However we must first confirm the following fact:
+
+__Lemma__ Let $n, j, k, i, n_1, j_1, k_1, i_1$ be natural numbers. If $(n, j) \sim (n_1, j_1)$ and $(k, i) \sim (k_1, i_1)$ then $$(n + k, j + i) \sim (n_1 + k_1, j_1 + i_1)$$
+
+__Proof__ 
+
+- $\begin{split}
+    (n, j) \sim (n_1, j_1) \land (k, i) \sim (k_1, i_1) & \iff n + j_1 = n_1 + j \land k + i_1 = k_1 + i \\
+    & \iff (n + j_1) + (k + i_1) = (n_1 + j) + (k_1 + i) \\
+    & \iff (n + k) + (j_1 + i_1) = (n_1 + k_1) + (j + i) \\
+    & \iff (n + k, j + i) \sim (n_1 + k_1, j_1 + i_1) 
+    \end{split}$
+    
+__Example__
 
 # Bibliography

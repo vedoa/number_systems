@@ -238,7 +238,7 @@ window.initializeCodeFolding = function(show) {
   var currentIndex = 1;
 
   // select all R code blocks
-  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia, pre.foldable');
   rCodeBlocks.each(function() {
 
     // create a collapsable div to wrap the code in
@@ -278,6 +278,22 @@ window.initializeCodeFolding = function(show) {
   });
 
 }
+</script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
 </script>
 <style type="text/css">.pagedtable {
 overflow: auto;
@@ -7050,20 +7066,20 @@ T
 <ol start="5" style="list-style-type: decimal">
 <li><p>Assume <span class="math inline">\(G: A \longrightarrow B\)</span> and <span class="math inline">\(F: B \longrightarrow C\)</span></p>
 <ol style="list-style-type: lower-alpha">
-<li>If <span class="math inline">\(F\circ G\)</span> is one-one, prove that <span class="math inline">\(G\)</span> is one-one</li>
-</ol></li>
-</ol>
+<li><p>If <span class="math inline">\(F\circ G\)</span> is one-one, prove that <span class="math inline">\(G\)</span> is one-one</p>
 <ul>
-<li><p><span class="math inline">\(\begin{split}  G(x) = G(y) &amp; \implies F(G(x)) = F(G(y)) \\  &amp; \implies (F\circ G)(x) = (F\circ G)(y) \\  &amp; \implies x = y  \end{split}\)</span></p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>If <span class="math inline">\(F \circ G: A \xrightarrow[\text{onto}]{\text{}} C\)</span> prove that <span class="math inline">\(F: B \xrightarrow[\text{onto}]{\text{}} C\)</span></li>
-</ol></li>
-<li><p><span class="math inline">\(C = \mathscr{R}(F \circ G) \land \mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \implies C\subseteq \mathscr{R}(F)\)</span></p></li>
+<li><span class="math inline">\(\begin{split} G(x) = G(y) &amp; \implies F(G(x)) = F(G(y)) \\ &amp; \implies (F\circ G)(x) = (F\circ G)(y) \\ &amp; \implies x = y \end{split}\)</span></li>
+</ul></li>
+<li><p>If <span class="math inline">\(F \circ G: A \xrightarrow[\text{onto}]{\text{}} C\)</span> prove that <span class="math inline">\(F: B \xrightarrow[\text{onto}]{\text{}} C\)</span></p>
+<ul>
+<li><p><span class="math inline">\(C = \mathscr{R}(F \circ G) \land \mathscr{R}(F \circ G) \subseteq \mathscr{R}(F) \implies C \subseteq \mathscr{R}(F)\)</span></p></li>
 <li><p><span class="math inline">\(\mathscr{R}(F) \subseteq C\)</span></p>
 <ul>
 <li>Therefore <span class="math inline">\(\mathscr{R}(F) = C\)</span></li>
 </ul></li>
-</ul>
+</ul></li>
+</ol></li>
+</ol>
 </div>
 <div id="operations" class="section level2" number="1.42">
 <h2 number="1.42"><span class="header-section-number">1.42</span> Operations</h2>

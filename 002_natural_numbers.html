@@ -1739,6 +1739,7 @@ summary {
 <li><a href="#isomorphism-categoricity"><span class="toc-section-number">1.12</span> Isomorphism, categoricity</a></li>
 <li><a href="#a-basic-existence-assumption"><span class="toc-section-number">1.13</span> A basic existence assumption</a></li>
 <li><a href="#supplementary-exercises"><span class="toc-section-number">1.14</span> Supplementary exercises</a></li>
+<li><a href="#suggestions-for-further-reading"><span class="toc-section-number">1.15</span> Suggestions for further reading</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -3663,7 +3664,7 @@ text-align: justify}
 <ul>
 <li><p>Also <span class="math inline">\(F(1) = F(S(p)) = g(F(p)) = z\)</span>. Therefore <span class="math inline">\(y = F(1) = z\)</span> but <span class="math inline">\(y \neq z\)</span> which is a contradiction.</p>
 <ul>
-<li>Thus, <span class="math inline">\((\exists p)(p \in P \land S(p) = 1)\)</span> is false so <span class="math inline">\((\forall p)\neg(p \in P \land S(p) = 1)\)</span> is true which is equivalent to $(p)(p P S(p)</li>
+<li>Thus, <span class="math inline">\((\exists p)(p \in P \land S(p) = 1)\)</span> is false so <span class="math inline">\((\forall p)\neg(p \in P \land S(p) = 1)\)</span> is true which is equivalent to <span class="math inline">\((\forall p)(p \in P \implies S(p)\)</span></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -3695,7 +3696,7 @@ text-align: justify}
 <ul>
 <li><p>Thus, <span class="math inline">\(t(S(x)) = f(x)\)</span> for all <span class="math inline">\(x \in P\)</span> and $f(S(x)) = <span class="math inline">\(S(f(x))\)</span> for all <span class="math inline">\(x \in P\)</span>. Also</p>
 <ul>
-<li><p>Because <span class="math inline">\(f(1) = 1\)</span> and $f(S(x)) = <span class="math inline">\(S(f(x))\)</span> then <span class="math inline">\(f I_p\)</span></p></li>
+<li><p>Because <span class="math inline">\(f(1) = 1\)</span> and <span class="math inline">\(f(S(x)) = S(f(x))\)</span> then <span class="math inline">\(f = I_p\)</span></p></li>
 <li><p><span class="math inline">\(t(1) = 1\)</span> and <span class="math inline">\(t(S(x)) = f(x) = x\)</span></p>
 <ul>
 <li>Now with this result we can prove that <span class="math inline">\(S\)</span> is one-one:
@@ -3716,7 +3717,7 @@ text-align: justify}
 <li><p><span class="math inline">\(\mathscr{D}(g) = B\)</span></p></li>
 <li><p><span class="math inline">\(g(u) = S(u)\)</span> for all <span class="math inline">\(u \in B\)</span></p>
 <ul>
-<li><p>Let <span class="math inline">\(W = B \times P\)</span>, <span class="math inline">\(c = 1 \in W\)</span> and <span class="math inline">\(g\)</span> the restriction of the operation <span class="math inline">\(S\)</span> to <span class="math inline">\(B\)</span>. Therefore there is a unique function $F: P BS such that:</p>
+<li><p>Let <span class="math inline">\(W = B\)</span>, <span class="math inline">\(c = 1 \in W\)</span> and <span class="math inline">\(g\)</span> the restriction of the operation <span class="math inline">\(S\)</span> to <span class="math inline">\(B\)</span>. Therefore there is a unique function <span class="math inline">\(F: P \longrightarrow B\)</span> such that:</p>
 <ul>
 <li><p><span class="math inline">\(F(1) = 1\)</span></p></li>
 <li><p><span class="math inline">\(F(S(x)) = g(F(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p></li>
@@ -3734,8 +3735,8 @@ text-align: justify}
 <ul>
 <li><p>Thus, we have that:</p>
 <ul>
-<li><p><span class="math inline">\((h circ F)(1) = 1\)</span></p></li>
-<li><p><span class="math inline">\((h circ F)(S(x)) = S((h circ F)(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
+<li><p><span class="math inline">\((h \circ F)(1) = 1\)</span></p></li>
+<li><p><span class="math inline">\((h \circ F)(S(x)) = S((h \circ F)(x))\)</span> for all <span class="math inline">\(x \in P\)</span></p>
 <ul>
 <li><p>So <span class="math inline">\(h \circ F = I_P\)</span></p>
 <ul>
@@ -3873,12 +3874,33 @@ text-align: justify}
 </ul></li>
 </ol>
 </div>
+<div id="suggestions-for-further-reading" class="section level2" number="1.15">
+<h2 number="1.15"><span class="header-section-number">1.15</span> Suggestions for further reading</h2>
+<ul>
+<li><p><span class="citation">(Wang <a href="#ref-wang_axiomatization_1957" role="doc-biblioref">1957</a>)</span> is an excellent historical review on the contributions to the foundations of artihmetic made by:</p>
+<ul>
+<li>Hermann Günther Grassmann (1809 – 1877): publication of <strong>Lehrbuch der Arithmetik</strong> (1861)</li>
+<li>Julius Wilhelm Richard Dedekind (1831 - 1916): letter written by Dedekind explaining how he arrive at the peano axioms and publication of <strong>Was sind und was sollen die Zahlen?</strong> (1888)</li>
+<li>Friedrich Ludwig Gottlob Frege (1848 – 1925): publication of <strong>Begriffsschrift</strong> (1879) and <strong>Die Grundlagen der Arithmetik</strong> (1884)</li>
+<li>Giuseppe Peano (1858 - 1932): borrowed his axioms from Dedekind and made extensive use of Grassmann’s work in his development of the axioms</li>
+</ul></li>
+<li><p><span class="citation">(Heijenoort <a href="#ref-heijenoort_frege_2002" role="doc-biblioref">2002</a>)</span> is and excellent source to find english translations of:</p>
+<ul>
+<li><p><strong>Begriffsschrift</strong> (1879) by Friedrich Ludwig Gottlob Frege (1848 – 1925)</p></li>
+<li><p><strong>Arithmetices principia, nova methodo exposita</strong> (1889) by Giuseppe Peano (1858 - 1932)</p></li>
+<li><p><strong>Letter to Keferstein</strong> (1890) by Julius Wilhelm Richard Dedekind (1831 - 1916) which is the letter pointed out in <span class="citation">(Wang <a href="#ref-wang_axiomatization_1957" role="doc-biblioref">1957</a>)</span></p></li>
+</ul></li>
+</ul>
+</div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
 <h1 class="unnumbered" number>Bibliography</h1>
 <div id="refs" class="references hanging-indent">
 <div id="ref-bedoya_mejia_peano_2003">
 <p>Bedoya Mejía, Lina María. 2003. “Peano, Lawvere, Peirce: Tres Axiomatizaciones de Los Números Naturales.”</p>
+</div>
+<div id="ref-heijenoort_frege_2002">
+<p>Heijenoort, Jean van. 2002. <em>From Frege to Godel: A Source Book in Mathematical Logic, 1879-1931</em>. 4th ed. Cambridge, Massachusetts: Harvard University Press.</p>
 </div>
 <div id="ref-lawvere_elementary_2005">
 <p>Lawvere, Francis William. 2005. “An Elementary Theory of the Category of Sets (Long Version) with Commentary.” <em>Reprints in Theory and Applications of Categories</em>, no. 11: 1–35. <a href="http://www.tac.mta.ca/tac/reprints/articles/11/tr11.pdf">http://www.tac.mta.ca/tac/reprints/articles/11/tr11.pdf</a>.</p>
@@ -3891,6 +3913,9 @@ text-align: justify}
 </div>
 <div id="ref-saunders_algebra_1967">
 <p>Saunders, MacLane, and Garrett Birkhoff. 1967. <em>Algebra</em>. 1st ed. New York, Macmillan. <a href="https://archive.org/details/algebra00macl/mode/2up">https://archive.org/details/algebra00macl/mode/2up</a>.</p>
+</div>
+<div id="ref-wang_axiomatization_1957">
+<p>Wang, Hao. 1957. “The Axiomatization of Arithmetic.” <em>Journal of Symbolic Logic</em> 22 (2): 145–58. <a href="https://doi.org/10.2307/2964176">https://doi.org/10.2307/2964176</a>.</p>
 </div>
 </div>
 </div>

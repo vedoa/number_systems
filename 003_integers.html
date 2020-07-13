@@ -1723,7 +1723,11 @@ summary {
 
 <div id="TOC">
 <ul>
-<li><a href="#the-integers"><span class="toc-section-number">1</span> The integers</a></li>
+<li><a href="#the-integers"><span class="toc-section-number">1</span> The integers</a>
+<ul>
+<li><a href="#definition-of-the-integers"><span class="toc-section-number">1.1</span> Definition of the integers</a></li>
+<li><a href="#addition-and-multiplication-of-integers"><span class="toc-section-number">1.2</span> Addition and multiplication of integers</a></li>
+</ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
 </div>
@@ -1740,7 +1744,11 @@ text-align: justify}
 <ul>
 <li><p>In this part we present a way to construct the integers from the natural numbers, that is from a peano system.</p></li>
 <li><p>We may assume the existence of a peano system <span class="math inline">\((P, S, 1)\)</span> where the elements of <span class="math inline">\(P\)</span> will be called <strong>natural numbers</strong></p></li>
-<li><p>From an intuitive knowledge of the integers we can represent <span class="math inline">\(r\)</span> as the difference <span class="math inline">\(n - k\)</span> of some natural numbers <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span>. For example:</p>
+</ul>
+<div id="definition-of-the-integers" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Definition of the integers</h2>
+<ul>
+<li><p>From an intuitive knowledge of the integers we can represent an integer <span class="math inline">\(r\)</span> as the difference <span class="math inline">\(n - k\)</span> of some natural numbers <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span>. For example:</p>
 <ul>
 <li><span class="math inline">\(\begin{split}  3 &amp; = 4 - 1 \\  0 &amp; = 1 - 1 \\  -7 &amp; = 1 - 8  \end{split}\)</span></li>
 </ul></li>
@@ -1778,13 +1786,14 @@ text-align: justify}
 </ul></li>
 </ul></li>
 </ul>
+<p>From our intuitive knowledge of the integers we see that <span class="math inline">\((n, j) \sim (k, i)\)</span> corresponds to the equation <span class="math inline">\(n - j = k - i\)</span>. In the definition instead of <span class="math inline">\(n - j = k - i\)</span>, we have used the equivalent equation <span class="math inline">\(n + i = k + j\)</span>, whic involves only natural numbers and the addition operation, <span class="math inline">\(+\)</span>, on natural numbers. In this way we are trying to make precise and to justify the intuitive knowledge about the integers using the conception of natural numbers as a peano system.</p>
 <p><strong>Theorem</strong> <span class="math inline">\(\sim\)</span> is an equivalence relation in the set <span class="math inline">\(P \times P\)</span> of ordered pairs of natural numbers, that is, for all natural numbers <span class="math inline">\(h, i, j, k, m\)</span> and <span class="math inline">\(n\)</span>:</p>
 <ul>
-<li><p><span class="math inline">\((h, i) \sim (h, i)\)</span></p>
+<li><p><span class="math inline">\((h, i) \sim (h, i)\)</span> (Reflexivity)</p>
 <ul>
 <li><span class="math inline">\(h + i = h + i \iff (h, i) \sim (h, i)\)</span></li>
 </ul></li>
-<li><p><span class="math inline">\((h, i) \sim (j, k) \implies (j, k) \sim (h, i)\)</span></p>
+<li><p><span class="math inline">\((h, i) \sim (j, k) \implies (j, k) \sim (h, i)\)</span> (Symmetry)</p>
 <ul>
 <li><span class="math display">\[\begin{split}
  (h, i) \sim (j, k) &amp; \iff h + k = j + i \\
@@ -1792,8 +1801,56 @@ text-align: justify}
  &amp; \iff (j, k) \sim (h, i)
  \end{split}\]</span></li>
 </ul></li>
-<li></li>
+<li><p><span class="math inline">\(((h, i) \sim (j, k) \land (j, k) \sim (m, n)) \implies (h, i) \sim (m, n)\)</span> (Transitivity)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (h, i) \sim (j, k) \land (j, k) \sim (m, n) &amp; \implies h + k = j + i \land j + n = m + k \\  &amp; \implies (h + k) + (j + n) = (j + i) + (j + n) \\  &amp; \implies (h + k) + (j + n) = (j + i) + (m + k) \\  &amp; \implies (h + n) + (k + j) = (m + i) + (k + j) \\  &amp; \implies h + n = m + i \\  &amp; \implies (h, i) \sim (m, n)  \end{split}\)</span></li>
+</ul></li>
 </ul>
+<p>Therefore <span class="math inline">\(\sim\)</span> is an equivalence relation in <span class="math inline">\(P \times P\)</span> which implies that <span class="math inline">\(\sim\)</span> divides <span class="math inline">\(P \times P\)</span> into a collection of nonempty and mutually exclusive subsets. If <span class="math inline">\((n, j) \in P \times P\)</span> then the equivalence class of <span class="math inline">\((n, j)\)</span> relative to the relation <span class="math inline">\(\sim\)</span> is: <span class="math display">\[[(n, j)] = \{(k,j): (k,j) \in P \times P \land (n, j) \sim (k,i) \}\]</span></p>
+<p><strong>Examples</strong></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  [(2, 3)] &amp; = \{(k,i): (k,i) \in P \times P \land (2, 3) \sim (k,i) \} \\  &amp; = \{(k,i): (k,i) \in P \times P \land 2 + i = k + 3 \} \\  &amp; = \{(1,2), (2,3), (3,4), (4,5), \ldots \}  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  [(4, 4)] &amp; = \{(k,i): (k,i) \in P \times P \land (4, 4) \sim (k,i) \} \\  &amp; = \{(k,i): (k,i) \in P \times P \land 4 + i = k + 4 \} \\  &amp; = \{(1,1), (2,2), (3,3), (4,4), \ldots \}  \end{split}\)</span></p></li>
+</ul>
+<p>We let <span class="math inline">\(Z\)</span> denote the set of all equivalence classes with respect to <span class="math inline">\(\sim\)</span>. The elements of <span class="math inline">\(Z\)</span> will be called <strong>integers</strong>. We shall use lowercase greek letters <span class="math inline">\(\alpha, \beta, \gamma, \ldots\)</span> as variable for integers.</p>
+<p><strong>Definitions</strong> <span class="math inline">\(0_Z = [(1,1)]\)</span> and <span class="math inline">\(1_Z = [(2,1)]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  (n, j) \in 0_Z &amp; \iff (n, j) \in [(1,1)] \\  &amp; \iff (1, 1) \sim (n,j) \\  &amp; \iff 1 + j = n + 1 \\  &amp; \iff j + 1 = n + 1 \\  &amp; \iff j = n \\  &amp; \iff n = j  \end{split}\)</span></p>
+<ul>
+<li>Thus, <span class="math inline">\(0_Z = \{ (1,1), (2,2), (3,3), \ldots \}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  (n, j) \in 1_Z &amp; \iff (n, j) \in [(2,1)] \\  &amp; \iff (2, 1) \sim (n,j) \\  &amp; \iff 2 + j = n + 1 \\  &amp; \iff (j + 1) + 1 = n + 1 \\  &amp; \iff j + 1 = n \\  &amp; \iff n = j + 1 \\  &amp; \iff n = S(j)  \end{split}\)</span></p>
+<ul>
+<li>Thus, <span class="math inline">\(1_Z = \{ (2,1), (3,2), (4,3), \ldots \}\)</span></li>
+</ul></li>
+<li><p>Also because <span class="math inline">\((1,1) \in 0_Z\)</span> and <span class="math inline">\(1 \neq S(j)\)</span> then <span class="math inline">\((1,1) \in 1_Z\)</span>. Therefore <span class="math inline">\(0_Z \neq 1_Z\)</span></p></li>
+</ul>
+</div>
+<div id="addition-and-multiplication-of-integers" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Addition and multiplication of integers</h2>
+<p>Returning to our intuitive picture of the integers we have that:</p>
+<ul>
+<li><span class="math inline">\(3 = 4 - 1\)</span></li>
+<li><span class="math inline">\(-7 = 1 - 8\)</span></li>
+</ul>
+<p>Therefore we can obtain the following:</p>
+<ul>
+<li><span class="math inline">\(3 + (-7) = (4 + 1) - (1 + 8) = 5 - 9 = -4\)</span></li>
+</ul>
+<p>More generally we have the following argument which suggest a definition of addition of integers:</p>
+<ul>
+<li><span class="math inline">\(r = n - j\)</span></li>
+<li><span class="math inline">\(s = k - i\)</span></li>
+<li><span class="math inline">\(r + s = (n + k) - (j + i)\)</span></li>
+</ul>
+<p>However we must first confirm the following fact:</p>
+<p><strong>Lemma</strong> Let <span class="math inline">\(n, j, k, i, n_1, j_1, k_1, i_1\)</span> be natural numbers. If <span class="math inline">\((n, j) \sim (n_1, j_1)\)</span> and <span class="math inline">\((k, i) \sim (k_1, i_1)\)</span> then <span class="math display">\[(n + k, j + i) \sim (n_1 + k_1, j_1 + i_1)\]</span></p>
+<p><strong>Proof</strong></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (n, j) \sim (n_1, j_1) \land (k, i) \sim (k_1, i_1) &amp; \iff n + j_1 = n_1 + j \land k + i_1 = k_1 + i \\  &amp; \iff (n + j_1) + (k + i_1) = (n_1 + j) + (k_1 + i) \\  &amp; \iff (n + k) + (j_1 + i_1) = (n_1 + k_1) + (j + i) \\  &amp; \iff (n + k, j + i) \sim (n_1 + k_1, j_1 + i_1)  \end{split}\)</span></li>
+</ul>
+<p><strong>Example</strong></p>
+</div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
 <h1 class="unnumbered" number>Bibliography</h1>

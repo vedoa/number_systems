@@ -2435,7 +2435,7 @@ Different people, different languages and different set theories may have differ
                 
                     + Also $F(1) = F(S(p)) = g(F(p)) = z$. Therefore $y = F(1) = z$ but $y \neq z$ which is a contradiction.
                     
-                        + Thus, $(\exists p)(p \in P \land S(p) = 1)$ is false so $(\forall p)\neg(p \in P \land S(p) = 1)$ is true which is equivalent to $(\forall p)(p \in P \implies S(p)
+                        + Thus, $(\exists p)(p \in P \land S(p) = 1)$ is false so $(\forall p)\neg(p \in P \land S(p) = 1)$ is true which is equivalent to $(\forall p)(p \in P \implies S(p)$
                     
         + We need to prove that $(\forall x)(\forall y)((x \in P \land y \in P \land x \neq y) \implies S(x) \neq S(y))$. Thus, we must prove that $S$ is one-one, $S: P \xrightarrow[]{\text{1-1}} P$
         
@@ -2472,7 +2472,7 @@ Different people, different languages and different set theories may have differ
                             
                             + Thus, $t(S(x)) = f(x)$ for all $x \in P$ and $f(S(x)) = $S(f(x))$ for all $x \in P$. Also
                             
-                                + Because $f(1) = 1$ and $f(S(x)) = $S(f(x))$ then $f I_p$
+                                + Because $f(1) = 1$ and $f(S(x)) = S(f(x))$ then $f = I_p$
                                 + $t(1) = 1$ and $t(S(x)) = f(x) = x$
                                 
                                     + Now with this result we can prove that $S$ is one-one:
@@ -2489,7 +2489,7 @@ Different people, different languages and different set theories may have differ
                 
                 + $g(u) = S(u)$ for all $u \in B$
                 
-                    + Let $W = B \times P$, $c = 1 \in W$ and $g$ the restriction of the operation $S$ to $B$. Therefore there is a unique function $F: P \longrightarrow BS such that:
+                    + Let $W = B$, $c = 1 \in W$ and $g$ the restriction of the operation $S$ to $B$. Therefore there is a unique function $F: P \longrightarrow B$ such that:
 
                         + $F(1) = 1$
                         
@@ -2509,9 +2509,10 @@ Different people, different languages and different set theories may have differ
                                 + $h(F(S(x))) = h(g(F(x))) = S(h(F(x)))$ for all $x \in P$
                                     + Thus, we have that:
                                     
-                                        + $(h circ F)(1) = 1$
+                                        + $(h \circ F)(1) = 1$
                                         
-                                        + $(h circ F)(S(x)) = S((h circ F)(x))$ for all $x \in P$
+                                        + $(h \circ F)(S(x)) = S((h \circ F)(x))$ for all $x \in P$
+                                        
                                             + So $h \circ F = I_P$
                                             
                                                 + We can use this result to prove that $h$ is an onto function:
@@ -2633,5 +2634,22 @@ Different people, different languages and different set theories may have differ
                     + $1! = 1$
                     
                     + $(n + 1)! = (n + 1) \times (n!)$ for all $n \in P$
+                    
+## Suggestions for further reading
+
+- [@wang_axiomatization_1957] is an excellent historical review on the contributions to the foundations of artihmetic made by:
+
+    + Hermann Günther Grassmann (1809 – 1877): publication of __Lehrbuch der Arithmetik__ (1861)
+    + Julius Wilhelm Richard Dedekind (1831 - 1916): letter written by Dedekind explaining how he arrive at the peano axioms and publication of __Was sind und was sollen die Zahlen?__ (1888)
+    + Friedrich Ludwig Gottlob Frege (1848 – 1925): publication of __Begriffsschrift__ (1879) and __Die Grundlagen der Arithmetik__ (1884) 
+    + Giuseppe Peano (1858 - 1932): borrowed his axioms from Dedekind and made extensive use of Grassmann's work in his development of the axioms
+    
+- [@heijenoort_frege_2002] is and excellent source to find english translations of:
+
+    + __Begriffsschrift__ (1879) by Friedrich Ludwig Gottlob Frege (1848 – 1925)
+    
+    + __Arithmetices principia, nova methodo exposita__ (1889) by Giuseppe Peano (1858 - 1932) 
+    
+    + __Letter to Keferstein__ (1890) by Julius Wilhelm Richard Dedekind (1831 - 1916) which is the letter pointed out in [@wang_axiomatization_1957] 
 
 # Bibliography
