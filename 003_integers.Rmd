@@ -258,5 +258,7 @@ __Theorem__ _(Properties of Addition)_ Consider any $\alpha, \beta, \gamma$ in $
             & = \beta +_\mathbb{Z} 0_\mathbb{Z}\\
             & = \beta
             \end{split}$
+            
+Multiplication is handled in much the same way as addition. First we look at the intuitive picture for hints as how to proceed. If $r = n - j$ and $s = k - i$ then $$r \times s = (n - j) \times (k -i) = ((n \times k) + (j \times i)) - ((j \times k) + (n \times i))$$ 
 
 # Bibliography
