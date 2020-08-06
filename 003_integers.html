@@ -1813,13 +1813,13 @@ text-align: justify}
 <li><p><span class="math inline">\(\begin{split}  [(4, 4)] &amp; = \{(k,i): (k,i) \in P \times P \land (4, 4) \sim (k,i) \} \\  &amp; = \{(k,i): (k,i) \in P \times P \land 4 + i = k + 4 \} \\  &amp; = \{(1,1), (2,2), (3,3), (4,4), \ldots \}  \end{split}\)</span></p></li>
 </ul>
 <p>We let <span class="math inline">\(Z\)</span> denote the set of all equivalence classes with respect to <span class="math inline">\(\sim\)</span>. The elements of <span class="math inline">\(Z\)</span> will be called <strong>integers</strong>. We shall use lowercase greek letters <span class="math inline">\(\alpha, \beta, \gamma, \ldots\)</span> as variable for integers.</p>
-<p><strong>Definitions</strong> <span class="math inline">\(0_Z = [(1,1)]\)</span> and <span class="math inline">\(1_Z = [(2,1)]\)</span></p>
+<p><strong>Definitions</strong> <span class="math inline">\(0_\mathbb{Z} = [(1,1)]\)</span> and <span class="math inline">\(1_\mathbb{Z} = [(2,1)]\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\begin{split}  (n, j) \in 0_Z &amp; \iff (n, j) \in [(1,1)] \\  &amp; \iff (1, 1) \sim (n,j) \\  &amp; \iff 1 + j = n + 1 \\  &amp; \iff j + 1 = n + 1 \\  &amp; \iff j = n \\  &amp; \iff n = j  \end{split}\)</span></p>
+<li><p><span class="math inline">\(\begin{split}  (n, j) \in 0_\mathbb{Z} &amp; \iff (n, j) \in [(1,1)] \\  &amp; \iff (1, 1) \sim (n,j) \\  &amp; \iff 1 + j = n + 1 \\  &amp; \iff j + 1 = n + 1 \\  &amp; \iff j = n \\  &amp; \iff n = j  \end{split}\)</span></p>
 <ul>
-<li>Thus, <span class="math inline">\(0_Z = \{ (1,1), (2,2), (3,3), \ldots \}\)</span></li>
+<li>Thus, <span class="math inline">\(0_\mathbb{Z} = \{ (1,1), (2,2), (3,3), \ldots \}\)</span></li>
 </ul></li>
-<li><p><span class="math inline">\(\begin{split}  (n, j) \in 1_Z &amp; \iff (n, j) \in [(2,1)] \\  &amp; \iff (2, 1) \sim (n,j) \\  &amp; \iff 2 + j = n + 1 \\  &amp; \iff (j + 1) + 1 = n + 1 \\  &amp; \iff j + 1 = n \\  &amp; \iff n = j + 1 \\  &amp; \iff n = S(j)  \end{split}\)</span></p>
+<li><p><span class="math inline">\(\begin{split}  (n, j) \in 1_\mathbb{Z} &amp; \iff (n, j) \in [(2,1)] \\  &amp; \iff (2, 1) \sim (n,j) \\  &amp; \iff 2 + j = n + 1 \\  &amp; \iff (j + 1) + 1 = n + 1 \\  &amp; \iff j + 1 = n \\  &amp; \iff n = j + 1 \\  &amp; \iff n = S(j)  \end{split}\)</span></p>
 <ul>
 <li>Thus, <span class="math inline">\(1_Z = \{ (2,1), (3,2), (4,3), \ldots \}\)</span></li>
 </ul></li>
@@ -1850,6 +1850,39 @@ text-align: justify}
 <li><span class="math inline">\(\begin{split}  (n, j) \sim (n_1, j_1) \land (k, i) \sim (k_1, i_1) &amp; \iff n + j_1 = n_1 + j \land k + i_1 = k_1 + i \\  &amp; \iff (n + j_1) + (k + i_1) = (n_1 + j) + (k_1 + i) \\  &amp; \iff (n + k) + (j_1 + i_1) = (n_1 + k_1) + (j + i) \\  &amp; \iff (n + k, j + i) \sim (n_1 + k_1, j_1 + i_1)  \end{split}\)</span></li>
 </ul>
 <p><strong>Example</strong></p>
+<ul>
+<li>We know that <span class="math inline">\((1,2) \sim (3,4)\)</span> and <span class="math inline">\((2,2) \sim (3,3)\)</span>. Hence by the above lemma <span class="math inline">\((1 + 2,2 + 2) \sim (3 + 3,4 + 3)\)</span>. Thus <span class="math inline">\((3,4) \sim (6,7)\)</span> which is correct because <span class="math inline">\(3 + 7 = 6 + 4\)</span></li>
+</ul>
+<p>The above lemma allows us to make the following definition</p>
+<p><strong>Definition</strong> Let <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> be integers. Choose any element <span class="math inline">\((n, j) \in \alpha\)</span> and choose any elements <span class="math inline">\((k, i) \in \beta\)</span>. Then <span class="math inline">\(\alpha +_\mathbb{Z} \beta\)</span> stands for <span class="math inline">\([(n + k, j + i)]\)</span>.</p>
+<p>The reason that the above lemma is required for this definition to make sense is that we must be sure that our particular choice of pairs <span class="math inline">\((n, j) \in \alpha\)</span> and <span class="math inline">\((k, i) \in \beta\)</span> does not affect the outcome <span class="math inline">\(\alpha +_\mathbb{Z} \beta\)</span></p>
+<p>Assume that <span class="math inline">\((n_1, j_1) \in \alpha\)</span> and <span class="math inline">\((k_1, i_1) \in \beta\)</span>. Therefore <span class="math inline">\((n, j) \sim (n_1, j_1)\)</span> and <span class="math inline">\((k, i) \sim (k_1, i_1)\)</span> so by the lemma <span class="math inline">\((n + k, j + i) \sim (n_1 + k_1, j_1 + i_1)\)</span>. This implies that <span class="math inline">\([(n + k, j + i)] = [(n_1 + k_1, j_1 + i_1)]\)</span></p>
+<p><strong>Theorem</strong> <em>(Properties of Addition)</em> Consider any <span class="math inline">\(\alpha, \beta, \gamma\)</span> in <span class="math inline">\(\mathbb{Z}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\alpha +_\mathbb{Z} \beta = \beta +_\mathbb{Z} \alpha\)</span> (Commutativity)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha +_\mathbb{Z} \beta &amp; \iff [(n + k, j + i)] \text{ where } (n,j) \in \alpha \land (k, i) \in \beta \\  &amp; \iff [(k + n, i + j)] \text{ where } (k, i) \in \beta \land (n,j) \in \alpha \\  &amp; \iff \beta +_\mathbb{Z} \alpha  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\alpha +_\mathbb{Z} (\beta +_\mathbb{Z} \gamma)= (\alpha +_\mathbb{Z} \beta) +_\mathbb{Z} \gamma\)</span> (Associativity)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha +_\mathbb{Z} (\beta +_\mathbb{Z} \gamma) &amp; \iff [(n + (k + m), j + (i + h))] \text{ where } (n, j) \in \alpha \land (k + m, i + h) \in \beta +_\mathbb{Z} \gamma \\  &amp; \iff [((n + k) + m, (j + i) + h)] \text{ where } (n + k, j + i) \in \alpha +_\mathbb{Z} \beta \land (m, h) \in \gamma \\  &amp; \iff (\alpha +_\mathbb{Z} \beta) +_\mathbb{Z} \gamma  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\alpha +_\mathbb{Z} 0_\mathbb{Z} = \alpha\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha +_\mathbb{Z} 0_\mathbb{Z} &amp; \iff [(n + 1, j + 1)] \text{ where } (n, j) \in \alpha \land (1,1) \in 0_\mathbb{Z} \\  &amp; \implies (n, j) \in [(n + 1, j + 1)] \text{ because } (n + 1, j + 1) \sim (n, j) \\  &amp; \implies (n, j) \in [(n + 1, j + 1)] \text{ because } (n + 1) + j = n + (j + 1) \\  &amp; \implies [(n + 1, j + 1)] = [(n,j)] \\  &amp; \implies \alpha +_\mathbb{Z} 0_\mathbb{Z} = \alpha  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\((\exists ! \delta)(\alpha +_\mathbb{Z} \delta = 0_\mathbb{Z})\)</span> (This unique <span class="math inline">\(\delta\)</span> is denoted <span class="math inline">\(-_\mathbb{Z}\alpha\)</span>). If <span class="math inline">\((h, i) \in \alpha\)</span> then <span class="math inline">\((i, h) \in -_\mathbb{Z}\alpha\)</span></p>
+<ul>
+<li><p>If <span class="math inline">\((n, j) \in \alpha\)</span> then let <span class="math inline">\([(j,n)] = \delta\)</span>. Therefore:</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha +_\mathbb{Z} \delta &amp; \iff [(n + j, j + n)] \\  &amp; \implies (1,1) \in [(n + j, j + n)] \text{ because } (n + j, j + n) \sim (1, 1) \\  &amp; \implies (1,1) \in [(n + j, j + n)] \text{ because } (n + j) + 1 = (j + n) +1 \\  &amp; \implies [(n + j, j + n)] = [(1,1)] \\  &amp; \implies \alpha +_\mathbb{Z} \delta = 0_\mathbb{Z}  \end{split}\)</span></li>
+</ul></li>
+<li><p>Assume <span class="math inline">\(\alpha +_\mathbb{Z} \delta = 0_\mathbb{Z}\)</span> and <span class="math inline">\(\alpha +_\mathbb{Z} \beta = 0_\mathbb{Z}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \delta &amp; = \delta +_\mathbb{Z} 0_\mathbb{Z} \\  &amp; = \delta +_\mathbb{Z} (\alpha +_\mathbb{Z} \beta) \\  &amp; = (\delta +_\mathbb{Z} \alpha) +_\mathbb{Z} \beta \\  &amp; = (\alpha +_\mathbb{Z} \delta) +_\mathbb{Z} \beta \\  &amp; = 0_\mathbb{Z} +_\mathbb{Z} \beta \\  &amp; = \beta +_\mathbb{Z} 0_\mathbb{Z}\\  &amp; = \beta  \end{split}\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>

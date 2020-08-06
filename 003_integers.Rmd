@@ -138,10 +138,10 @@ __Examples__
     
 We let $Z$ denote the set of all equivalence classes with respect to $\sim$. The elements of $Z$ will be called __integers__. We shall use lowercase greek letters $\alpha, \beta, \gamma, \ldots$ as variable for integers. 
     
-__Definitions__ $0_Z = [(1,1)]$ and $1_Z = [(2,1)]$
+__Definitions__ $0_\mathbb{Z} = [(1,1)]$ and $1_\mathbb{Z} = [(2,1)]$
 
 - $\begin{split}
-    (n, j) \in 0_Z & \iff (n, j) \in [(1,1)] \\
+    (n, j) \in 0_\mathbb{Z} & \iff (n, j) \in [(1,1)] \\
     & \iff (1, 1) \sim (n,j) \\
     & \iff 1 + j = n + 1 \\
     & \iff j + 1 = n + 1 \\
@@ -149,10 +149,10 @@ __Definitions__ $0_Z = [(1,1)]$ and $1_Z = [(2,1)]$
     & \iff n = j 
     \end{split}$
     
-    + Thus, $0_Z = \{ (1,1), (2,2), (3,3), \ldots \}$
+    + Thus, $0_\mathbb{Z} = \{ (1,1), (2,2), (3,3), \ldots \}$
     
 - $\begin{split}
-    (n, j) \in 1_Z & \iff (n, j) \in [(2,1)] \\
+    (n, j) \in 1_\mathbb{Z} & \iff (n, j) \in [(2,1)] \\
     & \iff (2, 1) \sim (n,j) \\
     & \iff 2 + j = n + 1 \\
     & \iff (j + 1) + 1 = n + 1 \\
@@ -196,5 +196,67 @@ __Proof__
     \end{split}$
     
 __Example__
+
+- We know that $(1,2) \sim (3,4)$ and $(2,2) \sim (3,3)$. Hence by the above lemma $(1 + 2,2 + 2) \sim (3 + 3,4 + 3)$. Thus $(3,4) \sim (6,7)$ which is correct because $3 + 7 = 6 + 4$
+
+The above lemma allows us to make the following definition
+
+__Definition__ Let $\alpha$ and $\beta$ be integers. Choose any element $(n, j) \in \alpha$ and choose any elements $(k, i) \in \beta$. Then $\alpha +_\mathbb{Z} \beta$ stands for $[(n + k, j + i)]$.
+
+The reason that the above lemma is required for this definition to make sense is that we must be sure that our particular choice of pairs $(n, j) \in \alpha$ and $(k, i) \in \beta$ does not affect the outcome $\alpha +_\mathbb{Z} \beta$
+
+Assume that $(n_1, j_1) \in \alpha$ and $(k_1, i_1) \in \beta$. Therefore $(n, j) \sim (n_1, j_1)$ and $(k, i) \sim (k_1, i_1)$ so by the lemma $(n + k, j + i) \sim (n_1 + k_1, j_1 + i_1)$. This implies that $[(n + k, j + i)] = [(n_1 + k_1, j_1 + i_1)]$
+
+__Theorem__ _(Properties of Addition)_ Consider any $\alpha, \beta, \gamma$ in $\mathbb{Z}$
+
+- $\alpha +_\mathbb{Z} \beta = \beta +_\mathbb{Z} \alpha$ (Commutativity)
+
+    + $\begin{split}
+        \alpha +_\mathbb{Z} \beta & \iff [(n + k, j + i)] \text{ where } (n,j) \in \alpha \land (k, i) \in \beta \\
+        & \iff [(k + n, i + j)] \text{ where } (k, i) \in \beta \land (n,j) \in \alpha \\
+        & \iff \beta +_\mathbb{Z} \alpha
+        \end{split}$
+        
+- $\alpha +_\mathbb{Z} (\beta +_\mathbb{Z} \gamma)= (\alpha +_\mathbb{Z} \beta) +_\mathbb{Z} \gamma$ (Associativity)
+
+    + $\begin{split}
+        \alpha +_\mathbb{Z} (\beta +_\mathbb{Z} \gamma) & \iff [(n + (k + m), j + (i + h))] \text{ where } (n, j) \in \alpha \land (k + m, i + h) \in \beta +_\mathbb{Z} \gamma \\
+        & \iff [((n + k) + m, (j + i) + h)] \text{ where } (n + k, j + i) \in \alpha +_\mathbb{Z} \beta \land (m, h) \in \gamma \\
+        & \iff (\alpha +_\mathbb{Z} \beta) +_\mathbb{Z} \gamma
+        \end{split}$
+        
+- $\alpha +_\mathbb{Z} 0_\mathbb{Z} = \alpha$
+
+    + $\begin{split}
+        \alpha +_\mathbb{Z} 0_\mathbb{Z} & \iff [(n + 1, j + 1)] \text{ where } (n, j) \in \alpha \land (1,1) \in 0_\mathbb{Z} \\
+        & \implies (n, j) \in [(n + 1, j + 1)] \text{ because } (n + 1, j + 1) \sim (n, j) \\
+        & \implies (n, j) \in [(n + 1, j + 1)] \text{ because } (n + 1) + j = n + (j + 1) \\
+        & \implies [(n + 1, j + 1)] = [(n,j)] \\
+        & \implies \alpha +_\mathbb{Z} 0_\mathbb{Z} = \alpha
+        \end{split}$
+        
+- $(\exists ! \delta)(\alpha +_\mathbb{Z} \delta = 0_\mathbb{Z})$ (This unique $\delta$ is denoted $-_\mathbb{Z}\alpha$). If $(h, i) \in \alpha$ then $(i, h) \in -_\mathbb{Z}\alpha$
+
+    + If $(n, j) \in \alpha$ then let $[(j,n)] = \delta$. Therefore:
+    
+        + $\begin{split}
+            \alpha +_\mathbb{Z} \delta & \iff [(n + j, j + n)] \\
+            & \implies (1,1) \in [(n + j, j + n)] \text{ because } (n + j, j + n) \sim (1, 1) \\
+            & \implies (1,1) \in [(n + j, j + n)] \text{ because } (n + j) + 1 = (j + n) +1 \\
+            & \implies [(n + j, j + n)] = [(1,1)] \\
+            & \implies \alpha +_\mathbb{Z} \delta = 0_\mathbb{Z}
+            \end{split}$
+            
+    + Assume $\alpha +_\mathbb{Z} \delta = 0_\mathbb{Z}$ and $\alpha +_\mathbb{Z} \beta = 0_\mathbb{Z}$
+    
+        + $\begin{split}
+            \delta & = \delta +_\mathbb{Z} 0_\mathbb{Z} \\
+            & = \delta +_\mathbb{Z} (\alpha +_\mathbb{Z} \beta) \\
+            & = (\delta +_\mathbb{Z} \alpha) +_\mathbb{Z} \beta \\
+            & = (\alpha +_\mathbb{Z} \delta) +_\mathbb{Z} \beta \\
+            & = 0_\mathbb{Z} +_\mathbb{Z} \beta \\
+            & = \beta +_\mathbb{Z} 0_\mathbb{Z}\\
+            & = \beta
+            \end{split}$
 
 # Bibliography
