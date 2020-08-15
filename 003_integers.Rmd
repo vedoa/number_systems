@@ -261,4 +261,103 @@ __Theorem__ _(Properties of Addition)_ Consider any $\alpha, \beta, \gamma$ in $
             
 Multiplication is handled in much the same way as addition. First we look at the intuitive picture for hints as how to proceed. If $r = n - j$ and $s = k - i$ then $$r \times s = (n - j) \times (k -i) = ((n \times k) + (j \times i)) - ((j \times k) + (n \times i))$$ 
 
+This gives us the idea for the multiplication rule.
+
+__Lemma__ Let $n, j, k, i, n_1, j_1, k_1, i_1$ be natural numbers. If $(n, j) \sim (n_1, j_1)$ and $(k, i) \sim (k_1, i_1)$ then $$(n \times k + j \times i, j \times k + n \times i) \sim (n_1 \times k_1 + j_1 \times i_1, j_1 \times k_1 + n_1 \times i_1)$$
+
+We need to prove that 
+
+$$\underbrace{(n \times k + j \times i) + (j_1 \times k_1 + n_1 \times i_1)}_\text{A} = \underbrace{(n_1 \times k_1 + j_1 \times i_1) + (j \times k + n \times i)}_\text{B}$$
+
+We have that:
+
+- $(i) \; n + j_1 = n_1 + j$
+- $(ii) \; k + i_1 = k_1 + i$
+
+We proceed in the following way:
+
+- Multiply $(i)$ by $k$
+
+    + $(iii) \; n \times k + j_1 \times k = n_1 \times k + j \times k$
+    
+- Multiply $(ii)$ by $j_1$ and reverse the two sides of the equality
+
+    + $(iv) \; j_1 \times k_1 + j_1 \times i = j_1 \times k + j_1 \times i_1$
+    
+- Multiply $(i)$ by $i$ and reverse the two sides of the equality
+
+    + $(v) \; n_1 \times i + j \times i = n \times i + j_1 \times i$
+    
+- Multiply $(ii)$ by $n_1$
+
+    + $(vi) \; n_1 \times k + n_1 \times i_1 = n_1 \times k_1 + n_1 \times i$
+    
+- Adding $(iii), (iv), (v), (vi)$
+
+$$\begin{split}
+   (n \times k + j_1 \times k) + (j_1 \times k_1 + j_1 \times i) + (n_1 \times i + j \times i) + (n_1 \times k + n_1 \times i_1) & = (n_1 \times k + j \times k) + (j_1 \times k + j_1 \times i_1) + (n \times i + j_1 \times i) + (n_1 \times k_1 + n_1 \times i) \\
+   (n \times k + j \times i) + (j_1 \times k_1 + n_1 \times i_1) + (j_1 \times i + j_1 \times k) + (n_1 \times k + n_1 \times i) & = (n_1 \times k_1 + j_1 \times i_1) + (j \times k + n \times i) + (j_1 \times k + j_1 \times i) + (n_1 \times k + n_1 \times i) \\
+   \underbrace{(n \times k + j \times i) + (j_1 \times k_1 + n_1 \times i_1)}_\text{A} + \underbrace{(j_1 \times i + j_1 \times k) + (n_1 \times k + n_1 \times i)}_\text{C} & = \underbrace{(n_1 \times k_1 + j_1 \times i_1) + (j \times k + n \times i)}_\text{B} + \underbrace{(j_1 \times i + j_1 \times k) + (n_1 \times k + n_1 \times i)}_\text{C} \\
+   A + C & = B + C \\
+   A & = B \\
+   (n \times k + j \times i, j \times k + n \times i) & \sim (n_1 \times k_1 + j_1 \times i_1, j_1 \times k_1 + n_1 \times i_1)
+   \end{split}$$
+
+__Definition__ Given $\alpha$ and $\beta$ in $\mathbb{Z}$ take any $(n,j) \in \alpha$ and any $(k, i) \in \beta$. Let $\alpha \times_{\mathbb{Z}} \beta$ stand for $[(n \times k + j \times i, j \times k + n \times i)]$
+
+__Theorem__ _(Properties of Multiplication)_ For any $\alpha, \beta, \gamma$ in $\mathbb{Z}$
+
+- $\alpha \times_{\mathbb{Z}} \beta = \beta \times_{\mathbb{Z}} \alpha$ (Commutativity)
+
+    + $\begin{split}
+        \alpha \times_{\mathbb{Z}} \beta & = [(n,j)] \times_{\mathbb{Z}} [(k,i)] \\
+        & = [(n \times k + j \times i, j \times k + n \times i)] \\
+        & = [(k \times n + i \times j, k \times j + i \times n)] \\
+        & = [(k \times n + i \times j, i \times n + k \times j)] \\
+        & = \beta \times_{\mathbb{Z}} \alpha
+        \end{split}$
+
+- $\alpha \times_{\mathbb{Z}} ( \beta \times_{\mathbb{Z}} \gamma) = (\alpha \times_{\mathbb{Z}} \beta) \times_{\mathbb{Z}} \gamma$ (Associativity)
+
+    + $\begin{split}
+        \alpha \times_{\mathbb{Z}} ( \beta \times_{\mathbb{Z}} \gamma) & = [(n,j)] \times_{\mathbb{Z}} ([(k,i)] \times_{\mathbb{Z}} [(m,h)]) \\
+        & = [(n,j)] \times_{\mathbb{Z}} ([(k \times m + i \times h,i \times m + k \times h)] \\
+        & = [(n(k \times m + i \times h) + j(i \times m + k \times h), j(k \times m + i \times h) + n(i \times m + k \times h))] \\
+        & = [(n(k \times m) + n(i \times h) + j(i \times m) + j(k \times h), j(k \times m) + j(i \times h) + n(i \times m) + n(k \times h))] \\
+        & = [((n \times k + j \times i)m + (n \times i + j \times k)h, (j \times k + n \times i)m + (j \times i + n \times k)h)] \\
+        & = [((n \times k + j \times i)m + (j \times k + n \times i)h, (j \times k + n \times i)m + (n \times k + j \times i)h)] \\
+        & = [(n \times k + j \times i, j \times k + n \times i)] \times_\mathbb{Z} [(m, h)] \\
+        & = ([(n, j)] \times_\mathbb{Z} [(k, i)]) \times_\mathbb{Z} [(m, h)] \\
+        & = (\alpha \times_\mathbb{Z} \beta) \times_\mathbb{Z} \gamma
+        \end{split}$
+        
+- $\alpha \times_\mathbb{Z} (\beta +_\mathbb{Z} \gamma) = (\alpha \times_\mathbb{Z} \beta) +_\mathbb{Z} (\alpha \times_\mathbb{Z} \gamma)$ (Distributivity)
+
+    + $\begin{split}
+        \alpha \times_\mathbb{Z} (\beta +_\mathbb{Z} \gamma) & = [(n,j)] \times_\mathbb{Z} ([(k,i)] +_\mathbb{Z} [(m, h)]) \\
+        & = [(n,j)] \times_\mathbb{Z} [(k + m, i + h)] \\
+        & = [(n(k + m) + j(i + h), j(k + m) + n(i + h))] \\
+        & = [(n \times k + n \times m + j \times i + j \times h, j \times k + j \times m + n \times i + n \times h)] \\
+        & = [(n \times k + j \times i + n \times m + j \times h, j \times k + n \times i + j \times m + n \times h)] \\
+        & = [(n \times k + j \times i, j \times k + n \times i)] +_\mathbb{Z} [(n \times m + j \times h, j \times m + n \times h)] \\
+        & = ([(n, j)] \times_{\mathbb{Z}} [(k, i)]) +_\mathbb{Z} ([(n,j)] \times_{\mathbb{Z}} [(m, h)]) \\
+        & = (\alpha \times_{\mathbb{Z}} \beta ) +_\mathbb{Z} (\alpha  \times_{\mathbb{Z}} \gamma)
+        \end{split}$
+
+- $\alpha \times_\mathbb{Z} 1_{\mathbb{Z}} = \alpha$
+
+    + $\begin{split}
+        \alpha \times_\mathbb{Z} 1_{\mathbb{Z}} & = [(n, j)] \times_\mathbb{Z} [(2,1)] \\
+        & = [(n \times 2 + j \times 1, j \times 2 + n \times 1)] \\
+        & = [(2 \times n + j , 2 \times j + n)] \\
+        & = [(n, j)] \text{ because } (2 \times n + j , 2 \times j + n) \sim (n, j) \\
+        & = [(n, j)] \text{ because } 2 \times n + 2 \times j = 2 \times j + 2 \times n \\
+        & = \alpha
+        \end{split}$
+        
+- $[\alpha \neq 0_{\mathbb{Z}} \land \beta \neq 0_{\mathbb{Z}}] \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}}$
+
+    + $\begin{split}
+        \end{split}$
+
 # Bibliography

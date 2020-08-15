@@ -1884,6 +1884,67 @@ text-align: justify}
 </ul></li>
 </ul>
 <p>Multiplication is handled in much the same way as addition. First we look at the intuitive picture for hints as how to proceed. If <span class="math inline">\(r = n - j\)</span> and <span class="math inline">\(s = k - i\)</span> then <span class="math display">\[r \times s = (n - j) \times (k -i) = ((n \times k) + (j \times i)) - ((j \times k) + (n \times i))\]</span></p>
+<p>This gives us the idea for the multiplication rule.</p>
+<p><strong>Lemma</strong> Let <span class="math inline">\(n, j, k, i, n_1, j_1, k_1, i_1\)</span> be natural numbers. If <span class="math inline">\((n, j) \sim (n_1, j_1)\)</span> and <span class="math inline">\((k, i) \sim (k_1, i_1)\)</span> then <span class="math display">\[(n \times k + j \times i, j \times k + n \times i) \sim (n_1 \times k_1 + j_1 \times i_1, j_1 \times k_1 + n_1 \times i_1)\]</span></p>
+<p>We need to prove that</p>
+<p><span class="math display">\[\underbrace{(n \times k + j \times i) + (j_1 \times k_1 + n_1 \times i_1)}_\text{A} = \underbrace{(n_1 \times k_1 + j_1 \times i_1) + (j \times k + n \times i)}_\text{B}\]</span></p>
+<p>We have that:</p>
+<ul>
+<li><span class="math inline">\((i) \; n + j_1 = n_1 + j\)</span></li>
+<li><span class="math inline">\((ii) \; k + i_1 = k_1 + i\)</span></li>
+</ul>
+<p>We proceed in the following way:</p>
+<ul>
+<li><p>Multiply <span class="math inline">\((i)\)</span> by <span class="math inline">\(k\)</span></p>
+<ul>
+<li><span class="math inline">\((iii) \; n \times k + j_1 \times k = n_1 \times k + j \times k\)</span></li>
+</ul></li>
+<li><p>Multiply <span class="math inline">\((ii)\)</span> by <span class="math inline">\(j_1\)</span> and reverse the two sides of the equality</p>
+<ul>
+<li><span class="math inline">\((iv) \; j_1 \times k_1 + j_1 \times i = j_1 \times k + j_1 \times i_1\)</span></li>
+</ul></li>
+<li><p>Multiply <span class="math inline">\((i)\)</span> by <span class="math inline">\(i\)</span> and reverse the two sides of the equality</p>
+<ul>
+<li><span class="math inline">\((v) \; n_1 \times i + j \times i = n \times i + j_1 \times i\)</span></li>
+</ul></li>
+<li><p>Multiply <span class="math inline">\((ii)\)</span> by <span class="math inline">\(n_1\)</span></p>
+<ul>
+<li><span class="math inline">\((vi) \; n_1 \times k + n_1 \times i_1 = n_1 \times k_1 + n_1 \times i\)</span></li>
+</ul></li>
+<li><p>Adding <span class="math inline">\((iii), (iv), (v), (vi)\)</span></p></li>
+</ul>
+<p><span class="math display">\[\begin{split}
+   (n \times k + j_1 \times k) + (j_1 \times k_1 + j_1 \times i) + (n_1 \times i + j \times i) + (n_1 \times k + n_1 \times i_1) &amp; = (n_1 \times k + j \times k) + (j_1 \times k + j_1 \times i_1) + (n \times i + j_1 \times i) + (n_1 \times k_1 + n_1 \times i) \\
+   (n \times k + j \times i) + (j_1 \times k_1 + n_1 \times i_1) + (j_1 \times i + j_1 \times k) + (n_1 \times k + n_1 \times i) &amp; = (n_1 \times k_1 + j_1 \times i_1) + (j \times k + n \times i) + (j_1 \times k + j_1 \times i) + (n_1 \times k + n_1 \times i) \\
+   \underbrace{(n \times k + j \times i) + (j_1 \times k_1 + n_1 \times i_1)}_\text{A} + \underbrace{(j_1 \times i + j_1 \times k) + (n_1 \times k + n_1 \times i)}_\text{C} &amp; = \underbrace{(n_1 \times k_1 + j_1 \times i_1) + (j \times k + n \times i)}_\text{B} + \underbrace{(j_1 \times i + j_1 \times k) + (n_1 \times k + n_1 \times i)}_\text{C} \\
+   A + C &amp; = B + C \\
+   A &amp; = B \\
+   (n \times k + j \times i, j \times k + n \times i) &amp; \sim (n_1 \times k_1 + j_1 \times i_1, j_1 \times k_1 + n_1 \times i_1)
+   \end{split}\]</span></p>
+<p><strong>Definition</strong> Given <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> in <span class="math inline">\(\mathbb{Z}\)</span> take any <span class="math inline">\((n,j) \in \alpha\)</span> and any <span class="math inline">\((k, i) \in \beta\)</span>. Let <span class="math inline">\(\alpha \times_{\mathbb{Z}} \beta\)</span> stand for <span class="math inline">\([(n \times k + j \times i, j \times k + n \times i)]\)</span></p>
+<p><strong>Theorem</strong> <em>(Properties of Multiplication)</em> For any <span class="math inline">\(\alpha, \beta, \gamma\)</span> in <span class="math inline">\(\mathbb{Z}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\alpha \times_{\mathbb{Z}} \beta = \beta \times_{\mathbb{Z}} \alpha\)</span> (Commutativity)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha \times_{\mathbb{Z}} \beta &amp; = [(n,j)] \times_{\mathbb{Z}} [(k,i)] \\  &amp; = [(n \times k + j \times i, j \times k + n \times i)] \\  &amp; = [(k \times n + i \times j, k \times j + i \times n)] \\  &amp; = [(k \times n + i \times j, i \times n + k \times j)] \\  &amp; = \beta \times_{\mathbb{Z}} \alpha  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\alpha \times_{\mathbb{Z}} ( \beta \times_{\mathbb{Z}} \gamma) = (\alpha \times_{\mathbb{Z}} \beta) \times_{\mathbb{Z}} \gamma\)</span> (Associativity)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha \times_{\mathbb{Z}} ( \beta \times_{\mathbb{Z}} \gamma) &amp; = [(n,j)] \times_{\mathbb{Z}} ([(k,i)] \times_{\mathbb{Z}} [(m,h)]) \\  &amp; = [(n,j)] \times_{\mathbb{Z}} ([(k \times m + i \times h,i \times m + k \times h)] \\  &amp; = [(n(k \times m + i \times h) + j(i \times m + k \times h), j(k \times m + i \times h) + n(i \times m + k \times h))] \\  &amp; = [(n(k \times m) + n(i \times h) + j(i \times m) + j(k \times h), j(k \times m) + j(i \times h) + n(i \times m) + n(k \times h))] \\  &amp; = [((n \times k + j \times i)m + (n \times i + j \times k)h, (j \times k + n \times i)m + (j \times i + n \times k)h)] \\  &amp; = [((n \times k + j \times i)m + (j \times k + n \times i)h, (j \times k + n \times i)m + (n \times k + j \times i)h)] \\  &amp; = [(n \times k + j \times i, j \times k + n \times i)] \times_\mathbb{Z} [(m, h)] \\  &amp; = ([(n, j)] \times_\mathbb{Z} [(k, i)]) \times_\mathbb{Z} [(m, h)] \\  &amp; = (\alpha \times_\mathbb{Z} \beta) \times_\mathbb{Z} \gamma  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\alpha \times_\mathbb{Z} (\beta +_\mathbb{Z} \gamma) = (\alpha \times_\mathbb{Z} \beta) +_\mathbb{Z} (\alpha \times_\mathbb{Z} \gamma)\)</span> (Distributivity)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha \times_\mathbb{Z} (\beta +_\mathbb{Z} \gamma) &amp; = [(n,j)] \times_\mathbb{Z} ([(k,i)] +_\mathbb{Z} [(m, h)]) \\  &amp; = [(n,j)] \times_\mathbb{Z} [(k + m, i + h)] \\  &amp; = [(n(k + m) + j(i + h), j(k + m) + n(i + h))] \\  &amp; = [(n \times k + n \times m + j \times i + j \times h, j \times k + j \times m + n \times i + n \times h)] \\  &amp; = [(n \times k + j \times i + n \times m + j \times h, j \times k + n \times i + j \times m + n \times h)] \\  &amp; = [(n \times k + j \times i, j \times k + n \times i)] +_\mathbb{Z} [(n \times m + j \times h, j \times m + n \times h)] \\  &amp; = ([(n, j)] \times_{\mathbb{Z}} [(k, i)]) +_\mathbb{Z} ([(n,j)] \times_{\mathbb{Z}} [(m, h)]) \\  &amp; = (\alpha \times_{\mathbb{Z}} \beta ) +_\mathbb{Z} (\alpha \times_{\mathbb{Z}} \gamma)  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\alpha \times_\mathbb{Z} 1_{\mathbb{Z}} = \alpha\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \alpha \times_\mathbb{Z} 1_{\mathbb{Z}} &amp; = [(n, j)] \times_\mathbb{Z} [(2,1)] \\  &amp; = [(n \times 2 + j \times 1, j \times 2 + n \times 1)] \\  &amp; = [(2 \times n + j , 2 \times j + n)] \\  &amp; = [(n, j)] \text{ because } (2 \times n + j , 2 \times j + n) \sim (n, j) \\  &amp; = [(n, j)] \text{ because } 2 \times n + 2 \times j = 2 \times j + 2 \times n \\  &amp; = \alpha  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\([\alpha \neq 0_{\mathbb{Z}} \land \beta \neq 0_{\mathbb{Z}}] \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}}\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \end{split}\)</span></li>
+</ul></li>
+</ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered" number>
