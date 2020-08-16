@@ -358,6 +358,259 @@ __Theorem__ _(Properties of Multiplication)_ For any $\alpha, \beta, \gamma$ in 
 - $[\alpha \neq 0_{\mathbb{Z}} \land \beta \neq 0_{\mathbb{Z}}] \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}}$
 
     + $\begin{split}
+        \alpha \neq 0_{\mathbb{Z}} \land \beta \neq 0_{\mathbb{Z}} & = [(n, j)] \land [(k, i)] \text{ where } n \neq j \land k \neq i \\
+        & \implies [(n, j)] \land (k < i \lor k > i) \\
+        & \implies [(n, j)] \land (i = k + w \lor k = i + u) \\
+        & \implies ((n, j) \times_\mathbb{Z} (k, k + w)) \lor ((n, j) \times_\mathbb{Z} (i + u, i)) \\
+        & \implies (n \times k + j \times (k + w), j \times k + n \times (k + w)) \lor (n \times (i + u) + j \times i, j \times (i + u) + n \times i) \\
+        & \implies (n \times k + j \times k + j \times w, j \times k + n \times k + n \times w) \lor (n \times i + n \times u + j \times i, j \times i + j \times u + n \times i) \\
+        & \implies (n \times k + j \times k + j \times w, n \times k + j \times k + n \times w) \lor (n \times i + j \times i + n \times u, n \times i + j \times i + j \times u) \\
+        & \implies ((n + j) \times k + j \times w, (n + j) \times k + n \times w) \lor ((n + j) \times i + n \times u, (n + j) \times i + j \times u) \\
+        & \implies (((n + j) \times k + j \times w, (n + j) \times k + n \times w) \text{ where } (j \neq n \implies j \times w \neq n \times w)) \lor (((n + j) \times i + n \times u, (n + j) \times i + j \times u) \text{ where } (n \neq j \implies n \times u \neq j \times u)) \\
+        & \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}} \lor \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}} \\
+        & \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}}
         \end{split}$
+
+## Rings and integral domains
+
+We shall study class of algebraic structures, of which the integers form just one example, and we shall prove a large number of theorems about such structures. All of these theorems will, in particular, hold true for the integers, but they will also be applicable to many other mathematical structures.
+
+__Definition__ By a __ring__ we mean a triple $(R, +, \times)$ such that $R$ is a set and $+$ and $\times$ are binary operations in $R$ satisfying:
+
+- $x + (y + z) = (x + y) + z$ (Associativity of $+$)
+
+- $x + y = y + x$ (Commutativity of $+$)
+
+- There is an element $0$ in $R$ such that
+
+    + $(\forall x)(x + 0 = x)$
+    
+        + Such and element $0$ is unique and is called the __zero element__ of the ring. For, if there were another such element $\square$, $(\forall x)(x + \square = x)$,then: $$\begin{split}
+   \square & = \square + 0 \\
+   & = 0 + \square \\
+   & = 0
+   \end{split}$$
+    
+    + $(\forall x)(\exists y)(x + y = 0)$
+   
+        + Such and element $y$ is denoted $-x$ and is called the __additive inverse__ of x. Also in $(\forall x)(\exists y)(x + y = 0)$ implies that $y$ is unique such that $(\forall x)(\exists !y)(x + y = 0)$, because if $x + y = 0 = x + z$: $$\begin{split}
+   y & = 0 + y \\
+   & = (x + z) + y \\
+   & = x + (z + y) \\
+   & = x + (y + z) \\
+   & = (x + y) + z \\
+   & = 0 + z \\
+   & = z 
+   \end{split}$$
+   
+- $x \times (y \times z) = (x \times y) \times z$ (Associativity of $\times$)
+
+- $\begin{split}
+    x \times (y + z) & = x \times y + x \times z \\
+    (y + z) \times x & = y \times x + z \times x 
+    \end{split}$ (Distributivity of $\times$ with respect to $+$)
+   
+__Definition__ A __ring with unit element__ is a ring $(R, + , \times)$ such that:
+
+- There is an element $1 \in R$ such that:
+
+    + $(\forall x)(x = x \times 1 = 1 \times x)$
+    
+        + Such an element $1$ is unique. For, if there were another element $1^*$ such that $(\forall x)(x = x \times 1^* = 1^* \times x)$. Then $1^* = 1^* \times 1 = 1$. The unique element $1$ is called the __unit element__ of $R$
+        
+__Definition__ A ring $(R, +, \times)$ is __commutative__ if and only if:
+
+- $(\forall x)(\forall y)(x \times y = y \times x)$
+
+__Examples__
+
+1. The system of integers $(\mathbb{Z}, +_{\mathbb{Z}}, \times_{\mathbb{Z}})$ is a commutative ring with unit element
+
+2. The rational numbers under ordinary addition and multiplication form a commutative ring with unit element
+
+3. The real numbers under ordinary addition and multiplication form a commutative ring with unit element
+
+4. The even integers under ordinary addition and multiplication form a commutative ring without a unit element. Take into account that there is no even integer $u$ such that $x \times u = x$ for all even integers $x$.
+
+5. Let $R$ be the set of all $2 \times 2$ matrices $\begin{pmatrix}
+                                                     a & b \\
+                                                     c & d
+                                                     \end{pmatrix}$, that is, $a, b, c, d$ are integers. Let $$\begin{pmatrix}
+       a & b \\
+       c & d
+       \end{pmatrix} + 
+      \begin{pmatrix}
+       a^* & b^* \\
+       c^* & d^*
+       \end{pmatrix} = 
+      \begin{pmatrix}
+       a + a^* & b + b^* \\
+       c + c^* & d + d^*
+       \end{pmatrix}$$ and $$\begin{pmatrix}
+                              a & b \\
+                              c & d
+                              \end{pmatrix} \times
+                             \begin{pmatrix}
+                             a^* & b^* \\
+                             c^* & d^*
+                              \end{pmatrix} =
+                             \begin{pmatrix}
+                             aa^* + bc   & ab^* + bd^* \\
+                             ca^* + dc^* & cb^* + dd^*
+                              \end{pmatrix}$$ where $(R, +, \times)$ is a noncommutative ring with unit element. The unit element is $\begin{pmatrix}
+                               1 & 0 \\
+                               0 & 1
+                               \end{pmatrix}$. To show noncommutativity, consider $\begin{pmatrix}
+                                                                                    1 & 0 \\
+                                                                                    0 & 0
+                                                                                    \end{pmatrix}$ and $\begin{pmatrix}
+                                                                                                         0 & 1 \\
+                                                                                                         0 & 0
+                                                                                                         \end{pmatrix}$ where $$\begin{pmatrix}
+                        1 & 0 \\
+                        0 & 0
+                        \end{pmatrix} \times
+                       \begin{pmatrix}
+                        0 & 1 \\
+                        0 & 0
+                        \end{pmatrix} = 
+                       \begin{pmatrix}
+                        1 & 1 \\
+                        0 & 0
+                        \end{pmatrix}$$ and $$\begin{pmatrix}
+                                               0 & 1 \\
+                                               0 & 0
+                                               \end{pmatrix} \times
+                                              \begin{pmatrix}
+                                               1 & 0 \\
+                                               0 & 0
+                                               \end{pmatrix} =
+                                              \begin{pmatrix}
+                                               0 & 0 \\
+                                               0 & 0
+                                               \end{pmatrix}$$
+
+__Theorem__ _(Properties of Rings)_
+
+- $x + y = x + z \implies y = z$
+
+    + $\begin{split}
+        x + y = x + z & \implies -x + (x + y) = -x + (x + z) \\
+        & \implies (-x + x) + y = (-x + x) + z \\
+        & \implies 0 + y = 0 + z \\
+        & \implies y = z
+        \end{split}$
+        
+- $-0 = 0$
+
+    + $\begin{split}
+        -0 & = -0 + 0 \\
+        & = 0 + -0 \\
+        & = 0
+        \end{split}$
+        
+- $-(-x) = x$
+
+    + $\begin{split}
+        -(-x) & = -(-x) + 0 \\
+        & = -(-x) + (x + -x) \\
+        & = -(-x) + (-x + x) \\
+        & = (-(-x) + -x) + x \\
+        & = (-x + -(-x)) + x \\
+        & = 0 + x \\
+        & = x + 0 \\
+        & = x
+        \end{split}$
+        
+- $-x = -y \implies x = y$
+
+    + $\begin{split}
+        x + -x & = 0 \\
+        x + -y & = 0 \\
+        (x + -y) + y & = 0 + y \\
+        x + (-y + y) & = y + 0 \\
+        x + (y + -y) & = y \\
+        x + 0 & = y \\
+        x & = y
+        \end{split}$
+        
+- $-(x + y) = (-x) + (-y)$
+
+    + $(x + y) + -(x + y) = 0$
+    
+    + $\begin{split}
+        (x + y) + (-x + -y) & = (x + y) + (-y + -x) \\
+        & = ((x + y) + -y) + -x \\
+        & = (x + (y + -y)) + -x \\
+        & = (x + 0) + -x \\
+        & = x + -x \\
+        & = 0
+        \end{split}$
+    
+        + Therefore $-(x + y) = -x + -y$
+        
+- $x + y = x \implies y = 0$
+
+    + $\begin{split}
+        x + y & = x \\
+        x + y & = x + 0 \\
+        y & = 0
+        \end{split}$
+
+- $x \times 0 = 0 = 0 \times x$
+
+    + $\begin{split}
+        x \times 0 & = x \times (0 + 0) \\
+        & = x \times 0 + x \times 0 \\
+        & \implies x \times 0 = 0
+        \end{split}$
+        
+    + $\begin{split}
+        0 \times x & = (0 + 0) \times x \\
+        & = 0 \times x + 0 \times x \\
+        & \implies 0 \times x = 0
+        \end{split}$
+        
+    + Therefore $x \times 0 = 0 \times x$
+    
+- $-(x \times y) = (-x) \times y = x \times (-y)$
+
+    + $x \times y + -(x \times y) = 0$
+    
+    + $\begin{split}
+        x \times y + -x \times y & = (x  + -x) \times y \\
+        & = 0 \times y \\
+        & = 0
+        \end{split}$
+        
+    + $\begin{split}
+        x \times y + x \times -y & = x \times (y + -y) \\
+        & = x \times 0 \\
+        & = 0
+        \end{split}$
+        
+        + Therefore $-(x \times y) = -x \times y = x \times -y$
+
+- $(-x) \times (-y) = x \times y$
+
+    + $\begin{split}
+        x \times y + -x \times y & = 0 \\
+        -x \times y + x \times y & = 0
+        \end{split}$
+    
+    + $\begin{split}
+        -x \times y + -x \times -y & = -x \times (y + -y) \\
+        & = -x \times (y + -y) \\
+        & = -x \times 0 \\
+        & = 0
+        \end{split}$
+        
+        + Therefore $x \times y = -x \times -y$
+        
+__Definition__ In any ring let $x - y = x + (-y)$. The operation $-$ is called _substraction_
+
+__Theorem__ _(Properties of Substraction)_
+
+- 
 
 # Bibliography

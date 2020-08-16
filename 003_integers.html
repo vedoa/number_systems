@@ -1727,6 +1727,7 @@ summary {
 <ul>
 <li><a href="#definition-of-the-integers"><span class="toc-section-number">1.1</span> Definition of the integers</a></li>
 <li><a href="#addition-and-multiplication-of-integers"><span class="toc-section-number">1.2</span> Addition and multiplication of integers</a></li>
+<li><a href="#rings-and-integral-domains"><span class="toc-section-number">1.3</span> Rings and integral domains</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -1942,8 +1943,167 @@ text-align: justify}
 </ul></li>
 <li><p><span class="math inline">\([\alpha \neq 0_{\mathbb{Z}} \land \beta \neq 0_{\mathbb{Z}}] \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}}\)</span></p>
 <ul>
-<li><span class="math inline">\(\begin{split}  \end{split}\)</span></li>
+<li><span class="math inline">\(\begin{split}  \alpha \neq 0_{\mathbb{Z}} \land \beta \neq 0_{\mathbb{Z}} &amp; = [(n, j)] \land [(k, i)] \text{ where } n \neq j \land k \neq i \\  &amp; \implies [(n, j)] \land (k &lt; i \lor k &gt; i) \\  &amp; \implies [(n, j)] \land (i = k + w \lor k = i + u) \\  &amp; \implies ((n, j) \times_\mathbb{Z} (k, k + w)) \lor ((n, j) \times_\mathbb{Z} (i + u, i)) \\  &amp; \implies (n \times k + j \times (k + w), j \times k + n \times (k + w)) \lor (n \times (i + u) + j \times i, j \times (i + u) + n \times i) \\  &amp; \implies (n \times k + j \times k + j \times w, j \times k + n \times k + n \times w) \lor (n \times i + n \times u + j \times i, j \times i + j \times u + n \times i) \\  &amp; \implies (n \times k + j \times k + j \times w, n \times k + j \times k + n \times w) \lor (n \times i + j \times i + n \times u, n \times i + j \times i + j \times u) \\  &amp; \implies ((n + j) \times k + j \times w, (n + j) \times k + n \times w) \lor ((n + j) \times i + n \times u, (n + j) \times i + j \times u) \\  &amp; \implies (((n + j) \times k + j \times w, (n + j) \times k + n \times w) \text{ where } (j \neq n \implies j \times w \neq n \times w)) \lor (((n + j) \times i + n \times u, (n + j) \times i + j \times u) \text{ where } (n \neq j \implies n \times u \neq j \times u)) \\  &amp; \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}} \lor \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}} \\  &amp; \implies \alpha \times_{\mathbb{Z}} \beta \neq 0_{\mathbb{Z}}  \end{split}\)</span></li>
 </ul></li>
+</ul>
+</div>
+<div id="rings-and-integral-domains" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> Rings and integral domains</h2>
+<p>We shall study class of algebraic structures, of which the integers form just one example, and we shall prove a large number of theorems about such structures. All of these theorems will, in particular, hold true for the integers, but they will also be applicable to many other mathematical structures.</p>
+<p><strong>Definition</strong> By a <strong>ring</strong> we mean a triple <span class="math inline">\((R, +, \times)\)</span> such that <span class="math inline">\(R\)</span> is a set and <span class="math inline">\(+\)</span> and <span class="math inline">\(\times\)</span> are binary operations in <span class="math inline">\(R\)</span> satisfying:</p>
+<ul>
+<li><p><span class="math inline">\(x + (y + z) = (x + y) + z\)</span> (Associativity of <span class="math inline">\(+\)</span>)</p></li>
+<li><p><span class="math inline">\(x + y = y + x\)</span> (Commutativity of <span class="math inline">\(+\)</span>)</p></li>
+<li><p>There is an element <span class="math inline">\(0\)</span> in <span class="math inline">\(R\)</span> such that</p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(x + 0 = x)\)</span></p>
+<ul>
+<li>Such and element <span class="math inline">\(0\)</span> is unique and is called the <strong>zero element</strong> of the ring. For, if there were another such element <span class="math inline">\(\square\)</span>, <span class="math inline">\((\forall x)(x + \square = x)\)</span>,then: <span class="math display">\[\begin{split}
+ \square &amp; = \square + 0 \\
+ &amp; = 0 + \square \\
+ &amp; = 0
+ \end{split}\]</span></li>
+</ul></li>
+<li><p><span class="math inline">\((\forall x)(\exists y)(x + y = 0)\)</span></p>
+<ul>
+<li>Such and element <span class="math inline">\(y\)</span> is denoted <span class="math inline">\(-x\)</span> and is called the <strong>additive inverse</strong> of x. Also in <span class="math inline">\((\forall x)(\exists y)(x + y = 0)\)</span> implies that <span class="math inline">\(y\)</span> is unique such that <span class="math inline">\((\forall x)(\exists !y)(x + y = 0)\)</span>, because if <span class="math inline">\(x + y = 0 = x + z\)</span>: <span class="math display">\[\begin{split}
+ y &amp; = 0 + y \\
+ &amp; = (x + z) + y \\
+ &amp; = x + (z + y) \\
+ &amp; = x + (y + z) \\
+ &amp; = (x + y) + z \\
+ &amp; = 0 + z \\
+ &amp; = z 
+ \end{split}\]</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(x \times (y \times z) = (x \times y) \times z\)</span> (Associativity of <span class="math inline">\(\times\)</span>)</p></li>
+<li><p><span class="math inline">\(\begin{split}  x \times (y + z) &amp; = x \times y + x \times z \\  (y + z) \times x &amp; = y \times x + z \times x  \end{split}\)</span> (Distributivity of <span class="math inline">\(\times\)</span> with respect to <span class="math inline">\(+\)</span>)</p></li>
+</ul>
+<p><strong>Definition</strong> A <strong>ring with unit element</strong> is a ring <span class="math inline">\((R, + , \times)\)</span> such that:</p>
+<ul>
+<li><p>There is an element <span class="math inline">\(1 \in R\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\((\forall x)(x = x \times 1 = 1 \times x)\)</span></p>
+<ul>
+<li>Such an element <span class="math inline">\(1\)</span> is unique. For, if there were another element <span class="math inline">\(1^*\)</span> such that <span class="math inline">\((\forall x)(x = x \times 1^* = 1^* \times x)\)</span>. Then <span class="math inline">\(1^* = 1^* \times 1 = 1\)</span>. The unique element <span class="math inline">\(1\)</span> is called the <strong>unit element</strong> of <span class="math inline">\(R\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Definition</strong> A ring <span class="math inline">\((R, +, \times)\)</span> is <strong>commutative</strong> if and only if:</p>
+<ul>
+<li><span class="math inline">\((\forall x)(\forall y)(x \times y = y \times x)\)</span></li>
+</ul>
+<p><strong>Examples</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The system of integers <span class="math inline">\((\mathbb{Z}, +_{\mathbb{Z}}, \times_{\mathbb{Z}})\)</span> is a commutative ring with unit element</p></li>
+<li><p>The rational numbers under ordinary addition and multiplication form a commutative ring with unit element</p></li>
+<li><p>The real numbers under ordinary addition and multiplication form a commutative ring with unit element</p></li>
+<li><p>The even integers under ordinary addition and multiplication form a commutative ring without a unit element. Take into account that there is no even integer <span class="math inline">\(u\)</span> such that <span class="math inline">\(x \times u = x\)</span> for all even integers <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Let <span class="math inline">\(R\)</span> be the set of all <span class="math inline">\(2 \times 2\)</span> matrices <span class="math inline">\(\begin{pmatrix}  a &amp; b \\  c &amp; d  \end{pmatrix}\)</span>, that is, <span class="math inline">\(a, b, c, d\)</span> are integers. Let <span class="math display">\[\begin{pmatrix}
+    a &amp; b \\
+    c &amp; d
+    \end{pmatrix} + 
+   \begin{pmatrix}
+    a^* &amp; b^* \\
+    c^* &amp; d^*
+    \end{pmatrix} = 
+   \begin{pmatrix}
+    a + a^* &amp; b + b^* \\
+    c + c^* &amp; d + d^*
+    \end{pmatrix}\]</span> and <span class="math display">\[\begin{pmatrix}
+                           a &amp; b \\
+                           c &amp; d
+                           \end{pmatrix} \times
+                          \begin{pmatrix}
+                          a^* &amp; b^* \\
+                          c^* &amp; d^*
+                           \end{pmatrix} =
+                          \begin{pmatrix}
+                          aa^* + bc   &amp; ab^* + bd^* \\
+                          ca^* + dc^* &amp; cb^* + dd^*
+                           \end{pmatrix}\]</span> where <span class="math inline">\((R, +, \times)\)</span> is a noncommutative ring with unit element. The unit element is <span class="math inline">\(\begin{pmatrix}  1 &amp; 0 \\  0 &amp; 1  \end{pmatrix}\)</span>. To show noncommutativity, consider <span class="math inline">\(\begin{pmatrix}  1 &amp; 0 \\  0 &amp; 0  \end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix}  0 &amp; 1 \\  0 &amp; 0  \end{pmatrix}\)</span> where <span class="math display">\[\begin{pmatrix}
+                     1 &amp; 0 \\
+                     0 &amp; 0
+                     \end{pmatrix} \times
+                    \begin{pmatrix}
+                     0 &amp; 1 \\
+                     0 &amp; 0
+                     \end{pmatrix} = 
+                    \begin{pmatrix}
+                     1 &amp; 1 \\
+                     0 &amp; 0
+                     \end{pmatrix}\]</span> and <span class="math display">\[\begin{pmatrix}
+                                            0 &amp; 1 \\
+                                            0 &amp; 0
+                                            \end{pmatrix} \times
+                                           \begin{pmatrix}
+                                            1 &amp; 0 \\
+                                            0 &amp; 0
+                                            \end{pmatrix} =
+                                           \begin{pmatrix}
+                                            0 &amp; 0 \\
+                                            0 &amp; 0
+                                            \end{pmatrix}\]</span></p></li>
+</ol>
+<p><strong>Theorem</strong> <em>(Properties of Rings)</em></p>
+<ul>
+<li><p><span class="math inline">\(x + y = x + z \implies y = z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x + y = x + z &amp; \implies -x + (x + y) = -x + (x + z) \\  &amp; \implies (-x + x) + y = (-x + x) + z \\  &amp; \implies 0 + y = 0 + z \\  &amp; \implies y = z  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(-0 = 0\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  -0 &amp; = -0 + 0 \\  &amp; = 0 + -0 \\  &amp; = 0  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(-(-x) = x\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  -(-x) &amp; = -(-x) + 0 \\  &amp; = -(-x) + (x + -x) \\  &amp; = -(-x) + (-x + x) \\  &amp; = (-(-x) + -x) + x \\  &amp; = (-x + -(-x)) + x \\  &amp; = 0 + x \\  &amp; = x + 0 \\  &amp; = x  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(-x = -y \implies x = y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x + -x &amp; = 0 \\  x + -y &amp; = 0 \\  (x + -y) + y &amp; = 0 + y \\  x + (-y + y) &amp; = y + 0 \\  x + (y + -y) &amp; = y \\  x + 0 &amp; = y \\  x &amp; = y  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(-(x + y) = (-x) + (-y)\)</span></p>
+<ul>
+<li><p><span class="math inline">\((x + y) + -(x + y) = 0\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (x + y) + (-x + -y) &amp; = (x + y) + (-y + -x) \\  &amp; = ((x + y) + -y) + -x \\  &amp; = (x + (y + -y)) + -x \\  &amp; = (x + 0) + -x \\  &amp; = x + -x \\  &amp; = 0  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(-(x + y) = -x + -y\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(x + y = x \implies y = 0\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x + y &amp; = x \\  x + y &amp; = x + 0 \\  y &amp; = 0  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(x \times 0 = 0 = 0 \times x\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \times 0 &amp; = x \times (0 + 0) \\  &amp; = x \times 0 + x \times 0 \\  &amp; \implies x \times 0 = 0  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  0 \times x &amp; = (0 + 0) \times x \\  &amp; = 0 \times x + 0 \times x \\  &amp; \implies 0 \times x = 0  \end{split}\)</span></p></li>
+<li><p>Therefore <span class="math inline">\(x \times 0 = 0 \times x\)</span></p></li>
+</ul></li>
+<li><p><span class="math inline">\(-(x \times y) = (-x) \times y = x \times (-y)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(x \times y + -(x \times y) = 0\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \times y + -x \times y &amp; = (x + -x) \times y \\  &amp; = 0 \times y \\  &amp; = 0  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  x \times y + x \times -y &amp; = x \times (y + -y) \\  &amp; = x \times 0 \\  &amp; = 0  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(-(x \times y) = -x \times y = x \times -y\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\((-x) \times (-y) = x \times y\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \times y + -x \times y &amp; = 0 \\  -x \times y + x \times y &amp; = 0  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  -x \times y + -x \times -y &amp; = -x \times (y + -y) \\  &amp; = -x \times (y + -y) \\  &amp; = -x \times 0 \\  &amp; = 0  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(x \times y = -x \times -y\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Definition</strong> In any ring let <span class="math inline">\(x - y = x + (-y)\)</span>. The operation <span class="math inline">\(-\)</span> is called <em>substraction</em></p>
+<p><strong>Theorem</strong> <em>(Properties of Substraction)</em></p>
+<ul>
+<li></li>
 </ul>
 </div>
 </div>
