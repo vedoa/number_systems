@@ -1728,6 +1728,7 @@ summary {
 <li><a href="#definition-of-the-integers"><span class="toc-section-number">1.1</span> Definition of the integers</a></li>
 <li><a href="#addition-and-multiplication-of-integers"><span class="toc-section-number">1.2</span> Addition and multiplication of integers</a></li>
 <li><a href="#rings-and-integral-domains"><span class="toc-section-number">1.3</span> Rings and integral domains</a></li>
+<li><a href="#rings-and-integral-domains-exercises-and-solutions"><span class="toc-section-number">1.4</span> Rings and integral domains exercises and solutions</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -2103,7 +2104,76 @@ text-align: justify}
 <p><strong>Definition</strong> In any ring let <span class="math inline">\(x - y = x + (-y)\)</span>. The operation <span class="math inline">\(-\)</span> is called <em>substraction</em></p>
 <p><strong>Theorem</strong> <em>(Properties of Substraction)</em></p>
 <ul>
-<li></li>
+<li><p><span class="math inline">\(x - x = 0\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x - x &amp; = x + - x \\  &amp; = 0  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(-(x - y) = y - x\)</span></p>
+<ul>
+<li><p><span class="math inline">\((x - y) + -(x - y) = 0\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (x - y) + (y - x) &amp; = (x - y) + (y + -x) \\  &amp; = ((x - y) + y) + -x \\  &amp; = ((x + - y) + y) + -x \\  &amp; = (x + (- y + y)) + -x \\  &amp; = (x + (y + -y)) + -x \\  &amp; = (x + 0) + -x \\  &amp; = x + -x \\  &amp; = 0  \end{split}\)</span></p>
+<ul>
+<li>Therefore <span class="math inline">\(-(x - y) = y - x\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(x - y = 0 \iff x = y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x - y &amp; = 0 \\  x + -y &amp; = 0 \\  (x + -y) + y &amp; = 0 + y \\  x + (-y + y) &amp; = y + 0 \\  x + (y + -y) &amp; = y + 0 \\  x + 0 &amp; = y + 0 \\  x &amp; = y  \end{split}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\begin{split}  x \times (y - z) &amp; = (x \times y) - (x \times z) \\  (y - z) \times x &amp; = (y \times x) - (z \times x)  \end{split}\)</span> (Distributivity of <span class="math inline">\(\times\)</span> over <span class="math inline">\(-\)</span>)</p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  x \times (y - z) &amp; = x \times (y + -z) \\  &amp; = x \times y + x \times -z \\  &amp; = x \times y - x \times z  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  (y - z) \times x &amp; = (y + -z) \times x \\  &amp; = y \times x + -z \times x \\  &amp; = y \times x - z \times x  \end{split}\)</span></p></li>
+</ul></li>
+<li><p>In a ring with unit element <span class="math inline">\((-1) \times x = -x = x \times (-1)\)</span> and <span class="math inline">\((-1) \times (-1) = 1\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\begin{split}  -1 \times x &amp; = 1 \times -x \\  &amp; = -(1 \times x) \\  &amp; = -x  \end{split}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{split}  -1 \times -1 &amp; = 1 \times 1 \\  &amp; = 1  \end{split}\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div id="rings-and-integral-domains-exercises-and-solutions" class="section level2" number="1.4">
+<h2 number="1.4"><span class="header-section-number">1.4</span> Rings and integral domains exercises and solutions</h2>
+<ol style="list-style-type: decimal">
+<li><p>In any ring, prove <span class="math inline">\((\forall x)(\forall y)(\exists !z)(x + z = y)\)</span></p>
+<ul>
+<li>Assume <span class="math inline">\(x + z = y\)</span> and <span class="math inline">\(x + w = y\)</span> therefore <span class="math inline">\(x + z = x + w\)</span> which implies that <span class="math inline">\(z = w\)</span>. Therefore <span class="math inline">\(z\)</span> is unique</li>
+</ul></li>
+<li><p>In a ring, is <span class="math inline">\(+\)</span> distributive over <span class="math inline">\(\times\)</span>, that is does <span class="math inline">\(x + (y \times z) = (x + y) \times (y + z)\)</span> hold for all <span class="math inline">\(x, y, z\)</span>? (Hint: Consider the ring of integers)</p>
+<ul>
+<li>Let <span class="math inline">\(x = 1, y = 1\)</span> and <span class="math inline">\(z = 1\)</span> then if <span class="math inline">\(+\)</span> distributive over <span class="math inline">\(\times\)</span> holds we will have that <span class="math inline">\(2 = 1 + (1 \times 1) = (1 + 1) \times (1 + 1) = 4\)</span> which is false</li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((x - y) + (y - z) = x - z\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (x - y) + (y - z) &amp; = (x + -y) + (y + -z) \\  &amp; = ((x + -y) + y) + -z \\  &amp; = (x + (y + -y)) + -z \\  &amp; = (x + 0) + -z \\  &amp; = x + -z \\  &amp; = x - z  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(0 - x = -x\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  0 - x &amp; = 0 + -x \\  &amp; = -x + 0 \\  &amp; = -x  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\(x + (y - x) = y\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  x + (y - x) &amp; = x + (y + -x) \\  &amp; = x + (-x + y) \\  &amp; = (x + -x) + y \\  &amp; = 0 + y \\  &amp; = y + 0 \\  &amp; = y  \end{split}\)</span></li>
+</ul></li>
+<li><p>Prove <span class="math inline">\((y + z) - (x + z) = y - x\)</span></p>
+<ul>
+<li><span class="math inline">\(\begin{split}  (y + z) - (x + z) &amp; = (y + z) + -(x + z) \\  &amp; = (y + z) + (-z + -x) \\  &amp; = ((y + z) + -z) + -x \\  &amp; = (y + (z + -z)) + -x \\  &amp; = (y + 0) + -x \\  &amp; = y + -x \\  &amp; = y - x  \end{split}\)</span></li>
+</ul></li>
+</ol>
+<p><strong>Definition</strong> By and <strong>integral domain</strong> we mean a commutative ring with unit element <span class="math inline">\((R, +, \times)\)</span> satisfying the following additional axiom:</p>
+<ul>
+<li><p><span class="math inline">\([x \neq 0 \land y \neq 0] \implies x \times y \neq 0\)</span> for any <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in <span class="math inline">\(R\)</span></p>
+<ul>
+<li>An equivalent form is <span class="math inline">\(x \times y = 0 \implies [x = 0 \lor y = 0]\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Terminology</strong> By a <strong>zero divisor</strong> we mean a nonzero element <span class="math inline">\(x\)</span> for which there exists some nonzero element <span class="math inline">\(y\)</span> such that <span class="math inline">\(x \times y = 0\)</span>. Thus, the previous axiom is equivalent to saying that <span class="math inline">\(R\)</span> contains no zero divisors</p>
+<p><strong>Theorem</strong> For a commutative ring with unit element, the prevously axiom is equivalent to:</p>
+<ul>
+<li><p>For any <span class="math inline">\(x, y, z\)</span> in <span class="math inline">\(R\)</span>, <span class="math inline">\([x \times y = x \times z \land x \neq 0] \implies y = z\)</span> (Cancellation Law for <span class="math inline">\(\times\)</span>)</p>
+<ul>
+<li><span class="math inline">\(\begin{split}  \end{split}\)</span></li>
+</ul></li>
 </ul>
 </div>
 </div>
